@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/widgets/phone_details/phone_details.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../centered_view/centered_view.dart';
+import '../../widgets/phone_details/phone_details.dart';
 import '../../widgets/footer/footer.dart';
-import '../../widgets/centered_view/centered_view.dart';
 import '../../widgets/navigation/custom_navigation_bar.dart';
 import '../../widgets/navigation/mobile/custom_navigation_drawer.dart';
 
