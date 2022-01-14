@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'views/home/home_view.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter E-commerce website demo',
       theme: ThemeData(
+        fontFamily: GoogleFonts.firaSans().fontFamily,
         primarySwatch: Colors.orange,
       ),
       home: const HomeView(),
