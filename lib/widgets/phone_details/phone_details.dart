@@ -53,21 +53,19 @@ class PhoneDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 600,
-      height: 300,
+    return SizedBox.shrink(
       child: Card(
-        elevation: 9,
+        elevation: 1,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(21),
+          side: BorderSide(
+            color: Theme.of(context).dividerColor,
+            width: 3,
+          ),
         ),
-        // child: GridView.count(
-        //   scrollDirection: Axis.horizontal,
-        //   crossAxisCount: 3,
-        //   children: specs,
-        // ),
         child: GridView.builder(
-          scrollDirection: Axis.horizontal,
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: specs.length,
           ),
