@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../widgets/centered_view/centered_view.dart';
 import '../../widgets/custom_navigation_bar/custom_navigation_bar.dart';
+import '../../widgets/custom_navigation_drawer/custom_navigation_drawer.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -14,14 +16,20 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-          child: CenteredView(
-            child: Column(
-              children: [
-                CustomNavigationBar(),
-              ],
+      child: ResponsiveBuilder(
+        builder: (context, sizingInformation) => Scaffold(
+          drawer: [DeviceScreenType.mobile, DeviceScreenType.tablet]
+                  .contains(sizingInformation.deviceScreenType)
+              ? const CustomNavigationDrawer()
+              : null,
+          backgroundColor: Colors.white,
+          body: SingleChildScrollView(
+            child: CenteredView(
+              child: Column(
+                children: const [
+                  CustomNavigationBar(),
+                ],
+              ),
             ),
           ),
         ),
