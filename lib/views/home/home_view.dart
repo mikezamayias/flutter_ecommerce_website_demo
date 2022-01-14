@@ -52,13 +52,13 @@ class _HomeViewState extends State<HomeView> {
                         DeviceScreenType.mobile,
                         DeviceScreenType.tablet
                       ].contains(sizingInformation.deviceScreenType)
-                          ? 2
+                          ? 1
                           : 4,
                       childAspectRatio: [
                         DeviceScreenType.mobile,
                         DeviceScreenType.tablet
                       ].contains(sizingInformation.deviceScreenType)
-                          ? 151 / 217
+                          ? 2
                           : 4 / 7,
                       crossAxisSpacing: 30,
                       mainAxisSpacing: 30,
