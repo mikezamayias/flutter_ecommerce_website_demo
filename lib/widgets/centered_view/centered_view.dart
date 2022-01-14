@@ -11,7 +11,7 @@ class CenteredView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
       alignment: Alignment.topCenter,
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 1200),
