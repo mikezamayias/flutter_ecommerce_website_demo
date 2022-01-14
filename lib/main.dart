@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'locator.dart';
 import 'views/home/home_view.dart';
 
 void main() {
+  setupLocator();
   runApp(const MyApp());
 }
 
