@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/widgets/custom_navigation_bar/navigation_bar_logo.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNavigationBar extends StatelessWidget {
@@ -13,11 +14,7 @@ class CustomNavigationBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // logo
-          SizedBox(
-            height: 30,
-            child: Image.asset('assets/images/logo.png'),
-            // child: SvgPicture.asset('assets/images/logo.svg')
-          ),
+          const NavigationBarLogo(),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
