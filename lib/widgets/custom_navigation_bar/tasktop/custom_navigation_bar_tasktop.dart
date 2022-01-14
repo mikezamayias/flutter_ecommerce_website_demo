@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_website_demo/widgets/custom_navigation_bar/navigation_bar_logo.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomNavigationBar extends StatelessWidget {
-  const CustomNavigationBar({Key? key}) : super(key: key);
+class CustomNavigationBarTasktop extends StatelessWidget {
+  const CustomNavigationBarTasktop({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
