@@ -31,4 +31,10 @@ List<TextButton> navigationActions = [
     icon: const Icon(Icons.contact_page_rounded),
     label: const Text('Contact'),
   ),
+  // logout
+  TextButton.icon(
+    onPressed: () {},
+    icon: const Icon(Icons.logout_rounded),
+    label: const Text('Logout'),
+  ),
 ];
