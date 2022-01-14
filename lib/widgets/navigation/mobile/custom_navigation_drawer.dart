@@ -12,9 +12,9 @@ class CustomNavigationDrawer extends StatelessWidget {
       width: 210,
       height: MediaQuery.of(context).size.height,
       child: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
+        decoration: BoxDecoration(
+          color: Colors.grey[100],
+          boxShadow: const [
             BoxShadow(
               color: Colors.black12,
               blurRadius: 18,
