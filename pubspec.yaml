@@ -33,6 +33,7 @@ dependencies:
   flutter_svg: ^1.0.1
   google_fonts: ^2.2.0
   responsive_builder: ^0.4.1
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_lints: ^1.0.4
