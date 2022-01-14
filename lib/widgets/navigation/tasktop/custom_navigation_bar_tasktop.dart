@@ -16,7 +16,10 @@ class CustomNavigationBarTasktop extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // logo
-          const NavigationBarLogo(),
+          Container(
+            alignment: Alignment.centerLeft,
+            child: const NavigationBarLogo(),
+          ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: navigationActions,

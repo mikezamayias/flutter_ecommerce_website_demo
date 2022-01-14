@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../navigation_bar_logo.dart';
+
 class CustomNavigationBarMobile extends StatelessWidget {
   const CustomNavigationBarMobile({Key? key}) : super(key: key);
 
@@ -21,10 +23,9 @@ class CustomNavigationBarMobile extends StatelessWidget {
           // logo
           Container(
             color: Colors.transparent,
+            alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: const Text(
-              'Where Am I',
-            ),
+            child: const NavigationBarLogo()
           ),
         ],
       ),
