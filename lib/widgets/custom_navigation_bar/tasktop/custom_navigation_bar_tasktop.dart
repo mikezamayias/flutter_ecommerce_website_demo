@@ -11,6 +11,7 @@ class CustomNavigationBarTasktop extends StatelessWidget {
       height: 60,
       color: Colors.white,
       child: Row(
+        mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // logo
