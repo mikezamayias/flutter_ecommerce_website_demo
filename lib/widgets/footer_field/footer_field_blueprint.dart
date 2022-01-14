@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../models/footer/info_field/footer_info_field_model.dart';
-
 class FooterFieldBlueprint extends StatelessWidget {
   final String title;
   final String value;
