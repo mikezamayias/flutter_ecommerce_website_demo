@@ -9,54 +9,51 @@ class CustomNavigationBar extends StatelessWidget {
     return Container(
       height: 60,
       color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            // logo
-            SizedBox(
-              height: 30,
-              child: Image.asset('assets/images/logo.png'),
-              // child: SvgPicture.asset('assets/images/logo.svg')
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // home
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.home_rounded),
-                  label: const Text('Home'),
-                ),
-                // register
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.person_add_rounded),
-                  label: const Text('Register'),
-                ),
-                // login
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.login_rounded),
-                  label: const Text('Login'),
-                ),
-                // cart
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.shopping_cart_rounded),
-                  label: const Text('Cart'),
-                ),
-                // contact
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.contact_page_rounded),
-                  label: const Text('Contact'),
-                ),
-              ],
-            )
-          ],
-        ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // logo
+          SizedBox(
+            height: 30,
+            child: Image.asset('assets/images/logo.png'),
+            // child: SvgPicture.asset('assets/images/logo.svg')
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // home
+              TextButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.home_rounded),
+                label: const Text('Home'),
+              ),
+              // register
+              TextButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.person_add_rounded),
+                label: const Text('Register'),
+              ),
+              // login
+              TextButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.login_rounded),
+                label: const Text('Login'),
+              ),
+              // cart
+              TextButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.shopping_cart_rounded),
+                label: const Text('Cart'),
+              ),
+              // contact
+              TextButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.contact_page_rounded),
+                label: const Text('Contact'),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
