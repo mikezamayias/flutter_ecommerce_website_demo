@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'views/home/home_view.dart';
 
@@ -17,11 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: ResponsiveSizer(
-        builder: (context, orientation, screenType) {
-          return const HomeView();
-        },
-      ),
+      home: const HomeView(),
     );
   }
 }
