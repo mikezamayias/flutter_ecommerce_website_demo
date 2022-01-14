@@ -36,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
                   const CustomNavigationBar(),
                   const SizedBox(height: 15),
                   const Text(
-                    'Phones',
+                    'Shop Phones',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -52,20 +52,19 @@ class _HomeViewState extends State<HomeView> {
                         DeviceScreenType.mobile,
                         DeviceScreenType.tablet
                       ].contains(sizingInformation.deviceScreenType)
-                          ? 1
-                          : 2,
+                          ? 2
+                          : 4,
                       childAspectRatio: [
                         DeviceScreenType.mobile,
                         DeviceScreenType.tablet
                       ].contains(sizingInformation.deviceScreenType)
-                          ? 1.5
-                          : 1.2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
+                          ? 151 / 217
+                          : 4 / 7,
+                      crossAxisSpacing: 30,
+                      mainAxisSpacing: 30,
                     ),
-                    itemBuilder: (context, index) => phones[index],
+                    itemBuilder: (context, index) => const Placeholder(),
                   ),
-                  const SizedBox(height: 15),
                   const Footer(),
                 ],
               ),
