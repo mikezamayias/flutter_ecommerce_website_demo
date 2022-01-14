@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../custom_navigation_bar/navigation_actions.dart';
-import '../custom_navigation_bar/navigation_bar_logo.dart';
+import '../navigation_actions.dart';
+import '../navigation_bar_logo.dart';
 
 class CustomNavigationDrawer extends StatelessWidget {
   const CustomNavigationDrawer({Key? key}) : super(key: key);

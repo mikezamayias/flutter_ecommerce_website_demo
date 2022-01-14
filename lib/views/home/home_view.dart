@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../widgets/centered_view/centered_view.dart';
-import '../../widgets/custom_navigation_bar/custom_navigation_bar.dart';
-import '../../widgets/custom_navigation_drawer/custom_navigation_drawer.dart';
+import '../../widgets/navigation/custom_navigation_bar.dart';
+import '../../widgets/navigation/mobile/custom_navigation_drawer.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
