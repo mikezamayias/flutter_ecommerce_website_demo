@@ -20,18 +20,8 @@ class _HomeViewState extends State<HomeView> {
         body: SingleChildScrollView(
           child: CenteredView(
             child: Column(
-              children: [
-                const CustomNavigationBar(),
-                const SizedBox(height: 15),
-                Wrap(
-                  spacing: 30,
-                  runSpacing: 30,
-                  children: const [
-                    PhoneDetails(),
-                    PhoneDetails(),
-                    PhoneDetails(),
-                  ],
-                )
+              children: const [
+                CustomNavigationBar(),
               ],
             ),
           ),
