@@ -63,14 +63,9 @@ class PhoneDetails extends StatelessWidget {
             width: 3,
           ),
         ),
-        child: GridView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: specs.length,
-          ),
-          itemCount: specs.length,
-          itemBuilder: (context, index) => specs[index],
+        child: Wrap(
+          direction: Axis.vertical,
+          children: specs,
         ),
       ),
     );
