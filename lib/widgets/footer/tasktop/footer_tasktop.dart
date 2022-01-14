@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../footer_field/footer_field.dart';
+import '../../footer_field/tasktop/footer_field_taskop.dart';
 
 class FooterTasktop extends StatelessWidget {
   const FooterTasktop({Key? key}) : super(key: key);
@@ -8,9 +8,9 @@ class FooterTasktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.max,
-        children: footerFields
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      children: tasktopFooterFields,
     );
   }
 }

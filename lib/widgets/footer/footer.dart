@@ -11,7 +11,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
       mobile: (BuildContext context) => const FooterMobile(),
-      tablet: (BuildContext context) => const FooterTasktop(),
+      tablet: (BuildContext context) => const FooterMobile(),
       desktop: (BuildContext context) => const FooterTasktop(),
     );
   }
