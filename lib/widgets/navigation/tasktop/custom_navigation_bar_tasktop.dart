@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/widgets/custom_navigation_bar/navigation_actions.dart';
-import 'package:flutter_ecommerce_website_demo/widgets/custom_navigation_bar/navigation_bar_logo.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+import '../navigation_actions.dart';
+import '../navigation_bar_logo.dart';
 
 class CustomNavigationBarTasktop extends StatelessWidget {
   const CustomNavigationBarTasktop({Key? key}) : super(key: key);
