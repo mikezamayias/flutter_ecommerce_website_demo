@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../../widgets/footer_field/footer_field.dart';
+import '../../widgets/footer/footer.dart';
 import '../../widgets/centered_view/centered_view.dart';
 import '../../widgets/navigation/custom_navigation_bar.dart';
 import '../../widgets/navigation/mobile/custom_navigation_drawer.dart';
@@ -24,18 +24,15 @@ class _HomeViewState extends State<HomeView> {
               ? const CustomNavigationDrawer()
               : null,
           backgroundColor: Colors.white,
-          body: SingleChildScrollView(
-            child: CenteredView(
-              child: Column(
-                children: [
-                  const CustomNavigationBar(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
-                    children: footerFields
-                  )
-                ],
-              ),
+          body: CenteredView(
+            child: Column(
+              children: const [
+                CustomNavigationBar(),
+                SizedBox(height: 15),
+                Flexible(child: Placeholder()),
+                SizedBox(height: 15),
+                Footer(),
+              ],
             ),
           ),
         ),
