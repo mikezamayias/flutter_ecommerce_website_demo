@@ -242,13 +242,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
-  responsive_sizer:
+  responsive_builder:
     dependency: "direct main"
     description:
-      name: responsive_sizer
+      name: responsive_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.5+1"
+    version: "0.4.1"
   sky_engine:
     dependency: transitive
     description: flutter
