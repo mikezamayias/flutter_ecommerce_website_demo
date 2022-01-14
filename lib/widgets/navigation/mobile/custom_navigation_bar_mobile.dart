@@ -13,12 +13,19 @@ class CustomNavigationBarMobile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // drawer button
-          TextButton(
+          TextButton.icon(
             onPressed: () => Scaffold.of(context).openDrawer(),
-            child: const Icon(Icons.menu),
+            icon: const Icon(Icons.menu_rounded),
+            label: const Text('Menu'),
           ),
           // logo
-          const Text('Where Am I'),
+          Container(
+            color: Colors.transparent,
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: const Text(
+              'Where Am I',
+            ),
+          ),
         ],
       ),
     );
