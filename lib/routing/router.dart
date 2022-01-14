@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_website_demo/routing/routes.dart';
 
-generateRoute(RouteSettings settings) => _getPageRoute(
-      routes[settings.name],
+PageRoute generateRoute(RouteSettings settings) => _getPageRoute(
+      routes[settings.name]!,
     );
 
 PageRoute _getPageRoute(Widget child) => MaterialPageRoute(
