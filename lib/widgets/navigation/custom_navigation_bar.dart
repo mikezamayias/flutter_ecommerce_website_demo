@@ -9,10 +9,13 @@ class CustomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout.builder(
-      mobile: (BuildContext context) => const CustomNavigationBarMobile(),
-      tablet: (BuildContext context) => const CustomNavigationBarMobile(),
-      desktop: (BuildContext context) => const CustomNavigationBarTasktop(),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 15),
+      child: ScreenTypeLayout.builder(
+        mobile: (BuildContext context) => const CustomNavigationBarMobile(),
+        tablet: (BuildContext context) => const CustomNavigationBarMobile(),
+        desktop: (BuildContext context) => const CustomNavigationBarTasktop(),
+      ),
     );
   }
 }
