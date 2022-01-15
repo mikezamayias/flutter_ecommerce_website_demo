@@ -15,19 +15,13 @@ class CustomNavigationDrawer extends StatelessWidget {
           alignment: Alignment.topLeft,
           child: ListView(
             shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 9,
-              vertical: 9,
-            ),
+            padding: const EdgeInsets.all(9),
             children: navigationActions
                 .map(
                   (action) => Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 9,
-                      ),
+                      padding: const EdgeInsets.all(9),
                       child: action,
                     ),
                   ),

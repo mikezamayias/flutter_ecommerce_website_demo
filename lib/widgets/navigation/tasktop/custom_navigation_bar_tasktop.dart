@@ -12,7 +12,17 @@ class CustomNavigationBarTasktop extends StatelessWidget {
       elevation: 0,
       backgroundColor: Colors.transparent,
       leading: const NavigationBarLogo(),
-      actions: navigationActions
+      actions:  navigationActions
+          .map(
+            (action) => Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 9,
+                vertical: 6,
+              ),
+              child: action,
+            ),
+          )
+          .toList(),
     );
   }
 }
