@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
 
+import '../../services/navigation_service.dart';
+import '../../locator.dart';
+
 List<TextButton> navigationActions = [
 // home
   TextButton.icon(
-    onPressed: () {},
+    onPressed: () {
+      locator<NavigationService>().navigateTo('home');
+    },
     icon: const Icon(Icons.home_rounded),
     label: const Text('Home'),
   ),
   // register
   TextButton.icon(
-    onPressed: () {},
+    onPressed: () {
+      locator<NavigationService>().navigateTo('register');
+    },
     icon: const Icon(Icons.person_add_rounded),
     label: const Text('Register'),
   ),
   // login
   TextButton.icon(
-    onPressed: () {},
+    onPressed: () {
+      locator<NavigationService>().navigateTo('login');
+    },
     icon: const Icon(Icons.login_rounded),
     label: const Text('Login'),
   ),
