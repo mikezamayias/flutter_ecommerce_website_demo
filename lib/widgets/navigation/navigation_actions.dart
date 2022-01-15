@@ -43,7 +43,7 @@ List<TextButton> navigationActions = [
       locator<NavigationService>().navigateTo(OrdersViewRoute);
     },
     icon: const Icon(Icons.shopping_bag_rounded),
-    label: const Text('Cart'),
+    label: const Text('Orders'),
   ),
   // contact
   TextButton.icon(
