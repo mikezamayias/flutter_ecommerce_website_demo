@@ -111,7 +111,13 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                           ),
                         ],
                 ),
-                body: child,
+                body: SingleChildScrollView(
+                  child: SizedBox(
+                    height: sizingInformation.screenSize.height,
+                    width: sizingInformation.screenSize.width,
+                    child: child,
+                  ),
+                ),
               );
             },
           ),

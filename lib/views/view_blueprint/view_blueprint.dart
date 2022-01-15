@@ -26,17 +26,15 @@ class _ViewBlueprintState extends State<ViewBlueprint> {
         alignment: Alignment.topCenter,
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 1200),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                widget.child,
-                // const Padding(
-                //   padding: EdgeInsets.only(bottom: 9, top: 21),
-                //   child: Footer(),
-                // ),
-              ],
-            ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              widget.child,
+              // const Padding(
+              //   padding: EdgeInsets.only(bottom: 9, top: 21),
+              //   child: Footer(),
+              // ),
+            ],
           ),
         ),
       ),
