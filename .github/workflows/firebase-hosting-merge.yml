@@ -25,6 +25,7 @@ jobs:
           path: build/web
   deploy_web:
     name: Deploy Web to Firebase Hosting
+    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     needs: build_web
     runs-on: ubuntu-latest
     steps:
@@ -36,9 +37,12 @@ jobs:
           name: web-build
           path: web-build
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          args: deploy --only hosting --public web-build
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: >-
+            ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FLUTTER_ECOMMERCE_WEBSITE_DEMO}}
+          projectId: flutter-ecommerce-website-demo
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           PROJECT_ID: default
