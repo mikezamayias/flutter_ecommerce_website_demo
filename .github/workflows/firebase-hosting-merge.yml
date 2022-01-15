@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: flutter clean && flutter pub get
+      - run: >-
+          sudo snap install flutter --classic && flutter clean  && flutter build
+          web --web-renderer html --release
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
