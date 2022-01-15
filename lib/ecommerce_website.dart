@@ -30,15 +30,14 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
         primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textButtonTheme: TextButtonThemeData(
-          style: ButtonStyle(
-            textStyle: MaterialStateProperty.all<TextStyle>(
-              GoogleFonts.firaSans(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),
+            style: ButtonStyle(
+          textStyle: MaterialStateProperty.all<TextStyle>(
+            GoogleFonts.firaSans(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
             ),
-          )
-        ),
+          ),
+        )),
       ),
       home: ColorfulSafeArea(
         color: Colors.orange,
