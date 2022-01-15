@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../widgets/footer/footer.dart';
+import '../view_blueprint/view_blueprint.dart';
 import '../../widgets/busy_button.dart';
 import '../../widgets/input_field/input_field.dart';
 import '../../ui/shared/ui_helpers.dart';
@@ -22,7 +22,7 @@ Password must be at least 8 characters long, with at least one uppercase, one lo
       viewModelBuilder: () => RegisterViewModel(),
       builder: (context, model, child) => Scaffold(
         backgroundColor: Colors.transparent,
-        body: SingleChildScrollView(
+        body: ViewBlueprint(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -72,7 +72,6 @@ Password must be at least 8 characters long, with at least one uppercase, one lo
                   )
                 ],
               ),
-              const Footer(),
             ],
           ),
         ),

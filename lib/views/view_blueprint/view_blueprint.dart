@@ -29,7 +29,6 @@ class _ViewBlueprintState extends State<ViewBlueprint> {
               padding: const EdgeInsets.all(60),
               child: widget.child,
             ),
-            const Footer(),
           ],
         ),
       ),

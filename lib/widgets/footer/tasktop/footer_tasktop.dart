@@ -7,10 +7,13 @@ class FooterTasktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      mainAxisSize: MainAxisSize.max,
-      children: tasktopFooterFields,
+    return Padding(
+      padding: const EdgeInsets.only(left: 12, right: 12, top: 15, bottom: 21),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        children: tasktopFooterFields,
+      ),
     );
   }
 }

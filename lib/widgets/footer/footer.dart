@@ -9,13 +9,10 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-      child: ScreenTypeLayout.builder(
-        mobile: (BuildContext context) => const FooterMobile(),
-        tablet: (BuildContext context) => const FooterMobile(),
-        desktop: (BuildContext context) => const FooterTasktop(),
-      ),
+    return ScreenTypeLayout.builder(
+      mobile: (BuildContext context) => const FooterMobile(),
+      tablet: (BuildContext context) => const FooterMobile(),
+      desktop: (BuildContext context) => const FooterTasktop(),
     );
   }
 }

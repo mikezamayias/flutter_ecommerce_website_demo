@@ -8,19 +8,20 @@ class FooterMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 123,
-      width: double.infinity,
-      color: Colors.transparent,
-      child: CarouselSlider(
-        options: CarouselOptions(
-          autoPlay: true,
-          autoPlayAnimationDuration: const Duration(milliseconds: 1200),
-          enlargeCenterPage: true,
-          autoPlayInterval: const Duration(milliseconds: 4200),
-          pauseAutoPlayOnManualNavigate: true,
+    return Padding(
+      padding: const EdgeInsets.only(top: 15, bottom: 21),
+      child: Container(
+        color: Colors.transparent,
+        child: CarouselSlider(
+          options: CarouselOptions(
+            autoPlay: true,
+            autoPlayAnimationDuration: const Duration(milliseconds: 1200),
+            enlargeCenterPage: true,
+            autoPlayInterval: const Duration(milliseconds: 4200),
+            pauseAutoPlayOnManualNavigate: true,
+          ),
+          items: mobileFooterFields,
         ),
-        items: mobileFooterFields,
       ),
     );
   }
