@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter E-commerce website demo',
+      title: 'E-commerce Website',
       theme: ThemeData(
         fontFamily: GoogleFonts.firaSans().fontFamily,
         primarySwatch: Colors.orange,
