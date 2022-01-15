@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/widgets/footer/footer.dart';
 import 'package:stacked/stacked.dart';
 
 import '../view_blueprint/view_blueprint.dart';
@@ -72,7 +71,6 @@ Password must be at least 8 characters long, with at least one uppercase, one lo
                   )
                 ],
               ),
-              const Footer(),
             ],
           ),
         ),

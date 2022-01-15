@@ -10,15 +10,12 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Padding(
-        padding:
-            const EdgeInsets.only(left: 0, right: 0, top: 9, bottom: 24),
+        padding: const EdgeInsets.only(left: 0, right: 0, top: 9, bottom: 24),
         child: sizingInformation.isDesktop
             ? Row(
-                mainAxisSize: MainAxisSize.max,
                 children: footerFields,
               )
             : Column(
-                mainAxisSize: MainAxisSize.min,
                 children: footerFields,
               ),
       ),
