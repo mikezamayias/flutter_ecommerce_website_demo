@@ -8,24 +8,11 @@ class CustomNavigationBarTasktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      color: Colors.transparent,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // logo
-          Container(
-            alignment: Alignment.centerLeft,
-            child: const NavigationBarLogo(),
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: navigationActions,
-          )
-        ],
-      ),
+    return AppBar(
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      leading: const NavigationBarLogo(),
+      actions: navigationActions
     );
   }
 }
