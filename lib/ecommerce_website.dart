@@ -27,6 +27,17 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
       theme: ThemeData(
         fontFamily: GoogleFonts.firaSans().fontFamily,
         primarySwatch: Colors.orange,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            textStyle: MaterialStateProperty.all<TextStyle>(
+              GoogleFonts.firaSans(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          )
+        ),
       ),
       home: ColorfulSafeArea(
         color: Colors.orange,
