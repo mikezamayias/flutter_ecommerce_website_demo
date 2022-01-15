@@ -7,8 +7,9 @@ List<Widget> footerFields = footerInfoFields
     .map(
       (field) => Padding(
         padding: const EdgeInsets.only(top: 6.9),
-        child: Expanded(
-          child: FooterFieldBlueprint(title: field.key, value: field.value),
+        child: FooterFieldBlueprint(
+          title: field.key,
+          value: field.value,
         ),
       ),
     )

@@ -1,3 +1,4 @@
+import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -5,7 +6,6 @@ import 'package:responsive_builder/responsive_builder.dart';
 import 'locator.dart';
 import 'routing/router.dart';
 import 'services/navigation_service.dart';
-import 'views/centered_view/centered_view.dart';
 import 'widgets/navigation/navigation_actions.dart';
 import 'widgets/navigation/navigation_bar_logo.dart';
 
@@ -28,7 +28,8 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
         fontFamily: GoogleFonts.firaSans().fontFamily,
         primarySwatch: Colors.orange,
       ),
-      home: SafeArea(
+      home: ColorfulSafeArea(
+        color: Colors.orange,
         child: ResponsiveBuilder(
           builder: (BuildContext context, SizingInformation sizingInformation) {
             return Scaffold(
@@ -93,18 +94,10 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                         ),
                       ],
               ),
-              body: CenteredView(
-                child: Column(
-                  children: <Widget>[
-                    Expanded(
-                      child: Navigator(
-                        key: locator<NavigationService>().navigationKey,
-                        onGenerateRoute: generateRoute,
-                        initialRoute: 'home',
-                      ),
-                    ),
-                  ],
-                ),
+              body: Navigator(
+                key: locator<NavigationService>().navigationKey,
+                onGenerateRoute: generateRoute,
+                initialRoute: 'home',
               ),
             );
           },

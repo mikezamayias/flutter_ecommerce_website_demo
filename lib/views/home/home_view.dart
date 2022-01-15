@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/views/view_blueprint/view_blueprint.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -10,9 +11,11 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'HomeView',
+    return const ViewBlueprint(
+      child: Center(
+        child: Text(
+          'HomeView',
+        ),
       ),
     );
     // List<PhoneDetails> phones = List.generate(

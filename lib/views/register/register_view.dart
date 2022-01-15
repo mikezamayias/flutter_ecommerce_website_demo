@@ -53,6 +53,31 @@ Password must be at least 8 characters long, with at least one uppercase, one lo
                 controller: _confirmPasswordController,
                 additionalNote: _passwordNote,
               ),
+              const Text(
+                'Register',
+                style: TextStyle(
+                  fontSize: 38,
+                ),
+              ),
+              verticalSpaceLarge,
+              InputField(
+                placeholder: 'Email',
+                controller: _emailController,
+              ),
+              verticalSpaceSmall,
+              InputField(
+                placeholder: 'Password',
+                password: true,
+                controller: _passwordController,
+                additionalNote: _passwordNote,
+              ),
+              verticalSpaceSmall,
+              InputField(
+                placeholder: 'Confirm Password',
+                password: true,
+                controller: _confirmPasswordController,
+                additionalNote: _passwordNote,
+              ),
               verticalSpaceMedium,
               Row(
                 mainAxisSize: MainAxisSize.max,
