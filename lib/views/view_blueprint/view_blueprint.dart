@@ -32,10 +32,10 @@ class _ViewBlueprintState extends State<ViewBlueprint> {
                 thickness: 3,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 9),
-              child: Footer(),
-            ),
+            // const Padding(
+            //   padding: EdgeInsets.only(bottom: 9),
+            //   child: Footer(),
+            // ),
           ],
         ),
       ),
