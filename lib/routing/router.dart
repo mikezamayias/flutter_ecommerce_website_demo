@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/views/home/home_view.dart';
-import 'package:flutter_ecommerce_website_demo/views/login/login_view.dart';
-import 'package:flutter_ecommerce_website_demo/views/register/register_view.dart';
+
+import '../views/cart/cart_view.dart';
+import '../views/contact/contact_view.dart';
+import '../views/home/home_view.dart';
+import '../views/login/login_view.dart';
+import '../views/orders/orders_page.dart';
+import '../views/register/register_view.dart';
 
 import 'routes.dart';
 
@@ -13,6 +17,12 @@ PageRoute generateRoute(RouteSettings settings) {
       return _getPageRoute(RegisterView());
     case LoginViewRoute:
       return _getPageRoute(const LoginView());
+    case CartViewRoute:
+      return _getPageRoute(const CartView());
+    case OrdersViewRoute:
+      return _getPageRoute(const OrdersView());
+    case ContactViewRoute:
+      return _getPageRoute(const ContactView());
     default:
       return _getPageRoute(const HomeView());
   }

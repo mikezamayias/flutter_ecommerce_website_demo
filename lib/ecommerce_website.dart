@@ -17,7 +17,7 @@ class EcommerceWebsite extends StatefulWidget {
 }
 
 class _EcommerceWebsiteState extends State<EcommerceWebsite> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
         child: ResponsiveBuilder(
           builder: (BuildContext context, SizingInformation sizingInformation) {
             return Scaffold(
-              key: _scaffoldKey,
+              key: scaffoldKey,
               endDrawer: sizingInformation.isDesktop
                   ? null
                   : SizedBox(
@@ -87,7 +87,7 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                           ),
                           child: TextButton.icon(
                             onPressed: () =>
-                                _scaffoldKey.currentState?.openEndDrawer(),
+                                scaffoldKey.currentState?.openEndDrawer(),
                             icon: const Icon(Icons.menu_rounded),
                             label: const Text('Menu'),
                           ),
