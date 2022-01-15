@@ -57,6 +57,6 @@ List<TextButton> navigationActions = [
   TextButton.icon(
     onPressed: () {},
     icon: const Icon(Icons.logout_rounded),
-    label: const Text('Logout'),
+    label: const Text('Log Out'),
   ),
 ];
