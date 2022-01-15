@@ -7,7 +7,7 @@ import '../../widgets/input_field/input_field.dart';
 import '../../ui/shared/ui_helpers.dart';
 import '../../view_models/register/register_view_model.dart';
 
-class RegisterView extends StatelessWidget {
+class SignUpView extends StatelessWidget {
   final String _passwordNote =
       'Password must be at least 8 characters long, with at least one uppercase, one lowercase letter, one number and a special character.';
   final _emailController = TextEditingController();
@@ -21,7 +21,7 @@ class RegisterView extends StatelessWidget {
   final _postalCodeController = TextEditingController();
 
 
-  RegisterView({Key? key}) : super(key: key);
+  SignUpView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

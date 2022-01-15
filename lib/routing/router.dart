@@ -5,7 +5,7 @@ import '../views/contact/contact_view.dart';
 import '../views/home/home_view.dart';
 import '../views/login/login_view.dart';
 import '../views/orders/orders_page.dart';
-import '../views/register/register_view.dart';
+import '../views/sign_up/sign_up_view.dart';
 
 import 'routes.dart';
 
@@ -14,7 +14,7 @@ PageRoute generateRoute(RouteSettings settings) {
     case HomeViewRoute:
       return _getPageRoute(const HomeView());
     case RegisterViewRoute:
-      return _getPageRoute(RegisterView());
+      return _getPageRoute(SignUpView());
     case LoginViewRoute:
       return _getPageRoute(const LoginView());
     case CartViewRoute:
