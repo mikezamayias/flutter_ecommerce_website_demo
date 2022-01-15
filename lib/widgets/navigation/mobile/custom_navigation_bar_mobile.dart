@@ -17,9 +17,7 @@ class CustomNavigationBarMobile extends StatelessWidget {
             Scaffold.of(context).openEndDrawer();
           },
           icon: const Icon(Icons.menu_rounded),
-          label: const Text(
-            'Menu',
-          ),
+          label: const Text('Menu'),
         ),
       ],
     );
