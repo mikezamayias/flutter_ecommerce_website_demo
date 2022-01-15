@@ -31,7 +31,7 @@ Password must be at least 8 characters long, with at least one uppercase, one lo
               const Text(
                 'Register',
                 style: TextStyle(
-                  fontSize: 38,
+                  fontSize: 33,
                 ),
               ),
               verticalSpaceLarge,

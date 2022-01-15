@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-const Widget horizontalSpaceTiny = SizedBox(width: 5.0);
-const Widget horizontalSpaceSmall = SizedBox(width: 10.0);
-const Widget horizontalSpaceMedium = SizedBox(width: 25.0);
+const Widget horizontalSpaceTiny = SizedBox(width: 6);
+const Widget horizontalSpaceSmall = SizedBox(width: 12);
+const Widget horizontalSpaceMedium = SizedBox(width: 27);
 
-const Widget verticalSpaceTiny = SizedBox(height: 5.0);
-const Widget verticalSpaceSmall = SizedBox(height: 10.0);
-const Widget verticalSpaceMedium = SizedBox(height: 25.0);
-const Widget verticalSpaceLarge = SizedBox(height: 50.0);
-const Widget verticalSpaceMassive = SizedBox(height: 120.0);
+const Widget verticalSpaceTiny = SizedBox(height: 6);
+const Widget verticalSpaceSmall = SizedBox(height: 12);
+const Widget verticalSpaceMedium = SizedBox(height: 27);
+const Widget verticalSpaceLarge = SizedBox(height: 51);
+const Widget verticalSpaceMassive = SizedBox(height: 120);
 
 Widget spacedDivider = Column(
   children: const <Widget>[
     verticalSpaceMedium,
-    Divider(color: Colors.blueGrey, height: 5.0),
+    Divider(color: Colors.blueGrey, height: 6),
     verticalSpaceMedium,
   ],
 );
