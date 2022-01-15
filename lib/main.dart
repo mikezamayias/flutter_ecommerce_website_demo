@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'views/layout_template/layout_template.dart';
+
 import 'locator.dart';
-import 'views/home/home_view.dart';
 
 void main() {
   setupLocator();
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.firaSans().fontFamily,
         primarySwatch: Colors.orange,
       ),
-      home: const HomeView(),
+      home: const LayoutTemplate(),
     );
   }
 }
