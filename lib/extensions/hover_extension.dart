@@ -1,6 +1,7 @@
 import 'dart:html' as html;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/widgets/translate_on_hover/translate_on_hover.dart';
 
 extension HoverExtensions on Widget {
   // Get a regerence to the body of the view
@@ -19,5 +20,9 @@ extension HoverExtensions on Widget {
         appContainer?.style.cursor = 'default';
       },
     );
+  }
+
+  Widget get moveUpOnHover {
+    return TranslateOnHover(child: this);
   }
 }

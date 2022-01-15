@@ -1,5 +1,6 @@
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/extensions/hover_extension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -79,13 +80,13 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                 actions: sizingInformation.isDesktop
                     ? navigationActions
                         .map(
-                          (action) => Padding(
+                          (Widget action) => Padding(
                             padding: const EdgeInsets.only(
                               right: 15,
                               top: 6,
                               bottom: 6,
                             ),
-                            child: action,
+                            child: action.moveUpOnHover,
                           ),
                         )
                         .toList()
