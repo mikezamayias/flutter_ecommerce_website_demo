@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:colorful_safe_area/colorful_safe_area.dart';
+import 'package:flutter_ecommerce_website_demo/routing/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -39,85 +40,83 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
           ),
         )),
       ),
-      builder: (context, child) {
-        return Container();
-      },
       navigatorKey: locator<NavigationService>().navigatorKey,
-      home: ColorfulSafeArea(
-        color: Colors.orange,
-        child: ResponsiveBuilder(
-          builder: (BuildContext context, SizingInformation sizingInformation) {
-            return Scaffold(
-              key: scaffoldKey,
-              endDrawer: sizingInformation.isDesktop
-                  ? null
-                  : SizedBox(
-                      width: 240,
-                      child: Drawer(
-                        backgroundColor: Colors.grey[100],
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: ListView(
-                            shrinkWrap: true,
-                            padding: const EdgeInsets.all(9),
-                            children: navigationActions
-                                .map(
-                                  (action) => Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(9),
-                                      child: action,
+      onGenerateRoute: generateRoute,
+      initialRoute: HomeViewRoute,
+      builder: (context, child) {
+        return ColorfulSafeArea(
+          color: Colors.orange,
+          child: ResponsiveBuilder(
+            builder:
+                (BuildContext context, SizingInformation sizingInformation) {
+              return Scaffold(
+                key: scaffoldKey,
+                endDrawer: sizingInformation.isDesktop
+                    ? null
+                    : SizedBox(
+                        width: 240,
+                        child: Drawer(
+                          backgroundColor: Colors.grey[100],
+                          child: Align(
+                            alignment: Alignment.topLeft,
+                            child: ListView(
+                              shrinkWrap: true,
+                              padding: const EdgeInsets.all(9),
+                              children: navigationActions
+                                  .map(
+                                    (action) => Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(9),
+                                        child: action,
+                                      ),
                                     ),
-                                  ),
-                                )
-                                .toList(),
+                                  )
+                                  .toList(),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-              appBar: AppBar(
-                elevation: 0,
-                backgroundColor: Colors.transparent,
-                title: const NavigationBarLogo(),
-                centerTitle: false,
-                actions: sizingInformation.isDesktop
-                    ? navigationActions
-                        .map(
-                          (Widget action) => Padding(
+                appBar: AppBar(
+                  elevation: 0,
+                  backgroundColor: Colors.transparent,
+                  title: const NavigationBarLogo(),
+                  centerTitle: false,
+                  actions: sizingInformation.isDesktop
+                      ? navigationActions
+                          .map(
+                            (Widget action) => Padding(
+                              padding: const EdgeInsets.only(
+                                right: 15,
+                                top: 6,
+                                bottom: 6,
+                              ),
+                              child: action.moveUpOnHover,
+                            ),
+                          )
+                          .toList()
+                      : [
+                          Padding(
                             padding: const EdgeInsets.only(
                               right: 15,
                               top: 6,
                               bottom: 6,
                             ),
-                            child: action.moveUpOnHover,
+                            child: TextButton.icon(
+                              onPressed: () =>
+                                  scaffoldKey.currentState?.openEndDrawer(),
+                              icon: const Icon(Icons.menu_rounded),
+                              label: const Text('Menu'),
+                            ),
                           ),
-                        )
-                        .toList()
-                    : [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            right: 15,
-                            top: 6,
-                            bottom: 6,
-                          ),
-                          child: TextButton.icon(
-                            onPressed: () =>
-                                scaffoldKey.currentState?.openEndDrawer(),
-                            icon: const Icon(Icons.menu_rounded),
-                            label: const Text('Menu'),
-                          ),
-                        ),
-                      ],
-              ),
-              body: Navigator(
-                key: locator<NavigationService>().navigatorKey,
-                onGenerateRoute: generateRoute,
-                initialRoute: 'home',
-              ),
-            );
-          },
-        ),
-      ),
+                        ],
+                ),
+                body: child,
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }
