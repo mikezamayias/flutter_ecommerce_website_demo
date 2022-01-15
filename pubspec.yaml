@@ -29,16 +29,17 @@ environment:
 dependencies:
   carousel_slider: ^4.0.0
   cupertino_icons: ^1.0.4
+  firebase_auth: ^3.3.5
+  firebase_core: ^1.11.0
   flutter:
     sdk: flutter
+  flutter_styled_toast: ^2.0.0
   flutter_svg: ^1.0.1
   get_it: ^7.2.0
   google_fonts: ^2.2.0
-  responsive_builder: ^0.4.1
   provider: ^6.0.2
+  responsive_builder: ^0.4.1
   stacked: ^2.2.7+1
-  firebase_auth: ^3.3.5
-  firebase_core: ^1.11.0
 
 dev_dependencies:
   flutter_lints: ^1.0.4
