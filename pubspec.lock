@@ -50,6 +50,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
+  colorful_safe_area:
+    dependency: "direct main"
+    description:
+      name: colorful_safe_area
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0"
   crypto:
     dependency: transitive
     description:
