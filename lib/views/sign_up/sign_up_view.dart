@@ -36,7 +36,7 @@ class SignUpView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const Text(
-                'Register',
+                'Sign Up',
                 style: TextStyle(
                   fontSize: 33,
                 ),
