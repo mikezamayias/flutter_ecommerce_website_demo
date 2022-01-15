@@ -27,7 +27,7 @@ List<TextButton> navigationActions = [
       locator<NavigationService>().navigateTo(LoginViewRoute);
     },
     icon: const Icon(Icons.login_rounded),
-    label: const Text('Login'),
+    label: const Text('Log In'),
   ),
   // cart
   TextButton.icon(
