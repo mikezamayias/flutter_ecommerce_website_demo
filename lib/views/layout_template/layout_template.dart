@@ -4,7 +4,6 @@ import 'package:responsive_builder/responsive_builder.dart';
 import '../../locator.dart';
 import '../../routing/router.dart';
 import '../../services/navigation_service.dart';
-import '../../widgets/footer/footer.dart';
 import '../../widgets/navigation/custom_navigation_bar.dart';
 import '../../widgets/navigation/mobile/custom_navigation_drawer.dart';
 import '../centered_view/centered_view.dart';
