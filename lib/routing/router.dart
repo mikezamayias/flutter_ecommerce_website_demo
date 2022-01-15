@@ -3,13 +3,15 @@ import 'package:flutter_ecommerce_website_demo/views/home/home_view.dart';
 import 'package:flutter_ecommerce_website_demo/views/login/login_view.dart';
 import 'package:flutter_ecommerce_website_demo/views/register/register_view.dart';
 
+import 'routes.dart';
+
 PageRoute generateRoute(RouteSettings settings) {
   switch (settings.name) {
-    case 'home':
+    case HomeViewRoute:
       return _getPageRoute(const HomeView());
-    case 'register':
+    case RegisterViewRoute:
       return _getPageRoute(const RegisterView());
-    case 'login':
+    case LoginViewRoute:
       return _getPageRoute(const LoginView());
     default:
       return _getPageRoute(const HomeView());
