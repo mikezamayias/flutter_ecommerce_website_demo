@@ -1,9 +1,9 @@
-import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/extensions/hover_extension.dart';
+import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import 'extensions/hover_extension.dart';
 import 'locator.dart';
 import 'routing/router.dart';
 import 'services/navigation_service.dart';

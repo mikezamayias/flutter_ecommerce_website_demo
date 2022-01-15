@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 class TranslateOnHover extends StatefulWidget {
   final Widget child;
