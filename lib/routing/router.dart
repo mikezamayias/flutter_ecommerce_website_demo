@@ -10,7 +10,7 @@ PageRoute generateRoute(RouteSettings settings) {
     case HomeViewRoute:
       return _getPageRoute(const HomeView());
     case RegisterViewRoute:
-      return _getPageRoute(const RegisterView());
+      return _getPageRoute(RegisterView());
     case LoginViewRoute:
       return _getPageRoute(const LoginView());
     default:

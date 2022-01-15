@@ -31,7 +31,6 @@ class LayoutTemplate extends StatelessWidget {
                   initialRoute: 'home',
                 ),
               ),
-              const Footer()
             ],
           ),
         ),
