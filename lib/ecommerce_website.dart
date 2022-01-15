@@ -39,6 +39,10 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
           ),
         )),
       ),
+      builder: (context, child) {
+        return Container();
+      },
+      navigatorKey: locator<NavigationService>().navigatorKey,
       home: ColorfulSafeArea(
         color: Colors.orange,
         child: ResponsiveBuilder(
@@ -106,7 +110,7 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                       ],
               ),
               body: Navigator(
-                key: locator<NavigationService>().navigationKey,
+                key: locator<NavigationService>().navigatorKey,
                 onGenerateRoute: generateRoute,
                 initialRoute: 'home',
               ),
