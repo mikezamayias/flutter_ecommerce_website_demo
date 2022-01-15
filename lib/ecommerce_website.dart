@@ -24,32 +24,31 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'E-commerce Website',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: GoogleFonts.firaSans().fontFamily,
-        primarySwatch: Colors.orange,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        textButtonTheme: TextButtonThemeData(
-            style: ButtonStyle(
-          textStyle: MaterialStateProperty.all<TextStyle>(
-            GoogleFonts.firaSans(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
+        title: 'E-commerce Website',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          fontFamily: GoogleFonts.firaSans().fontFamily,
+          primarySwatch: Colors.orange,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          textButtonTheme: TextButtonThemeData(
+              style: ButtonStyle(
+            textStyle: MaterialStateProperty.all<TextStyle>(
+              GoogleFonts.firaSans(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-        )),
-      ),
-      navigatorKey: locator<NavigationService>().navigatorKey,
-      onGenerateRoute: generateRoute,
-      initialRoute: HomeViewRoute,
-      builder: (context, child) {
-        return ColorfulSafeArea(
-          color: Colors.orange,
-          child: ResponsiveBuilder(
-            builder:
-                (BuildContext context, SizingInformation sizingInformation) {
-              return Scaffold(
+          )),
+        ),
+        navigatorKey: locator<NavigationService>().navigatorKey,
+        onGenerateRoute: generateRoute,
+        initialRoute: HomeViewRoute,
+        builder: (context, child) {
+          return ResponsiveBuilder(builder:
+              (BuildContext context, SizingInformation sizingInformation) {
+            return ColorfulSafeArea(
+              color: Colors.orange,
+              child: Scaffold(
                 key: scaffoldKey,
                 endDrawer: sizingInformation.isDesktop
                     ? null
@@ -111,18 +110,21 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                           ),
                         ],
                 ),
-                body: SingleChildScrollView(
-                  child: SizedBox(
-                    height: sizingInformation.screenSize.height,
-                    width: sizingInformation.screenSize.width,
-                    child: child,
+                body: Scrollbar(
+                  child: Container(
+                    padding: sizingInformation.isDesktop
+                        ? const EdgeInsets.symmetric(horizontal: 90)
+                        : const EdgeInsets.symmetric(horizontal: 24),
+                    alignment: Alignment.topCenter,
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 1200),
+                      child: child!,
+                    ),
                   ),
                 ),
-              );
-            },
-          ),
-        );
-      },
-    );
+              ),
+            );
+          });
+        });
   }
 }

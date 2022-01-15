@@ -20,16 +20,15 @@ class SignUpView extends StatelessWidget {
   final _cityController = TextEditingController();
   final _postalCodeController = TextEditingController();
 
-
   SignUpView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<RegisterViewModel>.reactive(
       viewModelBuilder: () => RegisterViewModel(),
-      builder: (context, model, child) => Scaffold(
-        backgroundColor: Colors.transparent,
-        body: ViewBlueprint(
+      builder: (context, model, child) => ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
