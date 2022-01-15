@@ -11,8 +11,8 @@ class NavigationBarLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      child: Padding(
-        padding: const EdgeInsets.only(left: 12, right: 12, top: 6, bottom: 6),
+      child: Container(
+        padding: const EdgeInsets.only(top: 6, bottom: 6),
         child: SvgPicture.asset(
           'assets/images/logo.svg',
           semanticsLabel: 'Logo',

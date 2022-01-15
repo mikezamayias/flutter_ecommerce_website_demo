@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/widgets/footer/footer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -70,8 +69,7 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                         .map(
                           (action) => Padding(
                             padding: const EdgeInsets.only(
-                              left: 12,
-                              right: 12,
+                              right: 15,
                               top: 6,
                               bottom: 6,
                             ),
@@ -82,8 +80,7 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                     : [
                         Padding(
                           padding: const EdgeInsets.only(
-                            left: 12,
-                            right: 12,
+                            right: 15,
                             top: 6,
                             bottom: 6,
                           ),
@@ -109,7 +106,6 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                   ],
                 ),
               ),
-              bottomSheet: const Footer(),
             );
           },
         ),
