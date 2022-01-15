@@ -3,14 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'views/layout_template/layout_template.dart';
 
-class ExommerceWebsite extends StatefulWidget {
-  const ExommerceWebsite({Key? key}) : super(key: key);
+class EcommerceWebsite extends StatefulWidget {
+  const EcommerceWebsite({Key? key}) : super(key: key);
 
   @override
-  _ExommerceWebsiteState createState() => _ExommerceWebsiteState();
+  _EcommerceWebsiteState createState() => _EcommerceWebsiteState();
 }
 
-class _ExommerceWebsiteState extends State<ExommerceWebsite> {
+class _EcommerceWebsiteState extends State<EcommerceWebsite> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

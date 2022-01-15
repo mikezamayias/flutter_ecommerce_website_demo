@@ -13,5 +13,5 @@ void main() async {
   );
   // await AuthenticationService().getOrCreateUser();
   setupLocator();
-  runApp(const ExommerceWebsite());
+  runApp(const EcommerceWebsite());
 }
