@@ -8,11 +8,18 @@ import '../../ui/shared/ui_helpers.dart';
 import '../../view_models/register/register_view_model.dart';
 
 class RegisterView extends StatelessWidget {
-  final String _passwordNote = '''
-Password must be at least 8 characters long, with at least one uppercase, one lowercase letter, one number and a special character.''';
+  final String _passwordNote =
+      'Password must be at least 8 characters long, with at least one uppercase, one lowercase letter, one number and a special character.';
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  final _firstNameController = TextEditingController();
+  final _lastNameController = TextEditingController();
+  final _phoneNumberController = TextEditingController();
+  final _addressController = TextEditingController();
+  final _cityController = TextEditingController();
+  final _postalCodeController = TextEditingController();
+
 
   RegisterView({Key? key}) : super(key: key);
 
@@ -53,30 +60,35 @@ Password must be at least 8 characters long, with at least one uppercase, one lo
                 controller: _confirmPasswordController,
                 additionalNote: _passwordNote,
               ),
-              const Text(
-                'Register',
-                style: TextStyle(
-                  fontSize: 38,
-                ),
-              ),
-              verticalSpaceLarge,
+              verticalSpaceSmall,
               InputField(
-                placeholder: 'Email',
-                controller: _emailController,
+                placeholder: 'First Name',
+                controller: _firstNameController,
               ),
               verticalSpaceSmall,
               InputField(
-                placeholder: 'Password',
-                password: true,
-                controller: _passwordController,
-                additionalNote: _passwordNote,
+                placeholder: 'Last Name',
+                controller: _lastNameController,
               ),
               verticalSpaceSmall,
               InputField(
-                placeholder: 'Confirm Password',
-                password: true,
-                controller: _confirmPasswordController,
-                additionalNote: _passwordNote,
+                placeholder: 'Phone Number',
+                controller: _phoneNumberController,
+              ),
+              verticalSpaceSmall,
+              InputField(
+                placeholder: 'Address',
+                controller: _addressController,
+              ),
+              verticalSpaceSmall,
+              InputField(
+                placeholder: 'City',
+                controller: _cityController,
+              ),
+              verticalSpaceSmall,
+              InputField(
+                placeholder: 'Postal Code',
+                controller: _postalCodeController,
               ),
               verticalSpaceMedium,
               Row(
