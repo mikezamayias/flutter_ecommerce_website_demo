@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class CenteredView extends StatelessWidget {
   final Widget child;
@@ -10,12 +11,16 @@ class CenteredView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
-      alignment: Alignment.topCenter,
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 1200),
-        child: child,
+    return ResponsiveBuilder(
+      builder: (context, sizingInformation) => Container(
+        padding: sizingInformation.isMobile || sizingInformation.isTablet
+            ? const EdgeInsets.symmetric(horizontal: 15, vertical: 15)
+            : const EdgeInsets.symmetric(horizontal: 90, vertical: 15),
+        alignment: Alignment.topCenter,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 1200),
+          child: child,
+        ),
       ),
     );
   }
