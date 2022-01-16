@@ -22,7 +22,7 @@ class _MobileNavigationBarState extends State<MobileNavigationBar> {
       pinned: true,
       elevation: 9,
       shadowColor: Colors.orange,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[100],
       centerTitle: false,
       title: const NavigationBarLogo(),
       actions: loggedIn
