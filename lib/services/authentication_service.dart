@@ -20,6 +20,9 @@ class AuthenticationService {
     }
   }
 
+  // authentication state change listener
+  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+
   // sign up with email and password
 
   // log in with email and password
