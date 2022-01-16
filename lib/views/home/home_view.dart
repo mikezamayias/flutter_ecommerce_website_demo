@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/services/authentication_service.dart';
+
+import '../../locator.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -8,11 +11,14 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final _authenticationService = locator<AuthenticationService>();
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Text(
-        'HomeView',
+        _authenticationService.currentUser == null
+            ? 'Not Logged In'
+            : _authenticationService.currentUser!.uid,
       ),
     );
     // List<PhoneDetails> phones = List.generate(
