@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import '../../widgets/busy_button.dart';
 import '../../widgets/input_field/input_field.dart';
 import '../../ui/shared/ui_helpers.dart';
-import '../../view_models/register/register_view_model.dart';
+import '../../view_models/sign_up/sign_up_view_model.dart';
 
 class SignUpView extends StatelessWidget {
   final String _passwordNote =
@@ -23,8 +23,8 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<RegisterViewModel>.reactive(
-      viewModelBuilder: () => RegisterViewModel(),
+    return ViewModelBuilder<SignUpViewModel>.reactive(
+      viewModelBuilder: () => SignUpViewModel(),
       builder: (context, model, child) => ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
         child: SingleChildScrollView(
@@ -98,7 +98,7 @@ class SignUpView extends StatelessWidget {
                     title: 'Sign Up',
                     busy: model.busy,
                     onPressed: () {
-                      model.register(
+                      model.signUp(
                         email: _emailController.text,
                         password: _passwordController.text,
                         confirmPassword: _confirmPasswordController.text,

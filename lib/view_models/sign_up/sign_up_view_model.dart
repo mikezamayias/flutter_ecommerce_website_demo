@@ -6,27 +6,27 @@ import '../../services/navigation_service.dart';
 import '../../services/authentication_service.dart';
 import '../../locator.dart';
 
-class RegisterViewModel extends BaseViewModel {
+class SignUpViewModel extends BaseViewModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
   final DialogService _dialogService = locator<DialogService>();
   final NavigationService _navigationService = locator<NavigationService>();
 
-  Future register({
+  Future signUp({
     required String email,
     required String password,
     required String confirmPassword,
   }) async {
     setBusy(true);
 
-    // if (password != confirmPassword) {
-    //   setBusy(false);
-    //   await _dialogService.showDialog(
-    //     title: 'Sign Up Failure',
-    //     description: 'Passwords do not match',
-    //   );
-    //   return;
-    // }
+    if (password != confirmPassword) {
+      setBusy(false);
+      await _dialogService.showDialog(
+        title: 'Sign Up Failure',
+        description: 'Passwords do not match',
+      );
+      return;
+    }
 
     var result = await _authenticationService.registerWithEmail(
       email: email,
