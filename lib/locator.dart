@@ -1,3 +1,4 @@
+import 'package:eventify/eventify.dart';
 import 'package:get_it/get_it.dart';
 
 import 'services/authentication_service.dart';
@@ -10,4 +11,5 @@ void setupLocator() {
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => AuthenticationService());
+  locator.registerLazySingleton(() => EventEmitter());
 }
