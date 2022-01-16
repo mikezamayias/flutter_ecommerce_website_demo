@@ -76,51 +76,61 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                           ),
                         ),
                       ),
-                appBar: AppBar(
-                  elevation: 0,
-                  backgroundColor: Colors.transparent,
-                  title: const NavigationBarLogo(),
-                  centerTitle: false,
-                  actions: sizingInformation.isDesktop
-                      ? navigationActions
-                          .map(
-                            (Widget action) => Padding(
-                              padding: const EdgeInsets.only(
-                                right: 15,
-                                top: 6,
-                                bottom: 6,
+                body: CustomScrollView(
+                  slivers: <Widget>[
+                    SliverAppBar(
+                      floating: true,
+                      snap: true,
+                      pinned: false,
+                      elevation: 0,
+                      backgroundColor: Colors.transparent,
+                      centerTitle: false,
+                      title: const NavigationBarLogo(),
+                      actions: sizingInformation.isDesktop
+                          ? navigationActions
+                              .map(
+                                (Widget action) => Padding(
+                                  padding: const EdgeInsets.only(
+                                    right: 15,
+                                    top: 6,
+                                    bottom: 6,
+                                  ),
+                                  child: action.moveUpOnHover,
+                                ),
+                              )
+                              .toList()
+                          : [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  right: 15,
+                                  top: 6,
+                                  bottom: 6,
+                                ),
+                                child: TextButton.icon(
+                                  onPressed: () =>
+                                      scaffoldKey.currentState?.openEndDrawer(),
+                                  icon: const Icon(Icons.menu_rounded),
+                                  label: const Text('Menu'),
+                                ),
                               ),
-                              child: action.moveUpOnHover,
-                            ),
-                          )
-                          .toList()
-                      : [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              right: 15,
-                              top: 6,
-                              bottom: 6,
-                            ),
-                            child: TextButton.icon(
-                              onPressed: () =>
-                                  scaffoldKey.currentState?.openEndDrawer(),
-                              icon: const Icon(Icons.menu_rounded),
-                              label: const Text('Menu'),
-                            ),
-                          ),
-                        ],
-                ),
-                body: Scrollbar(
-                  child: Container(
-                    padding: sizingInformation.isDesktop
-                        ? const EdgeInsets.symmetric(horizontal: 90)
-                        : const EdgeInsets.symmetric(horizontal: 24),
-                    alignment: Alignment.topCenter,
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 1200),
-                      child: child!,
+                            ],
                     ),
-                  ),
+                    SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: sizingInformation.screenSize.height,
+                        child: Container(
+                          padding: sizingInformation.isDesktop
+                              ? const EdgeInsets.symmetric(horizontal: 90)
+                              : const EdgeInsets.symmetric(horizontal: 24),
+                          alignment: Alignment.topCenter,
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 1200),
+                            child: child!,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             );
