@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:colorful_safe_area/colorful_safe_area.dart';
-import 'package:flutter_ecommerce_website_demo/routing/routes.dart';
+import 'package:eventify/eventify.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import 'routing/routes.dart';
 import 'extensions/hover_extension.dart';
 import 'locator.dart';
 import 'routing/router.dart';
@@ -20,9 +21,17 @@ class EcommerceWebsite extends StatefulWidget {
 
 class _EcommerceWebsiteState extends State<EcommerceWebsite> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  final _eventEmitter = locator<EventEmitter>();
 
   @override
   Widget build(BuildContext context) {
+    [
+      'userLoggedOut',
+      'userLoggedIn',
+    ].map(
+      (e) =>
+          _eventEmitter.on(e, null, (event, eventContext) => setState(() {})),
+    );
     return MaterialApp(
         title: 'E-commerce Website',
         debugShowCheckedModeBanner: false,
@@ -88,13 +97,13 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                       actions: sizingInformation.isDesktop
                           ? navigationActions
                               .map(
-                                (Widget action) => Padding(
+                                (Widget? action) => Padding(
                                   padding: const EdgeInsets.only(
                                     right: 15,
                                     top: 6,
                                     bottom: 6,
                                   ),
-                                  child: action.moveUpOnHover,
+                                  child: action!.moveUpOnHover,
                                 ),
                               )
                               .toList()
@@ -106,8 +115,8 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                                   bottom: 6,
                                 ),
                                 child: TextButton.icon(
-                                  onPressed: () => scaffoldKey.currentState
-                                      ?.openEndDrawer(),
+                                  onPressed: () =>
+                                      scaffoldKey.currentState?.openEndDrawer(),
                                   icon: const Icon(Icons.menu_rounded),
                                   label: const Text('Menu'),
                                 ),
