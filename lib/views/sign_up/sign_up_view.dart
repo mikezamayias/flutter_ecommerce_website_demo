@@ -94,13 +94,13 @@ class SignUpView extends StatelessWidget {
               children: [
                 BusyButton(
                   title: 'Sign Up',
-                  busy: model.busy,
+                  // busy: model.busy,
                   onPressed: () {
-                    model.signUp(
-                      email: _emailController.text,
-                      password: _passwordController.text,
-                      confirmPassword: _confirmPasswordController.text,
-                    );
+                    // model.signUp(
+                    //   email: _emailController.text,
+                    //   password: _passwordController.text,
+                    //   confirmPassword: _confirmPasswordController.text,
+                    // );
                   },
                 )
               ],
