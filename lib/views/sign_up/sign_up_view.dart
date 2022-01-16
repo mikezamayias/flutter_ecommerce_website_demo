@@ -33,13 +33,14 @@ class SignUpView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              verticalSpaceLarge,
               const Text(
                 'Sign Up',
                 style: TextStyle(
                   fontSize: 33,
                 ),
               ),
-              verticalSpaceLarge,
+              verticalSpaceMedium,
               InputField(
                 placeholder: 'Email',
                 controller: _emailController,
@@ -106,6 +107,7 @@ class SignUpView extends StatelessWidget {
                   )
                 ],
               ),
+              verticalSpaceLarge,
             ],
           ),
         ),
