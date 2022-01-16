@@ -79,11 +79,10 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                 body: CustomScrollView(
                   slivers: <Widget>[
                     SliverAppBar(
-                      floating: true,
-                      snap: true,
-                      pinned: false,
-                      elevation: 0,
-                      backgroundColor: Colors.transparent,
+                      pinned: true,
+                      elevation: 9,
+                      shadowColor: Colors.orange,
+                      backgroundColor: Colors.white,
                       centerTitle: false,
                       title: const NavigationBarLogo(),
                       actions: sizingInformation.isDesktop
@@ -107,8 +106,8 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                                   bottom: 6,
                                 ),
                                 child: TextButton.icon(
-                                  onPressed: () =>
-                                      scaffoldKey.currentState?.openEndDrawer(),
+                                  onPressed: () => scaffoldKey.currentState
+                                      ?.openEndDrawer(),
                                   icon: const Icon(Icons.menu_rounded),
                                   label: const Text('Menu'),
                                 ),
