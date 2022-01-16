@@ -1,16 +1,19 @@
 import 'package:colorful_safe_area/colorful_safe_area.dart';
-import 'package:eventify/eventify.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import 'routing/routes.dart';
-import 'extensions/hover_extension.dart';
 import 'locator.dart';
 import 'routing/router.dart';
+import 'routing/routes.dart';
+import 'services/authentication_service.dart';
 import 'services/navigation_service.dart';
-import 'widgets/navigation/navigation_actions.dart';
-import 'widgets/navigation/navigation_bar_logo.dart';
+import 'services/scaffold_key_service.dart';
+import 'widgets/navigation/custom_navigation_drawer.dart';
+import 'widgets/navigation/desktop_navigation_bar.dart';
+import 'widgets/navigation/mobile_navigation_bar.dart';
 
 class EcommerceWebsite extends StatefulWidget {
   const EcommerceWebsite({Key? key}) : super(key: key);
@@ -20,136 +23,78 @@ class EcommerceWebsite extends StatefulWidget {
 }
 
 class _EcommerceWebsiteState extends State<EcommerceWebsite> {
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-  final _eventEmitter = locator<EventEmitter>();
-
   @override
   Widget build(BuildContext context) {
-    [
-      'userLoggedOut',
-      'userLoggedIn',
-    ].map(
-      (e) =>
-          _eventEmitter.on(e, null, (event, eventContext) => setState(() {})),
-    );
-    return MaterialApp(
-        title: 'E-commerce Website',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: GoogleFonts.firaSans().fontFamily,
-          primarySwatch: Colors.orange,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          textButtonTheme: TextButtonThemeData(
-              style: ButtonStyle(
-            textStyle: MaterialStateProperty.all<TextStyle>(
-              GoogleFonts.firaSans(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          )),
+    return MultiProvider(
+      providers: [
+        StreamProvider<User?>.value(
+          value: locator<AuthenticationService>().authStateChanges,
+          initialData: null,
         ),
-        navigatorKey: locator<NavigationService>().navigatorKey,
-        onGenerateRoute: generateRoute,
-        initialRoute: HomeViewRoute,
-        builder: (context, child) {
-          return ResponsiveBuilder(builder:
-              (BuildContext context, SizingInformation sizingInformation) {
-            return ColorfulSafeArea(
-              color: Colors.orange,
-              child: Scaffold(
-                key: scaffoldKey,
-                endDrawer: sizingInformation.isDesktop
-                    ? null
-                    : SizedBox(
-                        width: 240,
-                        child: Drawer(
-                          backgroundColor: Colors.grey[100],
-                          child: Align(
-                            alignment: Alignment.topLeft,
-                            child: ListView(
-                              shrinkWrap: true,
-                              padding: const EdgeInsets.all(9),
-                              children: navigationActions
-                                  .map(
-                                    (action) => Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(9),
-                                        child: action,
-                                      ),
-                                    ),
-                                  )
-                                  .toList(),
-                            ),
-                          ),
-                        ),
-                      ),
-                body: CustomScrollView(
-                  slivers: <Widget>[
-                    SliverAppBar(
-                      pinned: true,
-                      elevation: 9,
-                      shadowColor: Colors.orange,
-                      backgroundColor: Colors.white,
-                      centerTitle: false,
-                      title: const NavigationBarLogo(),
-                      actions: sizingInformation.isDesktop
-                          ? navigationActions
-                              .map(
-                                (Widget? action) => Padding(
-                                  padding: const EdgeInsets.only(
-                                    right: 15,
-                                    top: 6,
-                                    bottom: 6,
-                                  ),
-                                  child: action!.moveUpOnHover,
-                                ),
-                              )
-                              .toList()
-                          : [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  right: 15,
-                                  top: 6,
-                                  bottom: 6,
-                                ),
-                                child: TextButton.icon(
-                                  onPressed: () =>
-                                      scaffoldKey.currentState?.openEndDrawer(),
-                                  icon: const Icon(Icons.menu_rounded),
-                                  label: const Text('Menu'),
-                                ),
-                              ),
-                            ],
-                    ),
-                    SliverToBoxAdapter(
-                      child: SizedBox(
-                        height: sizingInformation.screenSize.height,
-                        child: Container(
-                          padding: sizingInformation.isDesktop
-                              ? const EdgeInsets.symmetric(horizontal: 90)
-                              : const EdgeInsets.symmetric(horizontal: 24),
-                          alignment: Alignment.topCenter,
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 1200),
-                            child: ScrollConfiguration(
-                              behavior:
-                                  ScrollConfiguration.of(context).copyWith(
-                                scrollbars: false,
-                                overscroll: false,
-                              ),
-                              child: child!,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+      ],
+      child: MaterialApp(
+          title: 'E-commerce Website',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            fontFamily: GoogleFonts.firaSans().fontFamily,
+            primarySwatch: Colors.orange,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+            textButtonTheme: TextButtonThemeData(
+                style: ButtonStyle(
+              textStyle: MaterialStateProperty.all<TextStyle>(
+                GoogleFonts.firaSans(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            );
-          });
-        });
+            )),
+          ),
+          navigatorKey: locator<NavigationService>().navigatorKey,
+          onGenerateRoute: generateRoute,
+          initialRoute: HomeViewRoute,
+          builder: (context, child) {
+            return ResponsiveBuilder(builder:
+                (BuildContext context, SizingInformation sizingInformation) {
+              return ColorfulSafeArea(
+                color: Colors.orange,
+                child: Scaffold(
+                  key: locator<ScaffoldKeyService>().scaffoldKey,
+                  endDrawer: sizingInformation.isDesktop
+                      ? null
+                      : const CustomNavigationDrawer(),
+                  body: CustomScrollView(
+                    slivers: <Widget>[
+                      sizingInformation.isDesktop
+                          ? const DesktopNavigationBar()
+                          : const MobileNavigationBar(),
+                      SliverToBoxAdapter(
+                        child: SizedBox(
+                          height: sizingInformation.screenSize.height,
+                          child: Container(
+                            padding: sizingInformation.isDesktop
+                                ? const EdgeInsets.symmetric(horizontal: 90)
+                                : const EdgeInsets.symmetric(horizontal: 24),
+                            alignment: Alignment.topCenter,
+                            child: ConstrainedBox(
+                              constraints: const BoxConstraints(maxWidth: 1200),
+                              child: ScrollConfiguration(
+                                behavior:
+                                    ScrollConfiguration.of(context).copyWith(
+                                  scrollbars: false,
+                                  overscroll: false,
+                                ),
+                                child: child!,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            });
+          }),
+    );
   }
 }
