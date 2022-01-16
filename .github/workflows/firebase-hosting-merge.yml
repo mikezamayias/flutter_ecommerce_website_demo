@@ -25,7 +25,6 @@ jobs:
           path: build/web
   deploy_web:
     name: Deploy Web to Firebase Hosting
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     needs: build_web
     runs-on: ubuntu-latest
     steps:
