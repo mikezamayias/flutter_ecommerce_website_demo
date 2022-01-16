@@ -125,7 +125,14 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                           alignment: Alignment.topCenter,
                           child: ConstrainedBox(
                             constraints: const BoxConstraints(maxWidth: 1200),
-                            child: child!,
+                            child: ScrollConfiguration(
+                              behavior:
+                                  ScrollConfiguration.of(context).copyWith(
+                                scrollbars: false,
+                                overscroll: false,
+                              ),
+                              child: child!,
+                            ),
                           ),
                         ),
                       ),

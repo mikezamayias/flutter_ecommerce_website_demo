@@ -25,91 +25,88 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<SignUpViewModel>.reactive(
       viewModelBuilder: () => SignUpViewModel(),
-      builder: (context, model, child) => ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              verticalSpaceLarge,
-              const Text(
-                'Sign Up',
-                style: TextStyle(
-                  fontSize: 33,
-                ),
+      builder: (context, model, child) => SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            verticalSpaceLarge,
+            const Text(
+              'Sign Up',
+              style: TextStyle(
+                fontSize: 33,
               ),
-              verticalSpaceMedium,
-              InputField(
-                placeholder: 'Email',
-                controller: _emailController,
-              ),
-              verticalSpaceSmall,
-              InputField(
-                placeholder: 'Password',
-                password: true,
-                controller: _passwordController,
-                additionalNote: _passwordNote,
-              ),
-              verticalSpaceSmall,
-              InputField(
-                placeholder: 'Confirm Password',
-                password: true,
-                controller: _confirmPasswordController,
-                additionalNote: _passwordNote,
-              ),
-              verticalSpaceSmall,
-              InputField(
-                placeholder: 'First Name',
-                controller: _firstNameController,
-              ),
-              verticalSpaceSmall,
-              InputField(
-                placeholder: 'Last Name',
-                controller: _lastNameController,
-              ),
-              verticalSpaceSmall,
-              InputField(
-                placeholder: 'Phone Number',
-                controller: _phoneNumberController,
-              ),
-              verticalSpaceSmall,
-              InputField(
-                placeholder: 'Address',
-                controller: _addressController,
-              ),
-              verticalSpaceSmall,
-              InputField(
-                placeholder: 'City',
-                controller: _cityController,
-              ),
-              verticalSpaceSmall,
-              InputField(
-                placeholder: 'Postal Code',
-                controller: _postalCodeController,
-              ),
-              verticalSpaceMedium,
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  BusyButton(
-                    title: 'Sign Up',
-                    busy: model.busy,
-                    onPressed: () {
-                      model.signUp(
-                        email: _emailController.text,
-                        password: _passwordController.text,
-                        confirmPassword: _confirmPasswordController.text,
-                      );
-                    },
-                  )
-                ],
-              ),
-              verticalSpaceLarge,
-            ],
-          ),
+            ),
+            verticalSpaceMedium,
+            InputField(
+              placeholder: 'Email',
+              controller: _emailController,
+            ),
+            verticalSpaceSmall,
+            InputField(
+              placeholder: 'Password',
+              password: true,
+              controller: _passwordController,
+              additionalNote: _passwordNote,
+            ),
+            verticalSpaceSmall,
+            InputField(
+              placeholder: 'Confirm Password',
+              password: true,
+              controller: _confirmPasswordController,
+              additionalNote: _passwordNote,
+            ),
+            verticalSpaceSmall,
+            InputField(
+              placeholder: 'First Name',
+              controller: _firstNameController,
+            ),
+            verticalSpaceSmall,
+            InputField(
+              placeholder: 'Last Name',
+              controller: _lastNameController,
+            ),
+            verticalSpaceSmall,
+            InputField(
+              placeholder: 'Phone Number',
+              controller: _phoneNumberController,
+            ),
+            verticalSpaceSmall,
+            InputField(
+              placeholder: 'Address',
+              controller: _addressController,
+            ),
+            verticalSpaceSmall,
+            InputField(
+              placeholder: 'City',
+              controller: _cityController,
+            ),
+            verticalSpaceSmall,
+            InputField(
+              placeholder: 'Postal Code',
+              controller: _postalCodeController,
+            ),
+            verticalSpaceMedium,
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                BusyButton(
+                  title: 'Sign Up',
+                  busy: model.busy,
+                  onPressed: () {
+                    model.signUp(
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                      confirmPassword: _confirmPasswordController.text,
+                    );
+                  },
+                )
+              ],
+            ),
+            verticalSpaceLarge,
+          ],
         ),
       ),
     );
