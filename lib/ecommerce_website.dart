@@ -1,7 +1,6 @@
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -11,6 +10,7 @@ import 'routing/routes.dart';
 import 'services/authentication_service.dart';
 import 'services/navigation_service.dart';
 import 'services/scaffold_key_service.dart';
+import 'themes/custom_theme_data.dart';
 import 'widgets/navigation/custom_navigation_drawer.dart';
 import 'widgets/navigation/desktop_navigation_bar.dart';
 import 'widgets/navigation/mobile_navigation_bar.dart';
@@ -35,26 +35,17 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
       child: MaterialApp(
           title: 'E-commerce Website',
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            fontFamily: GoogleFonts.firaSans().fontFamily,
-            primarySwatch: Colors.orange,
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-            textButtonTheme: TextButtonThemeData(
-                style: ButtonStyle(
-              textStyle: MaterialStateProperty.all<TextStyle>(
-                GoogleFonts.firaSans(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            )),
-          ),
+          theme: CurrentTheme.lightTheme,
+          darkTheme: CurrentTheme.darkTheme,
+          themeMode: currentTheme.currentTheme,
           navigatorKey: locator<NavigationService>().navigatorKey,
           onGenerateRoute: generateRoute,
           initialRoute: HomeViewRoute,
           builder: (context, child) {
-            return ResponsiveBuilder(builder:
-                (BuildContext context, SizingInformation sizingInformation) {
+            return ResponsiveBuilder(builder: (
+              BuildContext context,
+              SizingInformation sizingInformation,
+            ) {
               return ColorfulSafeArea(
                 color: Colors.orange,
                 child: Scaffold(
