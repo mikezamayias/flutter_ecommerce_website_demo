@@ -32,17 +32,18 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
       centerTitle: false,
       title: const NavigationBarLogo(),
       actions: loggedIn
-          ? const [
-              HomeNavigationItem(),
-              CartNavigationItem(),
-              OrdersNavigationItem(),
-              ContactNavigationItem(),
-              LogOutNavigationItem()
+          ? [
+              Text('Hello, ${user.displayName ?? user.uid}'),
+              const HomeNavigationItem(),
+              const CartNavigationItem(),
+              const OrdersNavigationItem(),
+              const ContactNavigationItem(),
+              const LogOutNavigationItem()
             ].map((widget) => widget.paddNavigationBarItem).toList()
           : const [
+              HomeNavigationItem(),
               SignUpNavigationItem(),
               LogInNavigationItem(),
-              HomeNavigationItem(),
               CartNavigationItem(),
               ContactNavigationItem(),
             ].map((widget) => widget.paddNavigationBarItem).toList(),

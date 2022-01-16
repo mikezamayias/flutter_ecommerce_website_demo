@@ -1,7 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/services/authentication_service.dart';
-
-import '../../locator.dart';
+import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -11,15 +10,14 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final _authenticationService = locator<AuthenticationService>();
   @override
   Widget build(BuildContext context) {
+    User? user = Provider.of<User?>(context);
+    bool _loggedIn = user != null;
     return Center(
-      child: Text(
-        _authenticationService.currentUser == null
-            ? 'Not Logged In'
-            : _authenticationService.currentUser!.uid,
-      ),
+      child: _loggedIn
+          ? Text('Hello, ${user.displayName ?? user.uid}')
+          : const Text('Not logged in'),
     );
   }
 }
