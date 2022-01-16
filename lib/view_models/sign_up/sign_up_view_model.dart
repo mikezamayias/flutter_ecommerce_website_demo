@@ -1,6 +1,6 @@
 import 'package:flutter_ecommerce_website_demo/services/dialog_service.dart';
+import 'package:stacked/stacked.dart';
 
-import '../base/base_view_model.dart';
 import '../../routing/routes.dart';
 import '../../services/navigation_service.dart';
 import '../../services/authentication_service.dart';
@@ -28,27 +28,27 @@ class SignUpViewModel extends BaseViewModel {
       return;
     }
 
-    var result = await _authenticationService.registerWithEmail(
-      email: email,
-      password: password,
-    );
+    // var result = await _authenticationService.registerWithEmail(
+    //   email: email,
+    //   password: password,
+    // );
 
-    setBusy(false);
+    // setBusy(false);
 
-    if (result is bool) {
-      if (result) {
-        _navigationService.navigateTo(HomeViewRoute);
-      } else {
-        await _dialogService.showDialog(
-          title: 'Sign Up Failure',
-          description: 'General sign up failure. Please try again later',
-        );
-      }
-    } else {
-      await _dialogService.showDialog(
-        title: 'Sign Up Failure',
-        description: result,
-      );
-    }
+    // if (result is bool) {
+    //   if (result) {
+    //     _navigationService.navigateTo(HomeViewRoute);
+    //   } else {
+    //     await _dialogService.showDialog(
+    //       title: 'Sign Up Failure',
+    //       description: 'General sign up failure. Please try again later',
+    //     );
+    //   }
+    // } else {
+    //   await _dialogService.showDialog(
+    //     title: 'Sign Up Failure',
+    //     description: result,
+    //   );
+    // }
   }
 }
