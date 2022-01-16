@@ -5,7 +5,7 @@ import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import '../widgets/translate_on_hover/translate_on_hover.dart';
 
-extension HoverExtensions on Widget {
+extension HoverExtension on Widget {
   // Get a regerence to the body of the view
   static final appContainer =
       html.window.document.getElementById('app-container');
