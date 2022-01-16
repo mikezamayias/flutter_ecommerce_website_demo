@@ -31,6 +31,7 @@ dependencies:
   cloud_firestore: ^3.1.6
   colorful_safe_area: ^0.3.0
   cupertino_icons: ^1.0.4
+  eventify: ^1.0.0
   firebase_auth: ^3.3.5
   firebase_core: ^1.11.0
   flutter:
@@ -47,12 +48,12 @@ dependencies:
   url_launcher: ^6.0.18
 
 dev_dependencies:
-  freezed: ^1.1.1
-  json_serializable: ^6.1.4
   build_runner: ^2.1.7
   flutter_lints: ^1.0.4
   flutter_test:
     sdk: flutter
+  freezed: ^1.1.1
+  json_serializable: ^6.1.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
