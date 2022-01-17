@@ -3,13 +3,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthenticationService {
   // firebase auth object
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // firebase auth object getter
-  User? get currentUser => _firebaseAuth.currentUser;
+  User? get currentUser => _auth.currentUser;
 
   // authentication state change listener
-  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+  Stream<User?> get authStateChanges => _auth.authStateChanges();
 
   // // sign up anonymously
   // Future<User?> logInAnonymously() async {
@@ -24,13 +24,27 @@ class AuthenticationService {
   // }
 
   // sign up with email and password
+   Future<Object> signUpWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      var authResult = await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return authResult.user != null;
+    } catch (e) {
+      return e.toString();
+    }
+  }
 
   // log in with email and password
 
   // log out
   Future<void> logOut() async {
     try {
-      return await _firebaseAuth.signOut();
+      return await _auth.signOut();
     } catch (e) {
       debugPrint(e.toString());
     }
