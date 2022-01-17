@@ -40,6 +40,20 @@ class AuthenticationService {
   }
 
   // log in with email and password
+  Future<Object> logInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      var authResult = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return authResult.user != null;
+    } catch (e) {
+      return e.toString();
+    }
+  }
 
   // log out
   Future<void> logOut() async {
