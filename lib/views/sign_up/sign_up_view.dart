@@ -18,6 +18,8 @@ class _SignUpViewState extends State<SignUpView> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  bool _obscuredPassword = true;
+  bool _obscuredConfirmPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +52,22 @@ class _SignUpViewState extends State<SignUpView> {
             verticalSpaceSmall,
             TextFormField(
               controller: _passwordController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Password',
                 errorMaxLines: 3,
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _obscuredPassword ? Icons.visibility : Icons.visibility_off,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _obscuredPassword = !_obscuredPassword;
+                    });
+                  },
+                ),
               ),
-              obscureText: true,
+              keyboardType: TextInputType.visiblePassword,
+              obscureText: _obscuredPassword,
               autocorrect: false,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: model.validatePassword,
@@ -62,11 +75,23 @@ class _SignUpViewState extends State<SignUpView> {
             verticalSpaceSmall,
             TextFormField(
               controller: _confirmPasswordController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Confirm Password',
                 errorMaxLines: 3,
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _obscuredConfirmPassword
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _obscuredConfirmPassword = !_obscuredConfirmPassword;
+                    });
+                  },
+                ),
               ),
-              obscureText: true,
+              obscureText: _obscuredConfirmPassword,
               autocorrect: false,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: (value) => model.validateConfirmPassword(
