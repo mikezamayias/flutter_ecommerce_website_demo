@@ -5,11 +5,16 @@ import '../../services/authentication_service.dart';
 import '../../services/navigation_service.dart';
 import '../../locator.dart';
 
-class LogOutNavigationItem extends StatelessWidget {
+class LogOutNavigationItem extends StatefulWidget {
   const LogOutNavigationItem({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<LogOutNavigationItem> createState() => _LogOutNavigationItemState();
+}
+
+class _LogOutNavigationItemState extends State<LogOutNavigationItem> {
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(

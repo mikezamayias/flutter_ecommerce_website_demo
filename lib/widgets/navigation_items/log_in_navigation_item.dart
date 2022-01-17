@@ -6,11 +6,16 @@ import 'package:flutter/material.dart';
 // import '../../locator.dart';
 
 
-class LogInNavigationItem extends StatelessWidget {
+class LogInNavigationItem extends StatefulWidget {
   const LogInNavigationItem({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<LogInNavigationItem> createState() => _LogInNavigationItemState();
+}
+
+class _LogInNavigationItemState extends State<LogInNavigationItem> {
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(

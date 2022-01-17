@@ -4,11 +4,16 @@ import '../../routing/routes.dart';
 import '../../services/navigation_service.dart';
 import '../../locator.dart';
 
-class OrdersNavigationItem extends StatelessWidget {
+class OrdersNavigationItem extends StatefulWidget {
   const OrdersNavigationItem({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<OrdersNavigationItem> createState() => _OrdersNavigationItemState();
+}
+
+class _OrdersNavigationItemState extends State<OrdersNavigationItem> {
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
