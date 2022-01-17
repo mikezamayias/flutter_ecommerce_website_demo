@@ -7,8 +7,7 @@ import '../../services/authentication_service.dart';
 import '../../locator.dart';
 
 class SignUpViewModel extends BaseViewModel {
-  final AuthenticationService _authenticationService =
-      locator<AuthenticationService>();
+  final AuthenticationService _authService = locator<AuthenticationService>();
   final DialogService _dialogService = locator<DialogService>();
   final NavigationService _navigationService = locator<NavigationService>();
 
@@ -28,27 +27,27 @@ class SignUpViewModel extends BaseViewModel {
       return;
     }
 
-    // var result = await _authenticationService.registerWithEmail(
-    //   email: email,
-    //   password: password,
-    // );
+    var result = await _authService.signUpWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
 
-    // setBusy(false);
+    setBusy(false);
 
-    // if (result is bool) {
-    //   if (result) {
-    //     _navigationService.navigateTo(HomeViewRoute);
-    //   } else {
-    //     await _dialogService.showDialog(
-    //       title: 'Sign Up Failure',
-    //       description: 'General sign up failure. Please try again later',
-    //     );
-    //   }
-    // } else {
-    //   await _dialogService.showDialog(
-    //     title: 'Sign Up Failure',
-    //     description: result,
-    //   );
-    // }
+    if (result is bool) {
+      if (result) {
+        _navigationService.navigateTo(HomeViewRoute);
+      } else {
+        await _dialogService.showDialog(
+          title: 'Sign Up Failure',
+          description: 'General sign up failure. Please try again later.',
+        );
+      }
+    } else {
+      await _dialogService.showDialog(
+        title: 'Sign Up Failure',
+        description: result.toString(),
+      );
+    }
   }
 }

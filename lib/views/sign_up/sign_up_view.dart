@@ -12,12 +12,12 @@ class SignUpView extends StatelessWidget {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
-  final _firstNameController = TextEditingController();
-  final _lastNameController = TextEditingController();
-  final _phoneNumberController = TextEditingController();
-  final _addressController = TextEditingController();
-  final _cityController = TextEditingController();
-  final _postalCodeController = TextEditingController();
+  // final _firstNameController = TextEditingController();
+  // final _lastNameController = TextEditingController();
+  // final _phoneNumberController = TextEditingController();
+  // final _addressController = TextEditingController();
+  // final _cityController = TextEditingController();
+  // final _postalCodeController = TextEditingController();
 
   SignUpView({Key? key}) : super(key: key);
 
@@ -25,8 +25,8 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<SignUpViewModel>.reactive(
       viewModelBuilder: () => SignUpViewModel(),
-      builder: (context, model, child) => SingleChildScrollView(
-        child: Column(
+      builder: (context, model, child) => Scaffold(
+        body: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,36 +57,36 @@ class SignUpView extends StatelessWidget {
               controller: _confirmPasswordController,
               additionalNote: _passwordNote,
             ),
-            verticalSpaceSmall,
-            InputField(
-              placeholder: 'First Name',
-              controller: _firstNameController,
-            ),
-            verticalSpaceSmall,
-            InputField(
-              placeholder: 'Last Name',
-              controller: _lastNameController,
-            ),
-            verticalSpaceSmall,
-            InputField(
-              placeholder: 'Phone Number',
-              controller: _phoneNumberController,
-            ),
-            verticalSpaceSmall,
-            InputField(
-              placeholder: 'Address',
-              controller: _addressController,
-            ),
-            verticalSpaceSmall,
-            InputField(
-              placeholder: 'City',
-              controller: _cityController,
-            ),
-            verticalSpaceSmall,
-            InputField(
-              placeholder: 'Postal Code',
-              controller: _postalCodeController,
-            ),
+            // verticalSpaceSmall,
+            // InputField(
+            //   placeholder: 'First Name',
+            //   controller: _firstNameController,
+            // ),
+            // verticalSpaceSmall,
+            // InputField(
+            //   placeholder: 'Last Name',
+            //   controller: _lastNameController,
+            // ),
+            // verticalSpaceSmall,
+            // InputField(
+            //   placeholder: 'Phone Number',
+            //   controller: _phoneNumberController,
+            // ),
+            // verticalSpaceSmall,
+            // InputField(
+            //   placeholder: 'Address',
+            //   controller: _addressController,
+            // ),
+            // verticalSpaceSmall,
+            // InputField(
+            //   placeholder: 'City',
+            //   controller: _cityController,
+            // ),
+            // verticalSpaceSmall,
+            // InputField(
+            //   placeholder: 'Postal Code',
+            //   controller: _postalCodeController,
+            // ),
             verticalSpaceMedium,
             Row(
               mainAxisSize: MainAxisSize.max,
@@ -94,13 +94,13 @@ class SignUpView extends StatelessWidget {
               children: [
                 BusyButton(
                   title: 'Sign Up',
-                  // busy: model.busy,
+                  busy: model.isBusy,
                   onPressed: () {
-                    // model.signUp(
-                    //   email: _emailController.text,
-                    //   password: _passwordController.text,
-                    //   confirmPassword: _confirmPasswordController.text,
-                    // );
+                    model.signUp(
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                      confirmPassword: _confirmPasswordController.text,
+                    );
                   },
                 )
               ],
