@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/widgets/input_field/input_field.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../locator.dart';
@@ -86,123 +87,6 @@ class _SignUpViewState extends State<SignUpView> {
                 );
               },
             ),
-            // AnimatedContainer(
-            //   duration: const Duration(milliseconds: 300),
-            //   decoration: BoxDecoration(
-            //     color: !model.isBusy ? Colors.orange : Colors.grey,
-            //     borderRadius: BorderRadius.circular(21),
-            //   ),
-            //   child: TextButton.icon(
-            //     onPressed: () {
-            //       if (locator<FormService>()
-            //               .signUpFormKey
-            //               .currentState
-            //               ?.validate() !=
-            //           null) {
-            //         model.signUp(
-            //           email: _emailController.text,
-            //           password: _passwordController.text,
-            //         );
-            //       } else {
-            //         locator<DialogService>().showDialog(
-            //           title: 'Error',
-            //           description:
-            //               'Please make sure all fields are filled out correctly.',
-            //         );
-            //       }
-            //     },
-            //     icon: const Icon(
-            //       Icons.arrow_forward_rounded,
-            //       color: Colors.white,
-            //     ),
-            //     label: !model.isBusy
-            //         ? const Text(
-            //             'Sign Up',
-            //             style: TextStyle(
-            //               color: Colors.white,
-            //             ),
-            //           )
-            //         : const CircularProgressIndicator(
-            //             strokeWidth: 2,
-            //             valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-            //           ),
-            //   ).paddNavigationBarItem,
-            // ).moveUpOnHover,
-
-            // verticalSpaceLarge,
-            // const Text(
-            //   'Sign Up',
-            //   style: TextStyle(
-            //     fontSize: 33,
-            //   ),
-            // ),
-            // verticalSpaceMedium,
-            // InputField(
-            //   placeholder: 'Email',
-            //   controller: _emailController,
-            // ),
-            // verticalSpaceSmall,
-            // InputField(
-            //   placeholder: 'Password',
-            //   password: true,
-            //   controller: _passwordController,
-            //   additionalNote: _passwordNote,
-            // ),
-            // verticalSpaceSmall,
-            // InputField(
-            //   placeholder: 'Confirm Password',
-            //   password: true,
-            //   controller: _confirmPasswordController,
-            //   additionalNote: _passwordNote,
-            // ),
-            // verticalSpaceSmall,
-            // InputField(
-            //   placeholder: 'First Name',
-            //   controller: _firstNameController,
-            // ),
-            // verticalSpaceSmall,
-            // InputField(
-            //   placeholder: 'Last Name',
-            //   controller: _lastNameController,
-            // ),
-            // verticalSpaceSmall,
-            // InputField(
-            //   placeholder: 'Phone Number',
-            //   controller: _phoneNumberController,
-            // ),
-            // verticalSpaceSmall,
-            // InputField(
-            //   placeholder: 'Address',
-            //   controller: _addressController,
-            // ),
-            // verticalSpaceSmall,
-            // InputField(
-            //   placeholder: 'City',
-            //   controller: _cityController,
-            // ),
-            // verticalSpaceSmall,
-            // InputField(
-            //   placeholder: 'Postal Code',
-            //   controller: _postalCodeController,
-            // ),
-            // verticalSpaceMedium,
-            // Row(
-            //   mainAxisSize: MainAxisSize.max,
-            //   mainAxisAlignment: MainAxisAlignment.end,
-            //   children: [
-            //     BusyButton(
-            //       title: 'Sign Up',
-            //       busy: model.isBusy,
-            //       onPressed: () {
-            //         model.signUp(
-            //           email: _emailController.text,
-            //           password: _passwordController.text,
-            //           confirmPassword: _confirmPasswordController.text,
-            //         );
-            //       },
-            //     )
-            //   ],
-            // ),
             verticalSpaceLarge,
           ],
         ),
