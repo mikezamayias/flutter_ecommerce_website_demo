@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../services/scaffold_key_service.dart';
+import '../../services/scaffold_service.dart';
 import '../../locator.dart';
 
 class MenuNavigationItem extends StatelessWidget {
@@ -12,7 +12,7 @@ class MenuNavigationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton.icon(
       onPressed: () =>
-          locator<ScaffoldKeyService>().currentState!.openEndDrawer(),
+          locator<ScaffoldService>().currentState!.openEndDrawer(),
       icon: const Icon(Icons.menu_rounded),
       label: const Text('Menu'),
     );

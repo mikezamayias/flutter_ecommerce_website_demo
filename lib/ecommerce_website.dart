@@ -9,7 +9,7 @@ import 'routing/router.dart';
 import 'routing/routes.dart';
 import 'services/authentication_service.dart';
 import 'services/navigation_service.dart';
-import 'services/scaffold_key_service.dart';
+import 'services/scaffold_service.dart';
 import 'themes/custom_theme_data.dart';
 import 'widgets/navigation/custom_navigation_drawer.dart';
 import 'widgets/navigation/desktop_navigation_bar.dart';
@@ -49,7 +49,7 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
               return ColorfulSafeArea(
                 color: Colors.orange,
                 child: Scaffold(
-                  key: locator<ScaffoldKeyService>().scaffoldKey,
+                  key: locator<ScaffoldService>().scaffoldKey,
                   endDrawer: sizingInformation.isDesktop
                       ? null
                       : const CustomNavigationDrawer(),

@@ -1,4 +1,4 @@
-import 'package:flutter_ecommerce_website_demo/services/scaffold_key_service.dart';
+import 'package:flutter_ecommerce_website_demo/services/scaffold_service.dart';
 import 'package:get_it/get_it.dart';
 
 import 'services/authentication_service.dart';
@@ -11,5 +11,5 @@ void setupLocator() {
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => AuthenticationService());
-  locator.registerLazySingleton(() => ScaffoldKeyService());
+  locator.registerLazySingleton(() => ScaffoldService());
 }
