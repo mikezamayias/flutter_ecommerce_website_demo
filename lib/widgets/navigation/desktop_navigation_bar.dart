@@ -31,7 +31,7 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
       shadowColor: Colors.orange,
       backgroundColor: Colors.grey[100],
       centerTitle: false,
-      title: const NavigationBarLogo(),
+      title: const NavigationBarLogo().moveUpOnHover.paddNavigationBarItem,
       actions: loggedIn
           ? [
               Text('Hello, ${user.displayName ?? user.uid}'),
@@ -41,11 +41,7 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
               const ContactNavigationItem(),
               const LogOutNavigationItem()
             ]
-              .map(
-                (widget) => widget
-                  ..moveUpOnHover
-                  ..paddNavigationBarItem
-              )
+              .map((widget) => widget.moveUpOnHover.paddNavigationBarItem)
               .toList()
           : const [
               HomeNavigationItem(),
@@ -54,11 +50,7 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
               CartNavigationItem(),
               ContactNavigationItem(),
             ]
-              .map(
-                (widget) => widget
-                  ..moveUpOnHover
-                  ..paddNavigationBarItem
-              )
+              .map((widget) => widget.moveUpOnHover.paddNavigationBarItem)
               .toList(),
     );
   }
