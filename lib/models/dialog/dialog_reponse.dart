@@ -1,9 +1,9 @@
-class DialogResponseModel {
+class DialogResponse {
   final String? fieldOne;
   final String? fieldTwo;
   final bool? confirmed;
 
-  DialogResponseModel({
+  DialogResponse({
     this.fieldOne,
     this.fieldTwo,
     this.confirmed,
