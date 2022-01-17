@@ -5,7 +5,7 @@ import '../../routing/routes.dart';
 import '../../services/authentication_service.dart';
 import '../../services/dialog_service.dart';
 import '../../services/navigation_service.dart';
-import '../validators.dart';
+import '../../shared/validators.dart';
 
 class LogInViewModel extends BaseViewModel with Validators {
   final AuthenticationService _authService = locator<AuthenticationService>();
