@@ -44,5 +44,6 @@ class _FadeRoute extends PageRouteBuilder {
               page,
           transitionsBuilder: (context, animation, secondaryAnimation, child) =>
               FadeTransition(opacity: animation, child: child),
+          transitionDuration: const Duration(milliseconds: 0),
         );
 }
