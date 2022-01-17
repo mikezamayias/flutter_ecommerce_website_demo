@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/extensions/hover_extension.dart';
-import 'package:flutter_ecommerce_website_demo/extensions/padding_extension.dart';
-import 'package:flutter_ecommerce_website_demo/services/dialog_service.dart';
-import 'package:flutter_ecommerce_website_demo/services/form_service.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../locator.dart';
-import '../../widgets/busy_button.dart';
-import '../../widgets/input_field/input_field.dart';
+import '../../services/form_service.dart';
 import '../../ui/shared/ui_helpers.dart';
 import '../../view_models/sign_up/sign_up_view_model.dart';
+import '../../widgets/busy_button.dart';
 
 class SignUpView extends StatelessWidget {
-  final String _passwordNote =
-      'Password must be at least 8 characters long, with at least one uppercase, one lowercase letter, one number and a special character.';
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();

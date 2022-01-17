@@ -1,4 +1,3 @@
-import 'package:flutter_ecommerce_website_demo/view_models/validators.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../locator.dart';
@@ -6,6 +5,7 @@ import '../../routing/routes.dart';
 import '../../services/authentication_service.dart';
 import '../../services/dialog_service.dart';
 import '../../services/navigation_service.dart';
+import '../validators.dart';
 
 class LogInViewModel extends BaseViewModel with Validators {
   final _authService = locator<AuthenticationService>();
