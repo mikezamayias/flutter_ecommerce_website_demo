@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/widgets/input_field/input_field.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../locator.dart';

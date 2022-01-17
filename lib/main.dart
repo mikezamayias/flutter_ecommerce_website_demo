@@ -11,8 +11,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  // use to anonymously authenticate the user upon app start
-  // await AuthenticationService().getOrCreateUser();
   setupLocator();
   runApp(const EcommerceWebsite());
 }
