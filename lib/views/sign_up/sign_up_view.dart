@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/extensions/hover_extension.dart';
+import 'package:flutter_ecommerce_website_demo/extensions/padding_extension.dart';
+import 'package:flutter_ecommerce_website_demo/services/dialog_service.dart';
+import 'package:flutter_ecommerce_website_demo/services/form_service.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../locator.dart';
 import '../../widgets/busy_button.dart';
 import '../../widgets/input_field/input_field.dart';
 import '../../ui/shared/ui_helpers.dart';
@@ -25,38 +30,138 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<SignUpViewModel>.reactive(
       viewModelBuilder: () => SignUpViewModel(),
-      builder: (context, model, child) => Scaffold(
-        body: Column(
+      builder: (context, model, child) => Form(
+        key: locator<FormService>().signUpFormKey,
+        child: Column(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             verticalSpaceLarge,
-            const Text(
+            Text(
               'Sign Up',
-              style: TextStyle(
-                fontSize: 33,
+              style: Theme.of(context).textTheme.headline3,
+            ),
+            verticalSpaceMedium,
+            TextFormField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                errorMaxLines: 3,
+              ),
+              keyboardType: TextInputType.emailAddress,
+              autocorrect: false,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: model.validateEmail,
+            ),
+            verticalSpaceSmall,
+            TextFormField(
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                labelText: 'Password',
+                errorMaxLines: 3,
+              ),
+              obscureText: true,
+              autocorrect: false,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: model.validatePassword,
+            ),
+            verticalSpaceSmall,
+            TextFormField(
+              controller: _confirmPasswordController,
+              decoration: const InputDecoration(
+                labelText: 'Confirm Password',
+                errorMaxLines: 3,
+              ),
+              obscureText: true,
+              autocorrect: false,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (value) => model.validateConfirmPassword(
+                value,
+                _passwordController.text,
               ),
             ),
             verticalSpaceMedium,
-            InputField(
-              placeholder: 'Email',
-              controller: _emailController,
+            BusyButton(
+              title: 'Sign Up',
+              busy: model.isBusy,
+              onPressed: () {
+                model.signUp(
+                  email: _emailController.text,
+                  password: _passwordController.text,
+                  confirmPassword: _confirmPasswordController.text,
+                );
+              },
             ),
-            verticalSpaceSmall,
-            InputField(
-              placeholder: 'Password',
-              password: true,
-              controller: _passwordController,
-              additionalNote: _passwordNote,
-            ),
-            verticalSpaceSmall,
-            InputField(
-              placeholder: 'Confirm Password',
-              password: true,
-              controller: _confirmPasswordController,
-              additionalNote: _passwordNote,
-            ),
+            // AnimatedContainer(
+            //   duration: const Duration(milliseconds: 300),
+            //   decoration: BoxDecoration(
+            //     color: !model.isBusy ? Colors.orange : Colors.grey,
+            //     borderRadius: BorderRadius.circular(21),
+            //   ),
+            //   child: TextButton.icon(
+            //     onPressed: () {
+            //       if (locator<FormService>()
+            //               .signUpFormKey
+            //               .currentState
+            //               ?.validate() !=
+            //           null) {
+            //         model.signUp(
+            //           email: _emailController.text,
+            //           password: _passwordController.text,
+            //         );
+            //       } else {
+            //         locator<DialogService>().showDialog(
+            //           title: 'Error',
+            //           description:
+            //               'Please make sure all fields are filled out correctly.',
+            //         );
+            //       }
+            //     },
+            //     icon: const Icon(
+            //       Icons.arrow_forward_rounded,
+            //       color: Colors.white,
+            //     ),
+            //     label: !model.isBusy
+            //         ? const Text(
+            //             'Sign Up',
+            //             style: TextStyle(
+            //               color: Colors.white,
+            //             ),
+            //           )
+            //         : const CircularProgressIndicator(
+            //             strokeWidth: 2,
+            //             valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+            //           ),
+            //   ).paddNavigationBarItem,
+            // ).moveUpOnHover,
+
+            // verticalSpaceLarge,
+            // const Text(
+            //   'Sign Up',
+            //   style: TextStyle(
+            //     fontSize: 33,
+            //   ),
+            // ),
+            // verticalSpaceMedium,
+            // InputField(
+            //   placeholder: 'Email',
+            //   controller: _emailController,
+            // ),
+            // verticalSpaceSmall,
+            // InputField(
+            //   placeholder: 'Password',
+            //   password: true,
+            //   controller: _passwordController,
+            //   additionalNote: _passwordNote,
+            // ),
+            // verticalSpaceSmall,
+            // InputField(
+            //   placeholder: 'Confirm Password',
+            //   password: true,
+            //   controller: _confirmPasswordController,
+            //   additionalNote: _passwordNote,
+            // ),
             // verticalSpaceSmall,
             // InputField(
             //   placeholder: 'First Name',
@@ -87,24 +192,24 @@ class SignUpView extends StatelessWidget {
             //   placeholder: 'Postal Code',
             //   controller: _postalCodeController,
             // ),
-            verticalSpaceMedium,
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                BusyButton(
-                  title: 'Sign Up',
-                  busy: model.isBusy,
-                  onPressed: () {
-                    model.signUp(
-                      email: _emailController.text,
-                      password: _passwordController.text,
-                      confirmPassword: _confirmPasswordController.text,
-                    );
-                  },
-                )
-              ],
-            ),
+            // verticalSpaceMedium,
+            // Row(
+            //   mainAxisSize: MainAxisSize.max,
+            //   mainAxisAlignment: MainAxisAlignment.end,
+            //   children: [
+            //     BusyButton(
+            //       title: 'Sign Up',
+            //       busy: model.isBusy,
+            //       onPressed: () {
+            //         model.signUp(
+            //           email: _emailController.text,
+            //           password: _passwordController.text,
+            //           confirmPassword: _confirmPasswordController.text,
+            //         );
+            //       },
+            //     )
+            //   ],
+            // ),
             verticalSpaceLarge,
           ],
         ),
