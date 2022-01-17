@@ -31,7 +31,7 @@ class _LogInViewState extends State<LogInView> {
           children: <Widget>[
             verticalSpaceLarge,
             Text(
-              'Sign Up',
+              'Log In',
               style: Theme.of(context).textTheme.headline3,
             ),
             verticalSpaceMedium,
