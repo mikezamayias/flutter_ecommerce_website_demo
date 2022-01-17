@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/extensions/hover_extension.dart';
 import 'package:provider/provider.dart';
 
 import '../../extensions/padding_extension.dart';
@@ -39,14 +40,26 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
               const OrdersNavigationItem(),
               const ContactNavigationItem(),
               const LogOutNavigationItem()
-            ].map((widget) => widget.paddNavigationBarItem).toList()
+            ]
+              .map(
+                (widget) => widget
+                  ..moveUpOnHover
+                  ..paddNavigationBarItem
+              )
+              .toList()
           : const [
               HomeNavigationItem(),
               SignUpNavigationItem(),
               LogInNavigationItem(),
               CartNavigationItem(),
               ContactNavigationItem(),
-            ].map((widget) => widget.paddNavigationBarItem).toList(),
+            ]
+              .map(
+                (widget) => widget
+                  ..moveUpOnHover
+                  ..paddNavigationBarItem
+              )
+              .toList(),
     );
   }
 }
