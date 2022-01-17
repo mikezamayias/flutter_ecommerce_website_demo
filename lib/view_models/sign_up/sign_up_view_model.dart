@@ -47,7 +47,7 @@ class SignUpViewModel extends BaseViewModel with Validators {
           );
         }
       } else {
-        _dialogService.showDialog(
+        await _dialogService.showDialog(
           title: 'Sign Up Failure',
           description: result
               .toString()
