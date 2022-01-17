@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/ui/shared/ui_helpers.dart';
 import 'package:provider/provider.dart';
 
 import '../../extensions/padding_extension.dart';
+import '../../shared/ui/ui_helpers.dart';
 import '../navigation_items/cart_navigation_item.dart';
 import '../navigation_items/contact_navigation_item.dart';
 import '../navigation_items/home_navigation_item.dart';

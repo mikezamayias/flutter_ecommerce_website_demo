@@ -3,7 +3,7 @@ import 'package:stacked/stacked.dart';
 
 import '../../locator.dart';
 import '../../services/form_service.dart';
-import '../../ui/shared/ui_helpers.dart';
+import '../../shared/ui/ui_helpers.dart';
 import '../../view_models/sign_up/sign_up_view_model.dart';
 import '../../widgets/busy_button.dart';
 

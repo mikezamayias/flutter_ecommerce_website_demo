@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_ecommerce_website_demo/ui/shared/shared_styles.dart';
-import 'package:flutter_ecommerce_website_demo/ui/shared/ui_helpers.dart';
-import 'package:flutter_ecommerce_website_demo/widgets/note_text/note_text.dart';
+
+import '../../shared/ui/shared_styles.dart';
+import '../../shared/ui/ui_helpers.dart';
+import '../note_text/note_text.dart';
 
 class InputField extends StatefulWidget {
   final TextEditingController controller;
@@ -120,7 +121,7 @@ class _InputFieldState extends State<InputField> {
           ),
         if (widget.additionalNote != null) verticalSpace(5),
         if (widget.additionalNote != null) NoteText(widget.additionalNote!),
-        verticalSpaceSmall
+        verticalSpaceSmall,
       ],
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/extensions/hover_extension.dart';
 
-import '../ui/shared/shared_styles.dart';
+import '../extensions/hover_extension.dart';
+import '../shared/ui/shared_styles.dart';
 
 /// A button that shows a busy indicator in place of title
 class BusyButton extends StatefulWidget {
