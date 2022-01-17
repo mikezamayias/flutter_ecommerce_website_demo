@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ScaffoldKeyService {
+class ScaffoldService {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   ScaffoldState? get currentState => _scaffoldKey.currentState;
