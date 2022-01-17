@@ -14,7 +14,7 @@ PageRoute generateRoute(RouteSettings settings) {
     case HomeViewRoute:
       return _getPageRoute(const HomeView());
     case RegisterViewRoute:
-      return _getPageRoute(SignUpView());
+      return _getPageRoute(const SignUpView());
     case LoginViewRoute:
       return _getPageRoute(const LogInView());
     case CartViewRoute:
