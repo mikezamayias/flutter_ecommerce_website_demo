@@ -8,9 +8,9 @@ import '../../services/navigation_service.dart';
 import '../validators.dart';
 
 class LogInViewModel extends BaseViewModel with Validators {
-  final _authService = locator<AuthenticationService>();
-  final _dialogService = locator<DialogService>();
-  final _navigationService = locator<NavigationService>();
+  final AuthenticationService _authService = locator<AuthenticationService>();
+  final DialogService _dialogService = locator<DialogService>();
+  final NavigationService _navigationService = locator<NavigationService>();
 
   // Future logInAnonymously() async {
   //   setBusy(true);
@@ -33,7 +33,7 @@ class LogInViewModel extends BaseViewModel with Validators {
   //   }
   // }
 
-  Future logInWithEmailAndPassword({
+  Future logIn({
     required String email,
     required String password,
   }) async {
@@ -61,7 +61,9 @@ class LogInViewModel extends BaseViewModel with Validators {
       } else {
         await _dialogService.showDialog(
           title: 'Login Failure',
-          description: result.toString(),
+          description: result
+              .toString()
+              .substring(result.toString().indexOf(' ', 1) + 1),
         );
       }
     }
