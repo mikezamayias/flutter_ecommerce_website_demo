@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/ui/shared/ui_helpers.dart';
 import 'package:provider/provider.dart';
 
 import '../../extensions/padding_extension.dart';
@@ -29,20 +30,22 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
       width: 240,
       child: Drawer(
         backgroundColor: Colors.grey[100],
-        child: Align(
-          alignment: Alignment.topLeft,
-          child: ListView(
-            shrinkWrap: true,
-            padding: const EdgeInsets.all(9),
+        child: Padding(
+          padding: const EdgeInsets.all(9),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: loggedIn
-                ? const [
-                    HomeNavigationItem(),
-                    CartNavigationItem(),
-                    OrdersNavigationItem(),
-                    ContactNavigationItem(),
-                    LogOutNavigationItem()
+                ? [
+                    Text('Hello, ${user.displayName ?? user.uid}'),
+                    const HomeNavigationItem(),
+                    const CartNavigationItem(),
+                    const OrdersNavigationItem(),
+                    const ContactNavigationItem(),
+                    const LogOutNavigationItem()
                   ].map((widget) => widget.paddNavigationBarItem).toList()
                 : const [
+                    verticalSpaceMedium,
                     SignUpNavigationItem(),
                     LogInNavigationItem(),
                     HomeNavigationItem(),
