@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/extensions/hover_extension.dart';
 
 import '../ui/shared/shared_styles.dart';
 
@@ -36,7 +37,7 @@ class _BusyButtonState extends State<BusyButton> {
             vertical: widget.busy ? 10 : 10,
           ),
           decoration: BoxDecoration(
-            color: widget.enabled ? Colors.grey[800] : Colors.grey[300],
+            color: widget.enabled ? Colors.orange : Colors.grey[800],
             borderRadius: BorderRadius.circular(5),
           ),
           child: !widget.busy
@@ -48,7 +49,7 @@ class _BusyButtonState extends State<BusyButton> {
                   strokeWidth: 2,
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                 ),
-        ),
+        ).moveUpOnHover,
       ),
     );
   }
