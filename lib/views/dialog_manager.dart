@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/models/dialog/dialog_reponse.dart';
 
 import '../locator.dart';
 import '../models/dialog/dialog_reponse.dart';
