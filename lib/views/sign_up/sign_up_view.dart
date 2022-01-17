@@ -7,18 +7,17 @@ import '../../ui/shared/ui_helpers.dart';
 import '../../view_models/sign_up/sign_up_view_model.dart';
 import '../../widgets/busy_button.dart';
 
-class SignUpView extends StatelessWidget {
+class SignUpView extends StatefulWidget {
+  const SignUpView({Key? key}) : super(key: key);
+
+  @override
+  State<SignUpView> createState() => _SignUpViewState();
+}
+
+class _SignUpViewState extends State<SignUpView> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
-  // final _firstNameController = TextEditingController();
-  // final _lastNameController = TextEditingController();
-  // final _phoneNumberController = TextEditingController();
-  // final _addressController = TextEditingController();
-  // final _cityController = TextEditingController();
-  // final _postalCodeController = TextEditingController();
-
-  SignUpView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
