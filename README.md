@@ -9,9 +9,91 @@ Human Computer Interaction Lab
 
 **Project Description:** *A project for the final project of the course Human Computer Interaction of the Lab class at the Hellenic Mediterranean University. Built with Flutter and Firebase.*
 
+
+# Report
+
+The user authentication is implemented with Firebase and the database with Firestore.
+The Logo in the header is implemented routes to Home view where the phones are. Sign Up amd Log In views are self explanatory. Logout is implemented with a button in the navigation bar. When a user is logged in, the navigation bar buttons change accordingly, ie the Orders button does not appear if the user is not logged in because there are no data to show.
+
+An addition I made was the Add a phone page, in ait to help me populate the database with phones as I was not able to find any third-party and working API on the internet. It's functionality is to add a phone to the database. It could also be used by an admin to add a phone to the database of their company.
+
+
+You could browse the live page and demo it [here](https://flutter-ecommerce-website-demo.web.app/) (hosted on Firebase).
+
+
 ---
-[![wakatime](https://wakatime.com/badge/user/14aaa887-f33c-4964-831a-f5571f887a02/project/c591ac2b-cc58-447c-a89c-03ea95885fc1.svg)](https://wakatime.com/badge/user/14aaa887-f33c-4964-831a-f5571f887a02/project/c591ac2b-cc58-447c-a89c-03ea95885fc1)
----
+## Some interesting statistics about the project
+The assignment was completed in [![wakatime](https://wakatime.com/badge/user/14aaa887-f33c-4964-831a-f5571f887a02/project/c591ac2b-cc58-447c-a89c-03ea95885fc1.svg)](https://wakatime.com/badge/user/14aaa887-f33c-4964-831a-f5571f887a02/project/c591ac2b-cc58-447c-a89c-03ea95885fc1), and took over 3700 lines of dart code.
+```bash
+(base) ➜  flutter_ecommerce_website_demo git:(master) ✗ find . -name '*.dart' | xargs wc -l | sort -n
+       9 ./lib/routing/routes.dart
+       9 ./lib/services/scaffold_service.dart
+      10 ./lib/services/navigation_service.dart
+      11 ./lib/models/dialog/dialog_reponse.dart
+      13 ./lib/models/dialog/dialog_request.dart
+      14 ./.dart_tool/flutter_build/a5bba4548db47b0c4d2f849926e54f71/main.dart
+      16 ./lib/main.dart
+      16 ./lib/models/footer/info_field/footer_info_field_model.dart
+      17 ./lib/extensions/padding_extension.dart
+      18 ./lib/services/form_service.dart
+      18 ./lib/views/cart/cart_view.dart
+      18 ./lib/views/orders/orders_page.dart
+      19 ./lib/locator.dart
+      19 ./lib/views/contact/contact_view.dart
+      22 ./lib/generated_plugin_registrant.dart
+      22 ./lib/models/user/user_model.dart
+      24 ./lib/widgets/navigation_items/home_navigation_item.dart
+      25 ./lib/widgets/navigation/navigation_bar_logo.dart
+      25 ./lib/widgets/navigation_items/add_phone_navigation_item.dart
+      25 ./lib/widgets/navigation_items/menu_navigation_item.dart
+      25 ./lib/widgets/navigation_items/sign_up_navigation_item.dart
+      26 ./.dart_tool/build/entrypoint/build.dart
+      26 ./lib/models/phone/phone_model.dart
+      26 ./lib/widgets/footer_field/footer_fields.dart
+      26 ./lib/widgets/navigation_items/cart_navigation_item.dart
+      26 ./lib/widgets/navigation_items/log_in_navigation_item.dart
+      26 ./lib/widgets/navigation_items/orders_navigation_item.dart
+      27 ./lib/widgets/navigation_items/contact_navigation_item.dart
+      27 ./lib/widgets/note_text/note_text.dart
+      28 ./lib/widgets/footer/footer.dart
+      29 ./lib/view_models/home/home_view_model.dart
+      30 ./lib/extensions/hover_extension.dart
+      30 ./lib/models/user/user_model.g.dart
+      30 ./lib/widgets/navigation_items/log_out_navigation_item.dart
+      30 ./test/widget_test.dart
+      31 ./lib/shared/ui/shared_styles.dart
+      33 ./lib/widgets/navigation/mobile_navigation_bar.dart
+      37 ./lib/widgets/navigation_items/navigation_item.dart
+      38 ./lib/shared/ui/ui_helpers.dart
+      39 ./lib/models/phone/phone_model.g.dart
+      50 ./lib/view_models/log_in/log_in_view_model.dart
+      50 ./lib/widgets/footer_field/footer_field_blueprint.dart
+      51 ./lib/routing/router.dart
+      54 ./lib/widgets/translate_on_hover/translate_on_hover.dart
+      55 ./lib/firebase_options.dart
+      56 ./lib/services/dialog_service.dart
+      56 ./lib/widgets/busy_button.dart
+      57 ./lib/view_models/phone/add_phone_view_model.dart
+      58 ./lib/views/dialog_manager.dart
+      64 ./lib/widgets/navigation/desktop_navigation_bar.dart
+      70 ./lib/themes/custom_theme_data.dart
+      71 ./lib/views/log_in/log_in_view.dart
+      72 ./lib/services/authentication_service.dart
+      73 ./lib/widgets/phone_details/phone_details.dart
+      75 ./lib/view_models/sign_up/sign_up_view_model.dart
+      89 ./lib/widgets/custom_text_form_field.dart
+     107 ./lib/widgets/navigation/custom_navigation_drawer.dart
+     115 ./lib/views/home/home_view.dart
+     123 ./lib/flutter_ecommerce_website_demo.dart
+     124 ./lib/services/firestore_service.dart
+     142 ./lib/views/sign_up/sign_up_view.dart
+     161 ./lib/views/phone/phone_view.dart
+     237 ./lib/shared/validators.dart
+     331 ./lib/models/user/user_model.freezed.dart
+     422 ./lib/models/phone/phone_model.freezed.dart
+    3703 total
+```
+
 
 ## Table of Contents
 - [Specifications](#specifications)
