@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cached_network_image: ^3.2.0
   carousel_slider: ^4.0.0
   cloud_firestore: ^3.1.6
   colorful_safe_area: ^0.3.0
