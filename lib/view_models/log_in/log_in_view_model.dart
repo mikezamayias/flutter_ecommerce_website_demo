@@ -12,27 +12,6 @@ class LogInViewModel extends BaseViewModel with Validators {
   final DialogService _dialogService = locator<DialogService>();
   final NavigationService _navigationService = locator<NavigationService>();
 
-  // Future logInAnonymously() async {
-  //   setBusy(true);
-  //   var result = await _authenticatioService.logInAnonymously();
-  //   setBusy(false);
-  //   if (result != null) {
-  //     if (result is bool) {
-  //       _navigationService.navigateTo(HomeViewRoute);
-  //     } else {
-  //       await _dialogService.showDialog(
-  //         title: 'Login Failure',
-  //         description: 'General login failure. Please try again later',
-  //       );
-  //     }
-  //   } else {
-  //     await _dialogService.showDialog(
-  //       title: 'Login Failure',
-  //       description: result.toString(),
-  //     );
-  //   }
-  // }
-
   Future logIn({
     required String email,
     required String password,
