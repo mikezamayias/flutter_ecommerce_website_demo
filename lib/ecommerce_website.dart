@@ -11,6 +11,7 @@ import 'services/authentication_service.dart';
 import 'services/dialog_service.dart';
 import 'services/navigation_service.dart';
 import 'services/scaffold_service.dart';
+import 'shared/ui/shared_styles.dart';
 import 'themes/custom_theme_data.dart';
 import 'views/dialog_manager.dart';
 import 'widgets/navigation/custom_navigation_drawer.dart';
@@ -57,7 +58,7 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                       endDrawer: sizingInformation.isDesktop
                           ? null
                           : const CustomNavigationDrawer(),
-                      backgroundColor: const Color(0xFFF3F3F3),
+                      backgroundColor: backgroundColor,
                       body: CustomScrollView(
                         slivers: <Widget>[
                           sizingInformation.isDesktop

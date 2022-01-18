@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../extensions/hover_extension.dart';
 import '../../extensions/padding_extension.dart';
+import '../../shared/ui/shared_styles.dart';
 import '../navigation_items/cart_navigation_item.dart';
 import '../navigation_items/contact_navigation_item.dart';
 import '../navigation_items/home_navigation_item.dart';
@@ -29,46 +30,29 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
       pinned: true,
       elevation: 12,
       shadowColor: Colors.orange,
-      leadingWidth: 0,
-      backgroundColor: Colors.grey[300],
+      backgroundColor: backgroundColor,
       centerTitle: false,
       title: const NavigationBarLogo().moveUpOnHover,
       actions: loggedIn
           ? [
-<<<<<<< HEAD
+              Text('Hello, ${user.displayName ?? user.uid}'),
               const HomeNavigationItem().moveUpOnHover,
               const CartNavigationItem().moveUpOnHover,
               const OrdersNavigationItem().moveUpOnHover,
               const ContactNavigationItem().moveUpOnHover,
               const LogOutNavigationItem().moveUpOnHover,
-              horizontalSpaceSmall,
             ]
+              .map((widget) => widget.paddNavigationBarItem)
+              .toList()
           : [
               const HomeNavigationItem().moveUpOnHover,
               const SignUpNavigationItem().moveUpOnHover,
               const LogInNavigationItem().moveUpOnHover,
               const CartNavigationItem().moveUpOnHover,
               const ContactNavigationItem().moveUpOnHover,
-              horizontalSpaceSmall,
-            ],
-=======
-              Text('Hello, ${user.displayName ?? user.uid}'),
-              const HomeNavigationItem(),
-              const CartNavigationItem(),
-              const OrdersNavigationItem(),
-              const ContactNavigationItem(),
-              const LogOutNavigationItem(),
-            ].map((widget) => widget.moveUpOnHover).toList()
-          : [
-              const HomeNavigationItem(),
-              const SignUpNavigationItem(),
-              const LogInNavigationItem(),
-              const CartNavigationItem(),
-              const ContactNavigationItem(),
             ]
-              .map((widget) => widget.moveUpOnHover.paddNavigationBarItem)
+              .map((widget) => widget.paddNavigationBarItem)
               .toList(),
->>>>>>> parent of 48a954f (ui is looking good)
     );
   }
 }

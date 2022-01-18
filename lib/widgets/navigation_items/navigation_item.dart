@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../extensions/padding_extension.dart';
-import '../../shared/ui/ui_helpers.dart';
-
 class NavigationItem extends StatelessWidget {
   final String label;
   final IconData iconData;
@@ -18,31 +15,23 @@ class NavigationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        alignment: Alignment.center,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Icon(
-              iconData,
-              color: Colors.orange,
-            ),
-            horizontalSpaceTiny,
-            Text(
-              label,
-              style: GoogleFonts.firaSans(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Colors.orange,
-              ),
-            ),
-          ],
+    return TextButton.icon(
+      onPressed: onPressed,
+      icon: Icon(
+        iconData,
+        color: Colors.orange,
+      ),
+      label: Text(
+        label,
+        style: GoogleFonts.mPlusRounded1c(
+          color: Colors.orange,
+          fontSize: 18,
+          fontWeight: FontWeight.w700,
         ),
       ),
-    ).paddNavigationDrawerItem;
+      style: const ButtonStyle(
+        splashFactory: NoSplash.splashFactory,
+      ),
+    );
   }
 }

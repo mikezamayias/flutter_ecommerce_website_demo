@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/extensions/padding_extension.dart';
 
 import '../../extensions/hover_extension.dart';
 import '../../shared/ui/shared_styles.dart';
@@ -24,8 +25,8 @@ class _MobileNavigationBarState extends State<MobileNavigationBar> {
       centerTitle: false,
       title: const NavigationBarLogo().moveUpOnHover,
       actions: [
-        const MenuNavigationItem().moveUpOnHover,
-        horizontalSpaceSmall
+        const MenuNavigationItem().moveUpOnHover.paddNavigationBarItem,
+        horizontalSpaceTiny
       ],
     );
   }

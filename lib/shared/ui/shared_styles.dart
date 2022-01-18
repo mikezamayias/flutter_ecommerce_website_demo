@@ -28,4 +28,4 @@ const TextStyle buttonTitleTextStyle = TextStyle(
   color: Colors.white,
 );
 
-const Color backgroundColor = Color(0xFFEAEAEA);
+const Color backgroundColor = Color(0xFFEBEBEB);

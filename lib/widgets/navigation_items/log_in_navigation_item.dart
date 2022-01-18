@@ -18,7 +18,7 @@ class _LogInNavigationItemState extends State<LogInNavigationItem> {
   @override
   Widget build(BuildContext context) {
     return NavigationItem(
-      label: 'Home',
+      label: 'Log In',
       iconData: Icons.login_rounded,
       onPressed: () => locator<NavigationService>().navigateTo(LoginViewRoute),
     );
