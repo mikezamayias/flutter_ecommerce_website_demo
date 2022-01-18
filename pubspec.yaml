@@ -37,6 +37,7 @@ dependencies:
   firebase_core: ^1.11.0
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.0.2
   flutter_styled_toast: ^2.0.0
   flutter_svg: ^1.0.1
   get_it: ^7.2.0
