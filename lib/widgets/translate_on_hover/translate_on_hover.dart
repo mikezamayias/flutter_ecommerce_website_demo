@@ -14,7 +14,7 @@ class TranslateOnHover extends StatefulWidget {
 
 class _TranslateOnHoverState extends State<TranslateOnHover> {
   final nonHoverTransform = Matrix4.identity();
-  final hoverTransform = Matrix4.identity()..translate(0, -4.2, 0);
+  final hoverTransform = Matrix4.identity()..translate(0, -4.2069, 0);
 
   bool _hovering = false;
 
@@ -24,7 +24,7 @@ class _TranslateOnHoverState extends State<TranslateOnHover> {
       onEnter: (event) => _mouseEnter(true),
       onExit: (event) => _mouseEnter(false),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 180),
+        duration: const Duration(milliseconds: 200),
         child: widget.child,
         transform: _hovering ? hoverTransform : nonHoverTransform,
         decoration: BoxDecoration(
@@ -34,9 +34,10 @@ class _TranslateOnHoverState extends State<TranslateOnHover> {
               ? [
                  BoxShadow(
                     color: Colors.orange.withOpacity(0.6),
-                    offset: const Offset(3, 6),
-                    blurRadius: 3,
-                    spreadRadius: -1
+                    offset: const Offset(1, 9),
+                    blurRadius: 6,
+                    spreadRadius: -2,
+                    blurStyle: BlurStyle.inner,
                   ),
                 ]
               : [],
