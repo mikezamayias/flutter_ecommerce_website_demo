@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../extensions/hover_extension.dart';
-import '../../extensions/padding_extension.dart';
 import '../../shared/ui/shared_styles.dart';
 import '../../shared/ui/ui_helpers.dart';
 import '../navigation_items/menu_navigation_item.dart';
@@ -23,9 +22,9 @@ class _MobileNavigationBarState extends State<MobileNavigationBar> {
       shadowColor: Colors.orange,
       backgroundColor: backgroundColor,
       centerTitle: false,
-      title: const NavigationBarLogo().moveUpOnHover.paddNavigationBarItem,
+      title: const NavigationBarLogo().moveUpOnHover,
       actions: [
-        const MenuNavigationItem().moveUpOnHover.paddNavigationBarItem,
+        const MenuNavigationItem().moveUpOnHover,
         horizontalSpaceSmall
       ],
     );

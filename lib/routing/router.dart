@@ -13,7 +13,7 @@ PageRoute generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case HomeViewRoute:
       return _getPageRoute(const HomeView());
-    case RegisterViewRoute:
+    case SignUpRoute:
       return _getPageRoute(const SignUpView());
     case LoginViewRoute:
       return _getPageRoute(const LogInView());

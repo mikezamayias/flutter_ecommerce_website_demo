@@ -34,22 +34,22 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
       leadingWidth: 0,
       backgroundColor: backgroundColor,
       centerTitle: false,
-      title: const NavigationBarLogo().moveUpOnHover.paddNavigationBarItem,
+      title: const NavigationBarLogo().moveUpOnHover,
       actions: loggedIn
           ? [
-              const HomeNavigationItem().moveUpOnHover.paddNavigationBarItem,
-              const CartNavigationItem().moveUpOnHover.paddNavigationBarItem,
-              const OrdersNavigationItem().moveUpOnHover.paddNavigationBarItem,
-              const ContactNavigationItem().moveUpOnHover.paddNavigationBarItem,
-              const LogOutNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              const HomeNavigationItem().moveUpOnHover,
+              const CartNavigationItem().moveUpOnHover,
+              const OrdersNavigationItem().moveUpOnHover,
+              const ContactNavigationItem().moveUpOnHover,
+              const LogOutNavigationItem().moveUpOnHover,
               horizontalSpaceSmall,
             ]
           : [
-              const HomeNavigationItem().moveUpOnHover.paddNavigationBarItem,
-              const SignUpNavigationItem().moveUpOnHover.paddNavigationBarItem,
-              const LogInNavigationItem().moveUpOnHover.paddNavigationBarItem,
-              const CartNavigationItem().moveUpOnHover.paddNavigationBarItem,
-              const ContactNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              const HomeNavigationItem().moveUpOnHover,
+              const SignUpNavigationItem().moveUpOnHover,
+              const LogInNavigationItem().moveUpOnHover,
+              const CartNavigationItem().moveUpOnHover,
+              const ContactNavigationItem().moveUpOnHover,
               horizontalSpaceSmall,
             ],
     );
