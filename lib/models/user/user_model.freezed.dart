@@ -23,16 +23,18 @@ class _$UserModelTearOff {
   const _$UserModelTearOff();
 
   _UserModel call(
-      {required String id,
-      required String firstName,
-      required String lastName,
-      required String email,
-      required String phoneNumber,
-      required String address,
-      required String city,
-      required String postalCode}) {
+      {String? uid,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      String? address,
+      String? city,
+      String? postalCode,
+      String? userOrdersUid,
+      String? userCartUid}) {
     return _UserModel(
-      id: id,
+      uid: uid,
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -40,6 +42,8 @@ class _$UserModelTearOff {
       address: address,
       city: city,
       postalCode: postalCode,
+      userOrdersUid: userOrdersUid,
+      userCartUid: userCartUid,
     );
   }
 
@@ -53,14 +57,16 @@ const $UserModel = _$UserModelTearOff();
 
 /// @nodoc
 mixin _$UserModel {
-  String get id => throw _privateConstructorUsedError;
-  String get firstName => throw _privateConstructorUsedError;
-  String get lastName => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get phoneNumber => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
-  String get postalCode => throw _privateConstructorUsedError;
+  String? get uid => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get lastName => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get phoneNumber => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
+  String? get postalCode => throw _privateConstructorUsedError;
+  String? get userOrdersUid => throw _privateConstructorUsedError;
+  String? get userCartUid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -73,14 +79,16 @@ abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res>;
   $Res call(
-      {String id,
-      String firstName,
-      String lastName,
-      String email,
-      String phoneNumber,
-      String address,
-      String city,
-      String postalCode});
+      {String? uid,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      String? address,
+      String? city,
+      String? postalCode,
+      String? userOrdersUid,
+      String? userCartUid});
 }
 
 /// @nodoc
@@ -93,7 +101,7 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
+    Object? uid = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? email = freezed,
@@ -101,40 +109,50 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
     Object? address = freezed,
     Object? city = freezed,
     Object? postalCode = freezed,
+    Object? userOrdersUid = freezed,
+    Object? userCartUid = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
+      uid: uid == freezed
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String?,
       firstName: firstName == freezed
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       lastName: lastName == freezed
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       city: city == freezed
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       postalCode: postalCode == freezed
           ? _value.postalCode
           : postalCode // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      userOrdersUid: userOrdersUid == freezed
+          ? _value.userOrdersUid
+          : userOrdersUid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userCartUid: userCartUid == freezed
+          ? _value.userCartUid
+          : userCartUid // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -146,14 +164,16 @@ abstract class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       __$UserModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
-      String firstName,
-      String lastName,
-      String email,
-      String phoneNumber,
-      String address,
-      String city,
-      String postalCode});
+      {String? uid,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      String? address,
+      String? city,
+      String? postalCode,
+      String? userOrdersUid,
+      String? userCartUid});
 }
 
 /// @nodoc
@@ -167,7 +187,7 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
+    Object? uid = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? email = freezed,
@@ -175,80 +195,97 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
     Object? address = freezed,
     Object? city = freezed,
     Object? postalCode = freezed,
+    Object? userOrdersUid = freezed,
+    Object? userCartUid = freezed,
   }) {
     return _then(_UserModel(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
+      uid: uid == freezed
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String?,
       firstName: firstName == freezed
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       lastName: lastName == freezed
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       city: city == freezed
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       postalCode: postalCode == freezed
           ? _value.postalCode
           : postalCode // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      userOrdersUid: userOrdersUid == freezed
+          ? _value.userOrdersUid
+          : userOrdersUid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userCartUid: userCartUid == freezed
+          ? _value.userCartUid
+          : userCartUid // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true)
 class _$_UserModel implements _UserModel {
   _$_UserModel(
-      {required this.id,
-      required this.firstName,
-      required this.lastName,
-      required this.email,
-      required this.phoneNumber,
-      required this.address,
-      required this.city,
-      required this.postalCode});
+      {this.uid,
+      this.firstName,
+      this.lastName,
+      this.email,
+      this.phoneNumber,
+      this.address,
+      this.city,
+      this.postalCode,
+      this.userOrdersUid,
+      this.userCartUid});
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserModelFromJson(json);
 
   @override
-  final String id;
+  final String? uid;
   @override
-  final String firstName;
+  final String? firstName;
   @override
-  final String lastName;
+  final String? lastName;
   @override
-  final String email;
+  final String? email;
   @override
-  final String phoneNumber;
+  final String? phoneNumber;
   @override
-  final String address;
+  final String? address;
   @override
-  final String city;
+  final String? city;
   @override
-  final String postalCode;
+  final String? postalCode;
+  @override
+  final String? userOrdersUid;
+  @override
+  final String? userCartUid;
 
   @override
   String toString() {
-    return 'UserModel(id: $id, firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, address: $address, city: $city, postalCode: $postalCode)';
+    return 'UserModel(uid: $uid, firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, address: $address, city: $city, postalCode: $postalCode, userOrdersUid: $userOrdersUid, userCartUid: $userCartUid)';
   }
 
   @override
@@ -256,7 +293,7 @@ class _$_UserModel implements _UserModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UserModel &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.uid, uid) &&
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.lastName, lastName) &&
             const DeepCollectionEquality().equals(other.email, email) &&
@@ -265,20 +302,26 @@ class _$_UserModel implements _UserModel {
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.city, city) &&
             const DeepCollectionEquality()
-                .equals(other.postalCode, postalCode));
+                .equals(other.postalCode, postalCode) &&
+            const DeepCollectionEquality()
+                .equals(other.userOrdersUid, userOrdersUid) &&
+            const DeepCollectionEquality()
+                .equals(other.userCartUid, userCartUid));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(uid),
       const DeepCollectionEquality().hash(firstName),
       const DeepCollectionEquality().hash(lastName),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(phoneNumber),
       const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(city),
-      const DeepCollectionEquality().hash(postalCode));
+      const DeepCollectionEquality().hash(postalCode),
+      const DeepCollectionEquality().hash(userOrdersUid),
+      const DeepCollectionEquality().hash(userCartUid));
 
   @JsonKey(ignore: true)
   @override
@@ -293,34 +336,40 @@ class _$_UserModel implements _UserModel {
 
 abstract class _UserModel implements UserModel {
   factory _UserModel(
-      {required String id,
-      required String firstName,
-      required String lastName,
-      required String email,
-      required String phoneNumber,
-      required String address,
-      required String city,
-      required String postalCode}) = _$_UserModel;
+      {String? uid,
+      String? firstName,
+      String? lastName,
+      String? email,
+      String? phoneNumber,
+      String? address,
+      String? city,
+      String? postalCode,
+      String? userOrdersUid,
+      String? userCartUid}) = _$_UserModel;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$_UserModel.fromJson;
 
   @override
-  String get id;
+  String? get uid;
   @override
-  String get firstName;
+  String? get firstName;
   @override
-  String get lastName;
+  String? get lastName;
   @override
-  String get email;
+  String? get email;
   @override
-  String get phoneNumber;
+  String? get phoneNumber;
   @override
-  String get address;
+  String? get address;
   @override
-  String get city;
+  String? get city;
   @override
-  String get postalCode;
+  String? get postalCode;
+  @override
+  String? get userOrdersUid;
+  @override
+  String? get userCartUid;
   @override
   @JsonKey(ignore: true)
   _$UserModelCopyWith<_UserModel> get copyWith =>

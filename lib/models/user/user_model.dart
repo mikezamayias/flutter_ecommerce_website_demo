@@ -5,29 +5,20 @@ part 'user_model.g.dart';
 
 @Freezed()
 class UserModel with _$UserModel {
+  @JsonSerializable(explicitToJson: true)
   factory UserModel({
-    required String id,
-    required String firstName,
-    required String lastName,
-    required String email,
-    required String phoneNumber,
-    required String address,
-    required String city,
-    required String postalCode,
+    String? uid,
+    String? firstName,
+    String? lastName,
+    String? email,
+    String? phoneNumber,
+    String? address,
+    String? city,
+    String? postalCode,
+    String? userOrdersUid,
+    String? userCartUid,
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
-
-  @override
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'firstName': firstName,
-        'lastName': lastName,
-        'email': email,
-        'phoneNumber': phoneNumber,
-        'address': address,
-        'city': city,
-        'postalCode': postalCode,
-      };
 }
