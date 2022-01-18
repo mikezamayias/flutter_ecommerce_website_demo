@@ -32,7 +32,15 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
       shadowColor: Colors.orange,
       backgroundColor: backgroundColor,
       centerTitle: false,
-      title: const NavigationBarLogo().moveUpOnHover,
+      title: loggedIn
+          ? Padding(
+              padding: const EdgeInsets.all(9),
+              child: Text(
+                'Hello, ${user.displayName ?? user.uid}',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+            )
+          : const NavigationBarLogo().moveUpOnHover,
       actions: loggedIn
           ? [
               const HomeNavigationItem().moveUpOnHover,
