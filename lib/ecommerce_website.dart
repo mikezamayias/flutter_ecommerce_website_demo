@@ -1,6 +1,7 @@
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/shared/ui/shared_styles.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -57,7 +58,7 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                       endDrawer: sizingInformation.isDesktop
                           ? null
                           : const CustomNavigationDrawer(),
-                      backgroundColor: const Color(0xFFF3F3F3),
+                      backgroundColor: backgroundColor,
                       body: CustomScrollView(
                         slivers: <Widget>[
                           sizingInformation.isDesktop

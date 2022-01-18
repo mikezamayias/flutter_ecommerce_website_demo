@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/shared/ui/ui_helpers.dart';
 import 'package:provider/provider.dart';
 
 import '../../extensions/hover_extension.dart';
 import '../../extensions/padding_extension.dart';
+import '../../shared/ui/shared_styles.dart';
 import '../navigation_items/cart_navigation_item.dart';
 import '../navigation_items/contact_navigation_item.dart';
 import '../navigation_items/home_navigation_item.dart';
@@ -30,27 +32,26 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
       elevation: 12,
       shadowColor: Colors.orange,
       leadingWidth: 0,
-      backgroundColor: Colors.grey[300],
+      backgroundColor: backgroundColor,
       centerTitle: false,
       title: const NavigationBarLogo().moveUpOnHover.paddNavigationBarItem,
       actions: loggedIn
           ? [
-              Text('Hello, ${user.displayName ?? user.uid}'),
-              const HomeNavigationItem(),
-              const CartNavigationItem(),
-              const OrdersNavigationItem(),
-              const ContactNavigationItem(),
-              const LogOutNavigationItem(),
-            ].map((widget) => widget.moveUpOnHover).toList()
-          : [
-              const HomeNavigationItem(),
-              const SignUpNavigationItem(),
-              const LogInNavigationItem(),
-              const CartNavigationItem(),
-              const ContactNavigationItem(),
+              const HomeNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              const CartNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              const OrdersNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              const ContactNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              const LogOutNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              horizontalSpaceSmall,
             ]
-              .map((widget) => widget.moveUpOnHover.paddNavigationBarItem)
-              .toList(),
+          : [
+              const HomeNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              const SignUpNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              const LogInNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              const CartNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              const ContactNavigationItem().moveUpOnHover.paddNavigationBarItem,
+              horizontalSpaceSmall,
+            ],
     );
   }
 }
