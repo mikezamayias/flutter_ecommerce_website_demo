@@ -9,6 +9,10 @@ Human Computer Interaction Lab
 
 **Project Description:** *A project for the final project of the course Human Computer Interaction of the Lab class at the Hellenic Mediterranean University. Built with Flutter and Firebase.*
 
+---
+[![wakatime](https://wakatime.com/badge/user/14aaa887-f33c-4964-831a-f5571f887a02/project/c591ac2b-cc58-447c-a89c-03ea95885fc1.svg)](https://wakatime.com/badge/user/14aaa887-f33c-4964-831a-f5571f887a02/project/c591ac2b-cc58-447c-a89c-03ea95885fc1)
+---
+
 ## Table of Contents
 - [Specifications](#specifications)
   - [Description](#description)
