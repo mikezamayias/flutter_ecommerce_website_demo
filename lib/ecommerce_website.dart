@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'routing/router.dart';
 import 'routing/routes.dart';
 import 'services/authentication_service.dart';
 import 'services/dialog_service.dart';
+import 'services/firestore_service.dart';
 import 'services/navigation_service.dart';
 import 'services/scaffold_service.dart';
 import 'shared/ui/shared_styles.dart';
