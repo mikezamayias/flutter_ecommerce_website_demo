@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_ecommerce_website_demo/models/phone/phone_model.dart';
 
 class FirestoreService {
   String? uid;
@@ -8,14 +9,43 @@ class FirestoreService {
   // Collection Reference
   final CollectionReference userCollection =
       FirebaseFirestore.instance.collection('users');
-  final CollectionReference phonesCollection =
+  final CollectionReference phoneCollection =
       FirebaseFirestore.instance.collection('phones');
-  final CollectionReference ordersCollection =
+  final CollectionReference orderCollection =
       FirebaseFirestore.instance.collection('orders');
   final CollectionReference userCartCollection =
       FirebaseFirestore.instance.collection('userCart');
-  final CollectionReference userOrdersCollection =
+  final CollectionReference userOrderCollection =
       FirebaseFirestore.instance.collection('userOrders');
+
+  // Future - Update Phone Data
+  Future<void> addPhone({
+    required String model,
+    required String battery,
+    required String screenSize,
+    required String camera,
+    required String sar,
+    required String ram,
+    required String storage,
+    required String price,
+    required String quantity,
+    required String photoUrl,
+    required String soc,
+  }) async {
+    return await phoneCollection.doc().set({
+      'model': model,
+      'battery': battery,
+      'screenSize': screenSize,
+      'camera': camera,
+      'sar': sar,
+      'ram': ram,
+      'storage': storage,
+      'price': price,
+      'quantity': quantity,
+      'photoUrl': photoUrl,
+      'soc': soc,
+    });
+  }
 
   // Future - Update User Data
   Future<void> updateUserData(
@@ -48,7 +78,25 @@ class FirestoreService {
   }
 
   // Stream - Get Phone Data
-  Stream<QuerySnapshot<Object?>> get phones {
-    return phonesCollection.snapshots();
+  Stream<QuerySnapshot<Object?>> get phoneStream {
+    return phoneCollection.snapshots();
   }
+
+  // phoneData from snapshot
+  // PhoneModel _phoneDataFromSnapshot(DocumentSnapshot snapshot) {
+  //   return PhoneModel(
+  //     uid: snapshot.id,
+  //     model: snapshot.data['model'],
+  //     photoUrl: snapshot.data['photoUrl'] as String,
+  //     soc: snapshot.data['soc'],
+  //     ram: snapshot.data['ram'],
+  //     storage: snapshot.data['storage'],
+  //     screenSize: snapshot.data['screenSize'],
+  //     battery: snapshot.data['battery'],
+  //     camera: snapshot.data['camera'],
+  //     price: snapshot.data['price'],
+  //     quantity: snapshot.data['quantity'],
+  //     sar: snapshot.data['sar'],
+  //   );
+  // }
 }

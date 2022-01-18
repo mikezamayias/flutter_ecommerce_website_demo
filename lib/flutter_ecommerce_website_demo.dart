@@ -39,7 +39,7 @@ class _FlutterEcommerceWebsiteDemoState
           initialData: null,
         ),
         StreamProvider<QuerySnapshot?>.value(
-          value: FirestoreService().phones,
+          value: FirestoreService().phoneStream,
           initialData: null,
         ),
         StreamProvider<QuerySnapshot?>.value(

@@ -12,4 +12,7 @@ class FormService {
 
   // get sign in form key
   GlobalKey<FormState> get logInFormKey => GlobalKey<FormState>();
+
+  // get add phone form key
+  GlobalKey<FormState> get addPhoneFormKey => GlobalKey<FormState>();
 }

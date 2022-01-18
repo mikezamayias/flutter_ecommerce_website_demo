@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/widgets/navigation_items/add_phone_navigation_item.dart';
 import 'package:provider/provider.dart';
 
 import '../../extensions/hover_extension.dart';
@@ -52,6 +53,10 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
                         .paddNavigationDrawerItem
                         .moveUpOnHover,
                     verticalSpaceSmall,
+                    const AddPhoneNavigationItem()
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
+                    verticalSpaceSmall,
                     const CartNavigationItem()
                         .paddNavigationDrawerItem
                         .moveUpOnHover,
@@ -69,6 +74,10 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
                         .moveUpOnHover,
                   ]
                 : [
+                    verticalSpaceSmall,
+                    const AddPhoneNavigationItem()
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
                     verticalSpaceSmall,
                     const SignUpNavigationItem()
                         .paddNavigationDrawerItem

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/widgets/navigation_items/add_phone_navigation_item.dart';
 import 'package:provider/provider.dart';
 
 import '../../extensions/hover_extension.dart';
@@ -43,6 +44,7 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
           : const NavigationBarLogo().moveUpOnHover,
       actions: loggedIn
           ? [
+              const AddPhoneNavigationItem().moveUpOnHover,
               const HomeNavigationItem().moveUpOnHover,
               const CartNavigationItem().moveUpOnHover,
               const OrdersNavigationItem().moveUpOnHover,
@@ -50,6 +52,7 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
               const LogOutNavigationItem().moveUpOnHover,
             ].map((widget) => widget.paddNavigationBarItem).toList()
           : [
+              const AddPhoneNavigationItem().moveUpOnHover,
               const HomeNavigationItem().moveUpOnHover,
               const SignUpNavigationItem().moveUpOnHover,
               const LogInNavigationItem().moveUpOnHover,

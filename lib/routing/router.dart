@@ -5,8 +5,8 @@ import '../views/contact/contact_view.dart';
 import '../views/home/home_view.dart';
 import '../views/log_in/log_in_view.dart';
 import '../views/orders/orders_page.dart';
+import '../views/phone/phone_view.dart';
 import '../views/sign_up/sign_up_view.dart';
-
 import 'routes.dart';
 
 PageRoute generateRoute(RouteSettings settings) {
@@ -23,6 +23,8 @@ PageRoute generateRoute(RouteSettings settings) {
       return _getPageRoute(const OrdersView());
     case ContactViewRoute:
       return _getPageRoute(const ContactView());
+    case AddPhoneViewRoute:
+      return _getPageRoute(const PhoneView());
     default:
       return _getPageRoute(const HomeView());
   }

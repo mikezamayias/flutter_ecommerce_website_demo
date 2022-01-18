@@ -6,3 +6,4 @@ const String LoginViewRoute = '/login';
 const String CartViewRoute = '/cart';
 const String OrdersViewRoute = '/orders';
 const String ContactViewRoute = '/contact';
+const String AddPhoneViewRoute = '/addphone';
