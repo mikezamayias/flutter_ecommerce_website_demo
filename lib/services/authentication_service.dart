@@ -1,5 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
+
+import '../models/user/user_model.dart';
+import 'firestore_service.dart';
 
 class AuthenticationService {
   // firebase auth object
@@ -24,7 +27,7 @@ class AuthenticationService {
   // }
 
   // sign up with email and password
-   Future<Object> signUpWithEmailAndPassword({
+  Future<Object> signUpWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
@@ -33,6 +36,8 @@ class AuthenticationService {
         email: email,
         password: password,
       );
+      await FirestoreService(uid: authResult.user!.uid)
+          .updateUserData(UserModel());
       return authResult.user != null;
     } catch (e) {
       return e.toString();
