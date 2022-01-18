@@ -18,6 +18,8 @@ class FirestoreService {
   final CollectionReference userOrderCollection =
       FirebaseFirestore.instance.collection('userOrders');
 
+  get phoneList => phoneCollection.snapshots();
+
   // Future - Update Phone Data
   Future<void> addPhone({
     required String model,
@@ -65,12 +67,28 @@ class FirestoreService {
       'streetAddress': streetAddress,
       'city': city,
       'postalCode': postalCode,
-      'userOrders': null,
-      'userCart': null,
-      'dateCreated': DateTime.now(),
-      'lastUpdated': DateTime.now(),
     });
   }
+
+  Stream<List<PhoneModel>> get phones => phoneCollection.snapshots().map(
+        (snapshot) => snapshot.docs
+            .map(
+              (doc) => PhoneModel(
+                model: doc.get('model') as String,
+                battery: doc.get('battery') as int,
+                screenSize: doc.get('screenSize') as double,
+                camera: doc.get('camera') as String,
+                sar: doc.get('sar') as double,
+                ram: doc.get('ram') as int,
+                storage: doc.get('storage') as String,
+                price: doc.get('price') as double,
+                quantity: doc.get('quantity') as int,
+                photoUrl: doc.get('photoUrl') as String,
+                soc: doc.get('soc') as String,
+              ),
+            )
+            .toList(),
+      );
 
   // Stream - Get User Data
   Stream<QuerySnapshot<Object?>> get userData {
@@ -82,21 +100,25 @@ class FirestoreService {
     return phoneCollection.snapshots();
   }
 
+  // Future<List<DocumentSnapshot>> get phones async {
+  //   return phoneCollection.get().then((value) => value.docs);
+  // }
+
   // phoneData from snapshot
   // PhoneModel _phoneDataFromSnapshot(DocumentSnapshot snapshot) {
   //   return PhoneModel(
   //     uid: snapshot.id,
-  //     model: snapshot.data['model'],
-  //     photoUrl: snapshot.data['photoUrl'] as String,
-  //     soc: snapshot.data['soc'],
-  //     ram: snapshot.data['ram'],
-  //     storage: snapshot.data['storage'],
-  //     screenSize: snapshot.data['screenSize'],
-  //     battery: snapshot.data['battery'],
-  //     camera: snapshot.data['camera'],
-  //     price: snapshot.data['price'],
-  //     quantity: snapshot.data['quantity'],
-  //     sar: snapshot.data['sar'],
+  //     model: snapshot.get('model'])
+  //     photoUrl: snapshot.get('photoUrl') as String,
+  //     soc: snapshot.get('soc'])
+  //     ram: snapshot.get('ram'])
+  //     storage: snapshot.get('storage'])
+  //     screenSize: snapshot.get('screenSize'])
+  //     battery: snapshot.get('battery'])
+  //     camera: snapshot.get('camera'])
+  //     price: snapshot.get('price'])
+  //     quantity: snapshot.get('quantity'])
+  //     sar: snapshot.get('sar'])
   //   );
   // }
 }

@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'locator.dart';
+import 'models/phone/phone_model.dart';
 import 'routing/router.dart';
 import 'routing/routes.dart';
 import 'services/authentication_service.dart';
@@ -45,6 +46,11 @@ class _FlutterEcommerceWebsiteDemoState
         StreamProvider<QuerySnapshot?>.value(
           value: FirestoreService().userData,
           initialData: null,
+        ),
+        // Provider.of<List<PhoneModel>>(context)
+        StreamProvider<List<PhoneModel>>.value(
+          value: FirestoreService().phones,
+          initialData: [PhoneModel()],
         ),
       ],
       child: MaterialApp(
