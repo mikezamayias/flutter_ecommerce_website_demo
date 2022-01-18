@@ -36,6 +36,10 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
           value: locator<AuthenticationService>().authStateChanges,
           initialData: null,
         ),
+        StreamProvider<QuerySnapshot?>.value(
+          value: FirestoreService().phones,
+          initialData: null,
+        ),
       ],
       child: MaterialApp(
         title: 'E-commerce Website',
