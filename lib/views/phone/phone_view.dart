@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_website_demo/models/phone/phone_model.dart';
+import 'package:flutter_ecommerce_website_demo/routing/routes.dart';
 import 'package:flutter_ecommerce_website_demo/services/firestore_service.dart';
+import 'package:flutter_ecommerce_website_demo/services/navigation_service.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../locator.dart';
@@ -145,6 +147,7 @@ class _PhoneViewState extends State<PhoneView> {
                       photoUrl: _photoUrlTextEditingController.text,
                       sar: _sarTextEditingController.text,
                     );
+                    locator<NavigationService>().navigateTo(AddPhoneViewRoute);
                   },
                 ),
                 verticalSpaceLarge,

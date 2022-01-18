@@ -41,15 +41,15 @@ class AddPhoneViewModel extends BaseViewModel with Validators {
       await _firestoreService.addPhone(
         model: model,
         soc: soc,
-        ram: ram,
+        ram: int.parse(ram),
         storage: storage,
-        screenSize: screenSize,
-        battery: battery,
+        screenSize: double.parse(screenSize),
+        battery: int.parse(battery),
         camera: camera,
-        price: price,
-        quantity: quantity,
+        price: double.parse(price),
+        quantity: int.parse(quantity),
         photoUrl: photoUrl,
-        sar: sar,
+        sar: double.parse(sar),
       );
       setBusy(false);
     }

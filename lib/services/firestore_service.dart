@@ -21,14 +21,14 @@ class FirestoreService {
   // Future - Update Phone Data
   Future<void> addPhone({
     required String model,
-    required String battery,
-    required String screenSize,
+    required int battery,
+    required double screenSize,
     required String camera,
-    required String sar,
-    required String ram,
+    required double sar,
+    required int ram,
     required String storage,
-    required String price,
-    required String quantity,
+    required double price,
+    required int quantity,
     required String photoUrl,
     required String soc,
   }) async {
