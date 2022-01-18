@@ -177,10 +177,10 @@ In short, the website should be responsive for any device and the layout should 
 - firstName: string
 - lastName: string
 - email: string
-- password: string
+- phoneNumber: string
 - address: string
 - city: string
-- phoneNumber: string
+- postalCode: int
 
 ### Cart
 - user: User
