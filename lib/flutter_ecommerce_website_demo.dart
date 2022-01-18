@@ -24,10 +24,12 @@ class FlutterEcommerceWebsiteDemo extends StatefulWidget {
   const FlutterEcommerceWebsiteDemo({Key? key}) : super(key: key);
 
   @override
-  _FlutterEcommerceWebsiteDemoState createState() => _FlutterEcommerceWebsiteDemoState();
+  _FlutterEcommerceWebsiteDemoState createState() =>
+      _FlutterEcommerceWebsiteDemoState();
 }
 
-class _FlutterEcommerceWebsiteDemoState extends State<FlutterEcommerceWebsiteDemo> {
+class _FlutterEcommerceWebsiteDemoState
+    extends State<FlutterEcommerceWebsiteDemo> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -38,6 +40,10 @@ class _FlutterEcommerceWebsiteDemoState extends State<FlutterEcommerceWebsiteDem
         ),
         StreamProvider<QuerySnapshot?>.value(
           value: FirestoreService().phones,
+          initialData: null,
+        ),
+        StreamProvider<QuerySnapshot?>.value(
+          value: FirestoreService().userData,
           initialData: null,
         ),
       ],
