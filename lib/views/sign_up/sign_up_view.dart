@@ -6,7 +6,7 @@ import '../../services/form_service.dart';
 import '../../shared/ui/ui_helpers.dart';
 import '../../view_models/sign_up/sign_up_view_model.dart';
 import '../../widgets/busy_button.dart';
-import 'widgets/custom_text_form_field.dart';
+import '../../widgets/custom_text_form_field.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);

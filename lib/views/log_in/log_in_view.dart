@@ -6,6 +6,7 @@ import '../../services/form_service.dart';
 import '../../shared/ui/ui_helpers.dart';
 import '../../view_models/log_in/log_in_view_model.dart';
 import '../../widgets/busy_button.dart';
+import '../../widgets/custom_text_form_field.dart';
 
 class LogInView extends StatefulWidget {
   const LogInView({Key? key}) : super(key: key);
@@ -35,28 +36,20 @@ class _LogInViewState extends State<LogInView> {
               style: Theme.of(context).textTheme.headline3,
             ),
             verticalSpaceMedium,
-            TextFormField(
+            CustomTextFormField(
+              labelText: 'Email',
               controller: _emailController,
-              decoration: const InputDecoration(
-                labelText: 'Email',
-                errorMaxLines: 3,
-              ),
               keyboardType: TextInputType.emailAddress,
-              autocorrect: false,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: model.validateEmail,
             ),
             verticalSpaceSmall,
-            TextFormField(
+            CustomTextFormField(
+              labelText: 'Password',
               controller: _passwordController,
-              decoration: const InputDecoration(
-                labelText: 'Password',
-                errorMaxLines: 3,
-              ),
               obscureText: true,
-              autocorrect: false,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: model.validatePassword,
+              isPasswordField: true,
+              keyboardType: TextInputType.visiblePassword,
             ),
             verticalSpaceMedium,
             BusyButton(
