@@ -18,23 +18,27 @@ class FirestoreService {
       FirebaseFirestore.instance.collection('userOrders');
 
   // Future - Update User Data
-  Future<void> updateUserData({
-    required String email,
-    required String firstName,
-    required String lastName,
-    required String phoneNumber,
-    required String streetAddress,
-    required String city,
-    required String postalCode,
-  }) async {
+  Future<void> updateUserData(
+    String email,
+    String firstName,
+    String lastName,
+    String phoneNumber,
+    String streetAddress,
+    String city,
+    String postalCode,
+  ) async {
     return userCollection.doc(uid).set({
-      email: email,
-      firstName: firstName,
-      lastName: lastName,
-      phoneNumber: phoneNumber,
-      streetAddress: streetAddress,
-      city: city,
-      postalCode: postalCode,
+      'email': email,
+      'firstName': firstName,
+      'lastName': lastName,
+      'phoneNumber': phoneNumber,
+      'streetAddress': streetAddress,
+      'city': city,
+      'postalCode': postalCode,
+      'userOrders': null,
+      'userCart': null,
+      'dateCreated': DateTime.now(),
+      'lastUpdated': DateTime.now(),
     });
   }
 

@@ -67,7 +67,7 @@ class SignUpViewModel extends BaseViewModel with Validators {
           title: 'Sign Up Failure',
           description: result
               .toString()
-              // .substring(result.toString().indexOf(' ', 1) + 1),
+              .substring(result.toString().indexOf(' ', 1) + 1),
         );
       }
     }

@@ -41,14 +41,15 @@ class AuthenticationService {
         email: email,
         password: password,
       );
-      await FirestoreService().updateUserData(
-        email: email,
-        firstName: firstName,
-        lastName: lastName,
-        phoneNumber: phoneNumber,
-        streetAddress: streetAddress,
-        city: city,
-        postalCode: postalCode,
+      User? user = authResult.user;
+      await FirestoreService(uid: user?.uid).updateUserData(
+        email,
+        firstName,
+        lastName,
+        phoneNumber,
+        streetAddress,
+        city,
+        postalCode,
       );
       return authResult.user != null;
     } catch (e) {
