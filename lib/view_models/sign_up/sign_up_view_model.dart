@@ -16,14 +16,24 @@ class SignUpViewModel extends BaseViewModel with Validators {
     required String email,
     required String password,
     required String confirmPassword,
+    required String firstName,
+    required String lastName,
+    required String phoneNumber,
+    required String streetAddress,
+    required String postalCode,
+    required String city,
   }) async {
     if (validateEmail(email) != null ||
         validatePassword(password) != null ||
-        validatePassword(confirmPassword) != null) {
+        validatePassword(confirmPassword) != null ||
+        validateFirstName(firstName) != null ||
+        validateLastName(lastName) != null ||
+        validatePhoneNumber(phoneNumber) != null ||
+        validateStreetAddress(streetAddress) != null) {
       _dialogService.showDialog(
         title: 'Invalid Details',
         description:
-            '${validateEmail(email) ?? validatePassword(password) ?? validatePassword(confirmPassword)}',
+            '${validateEmail(email) ?? validatePassword(password) ?? validatePassword(confirmPassword) ?? validateFirstName(firstName) ?? validateLastName(lastName) ?? validatePhoneNumber(phoneNumber) ?? validateStreetAddress(streetAddress) ?? validatePostalCode(postalCode) ?? validateCity(city)}',
       );
     } else if (password != confirmPassword) {
       _dialogService.showDialog(
@@ -35,6 +45,12 @@ class SignUpViewModel extends BaseViewModel with Validators {
       var result = await _authService.signUpWithEmailAndPassword(
         email: email,
         password: password,
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phoneNumber,
+        streetAddress: streetAddress,
+        city: city,
+        postalCode: postalCode,
       );
       setBusy(false);
       if (result is bool) {
@@ -51,7 +67,7 @@ class SignUpViewModel extends BaseViewModel with Validators {
           title: 'Sign Up Failure',
           description: result
               .toString()
-              .substring(result.toString().indexOf(' ', 1) + 1),
+              // .substring(result.toString().indexOf(' ', 1) + 1),
         );
       }
     }

@@ -32,13 +32,10 @@ dependencies:
   colorful_safe_area: ^0.3.0
   cupertino_icons: ^1.0.4
   email_validator: ^2.0.1
-  eventify: ^1.0.0
   firebase_auth: ^3.3.5
   firebase_core: ^1.11.0
   flutter:
     sdk: flutter
-  flutter_dotenv: ^5.0.2
-  flutter_styled_toast: ^2.0.0
   flutter_svg: ^1.0.1
   get_it: ^7.2.0
   google_fonts: ^2.2.0
@@ -70,7 +67,6 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/logo.svg
-    - .env
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

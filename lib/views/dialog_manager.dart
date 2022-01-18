@@ -35,8 +35,8 @@ class _DialogManagerState extends State<DialogManager> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(request.title),
-        content: Text(request.description),
+        title: SelectableText(request.title),
+        content: SelectableText(request.description),
         actions: <Widget>[
           if (isConfirmationDialog)
             TextButton(

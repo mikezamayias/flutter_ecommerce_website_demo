@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_ecommerce_website_demo/models/user/user_model.dart';
 
 class FirestoreService {
   String? uid;
@@ -19,8 +18,24 @@ class FirestoreService {
       FirebaseFirestore.instance.collection('userOrders');
 
   // Future - Update User Data
-  Future<void> updateUserData(UserModel userModel) {
-    return userCollection.doc(uid).set(userModel.toJson());
+  Future<void> updateUserData({
+    required String email,
+    required String firstName,
+    required String lastName,
+    required String phoneNumber,
+    required String streetAddress,
+    required String city,
+    required String postalCode,
+  }) async {
+    return userCollection.doc(uid).set({
+      email: email,
+      firstName: firstName,
+      lastName: lastName,
+      phoneNumber: phoneNumber,
+      streetAddress: streetAddress,
+      city: city,
+      postalCode: postalCode,
+    });
   }
 
   // Stream - Get User Data
@@ -29,7 +44,7 @@ class FirestoreService {
   }
 
   // Stream - Get Phone Data
-   Stream<QuerySnapshot<Object?>> get phones {
+  Stream<QuerySnapshot<Object?>> get phones {
     return phonesCollection.snapshots();
   }
 }

@@ -28,9 +28,7 @@ class _$UserModelTearOff {
       String? lastName,
       String? email,
       String? phoneNumber,
-      String? address,
-      String? city,
-      String? postalCode,
+      String? streetAddress,
       String? userOrdersUid,
       String? userCartUid}) {
     return _UserModel(
@@ -39,9 +37,7 @@ class _$UserModelTearOff {
       lastName: lastName,
       email: email,
       phoneNumber: phoneNumber,
-      address: address,
-      city: city,
-      postalCode: postalCode,
+      streetAddress: streetAddress,
       userOrdersUid: userOrdersUid,
       userCartUid: userCartUid,
     );
@@ -62,9 +58,7 @@ mixin _$UserModel {
   String? get lastName => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get phoneNumber => throw _privateConstructorUsedError;
-  String? get address => throw _privateConstructorUsedError;
-  String? get city => throw _privateConstructorUsedError;
-  String? get postalCode => throw _privateConstructorUsedError;
+  String? get streetAddress => throw _privateConstructorUsedError;
   String? get userOrdersUid => throw _privateConstructorUsedError;
   String? get userCartUid => throw _privateConstructorUsedError;
 
@@ -84,9 +78,7 @@ abstract class $UserModelCopyWith<$Res> {
       String? lastName,
       String? email,
       String? phoneNumber,
-      String? address,
-      String? city,
-      String? postalCode,
+      String? streetAddress,
       String? userOrdersUid,
       String? userCartUid});
 }
@@ -106,9 +98,7 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
     Object? lastName = freezed,
     Object? email = freezed,
     Object? phoneNumber = freezed,
-    Object? address = freezed,
-    Object? city = freezed,
-    Object? postalCode = freezed,
+    Object? streetAddress = freezed,
     Object? userOrdersUid = freezed,
     Object? userCartUid = freezed,
   }) {
@@ -133,17 +123,9 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      city: city == freezed
-          ? _value.city
-          : city // ignore: cast_nullable_to_non_nullable
-              as String?,
-      postalCode: postalCode == freezed
-          ? _value.postalCode
-          : postalCode // ignore: cast_nullable_to_non_nullable
+      streetAddress: streetAddress == freezed
+          ? _value.streetAddress
+          : streetAddress // ignore: cast_nullable_to_non_nullable
               as String?,
       userOrdersUid: userOrdersUid == freezed
           ? _value.userOrdersUid
@@ -169,9 +151,7 @@ abstract class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       String? lastName,
       String? email,
       String? phoneNumber,
-      String? address,
-      String? city,
-      String? postalCode,
+      String? streetAddress,
       String? userOrdersUid,
       String? userCartUid});
 }
@@ -192,9 +172,7 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
     Object? lastName = freezed,
     Object? email = freezed,
     Object? phoneNumber = freezed,
-    Object? address = freezed,
-    Object? city = freezed,
-    Object? postalCode = freezed,
+    Object? streetAddress = freezed,
     Object? userOrdersUid = freezed,
     Object? userCartUid = freezed,
   }) {
@@ -219,17 +197,9 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      city: city == freezed
-          ? _value.city
-          : city // ignore: cast_nullable_to_non_nullable
-              as String?,
-      postalCode: postalCode == freezed
-          ? _value.postalCode
-          : postalCode // ignore: cast_nullable_to_non_nullable
+      streetAddress: streetAddress == freezed
+          ? _value.streetAddress
+          : streetAddress // ignore: cast_nullable_to_non_nullable
               as String?,
       userOrdersUid: userOrdersUid == freezed
           ? _value.userOrdersUid
@@ -253,9 +223,7 @@ class _$_UserModel implements _UserModel {
       this.lastName,
       this.email,
       this.phoneNumber,
-      this.address,
-      this.city,
-      this.postalCode,
+      this.streetAddress,
       this.userOrdersUid,
       this.userCartUid});
 
@@ -273,11 +241,7 @@ class _$_UserModel implements _UserModel {
   @override
   final String? phoneNumber;
   @override
-  final String? address;
-  @override
-  final String? city;
-  @override
-  final String? postalCode;
+  final String? streetAddress;
   @override
   final String? userOrdersUid;
   @override
@@ -285,7 +249,7 @@ class _$_UserModel implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(uid: $uid, firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, address: $address, city: $city, postalCode: $postalCode, userOrdersUid: $userOrdersUid, userCartUid: $userCartUid)';
+    return 'UserModel(uid: $uid, firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, streetAddress: $streetAddress, userOrdersUid: $userOrdersUid, userCartUid: $userCartUid)';
   }
 
   @override
@@ -299,10 +263,8 @@ class _$_UserModel implements _UserModel {
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality()
                 .equals(other.phoneNumber, phoneNumber) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.city, city) &&
             const DeepCollectionEquality()
-                .equals(other.postalCode, postalCode) &&
+                .equals(other.streetAddress, streetAddress) &&
             const DeepCollectionEquality()
                 .equals(other.userOrdersUid, userOrdersUid) &&
             const DeepCollectionEquality()
@@ -317,9 +279,7 @@ class _$_UserModel implements _UserModel {
       const DeepCollectionEquality().hash(lastName),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(phoneNumber),
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(city),
-      const DeepCollectionEquality().hash(postalCode),
+      const DeepCollectionEquality().hash(streetAddress),
       const DeepCollectionEquality().hash(userOrdersUid),
       const DeepCollectionEquality().hash(userCartUid));
 
@@ -341,9 +301,7 @@ abstract class _UserModel implements UserModel {
       String? lastName,
       String? email,
       String? phoneNumber,
-      String? address,
-      String? city,
-      String? postalCode,
+      String? streetAddress,
       String? userOrdersUid,
       String? userCartUid}) = _$_UserModel;
 
@@ -361,11 +319,7 @@ abstract class _UserModel implements UserModel {
   @override
   String? get phoneNumber;
   @override
-  String? get address;
-  @override
-  String? get city;
-  @override
-  String? get postalCode;
+  String? get streetAddress;
   @override
   String? get userOrdersUid;
   @override

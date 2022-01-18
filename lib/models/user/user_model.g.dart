@@ -12,9 +12,7 @@ _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
       lastName: json['lastName'] as String?,
       email: json['email'] as String?,
       phoneNumber: json['phoneNumber'] as String?,
-      address: json['address'] as String?,
-      city: json['city'] as String?,
-      postalCode: json['postalCode'] as String?,
+      streetAddress: json['streetAddress'] as String?,
       userOrdersUid: json['userOrdersUid'] as String?,
       userCartUid: json['userCartUid'] as String?,
     );
@@ -26,9 +24,7 @@ Map<String, dynamic> _$$_UserModelToJson(_$_UserModel instance) =>
       'lastName': instance.lastName,
       'email': instance.email,
       'phoneNumber': instance.phoneNumber,
-      'address': instance.address,
-      'city': instance.city,
-      'postalCode': instance.postalCode,
+      'streetAddress': instance.streetAddress,
       'userOrdersUid': instance.userOrdersUid,
       'userCartUid': instance.userCartUid,
     };

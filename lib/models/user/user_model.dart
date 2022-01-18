@@ -12,9 +12,7 @@ class UserModel with _$UserModel {
     String? lastName,
     String? email,
     String? phoneNumber,
-    String? address,
-    String? city,
-    String? postalCode,
+    String? streetAddress,
     String? userOrdersUid,
     String? userCartUid,
   }) = _UserModel;

@@ -7,15 +7,17 @@ class CustomTextFormField extends StatefulWidget {
   final TextEditingController controller;
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
+  final Function(String?)? onChanged;
 
   const CustomTextFormField({
     Key? key,
+    this.isPasswordField = false,
+    this.obscureText = false,
     required this.labelText,
     required this.controller,
     required this.keyboardType,
-    this.isPasswordField = false,
-    this.obscureText = false,
     required this.validator,
+    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -27,19 +29,45 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: widget.onChanged,
       keyboardType: widget.isPasswordField
           ? TextInputType.visiblePassword
           : widget.keyboardType,
       controller: widget.controller,
+      cursorColor: Colors.orange,
       decoration: InputDecoration(
-        border: OutlineInputBorder(
+        focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 3,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 3,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: Colors.orange,
+            width: 3,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: Colors.grey,
+            width: 3,
+          ),
         ),
         labelText: widget.labelText,
         errorMaxLines: 3,
         suffixIcon: widget.obscureText || widget.isPasswordField
             ? IconButton(
-                tooltip: _obscureText ? 'Show Password' : 'Hide Password',
                 icon: Icon(
                   _obscureText ? Icons.visibility : Icons.visibility_off,
                 ),
@@ -47,7 +75,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                   setState(() {
                     _obscureText = !_obscureText;
                   });
-                })
+                },
+              )
             : null,
       ),
       obscureText:

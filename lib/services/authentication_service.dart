@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
-import '../models/user/user_model.dart';
 import 'firestore_service.dart';
 
 class AuthenticationService {
@@ -30,14 +29,27 @@ class AuthenticationService {
   Future<Object> signUpWithEmailAndPassword({
     required String email,
     required String password,
+    required String firstName,
+    required String lastName,
+    required String phoneNumber,
+    required String streetAddress,
+    required String city,
+    required String postalCode,
   }) async {
     try {
       var authResult = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      await FirestoreService(uid: authResult.user!.uid)
-          .updateUserData(UserModel());
+      await FirestoreService().updateUserData(
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phoneNumber,
+        streetAddress: streetAddress,
+        city: city,
+        postalCode: postalCode,
+      );
       return authResult.user != null;
     } catch (e) {
       return e.toString();

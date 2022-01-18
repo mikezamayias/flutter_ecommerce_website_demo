@@ -211,13 +211,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
-  eventify:
-    dependency: "direct main"
-    description:
-      name: eventify
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -293,13 +286,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_dotenv:
-    dependency: "direct main"
-    description:
-      name: flutter_dotenv
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.0.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -307,18 +293,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  flutter_localizations:
-    dependency: transitive
-    description: flutter
-    source: sdk
-    version: "0.0.0"
-  flutter_styled_toast:
-    dependency: "direct main"
-    description:
-      name: flutter_styled_toast
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   flutter_svg:
     dependency: "direct main"
     description:
