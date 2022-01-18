@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../locator.dart';
 import '../../routing/routes.dart';
 import '../../services/navigation_service.dart';
-import '../../locator.dart';
+import 'navigation_item.dart';
 
 class OrdersNavigationItem extends StatefulWidget {
   const OrdersNavigationItem({
@@ -16,12 +17,10 @@ class OrdersNavigationItem extends StatefulWidget {
 class _OrdersNavigationItemState extends State<OrdersNavigationItem> {
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
-      onPressed: () {
-        locator<NavigationService>().navigateTo(OrdersViewRoute);
-      },
-      icon: const Icon(Icons.shopping_bag_rounded),
-      label: const Text('Orders'),
+    return NavigationItem(
+      label: 'Orders',
+      iconData: Icons.shopping_bag_rounded,
+      onPressed: () => locator<NavigationService>().navigateTo(OrdersViewRoute),
     );
   }
 }

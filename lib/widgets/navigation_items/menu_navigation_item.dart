@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../services/scaffold_service.dart';
 import '../../locator.dart';
+import '../../services/scaffold_service.dart';
+import 'navigation_item.dart';
 
 class MenuNavigationItem extends StatefulWidget {
   const MenuNavigationItem({
@@ -15,11 +16,10 @@ class MenuNavigationItem extends StatefulWidget {
 class _MenuNavigationItemState extends State<MenuNavigationItem> {
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
-      onPressed: () =>
-          locator<ScaffoldService>().currentState!.openEndDrawer(),
-      icon: const Icon(Icons.menu_rounded),
-      label: const Text('Menu'),
+    return NavigationItem(
+      label: 'Menu',
+      iconData: Icons.menu_rounded,
+      onPressed: () => locator<ScaffoldService>().currentState!.openEndDrawer(),
     );
   }
 }
