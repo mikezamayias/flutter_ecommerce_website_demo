@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'ecommerce_website.dart';
+import 'flutter_ecommerce_website_demo.dart';
 import 'firebase_options.dart';
 
 import 'locator.dart';
@@ -12,5 +12,5 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   setupLocator();
-  runApp(const EcommerceWebsite());
+  runApp(const FlutterEcommerceWebsiteDemo());
 }

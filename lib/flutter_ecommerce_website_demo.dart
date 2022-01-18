@@ -20,14 +20,14 @@ import 'widgets/navigation/custom_navigation_drawer.dart';
 import 'widgets/navigation/desktop_navigation_bar.dart';
 import 'widgets/navigation/mobile_navigation_bar.dart';
 
-class EcommerceWebsite extends StatefulWidget {
-  const EcommerceWebsite({Key? key}) : super(key: key);
+class FlutterEcommerceWebsiteDemo extends StatefulWidget {
+  const FlutterEcommerceWebsiteDemo({Key? key}) : super(key: key);
 
   @override
-  _EcommerceWebsiteState createState() => _EcommerceWebsiteState();
+  _FlutterEcommerceWebsiteDemoState createState() => _FlutterEcommerceWebsiteDemoState();
 }
 
-class _EcommerceWebsiteState extends State<EcommerceWebsite> {
+class _FlutterEcommerceWebsiteDemoState extends State<FlutterEcommerceWebsiteDemo> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -42,7 +42,7 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
         ),
       ],
       child: MaterialApp(
-        title: 'E-commerce Website',
+        title: 'Flutter E-Commerce Website Demo',
         debugShowCheckedModeBanner: false,
         theme: CurrentTheme.lightTheme,
         darkTheme: CurrentTheme.darkTheme,
