@@ -35,24 +35,19 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
       title: const NavigationBarLogo().moveUpOnHover,
       actions: loggedIn
           ? [
-              Text('Hello, ${user.displayName ?? user.uid}'),
               const HomeNavigationItem().moveUpOnHover,
               const CartNavigationItem().moveUpOnHover,
               const OrdersNavigationItem().moveUpOnHover,
               const ContactNavigationItem().moveUpOnHover,
               const LogOutNavigationItem().moveUpOnHover,
-            ]
-              .map((widget) => widget.paddNavigationBarItem)
-              .toList()
+            ].map((widget) => widget.paddNavigationBarItem).toList()
           : [
               const HomeNavigationItem().moveUpOnHover,
               const SignUpNavigationItem().moveUpOnHover,
               const LogInNavigationItem().moveUpOnHover,
               const CartNavigationItem().moveUpOnHover,
               const ContactNavigationItem().moveUpOnHover,
-            ]
-              .map((widget) => widget.paddNavigationBarItem)
-              .toList(),
+            ].map((widget) => widget.paddNavigationBarItem).toList(),
     );
   }
 }
