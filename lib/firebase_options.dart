@@ -44,11 +44,12 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-      apiKey: "AIzaSyA0jl24nb9EsnGnGvu0IKs6nN0a4bYFSl0",
-      authDomain: "flutter-ecommerce-website-demo.firebaseapp.com",
-      projectId: "flutter-ecommerce-website-demo",
-      storageBucket: "flutter-ecommerce-website-demo.appspot.com",
-      messagingSenderId: "435676149986",
-      appId: "1:435676149986:web:40fca7cdaa7c2f066986bb",
-      measurementId: "G-M8V7JGW66F");
+    apiKey: "AIzaSyA0jl24nb9EsnGnGvu0IKs6nN0a4bYFSl0",
+    authDomain: "flutter-ecommerce-website-demo.firebaseapp.com",
+    projectId: "flutter-ecommerce-website-demo",
+    storageBucket: "flutter-ecommerce-website-demo.appspot.com",
+    messagingSenderId: "435676149986",
+    appId: "1:435676149986:web:40fca7cdaa7c2f066986bb",
+    measurementId: "G-M8V7JGW66F",
+  );
 }
