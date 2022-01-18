@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/extensions/hover_extension.dart';
 import 'package:provider/provider.dart';
 
+import '../../extensions/hover_extension.dart';
 import '../../extensions/padding_extension.dart';
 import '../navigation_items/cart_navigation_item.dart';
 import '../navigation_items/contact_navigation_item.dart';
@@ -27,9 +27,10 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
     bool loggedIn = user != null;
     return SliverAppBar(
       pinned: true,
-      elevation: 9,
+      elevation: 12,
       shadowColor: Colors.orange,
-      backgroundColor: Colors.grey[100],
+      leadingWidth: 0,
+      backgroundColor: Colors.grey[300],
       centerTitle: false,
       title: const NavigationBarLogo().moveUpOnHover.paddNavigationBarItem,
       actions: loggedIn
@@ -39,16 +40,14 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
               const CartNavigationItem(),
               const OrdersNavigationItem(),
               const ContactNavigationItem(),
-              const LogOutNavigationItem()
-            ]
-              .map((widget) => widget.moveUpOnHover.paddNavigationBarItem)
-              .toList()
-          : const [
-              HomeNavigationItem(),
-              SignUpNavigationItem(),
-              LogInNavigationItem(),
-              CartNavigationItem(),
-              ContactNavigationItem(),
+              const LogOutNavigationItem(),
+            ].map((widget) => widget.moveUpOnHover).toList()
+          : [
+              const HomeNavigationItem(),
+              const SignUpNavigationItem(),
+              const LogInNavigationItem(),
+              const CartNavigationItem(),
+              const ContactNavigationItem(),
             ]
               .map((widget) => widget.moveUpOnHover.paddNavigationBarItem)
               .toList(),

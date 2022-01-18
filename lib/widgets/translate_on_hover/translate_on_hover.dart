@@ -27,6 +27,21 @@ class _TranslateOnHoverState extends State<TranslateOnHover> {
         duration: const Duration(milliseconds: 200),
         child: widget.child,
         transform: _hovering ? hoverTransform : nonHoverTransform,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: Colors.white,
+          boxShadow: _hovering
+              ? [
+                 BoxShadow(
+                    color: Colors.orange.withOpacity(0.6),
+                    offset: const Offset(1, 9),
+                    blurRadius: 6,
+                    spreadRadius: -2,
+                    blurStyle: BlurStyle.inner,
+                  ),
+                ]
+              : [],
+        ),
       ),
     );
   }

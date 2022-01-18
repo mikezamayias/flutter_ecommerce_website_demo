@@ -19,7 +19,7 @@ class _SignUpNavigationItemState extends State<SignUpNavigationItem> {
         locator<NavigationService>().navigateTo(RegisterViewRoute);
       },
       icon: const Icon(Icons.person_add_rounded),
-      label: const Text('Register'),
+      label: const Text('Sign Up'),
     );
   }
 }

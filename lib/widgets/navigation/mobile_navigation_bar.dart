@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../extensions/hover_extension.dart';
 import '../../extensions/padding_extension.dart';
+import '../../shared/ui/shared_styles.dart';
 import '../navigation_items/menu_navigation_item.dart';
 import 'navigation_bar_logo.dart';
 
@@ -18,10 +20,10 @@ class _MobileNavigationBarState extends State<MobileNavigationBar> {
       pinned: true,
       elevation: 9,
       shadowColor: Colors.orange,
-      backgroundColor: Colors.grey[100],
+      backgroundColor: backgroundColor,
       centerTitle: false,
-      title: const NavigationBarLogo(),
-      actions: [const MenuNavigationItem().paddNavigationBarItem],
+      title: const NavigationBarLogo().moveUpOnHover.paddNavigationBarItem,
+      actions: [const MenuNavigationItem().moveUpOnHover.paddNavigationBarItem],
     );
   }
 }

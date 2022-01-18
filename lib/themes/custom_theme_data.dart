@@ -22,13 +22,12 @@ class CurrentTheme with ChangeNotifier {
       brightness: Brightness.light,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-          textStyle: MaterialStateProperty.all<TextStyle>(
-            GoogleFonts.firaSans(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-            ),
+        style: TextButton.styleFrom(
+          textStyle: GoogleFonts.firaSans(
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
           ),
+          splashFactory: NoSplash.splashFactory,
         ),
       ),
     );

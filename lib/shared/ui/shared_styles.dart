@@ -27,3 +27,5 @@ const TextStyle buttonTitleTextStyle = TextStyle(
   fontWeight: FontWeight.w700,
   color: Colors.white,
 );
+
+const Color backgroundColor = Color(0xFFEAEAEA);

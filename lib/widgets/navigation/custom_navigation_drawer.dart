@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../extensions/hover_extension.dart';
 import '../../extensions/padding_extension.dart';
+import '../../shared/ui/shared_styles.dart';
 import '../../shared/ui/ui_helpers.dart';
 import '../navigation_items/cart_navigation_item.dart';
 import '../navigation_items/contact_navigation_item.dart';
@@ -29,29 +31,65 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
     return SizedBox(
       width: 240,
       child: Drawer(
-        backgroundColor: Colors.grey[100],
+        backgroundColor: backgroundColor,
         child: Padding(
           padding: const EdgeInsets.all(9),
           child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: loggedIn
                 ? [
-                    Text('Hello, ${user.displayName ?? user.uid}'),
-                    const HomeNavigationItem(),
-                    const CartNavigationItem(),
-                    const OrdersNavigationItem(),
-                    const ContactNavigationItem(),
+                    Padding(
+                      padding: const EdgeInsets.all(9),
+                      child: Text(
+                        'Hello, ${user.displayName ?? user.uid}',
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    ),
+                    verticalSpaceSmall,
+                    const HomeNavigationItem()
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
+                    verticalSpaceSmall,
+                    const CartNavigationItem()
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
+                    verticalSpaceSmall,
+                    const OrdersNavigationItem()
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
+                    verticalSpaceSmall,
+                    const ContactNavigationItem()
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
+                    verticalSpaceSmall,
                     const LogOutNavigationItem()
-                  ].map((widget) => widget.paddNavigationBarItem).toList()
-                : const [
-                    verticalSpaceMedium,
-                    SignUpNavigationItem(),
-                    LogInNavigationItem(),
-                    HomeNavigationItem(),
-                    CartNavigationItem(),
-                    ContactNavigationItem(),
-                  ].map((widget) => widget.paddNavigationBarItem).toList(),
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
+                  ]
+                : [
+                    verticalSpaceSmall,
+                    const SignUpNavigationItem()
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
+                    verticalSpaceSmall,
+                    const LogInNavigationItem()
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
+                    verticalSpaceSmall,
+                    const HomeNavigationItem()
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
+                    verticalSpaceSmall,
+                    const CartNavigationItem()
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
+                    verticalSpaceSmall,
+                    const ContactNavigationItem()
+                        .paddNavigationDrawerItem
+                        .moveUpOnHover,
+                  ],
           ),
         ),
       ),

@@ -57,6 +57,7 @@ class _EcommerceWebsiteState extends State<EcommerceWebsite> {
                       endDrawer: sizingInformation.isDesktop
                           ? null
                           : const CustomNavigationDrawer(),
+                      backgroundColor: const Color(0xFFF3F3F3),
                       body: CustomScrollView(
                         slivers: <Widget>[
                           sizingInformation.isDesktop
