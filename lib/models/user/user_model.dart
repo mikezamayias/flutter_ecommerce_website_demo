@@ -7,8 +7,8 @@ class UserModel {
   String? email;
   String? phoneNumber;
   String? streetAddress;
-  String? userOrdersUid;
-  String? userCartUid;
+  int? postalCode;
+  String? city;
   UserModel({
     this.uid,
     this.firstName,
@@ -16,8 +16,8 @@ class UserModel {
     this.email,
     this.phoneNumber,
     this.streetAddress,
-    this.userOrdersUid,
-    this.userCartUid,
+    this.postalCode,
+    this.city,
   });
 
   UserModel copyWith({
@@ -27,8 +27,8 @@ class UserModel {
     String? email,
     String? phoneNumber,
     String? streetAddress,
-    String? userOrdersUid,
-    String? userCartUid,
+    int? postalCode,
+    String? city,
   }) {
     return UserModel(
       uid: uid ?? this.uid,
@@ -37,8 +37,8 @@ class UserModel {
       email: email ?? this.email,
       phoneNumber: phoneNumber ?? this.phoneNumber,
       streetAddress: streetAddress ?? this.streetAddress,
-      userOrdersUid: userOrdersUid ?? this.userOrdersUid,
-      userCartUid: userCartUid ?? this.userCartUid,
+      postalCode: postalCode ?? this.postalCode,
+      city: city ?? this.city,
     );
   }
 
@@ -50,8 +50,8 @@ class UserModel {
       'email': email,
       'phoneNumber': phoneNumber,
       'streetAddress': streetAddress,
-      'userOrdersUid': userOrdersUid,
-      'userCartUid': userCartUid,
+      'postalCode': postalCode,
+      'city': city,
     };
   }
 
@@ -63,44 +63,45 @@ class UserModel {
       email: map['email'],
       phoneNumber: map['phoneNumber'],
       streetAddress: map['streetAddress'],
-      userOrdersUid: map['userOrdersUid'],
-      userCartUid: map['userCartUid'],
+      postalCode: map['postalCode']?.toInt(),
+      city: map['city'],
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source));
+  factory UserModel.fromJson(String source) =>
+      UserModel.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'UserModel(uid: $uid, firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, streetAddress: $streetAddress, userOrdersUid: $userOrdersUid, userCartUid: $userCartUid)';
+    return 'UserModel(uid: $uid, firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, streetAddress: $streetAddress, postalCode: $postalCode, city: $city)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is UserModel &&
-      other.uid == uid &&
-      other.firstName == firstName &&
-      other.lastName == lastName &&
-      other.email == email &&
-      other.phoneNumber == phoneNumber &&
-      other.streetAddress == streetAddress &&
-      other.userOrdersUid == userOrdersUid &&
-      other.userCartUid == userCartUid;
+        other.uid == uid &&
+        other.firstName == firstName &&
+        other.lastName == lastName &&
+        other.email == email &&
+        other.phoneNumber == phoneNumber &&
+        other.streetAddress == streetAddress &&
+        other.postalCode == postalCode &&
+        other.city == city;
   }
 
   @override
   int get hashCode {
     return uid.hashCode ^
-      firstName.hashCode ^
-      lastName.hashCode ^
-      email.hashCode ^
-      phoneNumber.hashCode ^
-      streetAddress.hashCode ^
-      userOrdersUid.hashCode ^
-      userCartUid.hashCode;
+        firstName.hashCode ^
+        lastName.hashCode ^
+        email.hashCode ^
+        phoneNumber.hashCode ^
+        streetAddress.hashCode ^
+        postalCode.hashCode ^
+        city.hashCode;
   }
 }
