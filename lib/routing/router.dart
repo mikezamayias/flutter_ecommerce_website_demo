@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
+import '../views/add_phone/add_phone_view.dart';
 import '../views/cart/cart_view.dart';
 import '../views/contact/contact_view.dart';
-import '../views/home/home_view.dart';
 import '../views/log_in/log_in_view.dart';
 import '../views/orders/orders_page.dart';
-import '../views/phone/add_phone_view.dart';
+import '../views/shop/shop_view.dart';
 import '../views/sign_up/sign_up_view.dart';
 import 'routes.dart';
 
 PageRoute generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case shopRoute:
-      return _getPageRoute(const HomeView());
+      return _getPageRoute(const ShopView());
     case signUpRoute:
       return _getPageRoute(const SignUpView());
     case loginRoute:
@@ -26,7 +26,7 @@ PageRoute generateRoute(RouteSettings settings) {
     case addPhoneRoute:
       return _getPageRoute(const AddPhoneView());
     default:
-      return _getPageRoute(const HomeView());
+      return _getPageRoute(const ShopView());
   }
 }
 

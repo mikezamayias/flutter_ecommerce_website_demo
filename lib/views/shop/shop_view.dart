@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/shared/ui/ui_helpers.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../models/phone/phone_model.dart';
 import '../../services/firestore_service.dart';
-import 'phone_card.dart';
+import '../../shared/ui/ui_helpers.dart';
+import 'widgets/phone_card.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
+class ShopView extends StatefulWidget {
+  const ShopView({Key? key}) : super(key: key);
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<ShopView> createState() => _ShopViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _ShopViewState extends State<ShopView> {
   @override
   Widget build(BuildContext context) {
     final phones = Provider.of<List<PhoneModel>>(context);

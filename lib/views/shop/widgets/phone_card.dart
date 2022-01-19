@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_website_demo/widgets/busy_button.dart';
 
-import '../../models/phone/phone_model.dart';
-import '../../shared/ui/ui_helpers.dart';
+import '../../../models/phone/phone_model.dart';
+import '../../../shared/ui/ui_helpers.dart';
 import 'specification_field.dart';
 
 class PhoneCard extends StatelessWidget {
