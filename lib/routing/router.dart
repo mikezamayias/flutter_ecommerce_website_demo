@@ -11,7 +11,7 @@ import 'routes.dart';
 
 PageRoute generateRoute(RouteSettings settings) {
   switch (settings.name) {
-    case homeViewRoute:
+    case homeRoute:
       return _getPageRoute(const HomeView());
     case signUpRoute:
       return _getPageRoute(const SignUpView());

@@ -18,7 +18,7 @@ class _HomeNavigationItemState extends State<HomeNavigationItem> {
     return NavigationItem(
       label: 'Home',
       iconData: Icons.home_rounded,
-      onPressed: () => locator<NavigationService>().navigateTo(homeViewRoute),
+      onPressed: () => locator<NavigationService>().navigateTo(homeRoute),
     );
   }
 }
