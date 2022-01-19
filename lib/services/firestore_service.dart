@@ -1,101 +1,87 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_ecommerce_website_demo/models/phone/phone_model.dart';
+
+import '../models/phone/phone_model.dart';
+import '../models/user/user_model.dart';
 
 class FirestoreService {
-  String? uid;
+  /// Firestore instance
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  FirebaseFirestore get fireStore => _firestore;
 
-  // Stream - Get User Data
-  Stream<QuerySnapshot<Object?>> get userData {
-    return userCollection.snapshots();
+  /// User Collection Reference
+  CollectionReference<Map<String, dynamic>> get userCollection =>
+      _firestore.collection('users');
+
+  /// Phone Collection Reference
+  CollectionReference<Map<String, dynamic>> get phoneCollection =>
+      _firestore.collection('phones');
+
+  /// Cart Collection Reference
+  CollectionReference<Map<String, dynamic>> get cartCollection =>
+      _firestore.collection('cart');
+
+  /// Order Collection Reference
+  CollectionReference<Map<String, dynamic>> get ordersCollection =>
+      _firestore.collection('orders');
+
+  /// User Snapshot Stream
+  Stream<QuerySnapshot<Object?>> get userSnapshot => userCollection.snapshots();
+
+  /// Phone Snapshot Stream
+  Stream<QuerySnapshot<Object?>> get phoneStream => phoneCollection.snapshots();
+
+  /// Cart Snapshot Stream
+  Stream<QuerySnapshot<Object?>> get cartStream => cartCollection.snapshots();
+
+  /// Order Snapshot Stream
+  Stream<QuerySnapshot<Object?>> get orderStream =>
+      ordersCollection.snapshots();
+
+  // Create Phone
+  Future<void> createPhone(PhoneModel phoneModel) async {
+    return await phoneCollection.doc().set(phoneModel.toMap());
   }
 
-  // Stream - Get Phone Data
-  Stream<QuerySnapshot<Object?>> get phoneStream {
-    return phoneCollection.snapshots();
+  // Create User
+  Future<void> createUser(UserModel userModel) async {
+    return userCollection.doc(userModel.uid).set(userModel.toMap());
   }
 
-  FirestoreService({this.uid});
+  // Read Users
+  Stream<List<UserModel>> get readAllUsers => userCollection.snapshots().map(
+        (snapshot) => snapshot.docs
+            .map(
+              (doc) => UserModel(
+                uid: doc.get('uid') as String,
+                email: doc.get('email') as String,
+                firstName: doc.get('firstName') as String,
+                lastName: doc.get('lastName') as String,
+                phoneNumber: doc.get('phoneNumber') as String,
+                streetAddress: doc.get('streetAddress') as String,
+                city: doc.get('city') as String,
+                postalCode: doc.get('postalCode') as int,
+              ),
+            )
+            .toList(),
+      );
 
-  // Collection Reference
-  final CollectionReference userCollection =
-      FirebaseFirestore.instance.collection('users');
-  final CollectionReference phoneCollection =
-      FirebaseFirestore.instance.collection('phones');
-  final CollectionReference orderCollection =
-      FirebaseFirestore.instance.collection('orders');
-  final CollectionReference userCartCollection =
-      FirebaseFirestore.instance.collection('userCart');
-  final CollectionReference userOrderCollection =
-      FirebaseFirestore.instance.collection('userOrders');
+  // Read User with specified uid
+  Stream<UserModel> readUser(String uid) =>
+      userCollection.doc(uid).snapshots().map(
+            (snapshot) => UserModel(
+              uid: snapshot.id,
+              email: snapshot.get('email') as String,
+              firstName: snapshot.get('firstName') as String,
+              lastName: snapshot.get('lastName') as String,
+              phoneNumber: snapshot.get('phoneNumber') as String,
+              streetAddress: snapshot.get('streetAddress') as String,
+              city: snapshot.get('city') as String,
+              postalCode: snapshot.get('postalCode') as int,
+            ),
+          );
 
-  get phoneList => phoneCollection.snapshots();
-
-  // Future - Update Phone Data
-  Future<void> addPhone({
-    required String model,
-    required int battery,
-    required double screenSize,
-    required String camera,
-    required double sar,
-    required int ram,
-    required String storage,
-    required double price,
-    required int quantity,
-    required String photoUrl,
-    required String soc,
-  }) async {
-    return await phoneCollection.doc().set(
-          PhoneModel.fromMap({
-            'model': model,
-            'soc': soc,
-            'ram': ram,
-            'storage': storage,
-            'screenSize': screenSize,
-            'battery': battery,
-            'camera': camera,
-            'price': price,
-            'quantity': quantity,
-            'photoUrl': photoUrl,
-            'sar': sar,
-          }),
-        );
-    // return await phoneCollection.doc().set({
-    //   'model': model,
-    //   'battery': battery,
-    //   'screenSize': screenSize,
-    //   'camera': camera,
-    //   'sar': sar,
-    //   'ram': ram,
-    //   'storage': storage,
-    //   'price': price,
-    //   'quantity': quantity,
-    //   'photoUrl': photoUrl,
-    //   'soc': soc,
-    // });
-  }
-
-  // Future - Update User Data
-  Future<void> updateUserData(
-    String email,
-    String firstName,
-    String lastName,
-    String phoneNumber,
-    String streetAddress,
-    String city,
-    String postalCode,
-  ) async {
-    return userCollection.doc(uid).set({
-      'email': email,
-      'firstName': firstName,
-      'lastName': lastName,
-      'phoneNumber': phoneNumber,
-      'streetAddress': streetAddress,
-      'city': city,
-      'postalCode': postalCode,
-    });
-  }
-
-  Stream<List<PhoneModel>> get phones => phoneCollection.snapshots().map(
+  // Read Phone Catalog
+  Stream<List<PhoneModel>> get readPhones => phoneCollection.snapshots().map(
         (snapshot) => snapshot.docs
             .map(
               (doc) => PhoneModel(
