@@ -151,6 +151,7 @@ class MobilePhoneView extends StatelessWidget {
           photoUrlTextEditingController: _photoUrlTextEditingController,
           sarTextEditingController: _sarTextEditingController,
         ),
+        verticalSpaceMassive,
       ],
     );
   }
