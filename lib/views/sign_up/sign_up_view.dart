@@ -33,41 +33,43 @@ class _SignUpViewState extends State<SignUpView> {
       builder: (context, model, child) {
         return Form(
           key: locator<FormService>().signUpFormKey,
-          child: ResponsiveBuilder(builder: (context, sizingInformation) {
-            return AnimatedContainer(
-              duration: const Duration(milliseconds: 30),
-              padding: sizingInformation.isDesktop
-                  ? const EdgeInsets.symmetric(horizontal: 60)
-                  : const EdgeInsets.only(),
-              child: SingleChildScrollView(
-                child: sizingInformation.isDesktop
-                    ? DesktopSignUpView(
-                        signUpViewModel: model,
-                        emailController: _emailController,
-                        passwordController: _passwordController,
-                        confirmPasswordController: _confirmPasswordController,
-                        firstNameController: _firstNameController,
-                        lastNameController: _lastNameController,
-                        phoneNumbercontroller: _phoneNumbercontroller,
-                        streetAddressController: _streetAddressController,
-                        postalCodeController: _postalCodeController,
-                        cityController: _cityController,
-                      )
-                    : MobileSignUpView(
-                        signUpViewModel: model,
-                        emailController: _emailController,
-                        passwordController: _passwordController,
-                        confirmPasswordController: _confirmPasswordController,
-                        firstNameController: _firstNameController,
-                        lastNameController: _lastNameController,
-                        phoneNumbercontroller: _phoneNumbercontroller,
-                        streetAddressController: _streetAddressController,
-                        postalCodeController: _postalCodeController,
-                        cityController: _cityController,
-                      ),
-              ),
-            );
-          }),
+          child: ResponsiveBuilder(
+            builder: (context, sizingInformation) {
+              return AnimatedContainer(
+                duration: const Duration(milliseconds: 30),
+                padding: sizingInformation.isDesktop
+                    ? const EdgeInsets.symmetric(horizontal: 60)
+                    : const EdgeInsets.only(),
+                child: SingleChildScrollView(
+                  child: sizingInformation.isDesktop
+                      ? DesktopSignUpView(
+                          signUpViewModel: model,
+                          emailController: _emailController,
+                          passwordController: _passwordController,
+                          confirmPasswordController: _confirmPasswordController,
+                          firstNameController: _firstNameController,
+                          lastNameController: _lastNameController,
+                          phoneNumbercontroller: _phoneNumbercontroller,
+                          streetAddressController: _streetAddressController,
+                          postalCodeController: _postalCodeController,
+                          cityController: _cityController,
+                        )
+                      : MobileSignUpView(
+                          signUpViewModel: model,
+                          emailController: _emailController,
+                          passwordController: _passwordController,
+                          confirmPasswordController: _confirmPasswordController,
+                          firstNameController: _firstNameController,
+                          lastNameController: _lastNameController,
+                          phoneNumbercontroller: _phoneNumbercontroller,
+                          streetAddressController: _streetAddressController,
+                          postalCodeController: _postalCodeController,
+                          cityController: _cityController,
+                        ),
+                ),
+              );
+            },
+          ),
         );
       },
     );
