@@ -15,15 +15,15 @@ PageRoute generateRoute(RouteSettings settings) {
       return _getPageRoute(const HomeView());
     case SignUpRoute:
       return _getPageRoute(const SignUpView());
-    case LoginViewRoute:
+    case LoginRoute:
       return _getPageRoute(const LogInView());
-    case CartViewRoute:
+    case CartRoute:
       return _getPageRoute(const CartView());
-    case OrdersViewRoute:
+    case OrdersRoute:
       return _getPageRoute(const OrdersView());
-    case ContactViewRoute:
+    case ContactRoute:
       return _getPageRoute(const ContactView());
-    case AddPhoneViewRoute:
+    case AddPhoneRoute:
       return _getPageRoute(const PhoneView());
     default:
       return _getPageRoute(const HomeView());
@@ -46,6 +46,6 @@ class _FadeRoute extends PageRouteBuilder {
               page,
           transitionsBuilder: (context, animation, secondaryAnimation, child) =>
               FadeTransition(opacity: animation, child: child),
-          transitionDuration: const Duration(milliseconds: 0),
+          transitionDuration: const Duration(milliseconds: 30),
         );
 }
