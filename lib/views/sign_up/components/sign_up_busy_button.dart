@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../locator.dart';
-import '../../routing/routes.dart';
-import '../../services/navigation_service.dart';
-import '../../view_models/sign_up/sign_up_view_model.dart';
-import '../../widgets/busy_button.dart';
+import '../../../locator.dart';
+import '../../../routing/routes.dart';
+import '../../../services/navigation_service.dart';
+import '../../../view_models/sign_up/sign_up_view_model.dart';
+import '../../../widgets/busy_button.dart';
 
 class SignUpButton extends StatelessWidget {
   const SignUpButton({

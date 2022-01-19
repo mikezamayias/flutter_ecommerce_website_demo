@@ -5,8 +5,8 @@ import 'package:stacked/stacked.dart';
 import '../../locator.dart';
 import '../../services/form_service.dart';
 import '../../view_models/sign_up/sign_up_view_model.dart';
-import 'desktop_sign_up_view.dart';
-import 'mobile_sign_up_view.dart';
+import 'components/desktop_sign_up_view.dart';
+import 'components/mobile_sign_up_view.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);

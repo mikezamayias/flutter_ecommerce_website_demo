@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../shared/ui/ui_helpers.dart';
-import '../../view_models/sign_up/sign_up_view_model.dart';
-import '../../widgets/custom_text_form_field.dart';
+import '../../../shared/ui/ui_helpers.dart';
+import '../../../view_models/sign_up/sign_up_view_model.dart';
+import '../../../widgets/custom_text_form_field.dart';
 import 'sign_up_busy_button.dart';
 
 class DesktopSignUpView extends StatelessWidget {
