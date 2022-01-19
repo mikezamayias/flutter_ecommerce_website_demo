@@ -30,113 +30,122 @@ class _SignUpViewState extends State<SignUpView> {
   Widget build(BuildContext context) {
     return ViewModelBuilder<SignUpViewModel>.reactive(
       viewModelBuilder: () => SignUpViewModel(),
-      builder: (context, model, child) => Form(
-        key: locator<FormService>().signUpFormKey,
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 6),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              verticalSpaceLarge,
-              Text(
-                'Sign Up',
-                style: Theme.of(context).textTheme.headline3,
-              ),
-              verticalSpaceMedium,
-              CustomTextFormField(
-                labelText: 'Email',
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                validator: model.validateEmail,
-              ),
-              verticalSpaceSmall,
-              CustomTextFormField(
-                labelText: 'Password',
-                controller: _passwordController,
-                keyboardType: TextInputType.visiblePassword,
-                validator: model.validatePassword,
-                isPasswordField: true,
-              ),
-              verticalSpaceSmall,
-              CustomTextFormField(
-                labelText: 'Confirm Password',
-                controller: _confirmPasswordController,
-                keyboardType: TextInputType.visiblePassword,
-                validator: (value) => model.validateConfirmPassword(
-                  value,
-                  _passwordController.text,
+      builder: (context, model, child) {
+        return Form(
+          key: locator<FormService>().signUpFormKey,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 6),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                verticalSpaceLarge,
+                Text(
+                  'Sign Up',
+                  style: Theme.of(context).textTheme.headline3,
                 ),
-                isPasswordField: true,
-              ),
-              verticalSpaceSmall,
-              // first name custom text form field
-              CustomTextFormField(
-                labelText: 'First Name',
-                controller: _firstNameController,
-                validator: model.validateFirstName,
-                keyboardType: TextInputType.name,
-              ),
-              verticalSpaceSmall,
-              // last name custom text form field
-              CustomTextFormField(
-                labelText: 'Last Name',
-                controller: _lastNameController,
-                validator: model.validateLastName,
-                keyboardType: TextInputType.name,
-              ),
-              verticalSpaceSmall,
-              CustomTextFormField(
-                labelText: 'Phone Number',
-                controller: _phoneNumbercontroller,
-                keyboardType: TextInputType.phone,
-                validator: model.validatePhoneNumber,
-              ),
-              verticalSpaceSmall,
-              CustomTextFormField(
-                labelText: 'Street address',
-                controller: _streetAddressController,
-                keyboardType: TextInputType.streetAddress,
-                validator: model.validateStreetAddress,
-              ),
-              verticalSpaceSmall,
-              CustomTextFormField(
-                labelText: 'Postal Code',
-                controller: _postalCodeController,
-                keyboardType: TextInputType.phone,
-                validator: model.validatePostalCode,
-              ),
-              verticalSpaceSmall,
-              CustomTextFormField(
-                labelText: 'City',
-                controller: _cityController,
-                keyboardType: TextInputType.text,
-                validator: model.validateCity,
-              ),
-              verticalSpaceMedium,
-              BusyButton(
-                title: 'Sign Up',
-                busy: model.isBusy,
-                onPressed: () {
-                  model.signUp(
-                    email: _emailController.text,
-                    password: _passwordController.text,
-                    confirmPassword: _confirmPasswordController.text,
-                    firstName: _firstNameController.text,
-                    lastName: _lastNameController.text,
-                    phoneNumber: _phoneNumbercontroller.text,
-                    streetAddress: _streetAddressController.text,
-                    city: _cityController.text,
-                    postalCode: _postalCodeController.text,
-                  );
-                },
-              ),
-              verticalSpaceLarge,
-            ],
+                verticalSpaceLarge,
+                CustomTextFormField(
+                  labelText: 'Email',
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  validator: model.validateEmail,
+                ),
+                verticalSpaceMedium,
+                CustomTextFormField(
+                  labelText: 'Password',
+                  controller: _passwordController,
+                  keyboardType: TextInputType.visiblePassword,
+                  validator: model.validatePassword,
+                  isPasswordField: true,
+                ),
+                verticalSpaceMedium,
+                CustomTextFormField(
+                  labelText: 'Confirm Password',
+                  controller: _confirmPasswordController,
+                  keyboardType: TextInputType.visiblePassword,
+                  validator: (value) => model.validateConfirmPassword(
+                    value,
+                    _passwordController.text,
+                  ),
+                  isPasswordField: true,
+                ),
+                verticalSpaceMedium,
+                // first name custom text form field
+                CustomTextFormField(
+                  labelText: 'First Name',
+                  controller: _firstNameController,
+                  validator: model.validateFirstName,
+                  keyboardType: TextInputType.name,
+                ),
+                verticalSpaceMedium,
+                // last name custom text form field
+                CustomTextFormField(
+                  labelText: 'Last Name',
+                  controller: _lastNameController,
+                  validator: model.validateLastName,
+                  keyboardType: TextInputType.name,
+                ),
+                verticalSpaceMedium,
+                CustomTextFormField(
+                  labelText: 'Phone Number',
+                  controller: _phoneNumbercontroller,
+                  keyboardType: TextInputType.phone,
+                  validator: model.validatePhoneNumber,
+                ),
+                verticalSpaceMedium,
+                CustomTextFormField(
+                  labelText: 'Street address',
+                  controller: _streetAddressController,
+                  keyboardType: TextInputType.streetAddress,
+                  validator: model.validateStreetAddress,
+                ),
+                verticalSpaceMedium,
+                CustomTextFormField(
+                  labelText: 'Postal Code',
+                  controller: _postalCodeController,
+                  keyboardType: TextInputType.phone,
+                  validator: model.validatePostalCode,
+                ),
+                verticalSpaceMedium,
+                CustomTextFormField(
+                  labelText: 'City',
+                  controller: _cityController,
+                  keyboardType: TextInputType.text,
+                  validator: model.validateCity,
+                ),
+                verticalSpaceMedium,
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    BusyButton(
+                      title: 'Sign Up',
+                      busy: model.isBusy,
+                      onPressed: () {
+                        model.signUp(
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                          confirmPassword: _confirmPasswordController.text,
+                          firstName: _firstNameController.text,
+                          lastName: _lastNameController.text,
+                          phoneNumber: _phoneNumbercontroller.text,
+                          streetAddress: _streetAddressController.text,
+                          city: _cityController.text,
+                          postalCode: _postalCodeController.text,
+                        );
+                      },
+                    ),
+                  ],
+                ),
+                verticalSpaceLarge,
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

@@ -20,7 +20,7 @@ class _CartNavigationItemState extends State<CartNavigationItem> {
     return NavigationItem(
       label: 'Cart',
       iconData: Icons.shopping_cart_rounded,
-      onPressed: () => locator<NavigationService>().navigateTo(CartRoute),
+      onPressed: () => locator<NavigationService>().navigateTo(cartRoute),
     );
   }
 }

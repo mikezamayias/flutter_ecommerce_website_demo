@@ -18,7 +18,7 @@ class NavigationBarLogo extends StatelessWidget {
         height: 27,
       ),
       onPressed: () {
-        locator<NavigationService>().navigateTo(HomeViewRoute);
+        locator<NavigationService>().navigateTo(homeViewRoute);
       },
     ).paddNavigationBarItem;
   }

@@ -39,7 +39,7 @@ class _PhoneViewState extends State<PhoneView> {
       viewModelBuilder: () => AddPhoneViewModel(),
       builder: (context, _model, child) {
         return Form(
-          key: locator<FormService>().addPhoneFormKey,
+          key: locator<FormService>().phoneFormKey,
           child: ResponsiveBuilder(
             builder: (context, sizingInformation) {
               return AnimatedContainer(

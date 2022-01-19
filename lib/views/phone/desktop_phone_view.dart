@@ -187,7 +187,7 @@ class DesktopPhoneView extends StatelessWidget {
                   photoUrl: _photoUrlTextEditingController.text,
                   sar: _sarTextEditingController.text,
                 );
-                locator<NavigationService>().navigateTo(AddPhoneRoute);
+                locator<NavigationService>().navigateTo(phoneRoute);
               },
             ),
           ],

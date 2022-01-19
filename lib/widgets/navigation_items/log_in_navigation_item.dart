@@ -20,7 +20,7 @@ class _LogInNavigationItemState extends State<LogInNavigationItem> {
     return NavigationItem(
       label: 'Log In',
       iconData: Icons.login_rounded,
-      onPressed: () => locator<NavigationService>().navigateTo(LoginRoute),
+      onPressed: () => locator<NavigationService>().navigateTo(loginRoute),
     );
   }
 }

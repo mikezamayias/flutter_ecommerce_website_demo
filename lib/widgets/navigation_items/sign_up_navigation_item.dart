@@ -19,7 +19,7 @@ class _SignUpNavigationItemState extends State<SignUpNavigationItem> {
       label: 'Sign Up',
       iconData: Icons.person_add_rounded,
       onPressed: () =>
-          locator<NavigationService>().navigateTo(SignUpRoute),
+          locator<NavigationService>().navigateTo(signUpRoute),
     );
   }
 }

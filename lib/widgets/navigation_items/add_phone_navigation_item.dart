@@ -19,7 +19,7 @@ class _AddPhoneNavigationItemState extends State<AddPhoneNavigationItem> {
       label: 'Add Phone',
       iconData: Icons.phone_iphone_rounded,
       onPressed: () =>
-          locator<NavigationService>().navigateTo(AddPhoneRoute),
+          locator<NavigationService>().navigateTo(phoneRoute),
     );
   }
 }

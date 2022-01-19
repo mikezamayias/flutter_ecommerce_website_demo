@@ -23,7 +23,7 @@ class _LogOutNavigationItemState extends State<LogOutNavigationItem> {
       iconData: Icons.logout_rounded,
       onPressed: () {
         locator<AuthenticationService>().logOut();
-        locator<NavigationService>().navigateTo(HomeViewRoute);
+        locator<NavigationService>().navigateTo(homeViewRoute);
       },
     );
   }
