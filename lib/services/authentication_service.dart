@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
+import '../locator.dart';
+import '../models/user/user_model.dart';
 import 'firestore_service.dart';
 
 class AuthenticationService {
@@ -30,15 +32,17 @@ class AuthenticationService {
         password: password,
       );
       User? user = authResult.user;
-      await FirestoreService(uid: user?.uid).updateUserData(
-        email,
-        firstName,
-        lastName,
-        phoneNumber,
-        streetAddress,
-        city,
-        postalCode,
+      UserModel userModel = UserModel(
+        uid: user?.uid,
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phoneNumber,
+        streetAddress: streetAddress,
+        city: city,
+        postalCode: int.parse(postalCode),
       );
+      await locator<FirestoreService>().createUser(userModel);
       return authResult.user != null;
     } catch (e) {
       return e.toString();
