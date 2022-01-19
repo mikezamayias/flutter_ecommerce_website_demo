@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/models/phone/phone_model.dart';
-import 'package:flutter_ecommerce_website_demo/routing/routes.dart';
-import 'package:flutter_ecommerce_website_demo/services/firestore_service.dart';
-import 'package:flutter_ecommerce_website_demo/services/navigation_service.dart';
+import 'package:flutter_ecommerce_website_demo/views/phone/desktop_phone_view.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../locator.dart';
+import '../../routing/routes.dart';
 import '../../services/form_service.dart';
+import '../../services/navigation_service.dart';
 import '../../shared/ui/ui_helpers.dart';
 import '../../view_models/phone/add_phone_view_model.dart';
 import '../../widgets/busy_button.dart';
 import '../../widgets/custom_text_form_field.dart';
+import 'mobile_phone_view.dart';
 
 class PhoneView extends StatefulWidget {
   const PhoneView({Key? key}) : super(key: key);
@@ -36,126 +37,68 @@ class _PhoneViewState extends State<PhoneView> {
   Widget build(BuildContext context) {
     return ViewModelBuilder<AddPhoneViewModel>.reactive(
       viewModelBuilder: () => AddPhoneViewModel(),
-      builder: (context, model, child) => Form(
-        key: locator<FormService>().addPhoneFormKey,
-        child: StreamBuilder(
-          stream: FirestoreService().phoneStream,
-          builder: (context, snapshot) => SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 6),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                verticalSpaceLarge,
-                Text(
-                  'Register Phone',
-                  style: Theme.of(context).textTheme.headline3,
+      builder: (context, _model, child) {
+        return Form(
+          key: locator<FormService>().addPhoneFormKey,
+          child: ResponsiveBuilder(
+            builder: (context, sizingInformation) {
+              return AnimatedContainer(
+                duration: const Duration(milliseconds: 30),
+                padding: sizingInformation.isDesktop
+                    ? const EdgeInsets.symmetric(horizontal: 60)
+                    : const EdgeInsets.only(),
+                child: SingleChildScrollView(
+                  child: sizingInformation.isDesktop
+                      ? DesktopPhoneView(
+                          modelTextEditingController:
+                              _modelTextEditingController,
+                          socTextEditingController: _socTextEditingController,
+                          ramTextEditingController: _ramTextEditingController,
+                          storageTextEditingController:
+                              _storageTextEditingController,
+                          screenSizeTextEditingController:
+                              _screenSizeTextEditingController,
+                          batteryTextEditingController:
+                              _batteryTextEditingController,
+                          cammeraTextEditingController:
+                              _cammeraTextEditingController,
+                          priceTextEditingController:
+                              _priceTextEditingController,
+                          quantityTextEditingController:
+                              _quantityTextEditingController,
+                          photoUrlTextEditingController:
+                              _photoUrlTextEditingController,
+                          sarTextEditingController: _sarTextEditingController,
+                          model: _model,
+                        )
+                      : MobilePhoneView(
+                          modelTextEditingController:
+                              _modelTextEditingController,
+                          socTextEditingController: _socTextEditingController,
+                          ramTextEditingController: _ramTextEditingController,
+                          storageTextEditingController:
+                              _storageTextEditingController,
+                          screenSizeTextEditingController:
+                              _screenSizeTextEditingController,
+                          batteryTextEditingController:
+                              _batteryTextEditingController,
+                          cammeraTextEditingController:
+                              _cammeraTextEditingController,
+                          priceTextEditingController:
+                              _priceTextEditingController,
+                          quantityTextEditingController:
+                              _quantityTextEditingController,
+                          photoUrlTextEditingController:
+                              _photoUrlTextEditingController,
+                          sarTextEditingController: _sarTextEditingController,
+                          model: _model,
+                        ),
                 ),
-                verticalSpaceMedium,
-                CustomTextFormField(
-                  labelText: 'Model',
-                  controller: _modelTextEditingController,
-                  keyboardType: TextInputType.text,
-                  validator: model.validateModel,
-                ),
-                verticalSpaceSmall,
-                CustomTextFormField(
-                  labelText: 'SoC',
-                  controller: _socTextEditingController,
-                  keyboardType: TextInputType.text,
-                  validator: model.validateSoc,
-                ),
-                verticalSpaceSmall,
-                CustomTextFormField(
-                  labelText: 'RAM',
-                  controller: _ramTextEditingController,
-                  keyboardType: TextInputType.text,
-                  validator: model.validateRam,
-                ),
-                verticalSpaceSmall,
-                CustomTextFormField(
-                  labelText: 'Storage',
-                  controller: _storageTextEditingController,
-                  keyboardType: TextInputType.text,
-                  validator: model.validateStorage,
-                ),
-                verticalSpaceSmall,
-                CustomTextFormField(
-                  labelText: 'Screen Size',
-                  controller: _screenSizeTextEditingController,
-                  keyboardType: TextInputType.text,
-                  validator: model.validateScreenSize,
-                ),
-                verticalSpaceSmall,
-                CustomTextFormField(
-                  labelText: 'Battery',
-                  controller: _batteryTextEditingController,
-                  keyboardType: TextInputType.text,
-                  validator: model.validateBattery,
-                ),
-                verticalSpaceSmall,
-                CustomTextFormField(
-                  labelText: 'Camera',
-                  controller: _cammeraTextEditingController,
-                  keyboardType: TextInputType.text,
-                  validator: model.validateCamera,
-                ),
-                verticalSpaceSmall,
-                CustomTextFormField(
-                  labelText: 'Price',
-                  controller: _priceTextEditingController,
-                  keyboardType: TextInputType.text,
-                  validator: model.validatePrice,
-                ),
-                verticalSpaceSmall,
-                CustomTextFormField(
-                  labelText: 'Quantity',
-                  controller: _quantityTextEditingController,
-                  keyboardType: TextInputType.text,
-                  validator: model.validateQuantity,
-                ),
-                verticalSpaceSmall,
-                CustomTextFormField(
-                  labelText: 'Photo Url',
-                  controller: _photoUrlTextEditingController,
-                  keyboardType: TextInputType.text,
-                  validator: model.validatePhotoUrl,
-                ),
-                verticalSpaceSmall,
-                CustomTextFormField(
-                  labelText: 'SAR',
-                  controller: _sarTextEditingController,
-                  keyboardType: TextInputType.text,
-                  validator: model.validateSar,
-                ),
-                verticalSpaceMedium,
-                BusyButton(
-                  title: 'Add Phone',
-                  busy: model.isBusy,
-                  onPressed: () {
-                    model.addPhone(
-                      model: _modelTextEditingController.text,
-                      soc: _socTextEditingController.text,
-                      ram: _ramTextEditingController.text,
-                      storage: _storageTextEditingController.text,
-                      screenSize: _screenSizeTextEditingController.text,
-                      battery: _batteryTextEditingController.text,
-                      camera: _cammeraTextEditingController.text,
-                      price: _priceTextEditingController.text,
-                      quantity: _quantityTextEditingController.text,
-                      photoUrl: _photoUrlTextEditingController.text,
-                      sar: _sarTextEditingController.text,
-                    );
-                    locator<NavigationService>().navigateTo(AddPhoneViewRoute);
-                  },
-                ),
-                verticalSpaceLarge,
-              ],
-            ),
+              );
+            },
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
