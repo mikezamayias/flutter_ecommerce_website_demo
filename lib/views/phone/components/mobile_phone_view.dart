@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../locator.dart';
-import '../../routing/routes.dart';
-import '../../services/navigation_service.dart';
-import '../../shared/ui/ui_helpers.dart';
-import '../../view_models/phone/add_phone_view_model.dart';
-import '../../widgets/busy_button.dart';
-import '../../widgets/custom_text_form_field.dart';
+import '../../../shared/ui/ui_helpers.dart';
+import '../../../view_models/phone/add_phone_view_model.dart';
+import '../../../widgets/custom_text_form_field.dart';
+import 'phone_busy_button.dart';
 
 class MobilePhoneView extends StatelessWidget {
   const MobilePhoneView({
@@ -23,7 +20,7 @@ class MobilePhoneView extends StatelessWidget {
     required TextEditingController quantityTextEditingController,
     required TextEditingController photoUrlTextEditingController,
     required TextEditingController sarTextEditingController,
-  })  : _model = model,
+  })  : _addPhoneViewModel = model,
         _modelTextEditingController = modelTextEditingController,
         _socTextEditingController = socTextEditingController,
         _ramTextEditingController = ramTextEditingController,
@@ -37,7 +34,7 @@ class MobilePhoneView extends StatelessWidget {
         _sarTextEditingController = sarTextEditingController,
         super(key: key);
 
-  final AddPhoneViewModel _model;
+  final AddPhoneViewModel _addPhoneViewModel;
   final TextEditingController _modelTextEditingController;
   final TextEditingController _socTextEditingController;
   final TextEditingController _ramTextEditingController;
@@ -67,100 +64,93 @@ class MobilePhoneView extends StatelessWidget {
           labelText: 'Model',
           controller: _modelTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _model.validateModel,
+          validator: _addPhoneViewModel.validateModel,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'SoC',
           controller: _socTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _model.validateSoc,
+          validator: _addPhoneViewModel.validateSoc,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'RAM',
           controller: _ramTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _model.validateRam,
+          validator: _addPhoneViewModel.validateRam,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'Storage',
           controller: _storageTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _model.validateStorage,
+          validator: _addPhoneViewModel.validateStorage,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'Screen Size',
           controller: _screenSizeTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _model.validateScreenSize,
+          validator: _addPhoneViewModel.validateScreenSize,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'Battery',
           controller: _batteryTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _model.validateBattery,
+          validator: _addPhoneViewModel.validateBattery,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'Camera',
           controller: _cammeraTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _model.validateCamera,
+          validator: _addPhoneViewModel.validateCamera,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'Price',
           controller: _priceTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _model.validatePrice,
+          validator: _addPhoneViewModel.validatePrice,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'Quantity',
           controller: _quantityTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _model.validateQuantity,
+          validator: _addPhoneViewModel.validateQuantity,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'Photo Url',
           controller: _photoUrlTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _model.validatePhotoUrl,
+          validator: _addPhoneViewModel.validatePhotoUrl,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'SAR',
           controller: _sarTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _model.validateSar,
+          validator: _addPhoneViewModel.validateSar,
         ),
         verticalSpaceMedium,
-        BusyButton(
-          title: 'Add Phone',
-          busy: _model.isBusy,
-          onPressed: () {
-            _model.addPhone(
-              model: _modelTextEditingController.text,
-              soc: _socTextEditingController.text,
-              ram: _ramTextEditingController.text,
-              storage: _storageTextEditingController.text,
-              screenSize: _screenSizeTextEditingController.text,
-              battery: _batteryTextEditingController.text,
-              camera: _cammeraTextEditingController.text,
-              price: _priceTextEditingController.text,
-              quantity: _quantityTextEditingController.text,
-              photoUrl: _photoUrlTextEditingController.text,
-              sar: _sarTextEditingController.text,
-            );
-            locator<NavigationService>().navigateTo(phoneRoute);
-          },
+        PhoneBusyButton(
+          model: _addPhoneViewModel,
+          modelTextEditingController: _modelTextEditingController,
+          socTextEditingController: _socTextEditingController,
+          ramTextEditingController: _ramTextEditingController,
+          storageTextEditingController: _storageTextEditingController,
+          screenSizeTextEditingController: _screenSizeTextEditingController,
+          batteryTextEditingController: _batteryTextEditingController,
+          cammeraTextEditingController: _cammeraTextEditingController,
+          priceTextEditingController: _priceTextEditingController,
+          quantityTextEditingController: _quantityTextEditingController,
+          photoUrlTextEditingController: _photoUrlTextEditingController,
+          sarTextEditingController: _sarTextEditingController,
         ),
-        verticalSpaceLarge,
       ],
     );
   }

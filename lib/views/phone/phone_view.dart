@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/views/phone/desktop_phone_view.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../locator.dart';
-import '../../routing/routes.dart';
 import '../../services/form_service.dart';
-import '../../services/navigation_service.dart';
-import '../../shared/ui/ui_helpers.dart';
 import '../../view_models/phone/add_phone_view_model.dart';
-import '../../widgets/busy_button.dart';
-import '../../widgets/custom_text_form_field.dart';
-import 'mobile_phone_view.dart';
+import 'components/desktop_phone_view.dart';
+import 'components/mobile_phone_view.dart';
 
 class PhoneView extends StatefulWidget {
   const PhoneView({Key? key}) : super(key: key);
