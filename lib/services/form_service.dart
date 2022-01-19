@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FormService {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  FormState? get formState => _formKey.currentState;
-
-  GlobalKey<FormState> get formKey => _formKey;
+  // form key
+  GlobalKey<FormState> get formKey => GlobalKey<FormState>();
 
   // get sign up form key
   GlobalKey<FormState> get signUpFormKey => GlobalKey<FormState>();
