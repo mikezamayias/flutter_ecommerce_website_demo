@@ -44,8 +44,8 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: loggedIn
                       ? [
-                          Padding(
-                            padding: const EdgeInsets.all(9),
+                          // TODO: tweak drawer layout
+                          DrawerHeader(
                             child: Text(
                               'Hello, ${user.displayName ?? user.uid}',
                               style: Theme.of(context).textTheme.headline6,
