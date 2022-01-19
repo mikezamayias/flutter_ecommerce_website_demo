@@ -7,7 +7,7 @@ import '../../services/form_service.dart';
 import '../../shared/ui/ui_helpers.dart';
 import '../../view_models/log_in/log_in_view_model.dart';
 import '../../widgets/custom_text_form_field.dart';
-import 'components/log_in_busy_button.dart';
+import 'widgets/log_in_busy_button.dart';
 
 class LogInView extends StatefulWidget {
   const LogInView({Key? key}) : super(key: key);
