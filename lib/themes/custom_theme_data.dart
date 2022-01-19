@@ -23,7 +23,7 @@ class CurrentTheme with ChangeNotifier {
       visualDensity: VisualDensity.adaptivePlatformDensity,
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          textStyle: GoogleFonts.firaSans(
+          textStyle: GoogleFonts.mPlusRounded1c(
             fontSize: 15,
             fontWeight: FontWeight.bold,
           ),
@@ -42,7 +42,7 @@ class CurrentTheme with ChangeNotifier {
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           textStyle: MaterialStateProperty.all<TextStyle>(
-            GoogleFonts.firaSans(
+            GoogleFonts.mPlusRounded1c(
               fontSize: 15,
               fontWeight: FontWeight.bold,
             ),

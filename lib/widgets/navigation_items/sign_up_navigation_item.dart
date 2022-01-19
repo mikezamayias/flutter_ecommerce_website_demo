@@ -17,9 +17,8 @@ class _SignUpNavigationItemState extends State<SignUpNavigationItem> {
   Widget build(BuildContext context) {
     return NavigationItem(
       label: 'Sign Up',
-      iconData: Icons.person_add_rounded,
-      onPressed: () =>
-          locator<NavigationService>().navigateTo(signUpRoute),
+      icon: const Icon(Icons.person_add_rounded),
+      onPressed: () => locator<NavigationService>().navigateTo(signUpRoute),
     );
   }
 }

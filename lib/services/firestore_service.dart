@@ -4,6 +4,16 @@ import 'package:flutter_ecommerce_website_demo/models/phone/phone_model.dart';
 class FirestoreService {
   String? uid;
 
+  // Stream - Get User Data
+  Stream<QuerySnapshot<Object?>> get userData {
+    return userCollection.snapshots();
+  }
+
+  // Stream - Get Phone Data
+  Stream<QuerySnapshot<Object?>> get phoneStream {
+    return phoneCollection.snapshots();
+  }
+
   FirestoreService({this.uid});
 
   // Collection Reference
@@ -34,19 +44,34 @@ class FirestoreService {
     required String photoUrl,
     required String soc,
   }) async {
-    return await phoneCollection.doc().set({
-      'model': model,
-      'battery': battery,
-      'screenSize': screenSize,
-      'camera': camera,
-      'sar': sar,
-      'ram': ram,
-      'storage': storage,
-      'price': price,
-      'quantity': quantity,
-      'photoUrl': photoUrl,
-      'soc': soc,
-    });
+    return await phoneCollection.doc().set(
+          PhoneModel.fromMap({
+            'model': model,
+            'soc': soc,
+            'ram': ram,
+            'storage': storage,
+            'screenSize': screenSize,
+            'battery': battery,
+            'camera': camera,
+            'price': price,
+            'quantity': quantity,
+            'photoUrl': photoUrl,
+            'sar': sar,
+          }),
+        );
+    // return await phoneCollection.doc().set({
+    //   'model': model,
+    //   'battery': battery,
+    //   'screenSize': screenSize,
+    //   'camera': camera,
+    //   'sar': sar,
+    //   'ram': ram,
+    //   'storage': storage,
+    //   'price': price,
+    //   'quantity': quantity,
+    //   'photoUrl': photoUrl,
+    //   'soc': soc,
+    // });
   }
 
   // Future - Update User Data
@@ -82,43 +107,11 @@ class FirestoreService {
                 ram: doc.get('ram') as int,
                 storage: doc.get('storage') as String,
                 price: doc.get('price') as double,
-                quantity: doc.get('quantity') as int,
+                stock: doc.get('quantity') as int,
                 photoUrl: doc.get('photoUrl') as String,
                 soc: doc.get('soc') as String,
               ),
             )
             .toList(),
       );
-
-  // Stream - Get User Data
-  Stream<QuerySnapshot<Object?>> get userData {
-    return userCollection.snapshots();
-  }
-
-  // Stream - Get Phone Data
-  Stream<QuerySnapshot<Object?>> get phoneStream {
-    return phoneCollection.snapshots();
-  }
-
-  // Future<List<DocumentSnapshot>> get phones async {
-  //   return phoneCollection.get().then((value) => value.docs);
-  // }
-
-  // phoneData from snapshot
-  // PhoneModel _phoneDataFromSnapshot(DocumentSnapshot snapshot) {
-  //   return PhoneModel(
-  //     uid: snapshot.id,
-  //     model: snapshot.get('model'])
-  //     photoUrl: snapshot.get('photoUrl') as String,
-  //     soc: snapshot.get('soc'])
-  //     ram: snapshot.get('ram'])
-  //     storage: snapshot.get('storage'])
-  //     screenSize: snapshot.get('screenSize'])
-  //     battery: snapshot.get('battery'])
-  //     camera: snapshot.get('camera'])
-  //     price: snapshot.get('price'])
-  //     quantity: snapshot.get('quantity'])
-  //     sar: snapshot.get('sar'])
-  //   );
-  // }
 }

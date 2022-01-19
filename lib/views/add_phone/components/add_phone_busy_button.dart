@@ -6,8 +6,8 @@ import '../../../services/navigation_service.dart';
 import '../../../view_models/phone/add_phone_view_model.dart';
 import '../../../widgets/busy_button.dart';
 
-class PhoneBusyButton extends StatelessWidget {
-  const PhoneBusyButton({
+class AddPhoneBusyButton extends StatelessWidget {
+  const AddPhoneBusyButton({
     Key? key,
     required AddPhoneViewModel model,
     required TextEditingController modelTextEditingController,
@@ -72,7 +72,7 @@ class PhoneBusyButton extends StatelessWidget {
               photoUrl: _photoUrlTextEditingController.text,
               sar: _sarTextEditingController.text,
             );
-            locator<NavigationService>().navigateTo(phoneRoute);
+            locator<NavigationService>().navigateTo(addPhoneRoute);
           },
         ),
       ],

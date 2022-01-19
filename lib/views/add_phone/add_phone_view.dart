@@ -5,17 +5,17 @@ import 'package:stacked/stacked.dart';
 import '../../locator.dart';
 import '../../services/form_service.dart';
 import '../../view_models/phone/add_phone_view_model.dart';
-import 'components/desktop_phone_view.dart';
-import 'components/mobile_phone_view.dart';
+import 'components/desktop_add_phone_view.dart';
+import 'components/mobile_add_phone_view.dart';
 
-class PhoneView extends StatefulWidget {
-  const PhoneView({Key? key}) : super(key: key);
+class AddPhoneView extends StatefulWidget {
+  const AddPhoneView({Key? key}) : super(key: key);
 
   @override
-  _PhoneViewState createState() => _PhoneViewState();
+  _AddPhoneViewState createState() => _AddPhoneViewState();
 }
 
-class _PhoneViewState extends State<PhoneView> {
+class _AddPhoneViewState extends State<AddPhoneView> {
   final _modelTextEditingController = TextEditingController();
   final _priceTextEditingController = TextEditingController();
   final _socTextEditingController = TextEditingController();
@@ -44,7 +44,7 @@ class _PhoneViewState extends State<PhoneView> {
                     : const EdgeInsets.only(),
                 child: SingleChildScrollView(
                   child: sizingInformation.isDesktop
-                      ? DesktopPhoneView(
+                      ? DesktopAddPhoneView(
                           modelTextEditingController:
                               _modelTextEditingController,
                           socTextEditingController: _socTextEditingController,
@@ -66,7 +66,7 @@ class _PhoneViewState extends State<PhoneView> {
                           sarTextEditingController: _sarTextEditingController,
                           model: _model,
                         )
-                      : MobilePhoneView(
+                      : MobileAddPhoneView(
                           modelTextEditingController:
                               _modelTextEditingController,
                           socTextEditingController: _socTextEditingController,

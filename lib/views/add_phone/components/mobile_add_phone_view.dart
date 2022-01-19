@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../shared/ui/ui_helpers.dart';
 import '../../../view_models/phone/add_phone_view_model.dart';
 import '../../../widgets/custom_text_form_field.dart';
-import 'phone_busy_button.dart';
+import 'add_phone_busy_button.dart';
 
-class MobilePhoneView extends StatelessWidget {
-  const MobilePhoneView({
+class MobileAddPhoneView extends StatelessWidget {
+  const MobileAddPhoneView({
     Key? key,
     required AddPhoneViewModel model,
     required TextEditingController modelTextEditingController,
@@ -137,7 +137,7 @@ class MobilePhoneView extends StatelessWidget {
           validator: _addPhoneViewModel.validateSar,
         ),
         verticalSpaceMedium,
-        PhoneBusyButton(
+        AddPhoneBusyButton(
           model: _addPhoneViewModel,
           modelTextEditingController: _modelTextEditingController,
           socTextEditingController: _socTextEditingController,

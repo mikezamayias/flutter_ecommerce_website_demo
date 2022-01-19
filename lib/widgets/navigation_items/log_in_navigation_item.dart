@@ -19,7 +19,7 @@ class _LogInNavigationItemState extends State<LogInNavigationItem> {
   Widget build(BuildContext context) {
     return NavigationItem(
       label: 'Log In',
-      iconData: Icons.login_rounded,
+      icon: const Icon(Icons.login_rounded),
       onPressed: () => locator<NavigationService>().navigateTo(loginRoute),
     );
   }

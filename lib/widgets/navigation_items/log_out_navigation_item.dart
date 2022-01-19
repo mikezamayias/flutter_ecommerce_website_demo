@@ -20,10 +20,10 @@ class _LogOutNavigationItemState extends State<LogOutNavigationItem> {
   Widget build(BuildContext context) {
     return NavigationItem(
       label: 'Log Out',
-      iconData: Icons.logout_rounded,
+      icon: const Icon(Icons.logout_rounded),
       onPressed: () {
         locator<AuthenticationService>().logOut();
-        locator<NavigationService>().navigateTo(homeRoute);
+        locator<NavigationService>().navigateTo(shopRoute);
       },
     );
   }

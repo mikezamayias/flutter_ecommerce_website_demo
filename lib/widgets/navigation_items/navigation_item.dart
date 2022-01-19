@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class NavigationItem extends StatelessWidget {
   final String label;
-  final IconData iconData;
+  final Icon icon;
   final VoidCallback? onPressed;
 
   const NavigationItem({
     Key? key,
     required this.label,
-    required this.iconData,
+    required this.icon,
     this.onPressed,
   }) : super(key: key);
 
@@ -17,13 +16,10 @@ class NavigationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton.icon(
       onPressed: onPressed,
-      icon: Icon(
-        iconData,
-        color: Colors.orange,
-      ),
+      icon: icon,
       label: Text(
         label,
-        style: GoogleFonts.mPlusRounded1c(
+        style: const TextStyle(
           color: Colors.orange,
           fontSize: 18,
           fontWeight: FontWeight.w700,

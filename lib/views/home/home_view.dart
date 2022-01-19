@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/shared/ui/ui_helpers.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -32,8 +33,17 @@ class _HomeViewState extends State<HomeView> {
                     : const EdgeInsets.only(),
                 child: SingleChildScrollView(
                   child: Column(
-                    children:
-                        phones.map((phone) => PhoneCard(phone: phone)).toList(),
+                    children: [
+                      ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: phones.length,
+                        itemBuilder: (context, index) {
+                          return PhoneCard(phone: phones[index]);
+                        },
+                      ),
+                      verticalSpaceMassive,
+                    ],
                   ),
                 ),
               );

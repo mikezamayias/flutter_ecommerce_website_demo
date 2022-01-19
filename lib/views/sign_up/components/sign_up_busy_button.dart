@@ -64,7 +64,7 @@ class SignUpButton extends StatelessWidget {
               postalCode: _postalCodeController.text,
               city: _cityController.text,
             );
-            locator<NavigationService>().navigateTo(phoneRoute);
+            locator<NavigationService>().navigateTo(addPhoneRoute);
           },
         ),
       ],

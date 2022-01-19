@@ -105,11 +105,11 @@ class Validators {
   String? validateSar(String? value) {
     if (value == null) return 'SAR is required';
     if (value.isEmpty) return 'SAR is required';
+    // must be double
+    if (!RegExp(r'^[0-9]+(\.[0-9]{1,2})?$').hasMatch(value)) {
+      return 'SAR must be a positive float number';
+    }
     if (!(double.parse(value) > 0)) {
-      // must be double
-      if (!RegExp(r'^[0-9]+(\.[0-9]{1,2})?$').hasMatch(value)) {
-        return 'SAR must be a positive float number';
-      }
       return 'SAR must be a positive float number';
     }
     return null;

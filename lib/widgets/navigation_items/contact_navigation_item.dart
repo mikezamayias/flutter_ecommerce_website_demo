@@ -19,7 +19,7 @@ class _ContactNavigationItemState extends State<ContactNavigationItem> {
   Widget build(BuildContext context) {
     return NavigationItem(
       label: 'Contact Us',
-      iconData: Icons.contact_page_rounded,
+      icon: const Icon(Icons.contact_page_rounded),
       onPressed: () =>
           locator<NavigationService>().navigateTo(contactRoute),
     );

@@ -61,7 +61,7 @@ class _FlutterEcommerceWebsiteDemoState
         themeMode: currentTheme.currentTheme,
         navigatorKey: locator<NavigationService>().navigatorKey,
         onGenerateRoute: generateRoute,
-        initialRoute: homeRoute,
+        initialRoute: shopRoute,
         builder: (context, child) => Navigator(
           key: locator<DialogService>().dialogNavigationKey,
           onGenerateRoute: (settings) => MaterialPageRoute(

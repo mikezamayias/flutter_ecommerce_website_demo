@@ -8,7 +8,7 @@ import '../../extensions/padding_extension.dart';
 import '../../shared/ui/shared_styles.dart';
 import '../navigation_items/cart_navigation_item.dart';
 import '../navigation_items/contact_navigation_item.dart';
-import '../navigation_items/home_navigation_item.dart';
+import '../navigation_items/shop_navigation_item.dart';
 import '../navigation_items/log_in_navigation_item.dart';
 import '../navigation_items/log_out_navigation_item.dart';
 import '../navigation_items/orders_navigation_item.dart';
@@ -45,15 +45,14 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
       actions: loggedIn
           ? [
               const AddPhoneNavigationItem().moveUpOnHover,
-              const HomeNavigationItem().moveUpOnHover,
+              const ShopNavigationItem().moveUpOnHover,
               const CartNavigationItem().moveUpOnHover,
               const OrdersNavigationItem().moveUpOnHover,
               const ContactNavigationItem().moveUpOnHover,
               const LogOutNavigationItem().moveUpOnHover,
             ].map((widget) => widget.paddNavigationBarItem).toList()
           : [
-              const AddPhoneNavigationItem().moveUpOnHover,
-              const HomeNavigationItem().moveUpOnHover,
+              const ShopNavigationItem().moveUpOnHover,
               const SignUpNavigationItem().moveUpOnHover,
               const LogInNavigationItem().moveUpOnHover,
               const CartNavigationItem().moveUpOnHover,

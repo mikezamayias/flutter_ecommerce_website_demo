@@ -19,7 +19,7 @@ class _CartNavigationItemState extends State<CartNavigationItem> {
   Widget build(BuildContext context) {
     return NavigationItem(
       label: 'Cart',
-      iconData: Icons.shopping_cart_rounded,
+      icon: const Icon(Icons.shopping_cart_rounded),
       onPressed: () => locator<NavigationService>().navigateTo(cartRoute),
     );
   }

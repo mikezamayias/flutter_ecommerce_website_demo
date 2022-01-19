@@ -17,9 +17,8 @@ class _AddPhoneNavigationItemState extends State<AddPhoneNavigationItem> {
   Widget build(BuildContext context) {
     return NavigationItem(
       label: 'Add Phone',
-      iconData: Icons.phone_iphone_rounded,
-      onPressed: () =>
-          locator<NavigationService>().navigateTo(phoneRoute),
+      icon: const Icon(Icons.phone_iphone_rounded),
+      onPressed: () => locator<NavigationService>().navigateTo(addPhoneRoute),
     );
   }
 }

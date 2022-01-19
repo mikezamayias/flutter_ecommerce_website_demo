@@ -18,7 +18,7 @@ class _MenuNavigationItemState extends State<MenuNavigationItem> {
   Widget build(BuildContext context) {
     return NavigationItem(
       label: 'Menu',
-      iconData: Icons.menu_rounded,
+      icon: const Icon(Icons.menu_rounded),
       onPressed: () => locator<ScaffoldService>().currentState!.openEndDrawer(),
     );
   }

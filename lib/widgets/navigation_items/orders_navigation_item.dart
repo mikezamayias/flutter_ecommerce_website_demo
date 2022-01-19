@@ -19,7 +19,7 @@ class _OrdersNavigationItemState extends State<OrdersNavigationItem> {
   Widget build(BuildContext context) {
     return NavigationItem(
       label: 'Orders',
-      iconData: Icons.shopping_bag_rounded,
+      icon: const Icon(Icons.shopping_bag_rounded),
       onPressed: () => locator<NavigationService>().navigateTo(ordersRoute),
     );
   }
