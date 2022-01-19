@@ -5,8 +5,8 @@ import 'package:stacked/stacked.dart';
 import '../../locator.dart';
 import '../../services/form_service.dart';
 import '../../view_models/phone/add_phone_view_model.dart';
-import 'components/desktop_add_phone_view.dart';
-import 'components/mobile_add_phone_view.dart';
+import 'widgets/desktop_add_phone_view.dart';
+import 'widgets/mobile_add_phone_view.dart';
 
 class AddPhoneView extends StatefulWidget {
   const AddPhoneView({Key? key}) : super(key: key);
