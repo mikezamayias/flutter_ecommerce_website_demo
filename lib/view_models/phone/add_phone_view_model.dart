@@ -1,13 +1,13 @@
 import 'package:stacked/stacked.dart';
 
 import '../../locator.dart';
+import '../../models/phone/phone_model.dart';
 import '../../services/dialog_service.dart';
 import '../../services/firestore_service.dart';
 import '../../shared/validators.dart';
 
 class AddPhoneViewModel extends BaseViewModel with Validators {
   final DialogService _dialogService = locator<DialogService>();
-  final FirestoreService _firestoreService = locator<FirestoreService>();
 
   Future addPhone({
     required model,
@@ -38,7 +38,7 @@ class AddPhoneViewModel extends BaseViewModel with Validators {
       );
     } else {
       setBusy(true);
-      await _firestoreService.addPhone(
+      PhoneModel phoneModel = PhoneModel(
         model: model,
         soc: soc,
         ram: int.parse(ram),
@@ -47,10 +47,11 @@ class AddPhoneViewModel extends BaseViewModel with Validators {
         battery: int.parse(battery),
         camera: camera,
         price: double.parse(price),
-        quantity: int.parse(quantity),
+        stock: int.parse(quantity),
         photoUrl: photoUrl,
         sar: double.parse(sar),
       );
+      await locator<FirestoreService>().createPhone(phoneModel);
       setBusy(false);
     }
   }
