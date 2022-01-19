@@ -24,7 +24,7 @@ class _TranslateOnHoverState extends State<TranslateOnHover> {
       onEnter: (event) => _mouseEnter(true),
       onExit: (event) => _mouseEnter(false),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 180),
         child: widget.child,
         transform: _hovering ? hoverTransform : nonHoverTransform,
         decoration: BoxDecoration(
@@ -32,7 +32,7 @@ class _TranslateOnHoverState extends State<TranslateOnHover> {
           color: Colors.white,
           boxShadow: _hovering
               ? [
-                 BoxShadow(
+                  BoxShadow(
                     color: Colors.orange.withOpacity(0.6),
                     offset: const Offset(1, 9),
                     blurRadius: 6,
