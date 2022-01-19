@@ -20,7 +20,7 @@ class _OrdersNavigationItemState extends State<OrdersNavigationItem> {
     return NavigationItem(
       label: 'Orders',
       iconData: Icons.shopping_bag_rounded,
-      onPressed: () => locator<NavigationService>().navigateTo(OrdersViewRoute),
+      onPressed: () => locator<NavigationService>().navigateTo(OrdersRoute),
     );
   }
 }

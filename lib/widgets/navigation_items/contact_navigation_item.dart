@@ -21,7 +21,7 @@ class _ContactNavigationItemState extends State<ContactNavigationItem> {
       label: 'Contact Us',
       iconData: Icons.contact_page_rounded,
       onPressed: () =>
-          locator<NavigationService>().navigateTo(ContactViewRoute),
+          locator<NavigationService>().navigateTo(ContactRoute),
     );
   }
 }
