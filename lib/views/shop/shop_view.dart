@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../../locator.dart';
 import '../../models/phone/phone_model.dart';
 import '../../services/firestore_service.dart';
 import '../../shared/ui/ui_helpers.dart';
@@ -17,13 +18,15 @@ class ShopView extends StatefulWidget {
 class _ShopViewState extends State<ShopView> {
   @override
   Widget build(BuildContext context) {
-    final phones = Provider.of<List<PhoneModel>>(context);
+    final phones = Provider.of<List<PhoneModel>?>(context);
+    debugPrint(phones.toString());
     return StreamBuilder<List<PhoneModel>>(
-      stream: FirestoreService().phones,
+      stream: locator<FirestoreService>().readPhones,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
         } else {
+          debugPrint(snapshot.data.toString());
           return ResponsiveBuilder(
             builder: (context, sizingInformation) {
               return AnimatedContainer(
@@ -37,7 +40,7 @@ class _ShopViewState extends State<ShopView> {
                       ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: phones.length,
+                        itemCount: phones!.length,
                         itemBuilder: (context, index) {
                           return PhoneCard(phone: phones[index]);
                         },
