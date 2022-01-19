@@ -61,11 +61,10 @@ class _FlutterEcommerceWebsiteDemoState
         themeMode: currentTheme.currentTheme,
         navigatorKey: locator<NavigationService>().navigatorKey,
         onGenerateRoute: generateRoute,
-        initialRoute: HomeViewRoute,
+        initialRoute: AddPhoneRoute,
         builder: (context, child) => Navigator(
           key: locator<DialogService>().dialogNavigationKey,
           onGenerateRoute: (settings) => MaterialPageRoute(
-            // builder: (context) => DialogManager(child: child!),
             builder: (context) => ResponsiveBuilder(
               builder: (context, sizingInformation) {
                 return DialogManager(
