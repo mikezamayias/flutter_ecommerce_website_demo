@@ -30,6 +30,10 @@ class LogInViewModel extends BaseViewModel with Validators {
       setBusy(false);
       if (result is bool) {
         if (result) {
+          _dialogService.showDialog(
+            title: 'Success',
+            description: 'You have successfully logged in',
+          );
           _navigationService.navigateTo(shopRoute);
         } else {
           await _dialogService.showDialog(

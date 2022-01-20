@@ -55,6 +55,10 @@ class SignUpViewModel extends BaseViewModel with Validators {
       setBusy(false);
       if (result is bool) {
         if (result) {
+          _dialogService.showDialog(
+            title: 'Success',
+            description: 'You have signed up successfully',
+          );
           _navigationService.navigateTo(shopRoute);
         } else {
           _dialogService.showDialog(

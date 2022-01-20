@@ -53,6 +53,10 @@ class AddPhoneViewModel extends BaseViewModel with Validators {
       );
       await locator<FirestoreService>().createPhone(phoneModel);
       setBusy(false);
+      _dialogService.showDialog(
+        title: 'Success',
+        description: 'You have successfully added a new phone',
+      );
     }
   }
 }
