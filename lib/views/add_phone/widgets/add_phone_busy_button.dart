@@ -50,32 +50,25 @@ class AddPhoneBusyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        BusyButton(
-          title: 'Add Phone',
-          busy: _model.isBusy,
-          onPressed: () {
-            _model.addPhone(
-              model: _modelTextEditingController.text,
-              soc: _socTextEditingController.text,
-              ram: _ramTextEditingController.text,
-              storage: _storageTextEditingController.text,
-              screenSize: _screenSizeTextEditingController.text,
-              battery: _batteryTextEditingController.text,
-              camera: _cammeraTextEditingController.text,
-              price: _priceTextEditingController.text,
-              quantity: _quantityTextEditingController.text,
-              photoUrl: _photoUrlTextEditingController.text,
-              sar: _sarTextEditingController.text,
-            );
-            locator<NavigationService>().navigateTo(addPhoneRoute);
-          },
-        ),
-      ],
+    return BusyButton(
+      title: 'Add Phone',
+      busy: _model.isBusy,
+      onPressed: () {
+        _model.addPhone(
+          model: _modelTextEditingController.text,
+          soc: _socTextEditingController.text,
+          ram: _ramTextEditingController.text,
+          storage: _storageTextEditingController.text,
+          screenSize: _screenSizeTextEditingController.text,
+          battery: _batteryTextEditingController.text,
+          camera: _cammeraTextEditingController.text,
+          price: _priceTextEditingController.text,
+          quantity: _quantityTextEditingController.text,
+          photoUrl: _photoUrlTextEditingController.text,
+          sar: _sarTextEditingController.text,
+        );
+        locator<NavigationService>().navigateTo(addPhoneRoute);
+      },
     );
   }
 }

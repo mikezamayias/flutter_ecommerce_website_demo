@@ -9,6 +9,7 @@ class BusyButton extends StatefulWidget {
   final String title;
   final VoidCallback onPressed;
   final bool enabled;
+
   const BusyButton({
     Key? key,
     this.busy = false,
@@ -24,33 +25,39 @@ class BusyButton extends StatefulWidget {
 class _BusyButtonState extends State<BusyButton> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: widget.onPressed,
-      child: InkWell(
-        child: AnimatedContainer(
-          height: widget.busy ? 40 : null,
-          width: widget.busy ? 40 : null,
-          duration: const Duration(milliseconds: 300),
-          alignment: Alignment.center,
-          padding: EdgeInsets.symmetric(
-            horizontal: widget.busy ? 10 : 15,
-            vertical: widget.busy ? 10 : 10,
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        GestureDetector(
+          onTap: widget.onPressed,
+          child: InkWell(
+            child: AnimatedContainer(
+              height: widget.busy ? 40 : null,
+              width: widget.busy ? 40 : null,
+              duration: const Duration(milliseconds: 300),
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(
+                horizontal: widget.busy ? 10 : 15,
+                vertical: widget.busy ? 10 : 10,
+              ),
+              decoration: BoxDecoration(
+                color: widget.enabled ? Colors.orange : Colors.grey[800],
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: !widget.busy
+                  ? Text(
+                      widget.title,
+                      style: buttonTitleTextStyle,
+                    )
+                  : const CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    ),
+            ).moveUpOnHover,
           ),
-          decoration: BoxDecoration(
-            color: widget.enabled ? Colors.orange : Colors.grey[800],
-            borderRadius: BorderRadius.circular(5),
-          ),
-          child: !widget.busy
-              ? Text(
-                  widget.title,
-                  style: buttonTitleTextStyle,
-                )
-              : const CircularProgressIndicator(
-                  strokeWidth: 2,
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                ),
-        ).moveUpOnHover,
-      ),
+        ),
+      ],
     );
   }
 }

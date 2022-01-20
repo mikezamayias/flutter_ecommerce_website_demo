@@ -91,22 +91,15 @@ class PhoneCard extends StatelessWidget {
                       fieldName: 'Stock',
                       fieldValue: '${phone.stock}',
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        BusyButton(
-                          title: 'Buy',
-                          // busy: _logInViewModel.isBusy,
-                          onPressed: () {
-                            // _logInViewModel.logIn(
-                            //   email: _emailController.text,
-                            //   password: _passwordController.text,
-                            // );
-                          },
-                        ),
-                      ],
+                    BusyButton(
+                      title: 'Buy',
+                      // busy: model.isBusy,
+                      onPressed: () {
+                        //   model.logIn(
+                        //     email: _emailController.text,
+                        //     password: _passwordController.text,
+                        //   );
+                      },
                     ),
                   ],
                 ),

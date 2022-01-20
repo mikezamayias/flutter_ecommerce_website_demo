@@ -20,22 +20,15 @@ class LogInBusyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        BusyButton(
-          title: 'Log In',
-          busy: _logInViewModel.isBusy,
-          onPressed: () {
-            _logInViewModel.logIn(
-              email: _emailController.text,
-              password: _passwordController.text,
-            );
-          },
-        ),
-      ],
+    return BusyButton(
+      title: 'Log In',
+      busy: _logInViewModel.isBusy,
+      onPressed: () {
+        _logInViewModel.logIn(
+          email: _emailController.text,
+          password: _passwordController.text,
+        );
+      },
     );
   }
 }

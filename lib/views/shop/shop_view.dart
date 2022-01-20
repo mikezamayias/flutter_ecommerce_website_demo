@@ -19,14 +19,12 @@ class _ShopViewState extends State<ShopView> {
   @override
   Widget build(BuildContext context) {
     final phones = Provider.of<List<PhoneModel>?>(context);
-    debugPrint(phones.toString());
     return StreamBuilder<List<PhoneModel>>(
       stream: locator<FirestoreService>().readPhones,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
         } else {
-          debugPrint(snapshot.data.toString());
           return ResponsiveBuilder(
             builder: (context, sizingInformation) {
               return AnimatedContainer(

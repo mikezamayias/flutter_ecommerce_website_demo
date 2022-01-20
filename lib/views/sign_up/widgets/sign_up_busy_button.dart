@@ -44,30 +44,23 @@ class SignUpButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        BusyButton(
-          title: 'Sign Up',
-          busy: _model.isBusy,
-          onPressed: () {
-            _model.signUp(
-              email: _emailController.text,
-              password: _passwordController.text,
-              confirmPassword: _confirmPasswordController.text,
-              firstName: _firstNameController.text,
-              lastName: _lastNameController.text,
-              phoneNumber: _phoneNumberController.text,
-              streetAddress: _streetAddressController.text,
-              postalCode: _postalCodeController.text,
-              city: _cityController.text,
-            );
-            locator<NavigationService>().navigateTo(addPhoneRoute);
-          },
-        ),
-      ],
+    return BusyButton(
+      title: 'Sign Up',
+      busy: _model.isBusy,
+      onPressed: () {
+        _model.signUp(
+          email: _emailController.text,
+          password: _passwordController.text,
+          confirmPassword: _confirmPasswordController.text,
+          firstName: _firstNameController.text,
+          lastName: _lastNameController.text,
+          phoneNumber: _phoneNumberController.text,
+          streetAddress: _streetAddressController.text,
+          postalCode: _postalCodeController.text,
+          city: _cityController.text,
+        );
+        locator<NavigationService>().navigateTo(addPhoneRoute);
+      },
     );
   }
 }
