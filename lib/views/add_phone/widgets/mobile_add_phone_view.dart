@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../shared/ui/ui_helpers.dart';
-import '../../../view_models/phone/add_phone_view_model.dart';
+import '../../../view_models/add_phone/add_phone_view_model.dart';
 import '../../../widgets/custom_text_form_field.dart';
 import 'add_phone_busy_button.dart';
 

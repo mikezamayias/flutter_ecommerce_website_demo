@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 
 import '../../locator.dart';
 import '../../services/form_service.dart';
-import '../../view_models/phone/add_phone_view_model.dart';
+import '../../view_models/add_phone/add_phone_view_model.dart';
 import 'widgets/desktop_add_phone_view.dart';
 import 'widgets/mobile_add_phone_view.dart';
 
@@ -32,7 +32,7 @@ class _AddPhoneViewState extends State<AddPhoneView> {
   Widget build(BuildContext context) {
     return ViewModelBuilder<AddPhoneViewModel>.reactive(
       viewModelBuilder: () => AddPhoneViewModel(),
-      builder: (context, _model, child) {
+      builder: (context, model, child) {
         return Form(
           key: locator<FormService>().phoneFormKey,
           child: ResponsiveBuilder(
@@ -64,7 +64,7 @@ class _AddPhoneViewState extends State<AddPhoneView> {
                           photoUrlTextEditingController:
                               _photoUrlTextEditingController,
                           sarTextEditingController: _sarTextEditingController,
-                          model: _model,
+                          model: model,
                         )
                       : MobileAddPhoneView(
                           modelTextEditingController:
@@ -86,7 +86,7 @@ class _AddPhoneViewState extends State<AddPhoneView> {
                           photoUrlTextEditingController:
                               _photoUrlTextEditingController,
                           sarTextEditingController: _sarTextEditingController,
-                          model: _model,
+                          model: model,
                         ),
                 ),
               );

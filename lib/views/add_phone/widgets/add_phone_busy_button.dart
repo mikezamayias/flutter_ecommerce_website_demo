@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../locator.dart';
 import '../../../routing/routes.dart';
 import '../../../services/navigation_service.dart';
-import '../../../view_models/phone/add_phone_view_model.dart';
+import '../../../view_models/add_phone/add_phone_view_model.dart';
 import '../../../widgets/busy_button.dart';
 
 class AddPhoneBusyButton extends StatelessWidget {
