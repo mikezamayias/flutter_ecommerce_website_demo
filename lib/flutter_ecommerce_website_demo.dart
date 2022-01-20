@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/services/authentication_service.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'locator.dart';
 import 'routing/router.dart';
 import 'routing/routes.dart';
+import 'services/authentication_service.dart';
 import 'services/dialog_service.dart';
 import 'services/firestore_service.dart';
 import 'services/navigation_service.dart';
@@ -45,7 +45,7 @@ class _FlutterEcommerceWebsiteDemoState
           value: locator<FirestoreService>().userSnapshot,
           initialData: null,
         ),
-        StreamProvider.value(
+        StreamProvider<List<PhoneModel>>.value(
           value: locator<FirestoreService>().readPhones,
           initialData: null,
         ),
