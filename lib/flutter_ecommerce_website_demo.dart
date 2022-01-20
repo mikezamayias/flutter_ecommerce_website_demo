@@ -45,7 +45,7 @@ class _FlutterEcommerceWebsiteDemoState
           value: locator<FirestoreService>().userSnapshot,
           initialData: null,
         ),
-        StreamProvider<List<PhoneModel>>.value(
+        StreamProvider.value(
           value: locator<FirestoreService>().readPhones,
           initialData: null,
         ),
