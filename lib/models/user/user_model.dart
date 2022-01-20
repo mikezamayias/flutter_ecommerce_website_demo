@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+
 class UserModel {
   String? uid;
   String? firstName;
@@ -9,6 +11,8 @@ class UserModel {
   String? streetAddress;
   int? postalCode;
   String? city;
+  List<String>? cart;
+  List<String>? orders;
   UserModel({
     this.uid,
     this.firstName,
@@ -18,6 +22,8 @@ class UserModel {
     this.streetAddress,
     this.postalCode,
     this.city,
+    this.cart,
+    this.orders,
   });
 
   UserModel copyWith({
@@ -29,6 +35,8 @@ class UserModel {
     String? streetAddress,
     int? postalCode,
     String? city,
+    List<String>? cart,
+    List<String>? orders,
   }) {
     return UserModel(
       uid: uid ?? this.uid,
@@ -39,6 +47,8 @@ class UserModel {
       streetAddress: streetAddress ?? this.streetAddress,
       postalCode: postalCode ?? this.postalCode,
       city: city ?? this.city,
+      cart: cart ?? this.cart,
+      orders: orders ?? this.orders,
     );
   }
 
@@ -52,6 +62,8 @@ class UserModel {
       'streetAddress': streetAddress,
       'postalCode': postalCode,
       'city': city,
+      'cart': cart,
+      'orders': orders,
     };
   }
 
@@ -65,6 +77,8 @@ class UserModel {
       streetAddress: map['streetAddress'],
       postalCode: map['postalCode']?.toInt(),
       city: map['city'],
+      cart: List<String>.from(map['cart']),
+      orders: List<String>.from(map['orders']),
     );
   }
 
@@ -75,7 +89,7 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserModel(uid: $uid, firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, streetAddress: $streetAddress, postalCode: $postalCode, city: $city)';
+    return 'UserModel(uid: $uid, firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, streetAddress: $streetAddress, postalCode: $postalCode, city: $city, cart: $cart, orders: $orders)';
   }
 
   @override
@@ -90,7 +104,9 @@ class UserModel {
         other.phoneNumber == phoneNumber &&
         other.streetAddress == streetAddress &&
         other.postalCode == postalCode &&
-        other.city == city;
+        other.city == city &&
+        listEquals(other.cart, cart) &&
+        listEquals(other.orders, orders);
   }
 
   @override
@@ -102,6 +118,8 @@ class UserModel {
         phoneNumber.hashCode ^
         streetAddress.hashCode ^
         postalCode.hashCode ^
-        city.hashCode;
+        city.hashCode ^
+        cart.hashCode ^
+        orders.hashCode;
   }
 }
