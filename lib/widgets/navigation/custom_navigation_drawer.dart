@@ -1,10 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/models/user/user_model.dart';
+import 'package:flutter_ecommerce_website_demo/services/authentication_service.dart';
+import 'package:flutter_ecommerce_website_demo/services/firestore_service.dart';
 import 'package:flutter_ecommerce_website_demo/widgets/navigation_items/add_phone_navigation_item.dart';
 import 'package:provider/provider.dart';
 
 import '../../extensions/hover_extension.dart';
 import '../../extensions/padding_extension.dart';
+import '../../locator.dart';
 import '../../shared/ui/shared_styles.dart';
 import '../../shared/ui/ui_helpers.dart';
 import '../navigation_items/cart_navigation_item.dart';
@@ -47,16 +52,16 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
                           // TODO: tweak drawer layout
                           DrawerHeader(
                             child: Text(
-                              'Hello, ${user.displayName ?? user.uid}',
+                              'Hello, ' '${user.displayName ?? user.uid}',
                               style: Theme.of(context).textTheme.headline6,
                             ),
                           ),
                           verticalSpaceSmall,
-                          const ShopNavigationItem()
+                          const AddPhoneNavigationItem()
                               .paddNavigationDrawerItem
                               .moveUpOnHover,
                           verticalSpaceSmall,
-                          const AddPhoneNavigationItem()
+                          const ShopNavigationItem()
                               .paddNavigationDrawerItem
                               .moveUpOnHover,
                           verticalSpaceSmall,
@@ -77,10 +82,9 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
                               .moveUpOnHover,
                         ]
                       : [
-                          // verticalSpaceSmall,
-                          // const AddPhoneNavigationItem()
-                          //     .paddNavigationDrawerItem
-                          //     .moveUpOnHover,
+                          DrawerHeader(
+                            child: Container(),
+                          ),
                           verticalSpaceSmall,
                           const SignUpNavigationItem()
                               .paddNavigationDrawerItem

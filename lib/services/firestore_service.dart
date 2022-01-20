@@ -67,18 +67,18 @@ class FirestoreService {
 
   // Read User with specified uid
   Stream<UserModel> readUser(String uid) =>
-      userCollection.doc(uid).snapshots().map(
-            (snapshot) => UserModel(
-              uid: snapshot.id,
-              email: snapshot.get('email') as String,
-              firstName: snapshot.get('firstName') as String,
-              lastName: snapshot.get('lastName') as String,
-              phoneNumber: snapshot.get('phoneNumber') as String,
-              streetAddress: snapshot.get('streetAddress') as String,
-              city: snapshot.get('city') as String,
-              postalCode: snapshot.get('postalCode') as int,
-            ),
-          );
+      userCollection.doc(uid).get().asStream().map(
+        (snapshot) => UserModel(
+          uid: snapshot.get('uid') as String,
+          email: snapshot.get('email') as String,
+          firstName: snapshot.get('firstName') as String,
+          lastName: snapshot.get('lastName') as String,
+          phoneNumber: snapshot.get('phoneNumber') as String,
+          streetAddress: snapshot.get('streetAddress') as String,
+          city: snapshot.get('city') as String,
+          postalCode: snapshot.get('postalCode') as int,
+        ),
+      );
 
   // Read Phone Catalog
   Stream<List<PhoneModel>> get readPhones => phoneCollection.snapshots().map(
