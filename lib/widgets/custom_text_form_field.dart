@@ -28,66 +28,63 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      fit: FlexFit.loose,
-      child: TextFormField(
-        onChanged: widget.onChanged,
-        keyboardType: widget.isPasswordField
-            ? TextInputType.visiblePassword
-            : widget.keyboardType,
-        controller: widget.controller,
-        cursorColor: Colors.orange,
-        decoration: InputDecoration(
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(
-              color: Colors.red,
-              width: 3,
-            ),
+    return TextFormField(
+      onChanged: widget.onChanged,
+      keyboardType: widget.isPasswordField
+          ? TextInputType.visiblePassword
+          : widget.keyboardType,
+      controller: widget.controller,
+      cursorColor: Colors.orange,
+      decoration: InputDecoration(
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 3,
           ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(
-              color: Colors.red,
-              width: 3,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(
-              color: Colors.orange,
-              width: 3,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(
-              color: Colors.grey,
-              width: 3,
-            ),
-          ),
-          labelText: widget.labelText,
-          errorMaxLines: 3,
-          suffixIcon: widget.obscureText || widget.isPasswordField
-              ? IconButton(
-                  icon: Icon(
-                    _obscureText ? Icons.visibility : Icons.visibility_off,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _obscureText = !_obscureText;
-                    });
-                  },
-                )
-              : null,
         ),
-        obscureText: !widget.isPasswordField && !widget.obscureText
-            ? false
-            : _obscureText,
-        autocorrect: false,
-        validator: widget.validator,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 3,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: Colors.orange,
+            width: 3,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: Colors.grey,
+            width: 3,
+          ),
+        ),
+        labelText: widget.labelText,
+        errorMaxLines: 3,
+        suffixIcon: widget.obscureText || widget.isPasswordField
+            ? IconButton(
+                icon: Icon(
+                  _obscureText ? Icons.visibility : Icons.visibility_off,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
+              )
+            : null,
       ),
+      obscureText: !widget.isPasswordField && !widget.obscureText
+          ? false
+          : _obscureText,
+      autocorrect: false,
+      validator: widget.validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
     );
   }
 }
