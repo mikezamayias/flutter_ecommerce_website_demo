@@ -26,8 +26,7 @@ class _BusyButtonState extends State<BusyButton> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.min,
       children: [
         GestureDetector(
           onTap: widget.onPressed,
