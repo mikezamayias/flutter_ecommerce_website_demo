@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/extensions/padding_extension.dart';
 
 import '../../extensions/hover_extension.dart';
 import '../../shared/ui/shared_styles.dart';

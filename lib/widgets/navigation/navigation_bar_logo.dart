@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../extensions/padding_extension.dart';
 import '../../locator.dart';
 import '../../routing/routes.dart';
 import '../../services/navigation_service.dart';
