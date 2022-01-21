@@ -26,7 +26,7 @@ class DesktopSignUpView extends StatelessWidget {
         _lastNameController = lastNameController,
         _phoneNumberController = phoneNumbercontroller,
         _streetAddressController = streetAddressController,
-        _cityController = postalCodeController,
+        _cityController = cityController,
         _postalCodeController = postalCodeController,
         super(key: key);
 
