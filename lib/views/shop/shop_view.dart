@@ -22,6 +22,7 @@ class _ShopViewState extends State<ShopView> {
     return StreamBuilder<List<PhoneModel>>(
       stream: locator<FirestoreService>().readPhones,
       builder: (context, snapshot) {
+        debugPrint('snapshot.data: ${snapshot.data}');
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
         } else {

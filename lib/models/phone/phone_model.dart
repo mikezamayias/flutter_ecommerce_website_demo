@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class PhoneModel {
   String? uid;
   String? model;
@@ -13,7 +15,6 @@ class PhoneModel {
   double? price;
   int? stock;
   double? sar;
-
   PhoneModel({
     this.uid,
     this.model,
@@ -28,6 +29,23 @@ class PhoneModel {
     this.stock,
     this.sar,
   });
+
+  factory PhoneModel.fromDocument(DocumentSnapshot document) {
+    return PhoneModel(
+      uid: document.id,
+      model: document.get('model'),
+      photoUrl: document.get('photoUrl'),
+      soc: document.get('soc'),
+      ram: document.get('ram'),
+      storage: document.get('storage'),
+      screenSize: document.get('screenSize'),
+      battery: document.get('battery'),
+      camera: document.get('camera'),
+      price: document.get('price'),
+      stock: document.get('stock'),
+      sar: document.get('sar'),
+    );
+  }
 
   PhoneModel copyWith({
     String? uid,

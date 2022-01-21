@@ -29,7 +29,9 @@ class _SignUpViewState extends State<SignUpView> {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<SignUpViewModel>.reactive(
-      viewModelBuilder: () => SignUpViewModel(),
+      viewModelBuilder: () {
+        return SignUpViewModel();
+      },
       builder: (context, model, child) {
         return Form(
           key: locator<FormService>().signUpFormKey,

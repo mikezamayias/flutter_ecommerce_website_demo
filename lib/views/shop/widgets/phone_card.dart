@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/widgets/busy_button.dart';
 
 import '../../../models/phone/phone_model.dart';
 import '../../../shared/ui/ui_helpers.dart';
@@ -90,16 +89,6 @@ class PhoneCard extends StatelessWidget {
                     SpecificationField(
                       fieldName: 'Stock',
                       fieldValue: '${phone.stock}',
-                    ),
-                    BusyButton(
-                      title: 'Buy',
-                      // busy: model.isBusy,
-                      onPressed: () {
-                        //   model.logIn(
-                        //     email: _emailController.text,
-                        //     password: _passwordController.text,
-                        //   );
-                      },
                     ),
                   ],
                 ),

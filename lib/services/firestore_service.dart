@@ -6,6 +6,7 @@ import '../models/user/user_model.dart';
 class FirestoreService {
   /// Firestore instance
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   FirebaseFirestore get fireStore => _firestore;
 
   /// User Collection Reference
@@ -66,10 +67,11 @@ class FirestoreService {
       );
 
   // Read User with specified uid
-  Stream<UserModel> readUser(String uid) =>
-      userCollection.doc(uid).get().asStream().map(
-        (snapshot) => UserModel(
-          uid: snapshot.get('uid') as String,
+  Stream<UserModel> readUser(String uid) {
+    return userCollection.doc(uid).snapshots().map(
+      (snapshot) {
+        return UserModel(
+          uid: snapshot.id,
           email: snapshot.get('email') as String,
           firstName: snapshot.get('firstName') as String,
           lastName: snapshot.get('lastName') as String,
@@ -77,27 +79,21 @@ class FirestoreService {
           streetAddress: snapshot.get('streetAddress') as String,
           city: snapshot.get('city') as String,
           postalCode: snapshot.get('postalCode') as int,
-        ),
-      );
+        );
+      },
+    );
+  }
 
   // Read Phone Catalog
-  Stream<List<PhoneModel>> get readPhones => phoneCollection.snapshots().map(
-        (snapshot) => snapshot.docs
-            .map(
-              (doc) => PhoneModel(
-                model: doc.get('model') as String,
-                battery: doc.get('battery') as int,
-                screenSize: doc.get('screenSize') as double,
-                camera: doc.get('camera') as String,
-                sar: doc.get('sar') as double,
-                ram: doc.get('ram') as int,
-                storage: doc.get('storage') as String,
-                price: doc.get('price') as double,
-                stock: doc.get('quantity') as int,
-                photoUrl: doc.get('photoUrl') as String,
-                soc: doc.get('soc') as String,
-              ),
-            )
-            .toList(),
-      );
+  Stream<List<PhoneModel>> get readPhones {
+    return phoneCollection.snapshots().map(
+      (snapshot) {
+        return snapshot.docs.map(
+          (doc) {
+            return PhoneModel.fromDocument(doc);
+          },
+        ).toList();
+      },
+    );
+  }
 }
