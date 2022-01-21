@@ -18,8 +18,8 @@ class AddPhoneBusyButton extends StatelessWidget {
     required TextEditingController batteryTextEditingController,
     required TextEditingController cammeraTextEditingController,
     required TextEditingController priceTextEditingController,
-    required TextEditingController quantityTextEditingController,
-    required TextEditingController photoUrlTextEditingController,
+    required TextEditingController stockTextEditingController,
+    required TextEditingController imageUrlTextEditingController,
     required TextEditingController sarTextEditingController,
   })  : _model = model,
         _modelTextEditingController = modelTextEditingController,
@@ -30,8 +30,8 @@ class AddPhoneBusyButton extends StatelessWidget {
         _batteryTextEditingController = batteryTextEditingController,
         _cammeraTextEditingController = cammeraTextEditingController,
         _priceTextEditingController = priceTextEditingController,
-        _quantityTextEditingController = quantityTextEditingController,
-        _photoUrlTextEditingController = photoUrlTextEditingController,
+        _quantityTextEditingController = stockTextEditingController,
+        _imageUrlTextEditingController = imageUrlTextEditingController,
         _sarTextEditingController = sarTextEditingController,
         super(key: key);
 
@@ -45,7 +45,7 @@ class AddPhoneBusyButton extends StatelessWidget {
   final TextEditingController _cammeraTextEditingController;
   final TextEditingController _priceTextEditingController;
   final TextEditingController _quantityTextEditingController;
-  final TextEditingController _photoUrlTextEditingController;
+  final TextEditingController _imageUrlTextEditingController;
   final TextEditingController _sarTextEditingController;
 
   @override
@@ -63,8 +63,8 @@ class AddPhoneBusyButton extends StatelessWidget {
           battery: _batteryTextEditingController.text,
           camera: _cammeraTextEditingController.text,
           price: _priceTextEditingController.text,
-          quantity: _quantityTextEditingController.text,
-          photoUrl: _photoUrlTextEditingController.text,
+          stock: _quantityTextEditingController.text,
+          imageUrl: _imageUrlTextEditingController.text,
           sar: _sarTextEditingController.text,
         );
         locator<NavigationService>().navigateTo(addPhoneRoute);

@@ -18,13 +18,13 @@ class AddPhoneViewModel extends BaseViewModel with Validators {
     required battery,
     required camera,
     required price,
-    required quantity,
-    required photoUrl,
+    required stock,
+    required imageUrl,
     required sar,
   }) async {
     if (validateBattery(battery) != null &&
         validatePrice(price) != null &&
-        validateQuantity(quantity) != null &&
+        validateStock(stock) != null &&
         validateScreenSize(screenSize) != null &&
         validateStorage(storage) != null &&
         validateRam(ram) != null &&
@@ -34,7 +34,7 @@ class AddPhoneViewModel extends BaseViewModel with Validators {
       _dialogService.showDialog(
         title: 'Invalid Details',
         description:
-            '${validateBattery(battery)} ${validatePrice(price)} ${validateQuantity(quantity)} ${validateScreenSize(screenSize)} ${validateStorage(storage)} ${validateRam(ram)} ${validateCamera(camera)} ${validateSar(sar)} ${validateSoc(soc)}',
+            '${validateBattery(battery)} ${validatePrice(price)} ${validateStock(stock)} ${validateScreenSize(screenSize)} ${validateStorage(storage)} ${validateRam(ram)} ${validateCamera(camera)} ${validateSar(sar)} ${validateSoc(soc)}',
       );
     } else {
       setBusy(true);
@@ -47,8 +47,8 @@ class AddPhoneViewModel extends BaseViewModel with Validators {
         battery: int.parse(battery),
         camera: camera,
         price: double.parse(price),
-        stock: int.parse(quantity),
-        photoUrl: photoUrl,
+        stock: int.parse(stock),
+        imageUrl: imageUrl,
         sar: double.parse(sar),
       );
       await locator<FirestoreService>().createPhone(phoneModel);

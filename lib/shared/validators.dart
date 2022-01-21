@@ -100,7 +100,7 @@ class Validators {
   }
 
   // check photo url
-  String? validatePhotoUrl(String? value) {
+  String? validateImageUrl(String? value) {
     if (value == null) return 'Photo url is required';
     if (value.isEmpty) return 'Photo url is required';
     if (!RegExp(r'^https?:\/\/.*\.(?:png|jpg|jpeg|gif)$').hasMatch(value)) {

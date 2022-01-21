@@ -59,9 +59,9 @@ class _AddPhoneViewState extends State<AddPhoneView> {
                               _cammeraTextEditingController,
                           priceTextEditingController:
                               _priceTextEditingController,
-                          quantityTextEditingController:
+                          stockTextEditingController:
                               _quantityTextEditingController,
-                          photoUrlTextEditingController:
+                          imageUrlTextEditingController:
                               _photoUrlTextEditingController,
                           sarTextEditingController: _sarTextEditingController,
                           model: model,
@@ -81,9 +81,9 @@ class _AddPhoneViewState extends State<AddPhoneView> {
                               _cammeraTextEditingController,
                           priceTextEditingController:
                               _priceTextEditingController,
-                          quantityTextEditingController:
+                          stockTextEditingController:
                               _quantityTextEditingController,
-                          photoUrlTextEditingController:
+                          imageUrlTextEditingController:
                               _photoUrlTextEditingController,
                           sarTextEditingController: _sarTextEditingController,
                           model: model,

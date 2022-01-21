@@ -15,11 +15,10 @@ class NavigationBarLogo extends StatelessWidget {
       child: SvgPicture.asset(
         'assets/images/logo.svg',
         semanticsLabel: 'Logo',
-        height: MediaQuery.of(context).size.height * 0.042,
       ),
       onPressed: () {
         locator<NavigationService>().navigateTo(shopRoute);
       },
-    ).paddNavigationBarItem;
+    );
   }
 }

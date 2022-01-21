@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
@@ -15,6 +16,14 @@ class AuthenticationService {
   // authentication state change listener
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 
+  Stream<UserModel?> get userModel {
+    return FirebaseFirestore.instance
+            .collection('users')
+            .doc(currentUser?.uid)
+            .snapshots()
+            .map((snapshot) => UserModel.fromDocument(snapshot));
+  }
+
   // sign up with email and password
   Future<Object> signUpWithEmailAndPassword({
     required String email,
@@ -31,9 +40,7 @@ class AuthenticationService {
         email: email,
         password: password,
       );
-      User? user = authResult.user;
       UserModel userModel = UserModel(
-        uid: user?.uid,
         email: email,
         firstName: firstName,
         lastName: lastName,

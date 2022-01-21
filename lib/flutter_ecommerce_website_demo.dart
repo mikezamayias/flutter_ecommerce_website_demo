@@ -1,11 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:colorful_safe_area/colorful_safe_area.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/models/phone/phone_model.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'locator.dart';
+import 'models/phone/phone_model.dart';
+import 'models/user/user_model.dart';
 import 'routing/router.dart';
 import 'routing/routes.dart';
 import 'services/authentication_service.dart';
@@ -34,21 +35,17 @@ class _FlutterEcommerceWebsiteDemoState
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        StreamProvider.value(
+        StreamProvider<User?>.value(
           value: locator<AuthenticationService>().authStateChanges,
           initialData: null,
         ),
-        StreamProvider<QuerySnapshot?>.value(
-          value: locator<FirestoreService>().phoneStream,
+        StreamProvider<UserModel?>.value(
+          value: locator<AuthenticationService>().userModel,
           initialData: null,
         ),
-        StreamProvider.value(
-          value: locator<FirestoreService>().userSnapshot,
-          initialData: null,
-        ),
-        StreamProvider<List<PhoneModel>>.value(
+        StreamProvider<List<PhoneModel?>?>.value(
           value: locator<FirestoreService>().readPhones,
-          initialData: const [],
+          initialData: null,
         ),
       ],
       child: MaterialApp(

@@ -17,8 +17,8 @@ class MobileAddPhoneView extends StatelessWidget {
     required TextEditingController batteryTextEditingController,
     required TextEditingController cammeraTextEditingController,
     required TextEditingController priceTextEditingController,
-    required TextEditingController quantityTextEditingController,
-    required TextEditingController photoUrlTextEditingController,
+    required TextEditingController stockTextEditingController,
+    required TextEditingController imageUrlTextEditingController,
     required TextEditingController sarTextEditingController,
   })  : _addPhoneViewModel = model,
         _modelTextEditingController = modelTextEditingController,
@@ -29,8 +29,8 @@ class MobileAddPhoneView extends StatelessWidget {
         _batteryTextEditingController = batteryTextEditingController,
         _cammeraTextEditingController = cammeraTextEditingController,
         _priceTextEditingController = priceTextEditingController,
-        _quantityTextEditingController = quantityTextEditingController,
-        _photoUrlTextEditingController = photoUrlTextEditingController,
+        _stockTextEditingController = stockTextEditingController,
+        _imageUrlTextEditingController = imageUrlTextEditingController,
         _sarTextEditingController = sarTextEditingController,
         super(key: key);
 
@@ -43,8 +43,8 @@ class MobileAddPhoneView extends StatelessWidget {
   final TextEditingController _batteryTextEditingController;
   final TextEditingController _cammeraTextEditingController;
   final TextEditingController _priceTextEditingController;
-  final TextEditingController _quantityTextEditingController;
-  final TextEditingController _photoUrlTextEditingController;
+  final TextEditingController _stockTextEditingController;
+  final TextEditingController _imageUrlTextEditingController;
   final TextEditingController _sarTextEditingController;
 
   @override
@@ -117,17 +117,17 @@ class MobileAddPhoneView extends StatelessWidget {
         ),
         verticalSpaceSmall,
         CustomTextFormField(
-          labelText: 'Quantity',
-          controller: _quantityTextEditingController,
+          labelText: 'Stock',
+          controller: _stockTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _addPhoneViewModel.validateQuantity,
+          validator: _addPhoneViewModel.validateStock,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
-          labelText: 'Photo Url',
-          controller: _photoUrlTextEditingController,
+          labelText: 'Image Url',
+          controller: _imageUrlTextEditingController,
           keyboardType: TextInputType.text,
-          validator: _addPhoneViewModel.validatePhotoUrl,
+          validator: _addPhoneViewModel.validateImageUrl,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
@@ -147,8 +147,8 @@ class MobileAddPhoneView extends StatelessWidget {
           batteryTextEditingController: _batteryTextEditingController,
           cammeraTextEditingController: _cammeraTextEditingController,
           priceTextEditingController: _priceTextEditingController,
-          quantityTextEditingController: _quantityTextEditingController,
-          photoUrlTextEditingController: _photoUrlTextEditingController,
+          stockTextEditingController: _stockTextEditingController,
+          imageUrlTextEditingController: _imageUrlTextEditingController,
           sarTextEditingController: _sarTextEditingController,
         ),
         verticalSpaceMassive,

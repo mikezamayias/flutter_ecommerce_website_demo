@@ -29,7 +29,7 @@ class PhoneCard extends StatelessWidget {
             children: [
               horizontalSpaceMedium,
               CachedNetworkImage(
-                imageUrl: phone.photoUrl!,
+                imageUrl: phone.imageUrl,
                 placeholder: (context, url) =>
                     const CircularProgressIndicator(),
                 errorWidget: (context, url, error) => Icon(
@@ -48,12 +48,12 @@ class PhoneCard extends StatelessWidget {
                     // model
                     SpecificationField(
                       fieldName: 'Model',
-                      fieldValue: '${phone.model}',
+                      fieldValue: phone.model,
                     ),
                     // soc
                     SpecificationField(
                       fieldName: 'Soc',
-                      fieldValue: '${phone.soc}',
+                      fieldValue: phone.soc,
                     ),
                     // ram
                     SpecificationField(
@@ -63,7 +63,7 @@ class PhoneCard extends StatelessWidget {
                     // storage
                     SpecificationField(
                       fieldName: 'Storage',
-                      fieldValue: '${phone.storage}',
+                      fieldValue: phone.storage,
                     ),
                     // screen size
                     SpecificationField(
@@ -73,7 +73,7 @@ class PhoneCard extends StatelessWidget {
                     // camera
                     SpecificationField(
                       fieldName: 'Camera',
-                      fieldValue: '${phone.camera}',
+                      fieldValue: phone.camera,
                     ),
                     // sar
                     SpecificationField(

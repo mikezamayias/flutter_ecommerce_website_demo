@@ -6,7 +6,6 @@ import '../models/user/user_model.dart';
 class FirestoreService {
   /// Firestore instance
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
   FirebaseFirestore get fireStore => _firestore;
 
   /// User Collection Reference
@@ -40,12 +39,12 @@ class FirestoreService {
 
   // Create Phone
   Future<void> createPhone(PhoneModel phoneModel) async {
-    return await phoneCollection.doc().set(phoneModel.toMap());
+    return await phoneCollection.doc().set(phoneModel.toDocument());
   }
 
   // Create User
   Future<void> createUser(UserModel userModel) async {
-    return userCollection.doc(userModel.uid).set(userModel.toMap());
+    return userCollection.doc().set(userModel.toDocument());
   }
 
   // Read Users
@@ -53,7 +52,6 @@ class FirestoreService {
         (snapshot) => snapshot.docs
             .map(
               (doc) => UserModel(
-                uid: doc.get('uid') as String,
                 email: doc.get('email') as String,
                 firstName: doc.get('firstName') as String,
                 lastName: doc.get('lastName') as String,
@@ -67,25 +65,12 @@ class FirestoreService {
       );
 
   // Read User with specified uid
-  Stream<UserModel> readUser(String uid) {
-    return userCollection.doc(uid).snapshots().map(
-      (snapshot) {
-        return UserModel(
-          uid: snapshot.id,
-          email: snapshot.get('email') as String,
-          firstName: snapshot.get('firstName') as String,
-          lastName: snapshot.get('lastName') as String,
-          phoneNumber: snapshot.get('phoneNumber') as String,
-          streetAddress: snapshot.get('streetAddress') as String,
-          city: snapshot.get('city') as String,
-          postalCode: snapshot.get('postalCode') as int,
-        );
-      },
-    );
+  Stream<DocumentSnapshot> readUser(String? uid) {
+    return userCollection.doc(uid).snapshots();
   }
 
   // Read Phone Catalog
-  Stream<List<PhoneModel>> get readPhones {
+  Stream<List<PhoneModel?>?> get readPhones {
     return phoneCollection.snapshots().map(
       (snapshot) {
         return snapshot.docs.map(

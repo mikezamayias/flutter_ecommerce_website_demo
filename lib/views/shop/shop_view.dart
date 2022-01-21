@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../locator.dart';
@@ -18,13 +17,14 @@ class ShopView extends StatefulWidget {
 class _ShopViewState extends State<ShopView> {
   @override
   Widget build(BuildContext context) {
-    final phones = Provider.of<List<PhoneModel>?>(context);
-    return StreamBuilder<List<PhoneModel>>(
+    return StreamBuilder<List<PhoneModel?>?>(
       stream: locator<FirestoreService>().readPhones,
       builder: (context, snapshot) {
-        debugPrint('snapshot.data: ${snapshot.data}');
+        debugPrint('List<PhoneModel>: ${snapshot.data}');
         if (!snapshot.hasData) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         } else {
           return ResponsiveBuilder(
             builder: (context, sizingInformation) {
@@ -39,9 +39,9 @@ class _ShopViewState extends State<ShopView> {
                       ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: phones!.length,
+                        itemCount: snapshot.data!.length,
                         itemBuilder: (context, index) {
-                          return PhoneCard(phone: phones[index]);
+                          return PhoneCard(phone: snapshot.data![index]!);
                         },
                       ),
                       verticalSpaceMassive,

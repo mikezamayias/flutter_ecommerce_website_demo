@@ -25,7 +25,7 @@ class _MobileNavigationBarState extends State<MobileNavigationBar> {
       centerTitle: false,
       title: const NavigationBarLogo().moveUpOnHover,
       actions: [
-        const MenuNavigationItem().moveUpOnHover.paddNavigationBarItem,
+        const MenuNavigationItem().moveUpOnHover,
         horizontalSpaceTiny
       ],
     );
