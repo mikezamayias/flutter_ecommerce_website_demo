@@ -81,13 +81,21 @@ class Validators {
     if (value.length < 2) {
       return 'First name must be at least 2 characters long';
     }
+    if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
+      return 'First name must be alphabetic';
+    }
     return null;
   }
 
   String? validateLastName(String? value) {
     if (value == null) return 'Last name is required';
     if (value.isEmpty) return 'Last name is required';
-    if (value.length < 2) return 'Last name must be at least 2 characters long';
+    if (value.length < 2) {
+      return 'Last name must be at least 2 characters long';
+    }
+    if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
+      return 'First name must be alphabetic';
+    }
     return null;
   }
 
@@ -158,17 +166,17 @@ class Validators {
     return null;
   }
 
-  // check quantity value
-  String? validateQuantity(String? value) {
-    if (value == null) return 'Quantity is required';
-    if (value.isEmpty) return 'Quantity is required';
+  // check stock value
+  String? validateStock(String? value) {
+    if (value == null) return 'Stock is required';
+    if (value.isEmpty) return 'Stock is required';
     // must be type integer
     if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
-      return 'Quantity must be an integer';
+      return 'Stock must be an integer';
     }
     // must be positive value
-    if (!(int.parse(value) > 0)) {
-      return 'Quantity must be a positive number';
+    if (!(int.parse(value) >= 0)) {
+      return 'Stock must be a non-negative integer';
     }
     return null;
   }
