@@ -54,11 +54,34 @@ class MobileSignUpView extends StatelessWidget {
           style: Theme.of(context).textTheme.headline3,
         ),
         verticalSpaceMedium,
+        // first name custom text form field
+        CustomTextFormField(
+          labelText: 'First Name',
+          controller: _firstNameController,
+          validator: _signUpViewModel.validateFirstName,
+          keyboardType: TextInputType.name,
+        ),
+        verticalSpaceSmall,
+        // last name custom text form field
+        CustomTextFormField(
+          labelText: 'Last Name',
+          controller: _lastNameController,
+          validator: _signUpViewModel.validateLastName,
+          keyboardType: TextInputType.name,
+        ),
+        verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'Email',
           controller: _emailController,
           keyboardType: TextInputType.emailAddress,
           validator: _signUpViewModel.validateEmail,
+        ),
+        verticalSpaceSmall,
+        CustomTextFormField(
+          labelText: 'Phone Number',
+          controller: _phoneNumberController,
+          keyboardType: TextInputType.phone,
+          validator: _signUpViewModel.validatePhoneNumber,
         ),
         verticalSpaceSmall,
         CustomTextFormField(
@@ -80,29 +103,6 @@ class MobileSignUpView extends StatelessWidget {
           isPasswordField: true,
         ),
         verticalSpaceSmall,
-        // first name custom text form field
-        CustomTextFormField(
-          labelText: 'First Name',
-          controller: _firstNameController,
-          validator: _signUpViewModel.validateFirstName,
-          keyboardType: TextInputType.name,
-        ),
-        verticalSpaceSmall,
-        // last name custom text form field
-        CustomTextFormField(
-          labelText: 'Last Name',
-          controller: _lastNameController,
-          validator: _signUpViewModel.validateLastName,
-          keyboardType: TextInputType.name,
-        ),
-        verticalSpaceSmall,
-        CustomTextFormField(
-          labelText: 'Phone Number',
-          controller: _phoneNumberController,
-          keyboardType: TextInputType.phone,
-          validator: _signUpViewModel.validatePhoneNumber,
-        ),
-        verticalSpaceSmall,
         CustomTextFormField(
           labelText: 'Street address',
           controller: _streetAddressController,
@@ -111,17 +111,17 @@ class MobileSignUpView extends StatelessWidget {
         ),
         verticalSpaceSmall,
         CustomTextFormField(
-          labelText: 'Postal Code',
-          controller: _postalCodeController,
-          keyboardType: TextInputType.phone,
-          validator: _signUpViewModel.validatePostalCode,
-        ),
-        verticalSpaceSmall,
-        CustomTextFormField(
           labelText: 'City',
           controller: _cityController,
           keyboardType: TextInputType.text,
           validator: _signUpViewModel.validateCity,
+        ),
+        verticalSpaceSmall,
+        CustomTextFormField(
+          labelText: 'Postal Code',
+          controller: _postalCodeController,
+          keyboardType: TextInputType.phone,
+          validator: _signUpViewModel.validatePostalCode,
         ),
         verticalSpaceMedium,
         SignUpButton(

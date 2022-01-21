@@ -65,6 +65,14 @@ class DesktopSignUpView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // first name custom text form field
+                  CustomTextFormField(
+                    labelText: 'First Name',
+                    controller: _firstNameController,
+                    validator: _model.validateFirstName,
+                    keyboardType: TextInputType.name,
+                  ),
+                  verticalSpaceMedium,
                   CustomTextFormField(
                     labelText: 'Email',
                     controller: _emailController,
@@ -78,14 +86,6 @@ class DesktopSignUpView extends StatelessWidget {
                     keyboardType: TextInputType.visiblePassword,
                     validator: _model.validatePassword,
                     isPasswordField: true,
-                  ),
-                  verticalSpaceMedium,
-                  // first name custom text form field
-                  CustomTextFormField(
-                    labelText: 'First Name',
-                    controller: _firstNameController,
-                    validator: _model.validateFirstName,
-                    keyboardType: TextInputType.name,
                   ),
                   verticalSpaceMedium,
                   CustomTextFormField(
@@ -112,6 +112,13 @@ class DesktopSignUpView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomTextFormField(
+                    labelText: 'Last Name',
+                    controller: _lastNameController,
+                    validator: _model.validateLastName,
+                    keyboardType: TextInputType.name,
+                  ),
+                  verticalSpaceMedium,
+                  CustomTextFormField(
                     labelText: 'Phone Number',
                     controller: _phoneNumberController,
                     keyboardType: TextInputType.phone,
@@ -127,13 +134,6 @@ class DesktopSignUpView extends StatelessWidget {
                       _passwordController.text,
                     ),
                     isPasswordField: true,
-                  ),
-                  verticalSpaceMedium,
-                  CustomTextFormField(
-                    labelText: 'Last Name',
-                    controller: _lastNameController,
-                    validator: _model.validateLastName,
-                    keyboardType: TextInputType.name,
                   ),
                   verticalSpaceMedium,
                   CustomTextFormField(
