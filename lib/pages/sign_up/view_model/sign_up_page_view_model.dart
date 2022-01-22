@@ -57,7 +57,7 @@ class SignUpPageViewModel extends BaseViewModel with Validators {
             title: 'Success',
             description: 'You have signed up successfully',
           );
-          _navigationService.navigateTo(shopRoute);
+          _navigationService.navigateTo('/');
         } else {
           _dialogService.showDialog(
             title: 'Sign Up Failure',

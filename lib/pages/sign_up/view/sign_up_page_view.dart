@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/widgets/busy_button.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../locator.dart';
 import '../../../services/form_service.dart';
-import '../components/sign_up_button.dart';
 import '../components/sign_up_text_input_fields.dart';
 import '../view_model/sign_up_page_view_model.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class SignUpPageView extends StatelessWidget {
+  const SignUpPageView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +95,10 @@ class SignUpPage extends StatelessWidget {
                       softWrap: true,
                       overflow: TextOverflow.visible,
                     ),
-                    const SignUpButton(),
+                    BusyButton(
+                      title: 'Sign Up',
+                      onPressed: () {},
+                    ),
                   ].map(
                     (item) {
                       return Padding(
