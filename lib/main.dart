@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 
 import 'firebase_options.dart';
 import 'flutter_ecommerce_website_demo.dart';
-import 'archive/locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  setupLocator();
   runApp(const FlutterEcommerceWebsiteDemo());
 }
