@@ -15,7 +15,7 @@ import '../pages/cart/cart_page_view.dart';
 import '../pages/contact_us/contact_us_page_view.dart';
 import '../pages/home/home_page_view.dart';
 import '../pages/log_in/log_in_page_view.dart';
-import '../pages/orders/orders_page.dart';
+import '../pages/orders/orders_page_view.dart';
 import '../pages/phones/phones_page_view.dart';
 import '../pages/sign_up/view/sign_up_page_view.dart';
 
