@@ -10,7 +10,7 @@ import 'sign_up/sign_up_page.dart';
 final pages = {
   '/': const HomePage(),
   '/phones': const PhonesPage(),
-  '/signup': const SignUpPage(),
+  '/signup':  const SignUpPage(),
   '/login': const LogInPage(),
   '/contactus': const ContactUsPage(),
   '/addphone': const AddPhonePage(),
