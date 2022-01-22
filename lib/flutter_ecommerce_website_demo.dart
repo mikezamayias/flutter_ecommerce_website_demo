@@ -11,6 +11,7 @@ import 'services/scaffold_service.dart';
 import 'theme.dart';
 import 'widgets/app_bar_actions/desktop_navigation/desktop_navigation_app_bar_actions.dart';
 import 'widgets/app_bar_actions/mobile_navigation/mobile_navigation_app_bar_actions.dart';
+import 'widgets/dialog_manager.dart';
 import 'widgets/drawer/mobile_drawer.dart';
 
 class FlutterEcommerceWebsiteDemo extends StatefulWidget {
@@ -38,23 +39,25 @@ class _FlutterEcommerceWebsiteDemoState
         builder: (BuildContext context, SizingInformation sizingInformation) {
           Provider.of<SizingInformationProvider>(context, listen: false)
               .sizingInformation = sizingInformation;
-          return ColorfulSafeArea(
-            color: Colors.orange,
-            child: Scaffold(
-              key: locator<ScaffoldService>().scaffoldKey,
-              endDrawer: context
-                      .watch<SizingInformationProvider>()
-                      .sizingInformation
-                      .isDesktop
-                  ? null
-                  : const MobileDrawer(),
-              appBar: AppBar(
-                backgroundColor: Colors.white,
-                actions: sizingInformation.isDesktop
-                    ? desktopNavigationAppBarActions(context)
-                    : mobileNavigationAppBarActions(context),
+          return DialogManager(
+            child: ColorfulSafeArea(
+              color: Colors.orange,
+              child: Scaffold(
+                key: locator<ScaffoldService>().scaffoldKey,
+                endDrawer: context
+                        .watch<SizingInformationProvider>()
+                        .sizingInformation
+                        .isDesktop
+                    ? null
+                    : const MobileDrawer(),
+                appBar: AppBar(
+                  backgroundColor: Colors.white,
+                  actions: sizingInformation.isDesktop
+                      ? desktopNavigationAppBarActions(context)
+                      : mobileNavigationAppBarActions(context),
+                ),
+                body: pages[context.watch<PageKeyProvider>().key],
               ),
-              body: pages[context.watch<PageKeyProvider>().key],
             ),
           );
         },

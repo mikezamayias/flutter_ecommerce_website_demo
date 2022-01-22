@@ -1,13 +1,13 @@
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
 
 import '../../../locator.dart';
 import '../../../services/authentication_service.dart';
+import '../../../services/dialog_service.dart';
 import '../../../widgets/text_input/validators.dart';
 
 class SignUpPageViewModel extends BaseViewModel with Validators {
-  final AuthenticationService _authService = locator<AuthenticationService>();
-  final DialogService _dialogService = locator<DialogService>();
+  final _authService = locator<AuthenticationService>();
+  final _dialogService = locator<DialogService>();
 
   Future signUp({
     required String email,
