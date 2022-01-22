@@ -26,13 +26,14 @@ List<TabButton> loggedOutUserAppBarActions(BuildContext context) {
       route: '/signup',
       title: 'Sign Up',
       iconData: Icons.person_add_rounded,
-      onPressed: () => context.watch<PageKeyProvider>().key = '/signup',
+      onPressed: () => Provider.of<PageKeyProvider>(context).key = '/signup',
     ),
     // log in icon text button
     TabButton(
       title: 'Log In',
       iconData: Icons.login_rounded,
-      onPressed: () => context.watch<AuthStateProvider>().authState = true,
+      onPressed: () => context.watch<PageKeyProvider>().key = '/login',
+      // onPressed: () => context.watch<AuthStateProvider>().authState = true,
     ),
     // contact us icon text button
     TabButton(
