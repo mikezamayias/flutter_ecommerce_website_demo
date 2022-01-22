@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/providers/sizing_information_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/auth_state_provider.dart';
@@ -6,7 +7,7 @@ import '../../../providers/page_key_provider.dart';
 import '../tab_button.dart';
 
 List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
-  if (context.watch<AuthStateProvider>().authState) {
+  if (context.watch<AuthStateProvider>().authState == false) {
     return [
       // home icon text button
       TabButton(
@@ -15,7 +16,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.home_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/';
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
       // phone icon text button
@@ -25,7 +30,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.phone_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/phones';
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
       // sign up icon text button
@@ -35,7 +44,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.person_add_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/signup';
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
       // log in icon text button
@@ -45,7 +58,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         onPressed: () {
           // context.watch<AuthStateProvider>().authState = true,
           Provider.of<PageKeyProvider>(context, listen: false).key = '/login';
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
       // contact us icon text button
@@ -56,7 +73,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key =
               '/contactus';
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
     ];
@@ -69,7 +90,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.home_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/';
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
       // phone icon text button
@@ -79,7 +104,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.phone_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/phones';
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
       // phone icon text button
@@ -90,7 +119,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key =
               '/addphone';
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
       // sign up icon text button
@@ -100,7 +133,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.shopping_cart_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/cart';
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
       // log in icon text button
@@ -110,7 +147,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.history_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/orders';
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
       // contact us icon text button
@@ -121,7 +162,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key =
               '/contactus';
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
       // contact us icon text button
@@ -131,7 +176,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         onPressed: () {
           Provider.of<AuthStateProvider>(context, listen: false).authState =
               false;
-          Navigator.pop(context);
+          if (!Provider.of<SizingInformationProvider>(context, listen: false)
+              .sizingInformation
+              .isDesktop) {
+            Navigator.pop(context);
+          }
         },
       ),
     ];
