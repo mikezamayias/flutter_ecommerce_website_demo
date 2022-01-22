@@ -1,49 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class TabButton extends StatefulWidget {
-  final int index;
-  final int currentIndex;
-  final String title;
-  final IconData iconData;
-  final VoidCallback onPressed;
+import '../providers/page_key_provider.dart';
 
+class TabButton extends StatelessWidget {
   const TabButton({
     Key? key,
-    required this.index,
-    required this.currentIndex,
+    this.route,
     required this.title,
     required this.iconData,
     required this.onPressed,
   }) : super(key: key);
 
-  @override
-  _TabButtonState createState() => _TabButtonState();
-}
+  final String? route;
+  final String title;
+  final IconData iconData;
+  final VoidCallback onPressed;
 
-class _TabButtonState extends State<TabButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(6.9),
       child: TextButton.icon(
-        onPressed: widget.onPressed,
+        onPressed: onPressed,
         label: Text(
-          widget.title,
+          title,
           style: TextStyle(
-            color: widget.currentIndex == widget.index
+            color: context.watch<PageKeyProvider>().key == route
                 ? Colors.white
                 : Colors.orange,
           ),
         ),
         icon: Icon(
-          widget.iconData,
-          color: widget.currentIndex == widget.index
+          iconData,
+          color: context.watch<PageKeyProvider>().key == route
               ? Colors.white
               : Colors.orange,
         ),
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(
-            widget.currentIndex == widget.index ? Colors.orange : Colors.white,
+            context.watch<PageKeyProvider>().key == route
+                ? Colors.orange
+                : Colors.white,
           ),
         ),
       ),
