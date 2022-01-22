@@ -6,16 +6,16 @@ import '../../../locator.dart';
 import '../../../services/form_service.dart';
 import '../components/sign_up_button.dart';
 import '../components/sign_up_text_input_fields.dart';
-import '../view_model/sign_up_view_model.dart';
+import '../view_model/sign_up_page_view_model.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<SignUpViewModel>.reactive(
-      viewModelBuilder: () => SignUpViewModel(),
-      builder: (BuildContext context, SignUpViewModel model, Widget? child) {
+    return ViewModelBuilder<SignUpPageViewModel>.reactive(
+      viewModelBuilder: () => SignUpPageViewModel(),
+      builder: (BuildContext context, SignUpPageViewModel model, Widget? child) {
         return Form(
           key: locator<FormService>().signUpFormKey,
           child: ResponsiveBuilder(builder: (context, sizingInformation) {
