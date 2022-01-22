@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/providers/auth_state_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/auth_state_provider.dart';
 import '../providers/page_key_provider.dart';
 import 'tab_button.dart';
 
@@ -16,7 +16,7 @@ List<TabButton> loggedOutUserAppBarActions(BuildContext context) {
     ),
     // phone icon text button
     TabButton(
-      route: '/phone',
+      route: '/phones',
       title: 'Phones',
       iconData: Icons.phone_rounded,
       onPressed: () => context.watch<PageKeyProvider>().key = '/phones',
@@ -30,7 +30,6 @@ List<TabButton> loggedOutUserAppBarActions(BuildContext context) {
     ),
     // log in icon text button
     TabButton(
-      // route: '/login',
       title: 'Log In',
       iconData: Icons.login_rounded,
       onPressed: () => context.watch<AuthStateProvider>().authState = true,
@@ -60,6 +59,13 @@ List<TabButton> loggedInUserAppBarActions(BuildContext context) {
       title: 'Phones',
       iconData: Icons.phone_rounded,
       onPressed: () => context.watch<PageKeyProvider>().key = '/phones',
+    ),
+    // phone icon text button
+    TabButton(
+      route: '/addphone',
+      title: 'Add Phone',
+      iconData: Icons.add_rounded,
+      onPressed: () => context.watch<PageKeyProvider>().key = '/addphone',
     ),
     // sign up icon text button
     TabButton(

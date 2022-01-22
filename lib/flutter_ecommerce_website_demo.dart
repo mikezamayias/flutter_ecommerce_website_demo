@@ -2,6 +2,14 @@ import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'pages/add_phone/add_phone.dart';
+import 'pages/cart/cart_page.dart';
+import 'pages/contact_us/contact_us_page.dart';
+import 'pages/home/home_page.dart';
+import 'pages/log_in/log_in_page.dart';
+import 'pages/orders/orders_page.dart';
+import 'pages/phones/phones_page.dart';
+import 'pages/sign_up/sign_up_page.dart';
 import 'providers/auth_state_provider.dart';
 import 'providers/page_key_provider.dart';
 import 'theme.dart';
@@ -17,7 +25,7 @@ class FlutterEcommerceWebsiteDemo extends StatefulWidget {
 
 class _FlutterEcommerceWebsiteDemoState
     extends State<FlutterEcommerceWebsiteDemo> {
-  void changePage(String key) {
+  changePage(String key) {
     setState(() {
       context.watch<PageKeyProvider>().key = key;
     });
@@ -25,21 +33,16 @@ class _FlutterEcommerceWebsiteDemoState
 
   @override
   Widget build(BuildContext context) {
-    final _pages = context.watch<AuthStateProvider>().authState
-        ? const {
-            '/': HomePage(),
-            '/phones': PhonesPage(),
-            '/signup': SignUpPage(),
-            '/login': LogInPage(),
-            '/contactus': ContactUsPage(),
-          }
-        : const {
-            '/': HomePage(),
-            '/phones': PhonesPage(),
-            '/cart': CartPage(),
-            '/orders': OrdersPage(),
-            '/contactus': ContactUsPage(),
-          };
+    final _pages = {
+      '/': const HomePage(),
+      '/phones': const PhonesPage(),
+      '/signup': const SignUpPage(),
+      '/login': const LogInPage(),
+      '/contactus': const ContactUsPage(),
+      '/addphone': const AddPhonePage(),
+      '/cart': const CartPage(),
+      '/orders': const OrdersPage(),
+    };
     return MaterialApp(
       theme: theme,
       debugShowCheckedModeBanner: false,
@@ -54,104 +57,6 @@ class _FlutterEcommerceWebsiteDemoState
           ),
           body: _pages[context.watch<PageKeyProvider>().key],
         ),
-      ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Home Page',
-        style: Theme.of(context).textTheme.headline4,
-      ),
-    );
-  }
-}
-
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Sign Up Page',
-        style: Theme.of(context).textTheme.headline4,
-      ),
-    );
-  }
-}
-
-class LogInPage extends StatelessWidget {
-  const LogInPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Log In Page',
-        style: Theme.of(context).textTheme.headline4,
-      ),
-    );
-  }
-}
-
-class ContactUsPage extends StatelessWidget {
-  const ContactUsPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Contact Us Page',
-        style: Theme.of(context).textTheme.headline4,
-      ),
-    );
-  }
-}
-
-class CartPage extends StatelessWidget {
-  const CartPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Cart Page',
-        style: Theme.of(context).textTheme.headline4,
-      ),
-    );
-  }
-}
-
-class OrdersPage extends StatelessWidget {
-  const OrdersPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Orders Page',
-        style: Theme.of(context).textTheme.headline4,
-      ),
-    );
-  }
-}
-
-class PhonesPage extends StatelessWidget {
-  const PhonesPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Phones Page',
-        style: Theme.of(context).textTheme.headline4,
       ),
     );
   }
