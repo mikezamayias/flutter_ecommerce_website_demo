@@ -8,14 +8,15 @@ import 'firestore_service.dart';
 
 class AuthenticationService {
   // firebase auth object
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _authentication = FirebaseAuth.instance;
 
   // firebase auth object getter
-  User? get currentUser => _auth.currentUser;
+  User? get currentUser => _authentication.currentUser;
 
   // authentication state change listener
-  Stream<User?> get authStateChanges => _auth.authStateChanges();
+  Stream<User?> get authStateChanges => _authentication.authStateChanges();
 
+  // get current user
   Stream<UserModel?> get userModel {
     return FirebaseFirestore.instance
         .collection('users')
@@ -36,7 +37,7 @@ class AuthenticationService {
     required String postalCode,
   }) async {
     try {
-      var authResult = await _auth.createUserWithEmailAndPassword(
+      var authResult = await _authentication.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -62,7 +63,7 @@ class AuthenticationService {
     required String password,
   }) async {
     try {
-      var authResult = await _auth.signInWithEmailAndPassword(
+      var authResult = await _authentication.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -75,7 +76,7 @@ class AuthenticationService {
   // log out
   Future<void> logOut() async {
     try {
-      return await _auth.signOut();
+      return await _authentication.signOut();
     } catch (e) {
       debugPrint(e.toString());
     }
