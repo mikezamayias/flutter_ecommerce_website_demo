@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/auth_state_provider.dart';
-import '../providers/page_key_provider.dart';
+import '../../providers/auth_state_provider.dart';
+import '../../providers/page_key_provider.dart';
 import 'tab_button.dart';
 
 List<TabButton> loggedOutUserAppBarActions(BuildContext context) {

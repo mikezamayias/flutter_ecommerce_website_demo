@@ -6,7 +6,7 @@ import 'pages/pages.dart';
 import 'providers/auth_state_provider.dart';
 import 'providers/page_key_provider.dart';
 import 'theme.dart';
-import 'widgets/app_bar_user_authentication.dart';
+import 'widgets/app_bar/app_bar_user_authentication.dart';
 
 class FlutterEcommerceWebsiteDemo extends StatefulWidget {
   const FlutterEcommerceWebsiteDemo({Key? key}) : super(key: key);
