@@ -8,7 +8,6 @@ import '../../../widgets/text_input/validators.dart';
 class SignUpPageViewModel extends BaseViewModel with Validators {
   final AuthenticationService _authService = locator<AuthenticationService>();
   final DialogService _dialogService = locator<DialogService>();
-  final NavigationService _navigationService = locator<NavigationService>();
 
   Future signUp({
     required String email,
@@ -57,7 +56,6 @@ class SignUpPageViewModel extends BaseViewModel with Validators {
             title: 'Success',
             description: 'You have signed up successfully',
           );
-          _navigationService.navigateTo('/');
         } else {
           _dialogService.showDialog(
             title: 'Sign Up Failure',

@@ -29,7 +29,6 @@ dependencies:
   provider: ^6.0.2
   responsive_builder: ^0.4.1
   stacked: ^2.2.8
-  stacked_services: ^0.8.16
   url_launcher: ^6.0.18
 
 dev_dependencies:
@@ -38,7 +37,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^1.1.1
-  stacked_generator: ^0.5.7
   json_serializable: ^6.1.4
 
 flutter:

@@ -36,19 +36,18 @@ class _BusyButtonState extends State<BusyButton> {
                 color: widget.enabled ? Colors.orange : Colors.grey[800],
                 borderRadius: BorderRadius.circular(6),
               ),
-              child: SizedBox(
-                child: !widget.busy
-                    ? Text(
-                        widget.title,
-                        style: const TextStyle(
-                          color: Colors.white,
-                        ),
-                      )
-                    : const CircularProgressIndicator(
-                        strokeWidth: 2,
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                      ),
-              ),
+              child: !widget.busy
+                  ? Text(
+                      widget.title,
+                      style: Theme.of(context)
+                          .textTheme
+                          .button!
+                          .copyWith(color: Colors.white),
+                    )
+                  : const CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    ),
             ),
           ),
         ),

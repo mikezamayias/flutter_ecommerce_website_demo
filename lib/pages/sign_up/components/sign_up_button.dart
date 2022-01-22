@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SignUpButton extends StatelessWidget {
+class SignUpButton extends StatefulWidget {
   const SignUpButton({Key? key}) : super(key: key);
 
+  @override
+  State<SignUpButton> createState() => _SignUpButtonState();
+}
+
+class _SignUpButtonState extends State<SignUpButton> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
