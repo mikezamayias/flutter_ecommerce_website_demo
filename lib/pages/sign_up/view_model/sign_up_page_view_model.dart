@@ -2,6 +2,7 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../locator.dart';
+import '../../../services/authentication_service.dart';
 import '../../../widgets/text_input/validators.dart';
 
 class SignUpPageViewModel extends BaseViewModel with Validators {
