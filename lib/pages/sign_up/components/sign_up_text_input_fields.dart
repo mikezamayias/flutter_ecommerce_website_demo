@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/text_input/orange_text_form_field.dart';
-import '../../widgets/text_input/validators.dart';
+import '../../../widgets/text_input/orange_text_form_field.dart';
+import '../../../widgets/text_input/validators.dart';
 import 'sign_up_text_editing_controllers.dart';
 
 List<OrangeTextFormField> signUpFormFields = [
