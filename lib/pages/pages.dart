@@ -5,7 +5,7 @@ import 'home/home_page.dart';
 import 'log_in/log_in_page.dart';
 import 'orders/orders_page.dart';
 import 'phones/phones_page.dart';
-import 'sign_up/sign_up_page.dart';
+import 'sign_up/view/sign_up_page_view.dart';
 
 final pages = {
   '/': const HomePage(),

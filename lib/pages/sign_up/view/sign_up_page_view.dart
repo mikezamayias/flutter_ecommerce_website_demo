@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../../locator.dart';
-import '../../services/form_service.dart';
-import 'sign_up_button.dart';
-import 'sign_up_text_input_fields.dart';
+import '../../../locator.dart';
+import '../../../services/form_service.dart';
+import '../components/sign_up_button.dart';
+import '../components/sign_up_text_input_fields.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
