@@ -1,6 +1,5 @@
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/widgets/drawer/mobile_drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -12,6 +11,7 @@ import 'services/scaffold_service.dart';
 import 'theme.dart';
 import 'widgets/app_bar_actions/desktop_navigation/desktop_navigation_app_bar_actions.dart';
 import 'widgets/app_bar_actions/mobile_navigation/mobile_navigation_app_bar_actions.dart';
+import 'widgets/drawer/mobile_drawer.dart';
 
 class FlutterEcommerceWebsiteDemo extends StatefulWidget {
   const FlutterEcommerceWebsiteDemo({Key? key}) : super(key: key);
