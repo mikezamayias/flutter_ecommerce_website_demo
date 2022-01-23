@@ -20,114 +20,118 @@ class SignUpPageView extends StatelessWidget {
         SignUpPageViewModel model,
         Widget? child,
       ) {
-        final TextEditingController firstNameController =
+        final TextEditingController _firstNameController =
             TextEditingController();
-        final TextEditingController lastNameController =
+        final TextEditingController _lastNameController =
             TextEditingController();
-        final TextEditingController emailController = TextEditingController();
-        final TextEditingController phoneNumberController =
+        final TextEditingController _emailController = TextEditingController();
+        final TextEditingController _phoneNumberController =
             TextEditingController();
-        final TextEditingController passwordController =
+        final TextEditingController _passwordController =
             TextEditingController();
-        final TextEditingController confirmPasswordController =
+        final TextEditingController _confirmPasswordController =
             TextEditingController();
-        final TextEditingController streetAddressController =
+        final TextEditingController _streetAddressController =
             TextEditingController();
-        final TextEditingController cityController = TextEditingController();
-        final TextEditingController postalCodeController =
+        final TextEditingController _cityController = TextEditingController();
+        final TextEditingController _postalCodeController =
             TextEditingController();
-        OrangeTextFormField firstNameInputField = OrangeTextFormField(
+
+        final OrangeTextFormField _firstNameInputField = OrangeTextFormField(
           onChanged: (value) =>
               locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'First Name',
-          controller: firstNameController,
+          controller: _firstNameController,
           keyboardType: TextInputType.name,
           validator: model.validateFirstName,
         );
-        OrangeTextFormField lastNameInputField = OrangeTextFormField(
+        final OrangeTextFormField _lastNameInputField = OrangeTextFormField(
           onChanged: (value) =>
               locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Last Name',
-          controller: lastNameController,
+          controller: _lastNameController,
           keyboardType: TextInputType.name,
           validator: model.validateLastName,
         );
-        OrangeTextFormField emailInputField = OrangeTextFormField(
+        final OrangeTextFormField _emailInputField = OrangeTextFormField(
           onChanged: (value) =>
               locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Email',
-          controller: emailController,
+          controller: _emailController,
           keyboardType: TextInputType.emailAddress,
           validator: model.validateEmail,
         );
-        OrangeTextFormField passwordInputField = OrangeTextFormField(
+        final OrangeTextFormField _passwordInputField = OrangeTextFormField(
           onChanged: (value) =>
               locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Password',
-          controller: passwordController,
+          controller: _passwordController,
           keyboardType: TextInputType.visiblePassword,
           validator: model.validatePassword,
           isPasswordField: true,
         );
-        OrangeTextFormField confirmPasswordInputField = OrangeTextFormField(
+        final OrangeTextFormField _confirmPasswordInputField =
+            OrangeTextFormField(
           onChanged: (value) =>
               locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Confirmation Password',
-          controller: confirmPasswordController,
+          controller: _confirmPasswordController,
           keyboardType: TextInputType.visiblePassword,
           validator: (confirmPassword) {
             if (confirmPassword == null || confirmPassword.isEmpty) {
               return 'Confirmation password is required';
             }
-            if (passwordController.text != confirmPassword) {
+            if (_passwordController.text != confirmPassword) {
               return 'Confirmation password do not match';
             }
             return null;
           },
           isPasswordField: true,
         );
-        OrangeTextFormField phoneNumberInputField = OrangeTextFormField(
+        final OrangeTextFormField _phoneNumberInputField = OrangeTextFormField(
           onChanged: (value) =>
               locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Phone Number',
-          controller: phoneNumberController,
+          controller: _phoneNumberController,
           keyboardType: TextInputType.phone,
           validator: model.validatePhoneNumber,
         );
-        OrangeTextFormField streetAddressInputField = OrangeTextFormField(
+        final OrangeTextFormField _streetAddressInputField =
+            OrangeTextFormField(
           onChanged: (value) =>
               locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Address',
-          controller: streetAddressController,
+          controller: _streetAddressController,
           keyboardType: TextInputType.text,
           validator: model.validateStreetAddress,
         );
-        OrangeTextFormField cityInputField = OrangeTextFormField(
+        final OrangeTextFormField _cityInputField = OrangeTextFormField(
           onChanged: (value) =>
               locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'City',
-          controller: cityController,
+          controller: _cityController,
           keyboardType: TextInputType.text,
           validator: model.validateCity,
         );
-        OrangeTextFormField postalCodeInputField = OrangeTextFormField(
+        final OrangeTextFormField _postalCodeInputField = OrangeTextFormField(
           onChanged: (value) =>
               locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Postal Code',
-          controller: postalCodeController,
+          controller: _postalCodeController,
           keyboardType: TextInputType.number,
           validator: model.validatePostalCode,
         );
-        List<OrangeTextFormField> signUpFormFields = [
-          firstNameInputField,
-          lastNameInputField,
-          emailInputField,
-          passwordInputField,
-          confirmPasswordInputField,
-          phoneNumberInputField,
-          streetAddressInputField,
-          cityInputField,
-          postalCodeInputField,
+
+        final List<OrangeTextFormField> _signUpFormFields = [
+          _firstNameInputField,
+          _lastNameInputField,
+          _emailInputField,
+          _passwordInputField,
+          _confirmPasswordInputField,
+          _phoneNumberInputField,
+          _streetAddressInputField,
+          _cityInputField,
+          _postalCodeInputField,
         ];
 
         return ResponsiveBuilder(builder: (context, sizingInformation) {
@@ -166,7 +170,7 @@ class SignUpPageView extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: signUpFormFields.sublist(0, 5).map(
+                                children: _signUpFormFields.sublist(0, 5).map(
                                   (item) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -184,7 +188,7 @@ class SignUpPageView extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: signUpFormFields.sublist(5).map(
+                                children: _signUpFormFields.sublist(5).map(
                                   (item) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -199,7 +203,7 @@ class SignUpPageView extends StatelessWidget {
                           ],
                         )
                       else
-                        ...signUpFormFields,
+                        ..._signUpFormFields,
                       Text(
                         'By signing up, you agree to our Terms, Data and Cookies Policy.',
                         style: Theme.of(context).textTheme.subtitle2,
@@ -212,15 +216,15 @@ class SignUpPageView extends StatelessWidget {
                         onPressed: () {
                           model.signUp(
                             context: context,
-                            email: emailController.text,
-                            password: passwordController.text,
-                            confirmPassword: confirmPasswordController.text,
-                            firstName: firstNameController.text,
-                            lastName: lastNameController.text,
-                            phoneNumber: phoneNumberController.text,
-                            streetAddress: streetAddressController.text,
-                            postalCode: postalCodeController.text,
-                            city: cityController.text,
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                            confirmPassword: _confirmPasswordController.text,
+                            firstName: _firstNameController.text,
+                            lastName: _lastNameController.text,
+                            phoneNumber: _phoneNumberController.text,
+                            streetAddress: _streetAddressController.text,
+                            postalCode: _postalCodeController.text,
+                            city: _cityController.text,
                           );
                         },
                       ),
