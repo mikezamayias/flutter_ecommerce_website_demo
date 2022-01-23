@@ -1,6 +1,6 @@
 import 'add_phone/add_phone_page_view.dart';
 import 'cart/cart_page_view.dart';
-import 'contact_us/view/contact_us_page_view.dart';
+import 'contact_us/contact_us_page_view.dart';
 import 'home/home_page_view.dart';
 import 'orders/orders_page_view.dart';
 import 'phones/phones_page_view.dart';
