@@ -94,7 +94,7 @@ class PhonesPageView extends StatelessWidget {
                               softWrap: true,
                               overflow: TextOverflow.visible,
                             ),
-                            if (sizingInformation.isDesktop)
+                            if (!(sizingInformation.isMobile))
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,

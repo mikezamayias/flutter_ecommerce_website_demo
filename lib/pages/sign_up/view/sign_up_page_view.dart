@@ -126,15 +126,15 @@ class SignUpPageView extends StatelessWidget {
               child: AnimatedContainer(
                 constraints: sizingInformation.isDesktop
                     ? const BoxConstraints(maxWidth: 1200)
-                    :  BoxConstraints(
-                  maxWidth: sizingInformation.screenSize.width,
-                ),
+                    : BoxConstraints(
+                        maxWidth: sizingInformation.screenSize.width,
+                      ),
                 duration: const Duration(milliseconds: 60),
                 padding: sizingInformation.isDesktop
                     ? const EdgeInsets.symmetric(horizontal: 90)
                     : const EdgeInsets.symmetric(horizontal: 30),
                 child: Form(
-                  key: locator<FormService>().signUpFormKey,
+                  key: locator<FormService>().signUpFormKey(),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,

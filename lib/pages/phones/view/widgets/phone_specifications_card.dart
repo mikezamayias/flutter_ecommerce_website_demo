@@ -1,15 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/providers/sizing_information_provider.dart';
-import 'package:flutter_ecommerce_website_demo/services/authentication_service.dart';
-import 'package:flutter_ecommerce_website_demo/widgets/busy_button.dart';
-import 'package:provider/provider.dart';
 
+import '../../../../services/authentication_service.dart';
+import '../../../../widgets/busy_button.dart';
 import '../../../../locator.dart';
 import '../../../../models/phone/phone_model.dart';
 import 'specification_field.dart';
 
-class PhoneSpecificationsCard extends StatelessWidget {
+class PhoneSpecificationsCard extends StatefulWidget {
   const PhoneSpecificationsCard({
     Key? key,
     required this.phone,
@@ -18,133 +16,39 @@ class PhoneSpecificationsCard extends StatelessWidget {
   final PhoneModel phone;
 
   @override
+  State<PhoneSpecificationsCard> createState() =>
+      _PhoneSpecificationsCardState();
+}
+
+class _PhoneSpecificationsCardState extends State<PhoneSpecificationsCard> {
+  bool _isHovered = false;
+  @override
   Widget build(BuildContext context) {
-    if (context
-        .watch<SizingInformationProvider>()
-        .sizingInformation
-        .isDesktop) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 6),
-        child: Card(
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(21),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: CachedNetworkImage(
-                        imageUrl: phone.imageUrl,
-                        errorWidget: (context, url, error) => Icon(
-                          Icons.error,
-                          color: Colors.red.shade700,
-                        ),
-                        progressIndicatorBuilder:
-                            (context, url, downloadProgress) {
-                          return CircularProgressIndicator(
-                            value: downloadProgress.progress,
-                          );
-                        },
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // model
-                          SpecificationField(
-                            fieldName: 'Model',
-                            fieldValue: phone.model,
-                          ),
-                          // soc
-                          SpecificationField(
-                            fieldName: 'Soc',
-                            fieldValue: phone.soc,
-                          ),
-                          // ram
-                          SpecificationField(
-                            fieldName: 'Ram',
-                            fieldValue: '${phone.ram} GB',
-                          ),
-                          // storage
-                          SpecificationField(
-                            fieldName: 'Storage',
-                            fieldValue: phone.storage,
-                          ),
-                          // screen size
-                          SpecificationField(
-                            fieldName: 'Screen size',
-                            fieldValue: '${phone.screenSize} inch',
-                          ),
-                          // camera
-                          SpecificationField(
-                            fieldName: 'Camera',
-                            fieldValue: phone.camera,
-                          ),
-                          // sar
-                          SpecificationField(
-                            fieldName: 'SAR',
-                            fieldValue: '${phone.sar} W/kg',
-                          ),
-                          // price
-                          SpecificationField(
-                            fieldName: 'Price',
-                            fieldValue: '€${phone.price}',
-                          ),
-                          // quantity
-                          SpecificationField(
-                            fieldName: 'Stock',
-                            fieldValue: '${phone.stock}',
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                BuyPhoneBusyButton(phone: phone),
-              ].map(
-                (item) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 9,
-                    ),
-                    child: item,
-                  );
-                },
-              ).toList(),
-            ),
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: Card(
+        elevation: _isHovered ? 12 : 0,
+        shadowColor: _isHovered ? Colors.orange : Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(21),
+          side: BorderSide(
+            color: _isHovered ? Colors.orangeAccent : Colors.grey,
+            width: 3,
           ),
         ),
-      );
-    } else {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 6),
-        child: Card(
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(21),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 21, horizontal: 42),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: Center(
                   child: CachedNetworkImage(
-                    imageUrl: phone.imageUrl,
+                    imageUrl: widget.phone.imageUrl,
                     errorWidget: (context, url, error) => Icon(
                       Icons.error,
                       color: Colors.red.shade700,
@@ -157,58 +61,61 @@ class PhoneSpecificationsCard extends StatelessWidget {
                     fit: BoxFit.contain,
                   ),
                 ),
-                // model
-                SpecificationField(
-                  fieldName: 'Model',
-                  fieldValue: phone.model,
-                ),
-                // soc
-                SpecificationField(
-                  fieldName: 'Soc',
-                  fieldValue: phone.soc,
-                ),
-                // ram
-                SpecificationField(
-                  fieldName: 'Ram',
-                  fieldValue: '${phone.ram} GB',
-                ),
-                // storage
-                SpecificationField(
-                  fieldName: 'Storage',
-                  fieldValue: phone.storage,
-                ),
-                // screen size
-                SpecificationField(
-                  fieldName: 'Screen size',
-                  fieldValue: '${phone.screenSize} inch',
-                ),
-                // camera
-                SpecificationField(
-                  fieldName: 'Camera',
-                  fieldValue: phone.camera,
-                ),
-                // sar
-                SpecificationField(
-                  fieldName: 'SAR',
-                  fieldValue: '${phone.sar} W/kg',
-                ),
-                // price
-                SpecificationField(
-                  fieldName: 'Price',
-                  fieldValue: '€${phone.price}',
-                ),
-                // quantity
-                SpecificationField(
-                  fieldName: 'Stock',
-                  fieldValue: '${phone.stock}',
-                ),
-                BuyPhoneBusyButton(phone: phone),
-              ],
-            ),
+              ),
+              // model
+              SpecificationField(
+                fieldName: 'Model',
+                fieldValue: widget.phone.model,
+              ),
+              // soc
+              SpecificationField(
+                fieldName: 'Soc',
+                fieldValue: widget.phone.soc,
+              ),
+              // ram
+              SpecificationField(
+                fieldName: 'Ram',
+                fieldValue: '${widget.phone.ram} GB',
+              ),
+              // storage
+              SpecificationField(
+                fieldName: 'Storage',
+                fieldValue: widget.phone.storage,
+              ),
+              // screen size
+              SpecificationField(
+                fieldName: 'Screen size',
+                fieldValue: '${widget.phone.screenSize} inch',
+              ),
+              // camera
+              SpecificationField(
+                fieldName: 'Camera',
+                fieldValue: widget.phone.camera,
+              ),
+              // sar
+              SpecificationField(
+                fieldName: 'SAR',
+                fieldValue: '${widget.phone.sar} W/kg',
+              ),
+              // price
+              SpecificationField(
+                fieldName: 'Price',
+                fieldValue: '€${widget.phone.price}',
+              ),
+              // quantity
+              SpecificationField(
+                fieldName: 'Stock',
+                fieldValue: '${widget.phone.stock}',
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: BuyPhoneBusyButton(phone: widget.phone),
+              ),
+            ],
           ),
         ),
-      );
-    }
+      ),
+    );
   }
 }
 

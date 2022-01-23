@@ -128,7 +128,7 @@ class AddPhonePageView extends StatelessWidget {
                     ? const EdgeInsets.symmetric(horizontal: 90)
                     : const EdgeInsets.symmetric(horizontal: 30),
                 child: Form(
-                  key: locator<FormService>().addPhoneFormKey,
+                  key: locator<FormService>().addPhoneFormKey(),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,

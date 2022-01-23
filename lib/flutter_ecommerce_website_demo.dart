@@ -33,6 +33,7 @@ class _FlutterEcommerceWebsiteDemoState
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
+      title: 'Flutter Ecommerce Website Demo',
       debugShowCheckedModeBanner: false,
       home: ResponsiveBuilder(
         builder: (BuildContext context, SizingInformation sizingInformation) {
@@ -49,7 +50,9 @@ class _FlutterEcommerceWebsiteDemoState
                   ? null
                   : const MobileDrawer(),
               appBar: AppBar(
+                elevation: 6,
                 backgroundColor: Colors.white,
+                shadowColor: Colors.orange,
                 actions: sizingInformation.isDesktop
                     ? desktopNavigationAppBarActions(context)
                     : mobileNavigationAppBarActions(context),

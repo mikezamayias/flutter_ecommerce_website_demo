@@ -12,27 +12,23 @@ class SpecificationField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: SelectableText.rich(
-        TextSpan(
-          children: [
-            TextSpan(
-              text: '$fieldName ',
-              style: const TextStyle(
-                fontWeight: FontWeight.w900,
-                color: Colors.orange,
-              ),
+    return SelectableText.rich(
+      TextSpan(
+        children: [
+          TextSpan(
+            text: '$fieldName ',
+            style: const TextStyle(
+              fontWeight: FontWeight.w900,
+              color: Colors.orange,
             ),
-            TextSpan(
-              text: fieldValue,
-              style: const TextStyle(
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ],
-        ),
-        textAlign: TextAlign.left,
+          ),
+          TextSpan(text: fieldValue),
+        ],
       ),
+      style: const TextStyle(
+        overflow: TextOverflow.ellipsis,
+      ),
+      textAlign: TextAlign.left,
     );
   }
 }
