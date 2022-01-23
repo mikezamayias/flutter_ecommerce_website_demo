@@ -1,4 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_website_demo/providers/page_key_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
 
@@ -141,7 +144,9 @@ class SignUpPageView extends StatelessWidget {
               child: AnimatedContainer(
                 constraints: sizingInformation.isDesktop
                     ? const BoxConstraints(maxWidth: 1200)
-                    : const BoxConstraints(),
+                    :  BoxConstraints(
+                  maxWidth: sizingInformation.screenSize.width,
+                ),
                 duration: const Duration(milliseconds: 60),
                 padding: sizingInformation.isDesktop
                     ? const EdgeInsets.symmetric(horizontal: 90)
@@ -158,6 +163,29 @@ class SignUpPageView extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline2,
                         softWrap: true,
                         overflow: TextOverflow.visible,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          text: 'Already have an account? ',
+                          style: Theme.of(context).textTheme.bodyText1,
+                          children: [
+                            TextSpan(
+                              text: 'Sign In',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Provider.of<PageKeyProvider>(context,
+                                          listen: false)
+                                      .key = '/signin';
+                                },
+                            ),
+                          ],
+                        ),
                       ),
                       if (sizingInformation.isDesktop)
                         Row(
