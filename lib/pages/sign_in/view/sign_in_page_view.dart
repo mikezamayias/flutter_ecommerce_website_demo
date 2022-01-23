@@ -9,18 +9,18 @@ import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../locator.dart';
-import '../view_model/log_in_page_view_model.dart';
+import '../view_model/sign_in_page_view_model.dart';
 
-class LogInPageView extends StatelessWidget {
-  const LogInPageView({Key? key}) : super(key: key);
+class SignInPageView extends StatelessWidget {
+  const SignInPageView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<LogInPageViewModel>.reactive(
-      viewModelBuilder: () => LogInPageViewModel(),
+    return ViewModelBuilder<SignInPageViewModel>.reactive(
+      viewModelBuilder: () => SignInPageViewModel(),
       builder: (
         BuildContext context,
-        LogInPageViewModel model,
+        SignInPageViewModel model,
         Widget? child,
       ) {
         final TextEditingController _emailController = TextEditingController();
@@ -53,7 +53,9 @@ class LogInPageView extends StatelessWidget {
               child: AnimatedContainer(
                 constraints: sizingInformation.isDesktop
                     ? const BoxConstraints(maxWidth: 1200)
-                    : const BoxConstraints(),
+                    : BoxConstraints(
+                        maxWidth: sizingInformation.screenSize.width,
+                      ),
                 duration: const Duration(milliseconds: 60),
                 padding: sizingInformation.isDesktop
                     ? const EdgeInsets.symmetric(horizontal: 90)
@@ -66,7 +68,7 @@ class LogInPageView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Sign Up',
+                        'Sign In',
                         style: Theme.of(context).textTheme.headline2,
                         softWrap: true,
                         overflow: TextOverflow.visible,
@@ -94,19 +96,12 @@ class LogInPageView extends StatelessWidget {
                           ],
                         ),
                       ),
-                      ..._logInFormFields.map(
-                        (item) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 9),
-                            child: item,
-                          );
-                        },
-                      ).toList(),
+                      ..._logInFormFields,
                       BusyButton(
-                        title: 'Sign Up',
+                        title: 'Sign In',
                         busy: model.isBusy,
                         onPressed: () {
-                          model.logIn(
+                          model.signIn(
                             context: context,
                             email: _emailController.text,
                             password: _passwordController.text,
