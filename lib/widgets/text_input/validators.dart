@@ -10,10 +10,7 @@ class Validators {
   }
 
   String? validatePassword(String? password) {
-    if (password == null) {
-      return 'Password is required';
-    }
-    if (password.isEmpty) {
+    if (password == null || password.isEmpty) {
       return 'Password is required';
     }
     // check if password is at least 8 latin characters long, has at least one lowercase letter, one uppercase letter, one number and one special character
@@ -27,26 +24,13 @@ class Validators {
     return null;
   }
 
-  String? validateConfirmPassword(String? value, String? password) {
-    if (value!.isEmpty) {
-      return 'Confirm password is required';
-    }
-    validatePassword(value);
-    if (value != password) {
-      return 'Passwords do not match';
-    }
-    return null;
-  }
-
   String? validateStreetAddress(String? value) {
-    if (value == null) return 'Address is required';
-    if (value.isEmpty) return 'Address is required';
+    if (value == null || value.isEmpty) return 'Address is required';
     return null;
   }
 
   String? validatePostalCode(String? value) {
-    if (value == null) return 'Postcode is required';
-    if (value.isEmpty) return 'Postcode is required';
+    if (value == null || value.isEmpty) return 'Postcode is required';
     // check if postal code is 5 numeric characters long
     if (!RegExp(r'^[0-9]{5}$').hasMatch(value)) {
       return 'Postal code must be 5 digits long';
@@ -55,8 +39,7 @@ class Validators {
   }
 
   String? validateCity(String? value) {
-    if (value == null) return 'City is required';
-    if (value.isEmpty) return 'City is required';
+    if (value == null || value.isEmpty) return 'City is required';
     if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
       return 'City must be alphabetic';
     }
@@ -67,8 +50,7 @@ class Validators {
   }
 
   String? validatePhoneNumber(String? value) {
-    if (value == null) return 'Phone number is required';
-    if (value.isEmpty) return 'Phone number is required';
+    if (value == null || value.isEmpty) return 'Phone number is required';
     if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
       return 'Phone number must be 10 digits long';
     }
@@ -76,8 +58,7 @@ class Validators {
   }
 
   String? validateFirstName(String? value) {
-    if (value == null) return 'First name is required';
-    if (value.isEmpty) return 'First name is required';
+    if (value == null || value.isEmpty) return 'First name is required';
     if (value.length < 2) {
       return 'First name must be at least 2 characters long';
     }
@@ -88,8 +69,7 @@ class Validators {
   }
 
   String? validateLastName(String? value) {
-    if (value == null) return 'Last name is required';
-    if (value.isEmpty) return 'Last name is required';
+    if (value == null || value.isEmpty) return 'Last name is required';
     if (value.length < 2) {
       return 'Last name must be at least 2 characters long';
     }
@@ -101,8 +81,7 @@ class Validators {
 
   // check photo url
   String? validateImageUrl(String? value) {
-    if (value == null) return 'Photo url is required';
-    if (value.isEmpty) return 'Photo url is required';
+    if (value == null || value.isEmpty) return 'Image URL is required';
     if (!RegExp(r'^https?:\/\/.*\.(?:png|jpg|jpeg|gif)$').hasMatch(value)) {
       return 'Photo url must be a valid url';
     }
@@ -111,8 +90,7 @@ class Validators {
 
   // check sar value
   String? validateSar(String? value) {
-    if (value == null) return 'SAR is required';
-    if (value.isEmpty) return 'SAR is required';
+    if (value == null || value.isEmpty) return 'SAR is required';
     // must be double
     if (!RegExp(r'^[0-9]+(\.[0-9]{1,2})?$').hasMatch(value)) {
       return 'SAR must be a positive float number';
@@ -125,8 +103,7 @@ class Validators {
 
   // check ram value
   String? validateRam(String? value) {
-    if (value == null) return 'RAM is required';
-    if (value.isEmpty) return 'RAM is required';
+    if (value == null || value.isEmpty) return 'RAM is required';
     // must be integer
     if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
       return 'RAM must be an integer';
@@ -140,8 +117,7 @@ class Validators {
 
   // check price value
   String? validatePrice(String? value) {
-    if (value == null) return 'Price is required';
-    if (value.isEmpty) return 'Price is required';
+    if (value == null || value.isEmpty) return 'Price is required';
     // must be double
     if (!RegExp(r'^[0-9]+(\.[0-9]{1,2})?$').hasMatch(value)) {
       return 'Price must be a double number';
@@ -155,8 +131,7 @@ class Validators {
 
   // check model value
   String? validateModel(String? value) {
-    if (value == null) return 'Model is required';
-    if (value.isEmpty) return 'Model is required';
+    if (value == null || value.isEmpty) return 'Model is required';
     if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
       return 'Model must be alphanumeric';
     }
@@ -168,8 +143,7 @@ class Validators {
 
   // check stock value
   String? validateStock(String? value) {
-    if (value == null) return 'Stock is required';
-    if (value.isEmpty) return 'Stock is required';
+    if (value == null || value.isEmpty) return 'Stock is required';
     // must be type integer
     if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
       return 'Stock must be an integer';
@@ -183,8 +157,7 @@ class Validators {
 
   // check storage value
   String? validateStorage(String? value) {
-    if (value == null) return 'Storage is required';
-    if (value.isEmpty) return 'Storage is required';
+    if (value == null || value.isEmpty) return 'Storage is required';
     // must have the following format: "1 TB" or "64 GB" or "256 GB"
     if (!RegExp(r'^[0-9]{1,3} [Tt][Bb]$').hasMatch(value) &&
         !RegExp(r'^[0-9]{1,3} [Gg][Bb]$').hasMatch(value)) {
@@ -195,8 +168,7 @@ class Validators {
 
   // check soc value
   String? validateSoc(String? value) {
-    if (value == null) return 'SOC is required';
-    if (value.isEmpty) return 'SOC is required';
+    if (value == null || value.isEmpty) return 'SOC is required';
     if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
       return 'Model must be alphanumeric';
     }
@@ -208,8 +180,7 @@ class Validators {
 
   // check battery value
   String? validateBattery(String? value) {
-    if (value == null) return 'Battery is required';
-    if (value.isEmpty) return 'Battery is required';
+    if (value == null || value.isEmpty) return 'Battery is required';
     // check if is integer
     if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
       return 'Battery must be an integer number';
@@ -223,15 +194,13 @@ class Validators {
 
   // check camera value
   String? validateCamera(String? value) {
-    if (value == null) return 'Camera is required';
-    if (value.isEmpty) return 'Camera is required';
+    if (value == null || value.isEmpty) return 'Camera is required';
     return null;
   }
 
   // check screen size
   String? validateScreenSize(String? value) {
-    if (value == null) return 'Screen size is required';
-    if (value.isEmpty) return 'Screen size is required';
+    if (value == null || value.isEmpty) return 'Screen size is required';
     // must be double
     if (!RegExp(r'^[0-9]+(\.[0-9]{1,2})?$').hasMatch(value)) {
       return 'Screen size must be a double number';
