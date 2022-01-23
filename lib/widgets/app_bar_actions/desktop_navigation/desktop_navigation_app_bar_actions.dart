@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/providers/sizing_information_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../../locator.dart';
 import '../../../providers/auth_state_provider.dart';
 import '../../../providers/page_key_provider.dart';
+import '../../../services/scaffold_service.dart';
 import '../tab_button.dart';
 
 List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
@@ -16,9 +17,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.home_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/';
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
@@ -30,9 +29,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.phone_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/phones';
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
@@ -44,9 +41,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.person_add_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/signup';
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
@@ -58,9 +53,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         onPressed: () {
           // context.watch<AuthStateProvider>().authState = true,
           Provider.of<PageKeyProvider>(context, listen: false).key = '/login';
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
@@ -73,9 +66,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key =
               '/contactus';
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
@@ -90,9 +81,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.home_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/';
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
@@ -104,9 +93,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.phone_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/phones';
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
@@ -119,9 +106,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key =
               '/addphone';
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
@@ -133,9 +118,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.shopping_cart_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/cart';
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
@@ -147,9 +130,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         iconData: Icons.history_rounded,
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key = '/orders';
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
@@ -162,9 +143,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         onPressed: () {
           Provider.of<PageKeyProvider>(context, listen: false).key =
               '/contactus';
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
@@ -176,9 +155,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         onPressed: () {
           Provider.of<AuthStateProvider>(context, listen: false).authState =
               false;
-          if (!Provider.of<SizingInformationProvider>(context, listen: false)
-              .sizingInformation
-              .isDesktop) {
+          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
         },
