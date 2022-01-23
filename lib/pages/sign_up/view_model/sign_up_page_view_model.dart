@@ -2,12 +2,10 @@ import 'package:stacked/stacked.dart';
 
 import '../../../locator.dart';
 import '../../../services/authentication_service.dart';
-import '../../../services/dialog_service.dart';
 import '../../../widgets/text_input/validators.dart';
 
 class SignUpPageViewModel extends BaseViewModel with Validators {
   final _authService = locator<AuthenticationService>();
-  final _dialogService = locator<DialogService>();
 
   Future signUp({
     required String email,
@@ -27,16 +25,16 @@ class SignUpPageViewModel extends BaseViewModel with Validators {
         validateLastName(lastName) != null ||
         validatePhoneNumber(phoneNumber) != null ||
         validateStreetAddress(streetAddress) != null) {
-      _dialogService.showDialog(
-        title: 'Invalid Details',
-        description:
-            '${validateEmail(email) ?? validatePassword(password) ?? validatePassword(confirmPassword) ?? validateFirstName(firstName) ?? validateLastName(lastName) ?? validatePhoneNumber(phoneNumber) ?? validateStreetAddress(streetAddress) ?? validatePostalCode(postalCode) ?? validateCity(city)}',
-      );
+      // _dialogService.showDialog(
+      //   title: 'Invalid Details',
+      //   description:
+      //       '${validateEmail(email) ?? validatePassword(password) ?? validatePassword(confirmPassword) ?? validateFirstName(firstName) ?? validateLastName(lastName) ?? validatePhoneNumber(phoneNumber) ?? validateStreetAddress(streetAddress) ?? validatePostalCode(postalCode) ?? validateCity(city)}',
+      // );
     } else if (password != confirmPassword) {
-      _dialogService.showDialog(
-        title: 'Invalid Details',
-        description: 'Passwords do not match',
-      );
+      // _dialogService.showDialog(
+      //   title: 'Invalid Details',
+      //   description: 'Passwords do not match',
+      // );
     } else {
       setBusy(true);
       var result = await _authService.signUpWithEmailAndPassword(
@@ -52,23 +50,23 @@ class SignUpPageViewModel extends BaseViewModel with Validators {
       setBusy(false);
       if (result is bool) {
         if (result) {
-          _dialogService.showDialog(
-            title: 'Success',
-            description: 'You have signed up successfully',
-          );
+          // _dialogService.showDialog(
+          //   title: 'Success',
+          //   description: 'You have signed up successfully',
+          // );
         } else {
-          _dialogService.showDialog(
-            title: 'Sign Up Failure',
-            description: 'General sign up failure. Please try again later',
-          );
+          // _dialogService.showDialog(
+          //   title: 'Sign Up Failure',
+          //   description: 'General sign up failure. Please try again later',
+          // );
         }
       } else {
-        await _dialogService.showDialog(
-          title: 'Sign Up Failure',
-          description: result
-              .toString()
-              .substring(result.toString().indexOf(' ', 1) + 1),
-        );
+        // await _dialogService.showDialog(
+        //   title: 'Sign Up Failure',
+        //   description: result
+        //       .toString()
+        //       .substring(result.toString().indexOf(' ', 1) + 1),
+        // );
       }
     }
   }

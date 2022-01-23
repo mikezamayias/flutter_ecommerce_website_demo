@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/services/dialog_service.dart';
-
-import '../../../locator.dart';
 
 class SignUpButton extends StatefulWidget {
   const SignUpButton({Key? key}) : super(key: key);
@@ -15,9 +12,41 @@ class _SignUpButtonState extends State<SignUpButton> {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        locator<DialogService>().showDialog(
-          title: 'Sign Up',
-          description: 'This is a sample dialog.',
+        showDialog(
+          context: context,
+          builder: (context) {
+            return Dialog(
+              insetAnimationCurve: Curves.easeInOut,
+              insetAnimationDuration: const Duration(milliseconds: 90),
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Sign up to get access to our exclusive deals and offers.',
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 20),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         );
       },
       child: const Padding(
