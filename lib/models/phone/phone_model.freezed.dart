@@ -23,8 +23,7 @@ class _$PhoneModelTearOff {
   const _$PhoneModelTearOff();
 
   _PhoneModel call(
-      {required String uid,
-      required String model,
+      {required String model,
       required String imageUrl,
       required String soc,
       required int ram,
@@ -36,7 +35,6 @@ class _$PhoneModelTearOff {
       required int stock,
       required double sar}) {
     return _PhoneModel(
-      uid: uid,
       model: model,
       imageUrl: imageUrl,
       soc: soc,
@@ -61,7 +59,6 @@ const $PhoneModel = _$PhoneModelTearOff();
 
 /// @nodoc
 mixin _$PhoneModel {
-  String get uid => throw _privateConstructorUsedError;
   String get model => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
   String get soc => throw _privateConstructorUsedError;
@@ -86,8 +83,7 @@ abstract class $PhoneModelCopyWith<$Res> {
           PhoneModel value, $Res Function(PhoneModel) then) =
       _$PhoneModelCopyWithImpl<$Res>;
   $Res call(
-      {String uid,
-      String model,
+      {String model,
       String imageUrl,
       String soc,
       int ram,
@@ -110,7 +106,6 @@ class _$PhoneModelCopyWithImpl<$Res> implements $PhoneModelCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? uid = freezed,
     Object? model = freezed,
     Object? imageUrl = freezed,
     Object? soc = freezed,
@@ -124,10 +119,6 @@ class _$PhoneModelCopyWithImpl<$Res> implements $PhoneModelCopyWith<$Res> {
     Object? sar = freezed,
   }) {
     return _then(_value.copyWith(
-      uid: uid == freezed
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as String,
       model: model == freezed
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
@@ -183,8 +174,7 @@ abstract class _$PhoneModelCopyWith<$Res> implements $PhoneModelCopyWith<$Res> {
       __$PhoneModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String uid,
-      String model,
+      {String model,
       String imageUrl,
       String soc,
       int ram,
@@ -209,7 +199,6 @@ class __$PhoneModelCopyWithImpl<$Res> extends _$PhoneModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? uid = freezed,
     Object? model = freezed,
     Object? imageUrl = freezed,
     Object? soc = freezed,
@@ -223,10 +212,6 @@ class __$PhoneModelCopyWithImpl<$Res> extends _$PhoneModelCopyWithImpl<$Res>
     Object? sar = freezed,
   }) {
     return _then(_PhoneModel(
-      uid: uid == freezed
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as String,
       model: model == freezed
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
@@ -279,8 +264,7 @@ class __$PhoneModelCopyWithImpl<$Res> extends _$PhoneModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PhoneModel extends _PhoneModel {
   const _$_PhoneModel(
-      {required this.uid,
-      required this.model,
+      {required this.model,
       required this.imageUrl,
       required this.soc,
       required this.ram,
@@ -296,8 +280,6 @@ class _$_PhoneModel extends _PhoneModel {
   factory _$_PhoneModel.fromJson(Map<String, dynamic> json) =>
       _$$_PhoneModelFromJson(json);
 
-  @override
-  final String uid;
   @override
   final String model;
   @override
@@ -323,7 +305,7 @@ class _$_PhoneModel extends _PhoneModel {
 
   @override
   String toString() {
-    return 'PhoneModel(uid: $uid, model: $model, imageUrl: $imageUrl, soc: $soc, ram: $ram, storage: $storage, screenSize: $screenSize, battery: $battery, camera: $camera, price: $price, stock: $stock, sar: $sar)';
+    return 'PhoneModel(model: $model, imageUrl: $imageUrl, soc: $soc, ram: $ram, storage: $storage, screenSize: $screenSize, battery: $battery, camera: $camera, price: $price, stock: $stock, sar: $sar)';
   }
 
   @override
@@ -331,7 +313,6 @@ class _$_PhoneModel extends _PhoneModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PhoneModel &&
-            const DeepCollectionEquality().equals(other.uid, uid) &&
             const DeepCollectionEquality().equals(other.model, model) &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
             const DeepCollectionEquality().equals(other.soc, soc) &&
@@ -349,7 +330,6 @@ class _$_PhoneModel extends _PhoneModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(uid),
       const DeepCollectionEquality().hash(model),
       const DeepCollectionEquality().hash(imageUrl),
       const DeepCollectionEquality().hash(soc),
@@ -375,8 +355,7 @@ class _$_PhoneModel extends _PhoneModel {
 
 abstract class _PhoneModel extends PhoneModel {
   const factory _PhoneModel(
-      {required String uid,
-      required String model,
+      {required String model,
       required String imageUrl,
       required String soc,
       required int ram,
@@ -392,8 +371,6 @@ abstract class _PhoneModel extends PhoneModel {
   factory _PhoneModel.fromJson(Map<String, dynamic> json) =
       _$_PhoneModel.fromJson;
 
-  @override
-  String get uid;
   @override
   String get model;
   @override

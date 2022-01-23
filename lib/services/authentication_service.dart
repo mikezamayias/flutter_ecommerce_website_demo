@@ -41,7 +41,6 @@ class AuthenticationService {
         password: password,
       );
       UserModel userModel = UserModel(
-        uid: authResult.user!.uid,
         email: email,
         firstName: firstName,
         lastName: lastName,

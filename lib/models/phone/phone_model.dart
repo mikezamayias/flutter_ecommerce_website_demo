@@ -9,7 +9,6 @@ abstract class PhoneModel implements _$PhoneModel {
   const PhoneModel._();
 
   const factory PhoneModel({
-    required String uid,
     required String model,
     required String imageUrl,
     required String soc,

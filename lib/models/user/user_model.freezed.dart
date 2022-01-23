@@ -23,8 +23,7 @@ class _$UserModelTearOff {
   const _$UserModelTearOff();
 
   _UserModel call(
-      {required String uid,
-      required String firstName,
+      {required String firstName,
       required String lastName,
       required String email,
       required String phoneNumber,
@@ -32,7 +31,6 @@ class _$UserModelTearOff {
       required int postalCode,
       required String city}) {
     return _UserModel(
-      uid: uid,
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -53,7 +51,6 @@ const $UserModel = _$UserModelTearOff();
 
 /// @nodoc
 mixin _$UserModel {
-  String get uid => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
@@ -73,8 +70,7 @@ abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res>;
   $Res call(
-      {String uid,
-      String firstName,
+      {String firstName,
       String lastName,
       String email,
       String phoneNumber,
@@ -93,7 +89,6 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? uid = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? email = freezed,
@@ -103,10 +98,6 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
     Object? city = freezed,
   }) {
     return _then(_value.copyWith(
-      uid: uid == freezed
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as String,
       firstName: firstName == freezed
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -146,8 +137,7 @@ abstract class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       __$UserModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String uid,
-      String firstName,
+      {String firstName,
       String lastName,
       String email,
       String phoneNumber,
@@ -167,7 +157,6 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? uid = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? email = freezed,
@@ -177,10 +166,6 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
     Object? city = freezed,
   }) {
     return _then(_UserModel(
-      uid: uid == freezed
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as String,
       firstName: firstName == freezed
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -217,8 +202,7 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UserModel extends _UserModel {
   const _$_UserModel(
-      {required this.uid,
-      required this.firstName,
+      {required this.firstName,
       required this.lastName,
       required this.email,
       required this.phoneNumber,
@@ -230,8 +214,6 @@ class _$_UserModel extends _UserModel {
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserModelFromJson(json);
 
-  @override
-  final String uid;
   @override
   final String firstName;
   @override
@@ -249,7 +231,7 @@ class _$_UserModel extends _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(uid: $uid, firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, streetAddress: $streetAddress, postalCode: $postalCode, city: $city)';
+    return 'UserModel(firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, streetAddress: $streetAddress, postalCode: $postalCode, city: $city)';
   }
 
   @override
@@ -257,7 +239,6 @@ class _$_UserModel extends _UserModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UserModel &&
-            const DeepCollectionEquality().equals(other.uid, uid) &&
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.lastName, lastName) &&
             const DeepCollectionEquality().equals(other.email, email) &&
@@ -273,7 +254,6 @@ class _$_UserModel extends _UserModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(uid),
       const DeepCollectionEquality().hash(firstName),
       const DeepCollectionEquality().hash(lastName),
       const DeepCollectionEquality().hash(email),
@@ -295,8 +275,7 @@ class _$_UserModel extends _UserModel {
 
 abstract class _UserModel extends UserModel {
   const factory _UserModel(
-      {required String uid,
-      required String firstName,
+      {required String firstName,
       required String lastName,
       required String email,
       required String phoneNumber,
@@ -308,8 +287,6 @@ abstract class _UserModel extends UserModel {
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$_UserModel.fromJson;
 
-  @override
-  String get uid;
   @override
   String get firstName;
   @override

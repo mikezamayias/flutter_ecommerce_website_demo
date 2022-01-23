@@ -9,7 +9,6 @@ abstract class UserModel implements _$UserModel {
   const UserModel._();
 
   const factory UserModel({
-    required String uid,
     required String firstName,
     required String lastName,
     required String email,

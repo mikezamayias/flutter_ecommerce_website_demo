@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../locator.dart';
 import '../models/phone/phone_model.dart';
 import '../models/user/user_model.dart';
+import 'authentication_service.dart';
 
 class FirestoreService {
   /// Firestore instance
@@ -45,7 +47,9 @@ class FirestoreService {
 
   // Create User
   Future<void> createUser(UserModel userModel) async {
-    return userCollection.doc(userModel.uid).set(userModel.toDocument());
+    return userCollection
+        .doc(locator<AuthenticationService>().currentUser!.uid)
+        .set(userModel.toDocument());
   }
 
   // Read User
@@ -60,8 +64,6 @@ class FirestoreService {
 
   //  Stream User Model
   Stream<UserModel?> streamUser(String? documentId) {
-    print('streamUser: $documentId');
-    print('streamUser: ${userCollection.doc(documentId)}');
     return userCollection
         .doc(documentId)
         .snapshots()
