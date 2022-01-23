@@ -224,4 +224,40 @@ class Validators {
     }
     return null;
   }
+
+  // check name value
+  String? validateName(String? value) {
+    if (value == null || value.isEmpty) return 'Name is required';
+    if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
+      return 'Name must be alphabetic';
+    }
+    if (value.length < 2) {
+      return 'Name must be at least 2 characters long';
+    }
+    return null;
+  }
+
+  // check topic value
+  String? validateTopic(String? value) {
+    if (value == null || value.isEmpty) return 'Topic is required';
+    if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
+      return 'Topic must be alphabetic';
+    }
+    if (value.length < 2) {
+      return 'Topic must be at least 2 characters long';
+    }
+    return null;
+  }
+
+  // check message value
+  String? validateMessage(String? value) {
+    if (value == null || value.isEmpty) return 'Message is required';
+    if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
+      return 'Message must be alphanumeric';
+    }
+    if (value.length < 2) {
+      return 'Message must be at least 2 characters long';
+    }
+    return null;
+  }
 }
