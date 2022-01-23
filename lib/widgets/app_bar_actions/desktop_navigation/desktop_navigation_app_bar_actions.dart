@@ -48,11 +48,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
       ),
       // log in icon text button
       TabButton(
-        title: 'Log In',
+        title: 'Sign In',
         iconData: Icons.login_rounded,
         onPressed: () {
           // context.watch<AuthStateProvider>().authState = true,
-          Provider.of<PageKeyProvider>(context, listen: false).key = '/login';
+          Provider.of<PageKeyProvider>(context, listen: false).key = '/signin';
           if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
@@ -150,7 +150,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
       ),
       // contact us icon text button
       TabButton(
-        title: 'Log Out',
+        title: 'Sign Out',
         iconData: Icons.logout_rounded,
         onPressed: () {
           Provider.of<AuthStateProvider>(context, listen: false).authState =
