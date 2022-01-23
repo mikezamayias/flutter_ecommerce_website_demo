@@ -25,19 +25,26 @@ class PhoneSpecificationsCard extends StatelessWidget {
           padding: const EdgeInsets.all(21),
           child: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CachedNetworkImage(
-                imageUrl: phone.imageUrl,
-                placeholder: (context, url) =>
-                    const CircularProgressIndicator(),
-                errorWidget: (context, url, error) => Icon(
-                  Icons.error,
-                  color: Colors.red.shade700,
+              Expanded(
+                flex: 1,
+                child: CachedNetworkImage(
+                  imageUrl: phone.imageUrl,
+                  errorWidget: (context, url, error) => Icon(
+                    Icons.error,
+                    color: Colors.red.shade700,
+                  ),
+                  progressIndicatorBuilder: (context, url, downloadProgress) {
+                    return CircularProgressIndicator(
+                      value: downloadProgress.progress,
+                    );
+                  },
+                  fit: BoxFit.contain,
                 ),
-                fit: BoxFit.contain,
               ),
-              Flexible(
+              Expanded(
+                flex: 3,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,

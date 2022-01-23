@@ -19,10 +19,15 @@ class SpecificationField extends StatelessWidget {
             TextSpan(
               text: '$fieldName ',
               style: const TextStyle(
-                  fontWeight: FontWeight.w900, color: Colors.orange),
+                fontWeight: FontWeight.w900,
+                color: Colors.orange,
+              ),
             ),
             TextSpan(
               text: fieldValue,
+              style: const TextStyle(
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ],
         ),
