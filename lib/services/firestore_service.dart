@@ -96,16 +96,16 @@ class FirestoreService {
   //   return userCollection.doc(uid).snapshots();
   // }
 
-  // // Read Phone Catalog
-  // Stream<List<PhoneModel?>?> get readPhones {
-  //   return phoneCollection.snapshots().map(
-  //     (snapshot) {
-  //       return snapshot.docs.map(
-  //         (doc) {
-  //           return PhoneModel.fromDocument(doc);
-  //         },
-  //       ).toList();
-  //     },
-  //   );
-  // }
+  // Read Phone Catalog
+  Stream<List<PhoneModel>> get readPhones {
+    return phoneCollection.snapshots().map(
+      (snapshot) {
+        return snapshot.docs.map(
+          (doc) {
+            return PhoneModel.fromDocument(doc);
+          },
+        ).toList();
+      },
+    );
+  }
 }
