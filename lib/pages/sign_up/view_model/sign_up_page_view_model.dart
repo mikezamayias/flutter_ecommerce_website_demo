@@ -6,10 +6,10 @@ import '../../../services/authentication_service.dart';
 import '../../../widgets/text_input/validators.dart';
 
 class SignUpPageViewModel extends BaseViewModel with Validators {
-  final _authService = locator<AuthenticationService>();
+  final _authenticationService = locator<AuthenticationService>();
 
-  Future signUp(
-    BuildContext context, {
+  Future signUp({
+    required BuildContext context,
     required String email,
     required String password,
     required String confirmPassword,
@@ -46,7 +46,7 @@ class SignUpPageViewModel extends BaseViewModel with Validators {
       );
     } else {
       setBusy(true);
-      var result = await _authService.signUpWithEmailAndPassword(
+      var result = await _authenticationService.signUpWithEmailAndPassword(
         email: email,
         password: password,
         firstName: firstName,

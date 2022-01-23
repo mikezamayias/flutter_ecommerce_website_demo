@@ -211,7 +211,7 @@ class SignUpPageView extends StatelessWidget {
                         busy: model.isBusy,
                         onPressed: () {
                           model.signUp(
-                            context,
+                            context: context,
                             email: emailController.text,
                             password: passwordController.text,
                             confirmPassword: confirmPasswordController.text,
