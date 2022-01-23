@@ -49,6 +49,7 @@ class SignInPageViewModel extends BaseViewModel with Validators {
                 TextButton(
                   child: const Text('OK'),
                   onPressed: () {
+                    Navigator.of(context).pop();
                     Provider.of<PageKeyProvider>(context, listen: false).key =
                         '/';
                   },
