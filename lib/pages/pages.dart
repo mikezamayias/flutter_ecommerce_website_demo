@@ -1,4 +1,4 @@
-import 'add_phone/add_phone_page_view.dart';
+import 'add_phone/view/add_phone_page_view.dart';
 import 'cart/cart_page_view.dart';
 import 'contact_us/contact_us_page_view.dart';
 import 'home/home_page_view.dart';

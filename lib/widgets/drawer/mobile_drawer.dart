@@ -13,7 +13,6 @@ class MobileDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     User? _user = locator<AuthenticationService>().currentUser;
-    print('_user: ${_user.toString()}');
     return Drawer(
       child: ListView(
         children: [
