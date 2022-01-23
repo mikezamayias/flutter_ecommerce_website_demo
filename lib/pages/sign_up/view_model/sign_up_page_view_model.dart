@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../locator.dart';
@@ -7,7 +8,8 @@ import '../../../widgets/text_input/validators.dart';
 class SignUpPageViewModel extends BaseViewModel with Validators {
   final _authService = locator<AuthenticationService>();
 
-  Future signUp({
+  Future signUp(
+    BuildContext context, {
     required String email,
     required String password,
     required String confirmPassword,
@@ -24,17 +26,24 @@ class SignUpPageViewModel extends BaseViewModel with Validators {
         validateFirstName(firstName) != null ||
         validateLastName(lastName) != null ||
         validatePhoneNumber(phoneNumber) != null ||
-        validateStreetAddress(streetAddress) != null) {
-      // _dialogService.showDialog(
-      //   title: 'Invalid Details',
-      //   description:
-      //       '${validateEmail(email) ?? validatePassword(password) ?? validatePassword(confirmPassword) ?? validateFirstName(firstName) ?? validateLastName(lastName) ?? validatePhoneNumber(phoneNumber) ?? validateStreetAddress(streetAddress) ?? validatePostalCode(postalCode) ?? validateCity(city)}',
-      // );
-    } else if (password != confirmPassword) {
-      // _dialogService.showDialog(
-      //   title: 'Invalid Details',
-      //   description: 'Passwords do not match',
-      // );
+        validateStreetAddress(streetAddress) != null ||
+        validatePostalCode(postalCode) != null ||
+        validateCity(city) != null) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Invalid details'),
+          content: Text(
+            '${validateEmail(email) ?? validatePassword(password) ?? validateConfirmPassword(password, confirmPassword) ?? validateFirstName(firstName) ?? validateLastName(lastName) ?? validatePhoneNumber(phoneNumber) ?? validateStreetAddress(streetAddress) ?? validatePostalCode(postalCode) ?? validateCity(city)}',
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        ),
+      );
     } else {
       setBusy(true);
       var result = await _authService.signUpWithEmailAndPassword(
@@ -50,23 +59,52 @@ class SignUpPageViewModel extends BaseViewModel with Validators {
       setBusy(false);
       if (result is bool) {
         if (result) {
-          // _dialogService.showDialog(
-          //   title: 'Success',
-          //   description: 'You have signed up successfully',
-          // );
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text('Success'),
+              content: const Text('Account created successfully'),
+              actions: <Widget>[
+                TextButton(
+                  child: const Text('OK'),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            ),
+          );
         } else {
-          // _dialogService.showDialog(
-          //   title: 'Sign Up Failure',
-          //   description: 'General sign up failure. Please try again later',
-          // );
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text('Error'),
+              content: const Text('Something went wrong'),
+              actions: <Widget>[
+                TextButton(
+                  child: const Text('OK'),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            ),
+          );
         }
       } else {
-        // await _dialogService.showDialog(
-        //   title: 'Sign Up Failure',
-        //   description: result
-        //       .toString()
-        //       .substring(result.toString().indexOf(' ', 1) + 1),
-        // );
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Error'),
+            content: Text(
+              result
+                  .toString()
+                  .substring(result.toString().indexOf(' ', 1) + 1),
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('OK'),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ],
+          ),
+        );
       }
     }
   }

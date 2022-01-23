@@ -24,8 +24,21 @@ class Validators {
     return null;
   }
 
+  String? validateConfirmPassword(String? password, String? confirmPassword) {
+    if (confirmPassword == null || confirmPassword.isEmpty) {
+      return 'Confirm password is required';
+    }
+    if (password != confirmPassword) {
+      return 'Confirmation password does not match password';
+    }
+    return null;
+  }
+
   String? validateStreetAddress(String? value) {
     if (value == null || value.isEmpty) return 'Address is required';
+    if (value.contains(RegExp(r'[!@#\$%\^&\*]'))) {
+      return 'Address cannot contain symbols';
+    }
     return null;
   }
 

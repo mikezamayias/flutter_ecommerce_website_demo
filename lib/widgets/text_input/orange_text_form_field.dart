@@ -26,28 +26,41 @@ class OrangeTextFormField extends StatefulWidget {
 
 class _OrangeTextFormFieldState extends State<OrangeTextFormField> {
   bool _obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onChanged: widget.onChanged,
+      onChanged: widget.validator,
       keyboardType: widget.isPasswordField
           ? TextInputType.visiblePassword
           : widget.keyboardType,
       controller: widget.controller,
       cursorColor: Colors.orange,
       decoration: InputDecoration(
+        labelStyle: const TextStyle(
+          color: Colors.orange,
+          fontSize: 18,
+          fontWeight: FontWeight.w800,
+        ),
+        floatingLabelStyle: const TextStyle(
+          color: Colors.orange,
+          fontSize: 18,
+          fontWeight: FontWeight.w800,
+        ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(
-            color: Colors.red,
+          borderSide: BorderSide(
+            color: Colors.red.shade700,
             width: 3,
+            style: BorderStyle.solid,
           ),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(
-            color: Colors.red,
+          borderSide: BorderSide(
+            color: Colors.red.shade700,
             width: 3,
+            style: BorderStyle.solid,
           ),
         ),
         focusedBorder: OutlineInputBorder(
@@ -66,6 +79,11 @@ class _OrangeTextFormFieldState extends State<OrangeTextFormField> {
         ),
         labelText: widget.labelText,
         errorMaxLines: 3,
+        errorStyle: TextStyle(
+          fontWeight: FontWeight.w800,
+          fontSize: 16,
+          color: Colors.red.shade700,
+        ),
         suffixIcon: widget.obscureText || widget.isPasswordField
             ? IconButton(
                 icon: Icon(
