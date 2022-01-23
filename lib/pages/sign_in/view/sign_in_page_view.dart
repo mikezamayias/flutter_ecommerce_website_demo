@@ -61,7 +61,7 @@ class SignInPageView extends StatelessWidget {
                     ? const EdgeInsets.symmetric(horizontal: 90)
                     : const EdgeInsets.symmetric(horizontal: 30),
                 child: Form(
-                  key: locator<FormService>().logInFormKey,
+                  key: locator<FormService>().signInFormKey,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
