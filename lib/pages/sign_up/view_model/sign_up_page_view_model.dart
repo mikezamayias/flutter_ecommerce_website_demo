@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../locator.dart';
+import '../../../providers/page_key_provider.dart';
 import '../../../services/authentication_service.dart';
 import '../../../widgets/text_input/validators.dart';
 
@@ -67,7 +69,10 @@ class SignUpPageViewModel extends BaseViewModel with Validators {
               actions: <Widget>[
                 TextButton(
                   child: const Text('OK'),
-                  onPressed: () => Navigator.of(context).pop(),
+                  onPressed: () {
+                    Provider.of<PageKeyProvider>(context, listen: false).key =
+                        '/';
+                  },
                 ),
               ],
             ),
