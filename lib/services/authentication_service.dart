@@ -58,7 +58,7 @@ class AuthenticationService {
   }
 
   // log in with email and password
-  Future<Object> logInWithEmailAndPassword({
+  Future<Object> signInWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
@@ -74,7 +74,7 @@ class AuthenticationService {
   }
 
   // log out
-  Future<void> logOut() async {
+  Future<void> signOut() async {
     try {
       return await _authentication.signOut();
     } catch (e) {

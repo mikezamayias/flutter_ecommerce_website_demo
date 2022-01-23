@@ -33,7 +33,7 @@ class SignInPageViewModel extends BaseViewModel with Validators {
       );
     } else {
       setBusy(true);
-      var result = await _authenticationService.logInWithEmailAndPassword(
+      var result = await _authenticationService.signInWithEmailAndPassword(
         email: email,
         password: password,
       );

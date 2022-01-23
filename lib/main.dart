@@ -5,9 +5,9 @@ import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'flutter_ecommerce_website_demo.dart';
 import 'locator.dart';
-import 'providers/auth_state_provider.dart';
 import 'providers/page_key_provider.dart';
 import 'providers/sizing_information_provider.dart';
+import 'services/authentication_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,11 +18,12 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (context) => PageKeyProvider(),
+        StreamProvider.value(
+          value: locator<AuthenticationService>().authStateChanges,
+          initialData: null,
         ),
         ChangeNotifierProvider(
-          create: (context) => AuthStateProvider(),
+          create: (context) => PageKeyProvider(),
         ),
         ChangeNotifierProvider(
           create: (context) => SizingInformationProvider(),

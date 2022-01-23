@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../locator.dart';
-import '../../../providers/auth_state_provider.dart';
 import '../../../providers/page_key_provider.dart';
+import '../../../services/authentication_service.dart';
 import '../../../services/scaffold_service.dart';
 import '../tab_button.dart';
 
 List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
-  if (context.watch<AuthStateProvider>().authState == false) {
+  final user = locator<AuthenticationService>().currentUser;
+  if (user == null) {
     return [
       // home icon text button
       TabButton(
@@ -153,8 +154,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
         title: 'Sign Out',
         iconData: Icons.logout_rounded,
         onPressed: () {
-          Provider.of<AuthStateProvider>(context, listen: false).authState =
-              false;
+          locator<AuthenticationService>().signOut();
           if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }
