@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/widgets/dialog_manager.dart';
 import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
