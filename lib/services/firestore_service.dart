@@ -45,45 +45,65 @@ class FirestoreService {
 
   // Create User
   Future<void> createUser(UserModel userModel) async {
-    return userCollection.doc().set(userModel.toDocument());
+    return userCollection.doc(userModel.uid).set(userModel.toDocument());
   }
 
-  // Read Users
-  Stream<List<UserModel>> get readAllUsers {
-    return userCollection.snapshots().map(
-      (snapshot) {
-        return snapshot.docs.map(
-          (doc) {
-            return UserModel(
-              email: doc.get('email') as String,
-              firstName: doc.get('firstName') as String,
-              lastName: doc.get('lastName') as String,
-              phoneNumber: doc.get('phoneNumber') as String,
-              streetAddress: doc.get('streetAddress') as String,
-              city: doc.get('city') as String,
-              postalCode: doc.get('postalCode') as int,
-            );
-          },
-        ).toList();
-      },
-    );
+  // Read User
+  Future<UserModel?> readUser(String documentId) async {
+    var snapshot = await userCollection.doc(documentId).get();
+    if (snapshot.exists) {
+      return UserModel.fromDocument(snapshot);
+    } else {
+      return null;
+    }
   }
 
-  // Read User with specified uid
-  Stream<DocumentSnapshot> readUser(String? uid) {
-    return userCollection.doc(uid).snapshots();
+  //  Stream User Model
+  Stream<UserModel?> streamUser(String? documentId) {
+    print('streamUser: $documentId');
+    print('streamUser: ${userCollection.doc(documentId)}');
+    return userCollection
+        .doc(documentId)
+        .snapshots()
+        .map((snapshot) => UserModel.fromJson(snapshot.data()!));
   }
 
-  // Read Phone Catalog
-  Stream<List<PhoneModel?>?> get readPhones {
-    return phoneCollection.snapshots().map(
-      (snapshot) {
-        return snapshot.docs.map(
-          (doc) {
-            return PhoneModel.fromDocument(doc);
-          },
-        ).toList();
-      },
-    );
-  }
+  // // Read Users
+  // Stream<List<UserModel>> get readAllUsers {
+  //   return userCollection.snapshots().map(
+  //     (snapshot) {
+  //       return snapshot.docs.map(
+  //         (doc) {
+  //           return UserModel(
+  //             email: doc.get('email') as String,
+  //             firstName: doc.get('firstName') as String,
+  //             lastName: doc.get('lastName') as String,
+  //             phoneNumber: doc.get('phoneNumber') as String,
+  //             streetAddress: doc.get('streetAddress') as String,
+  //             city: doc.get('city') as String,
+  //             postalCode: doc.get('postalCode') as int,
+  //           );
+  //         },
+  //       ).toList();
+  //     },
+  //   );
+  // }
+
+  // // Read User with specified uid
+  // Stream<DocumentSnapshot> readUser({String? uid}) {
+  //   return userCollection.doc(uid).snapshots();
+  // }
+
+  // // Read Phone Catalog
+  // Stream<List<PhoneModel?>?> get readPhones {
+  //   return phoneCollection.snapshots().map(
+  //     (snapshot) {
+  //       return snapshot.docs.map(
+  //         (doc) {
+  //           return PhoneModel.fromDocument(doc);
+  //         },
+  //       ).toList();
+  //     },
+  //   );
+  // }
 }
