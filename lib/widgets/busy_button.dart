@@ -31,18 +31,19 @@ class _BusyButtonState extends State<BusyButton> {
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 300),
               alignment: Alignment.center,
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: widget.enabled ? Colors.orange : Colors.grey[800],
-                borderRadius: BorderRadius.circular(6),
+                borderRadius: BorderRadius.circular(21),
               ),
               child: !widget.busy
                   ? Text(
                       widget.title,
-                      style: Theme.of(context)
-                          .textTheme
-                          .button!
-                          .copyWith(color: Colors.white),
+                      style: Theme.of(context).textTheme.button!.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                          ),
                     )
                   : const CircularProgressIndicator(
                       strokeWidth: 2,

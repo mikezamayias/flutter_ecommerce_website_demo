@@ -41,32 +41,24 @@ class SignUpPageView extends StatelessWidget {
             TextEditingController();
 
         final OrangeTextFormField _firstNameInputField = OrangeTextFormField(
-          onChanged: (value) =>
-              locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'First Name',
           controller: _firstNameController,
           keyboardType: TextInputType.name,
           validator: model.validateFirstName,
         );
         final OrangeTextFormField _lastNameInputField = OrangeTextFormField(
-          onChanged: (value) =>
-              locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Last Name',
           controller: _lastNameController,
           keyboardType: TextInputType.name,
           validator: model.validateLastName,
         );
         final OrangeTextFormField _emailInputField = OrangeTextFormField(
-          onChanged: (value) =>
-              locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Email',
           controller: _emailController,
           keyboardType: TextInputType.emailAddress,
           validator: model.validateEmail,
         );
         final OrangeTextFormField _passwordInputField = OrangeTextFormField(
-          onChanged: (value) =>
-              locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Password',
           controller: _passwordController,
           keyboardType: TextInputType.visiblePassword,
@@ -75,8 +67,6 @@ class SignUpPageView extends StatelessWidget {
         );
         final OrangeTextFormField _confirmPasswordInputField =
             OrangeTextFormField(
-          onChanged: (value) =>
-              locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Confirmation Password',
           controller: _confirmPasswordController,
           keyboardType: TextInputType.visiblePassword,
@@ -92,8 +82,6 @@ class SignUpPageView extends StatelessWidget {
           isPasswordField: true,
         );
         final OrangeTextFormField _phoneNumberInputField = OrangeTextFormField(
-          onChanged: (value) =>
-              locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Phone Number',
           controller: _phoneNumberController,
           keyboardType: TextInputType.phone,
@@ -101,24 +89,18 @@ class SignUpPageView extends StatelessWidget {
         );
         final OrangeTextFormField _streetAddressInputField =
             OrangeTextFormField(
-          onChanged: (value) =>
-              locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Address',
           controller: _streetAddressController,
           keyboardType: TextInputType.text,
           validator: model.validateStreetAddress,
         );
         final OrangeTextFormField _cityInputField = OrangeTextFormField(
-          onChanged: (value) =>
-              locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'City',
           controller: _cityController,
           keyboardType: TextInputType.text,
           validator: model.validateCity,
         );
         final OrangeTextFormField _postalCodeInputField = OrangeTextFormField(
-          onChanged: (value) =>
-              locator<FormService>().signUpFormKey.currentState!.save(),
           labelText: 'Postal Code',
           controller: _postalCodeController,
           keyboardType: TextInputType.number,
@@ -187,7 +169,7 @@ class SignUpPageView extends StatelessWidget {
                           ],
                         ),
                       ),
-                      if (sizingInformation.isDesktop)
+                      if (!sizingInformation.isMobile)
                         Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.start,
