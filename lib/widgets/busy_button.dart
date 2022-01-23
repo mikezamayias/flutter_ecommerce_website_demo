@@ -31,7 +31,7 @@ class _BusyButtonState extends State<BusyButton> {
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 300),
               alignment: Alignment.center,
-              padding: const EdgeInsets.all(12),
+              padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 21),
               decoration: BoxDecoration(
                 color: widget.enabled ? Colors.orange : Colors.grey[800],
                 borderRadius: BorderRadius.circular(21),
@@ -41,7 +41,7 @@ class _BusyButtonState extends State<BusyButton> {
                       widget.title,
                       style: Theme.of(context).textTheme.button!.copyWith(
                             color: Colors.white,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             fontSize: 18,
                           ),
                     )
