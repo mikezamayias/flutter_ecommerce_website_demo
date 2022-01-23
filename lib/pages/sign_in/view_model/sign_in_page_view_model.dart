@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_website_demo/providers/page_key_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../providers/page_key_provider.dart';
 import '../../../locator.dart';
 import '../../../services/authentication_service.dart';
 import '../../../widgets/text_input/validators.dart';
