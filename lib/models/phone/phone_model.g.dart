@@ -8,6 +8,7 @@ part of 'phone_model.dart';
 
 _$_PhoneModel _$$_PhoneModelFromJson(Map<String, dynamic> json) =>
     _$_PhoneModel(
+      uid: json['uid'] as String,
       model: json['model'] as String,
       imageUrl: json['imageUrl'] as String,
       soc: json['soc'] as String,
@@ -23,6 +24,7 @@ _$_PhoneModel _$$_PhoneModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_PhoneModelToJson(_$_PhoneModel instance) =>
     <String, dynamic>{
+      'uid': instance.uid,
       'model': instance.model,
       'imageUrl': instance.imageUrl,
       'soc': instance.soc,
