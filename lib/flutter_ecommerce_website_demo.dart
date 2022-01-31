@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -48,6 +49,20 @@ class _FlutterEcommerceWebsiteDemoState
                 ? null
                 : const MobileDrawer(),
             appBar: AppBar(
+              leadingWidth: 120,
+              leading: Padding(
+                padding: const EdgeInsets.all(6.9),
+                child: TextButton(
+                  onPressed: () =>
+                      Provider.of<PageKeyProvider>(context, listen: false).key =
+                          '/',
+                  child: SvgPicture.asset(
+                    'assets/images/logo.svg',
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+              ),
+              centerTitle: false,
               elevation: 6,
               backgroundColor: Colors.white,
               shadowColor: Colors.orange,
