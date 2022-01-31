@@ -39,7 +39,7 @@ class _FlutterEcommerceWebsiteDemoState
           Provider.of<SizingInformationProvider>(context, listen: false)
               .sizingInformation = sizingInformation;
           return Scaffold(
-            resizeToAvoidBottomInset: false,
+            resizeToAvoidBottomInset: true,
             key: locator<ScaffoldService>().scaffoldKey,
             endDrawer: context
                     .watch<SizingInformationProvider>()
