@@ -1,4 +1,3 @@
-import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -39,27 +38,24 @@ class _FlutterEcommerceWebsiteDemoState
         builder: (BuildContext context, SizingInformation sizingInformation) {
           Provider.of<SizingInformationProvider>(context, listen: false)
               .sizingInformation = sizingInformation;
-          return ColorfulSafeArea(
-            color: Colors.orange,
-            child: Scaffold(
-              resizeToAvoidBottomInset: false,
-              key: locator<ScaffoldService>().scaffoldKey,
-              endDrawer: context
-                      .watch<SizingInformationProvider>()
-                      .sizingInformation
-                      .isDesktop
-                  ? null
-                  : const MobileDrawer(),
-              appBar: AppBar(
-                elevation: 6,
-                backgroundColor: Colors.white,
-                shadowColor: Colors.orange,
-                actions: sizingInformation.isDesktop
-                    ? desktopNavigationAppBarActions(context)
-                    : mobileNavigationAppBarActions(context),
-              ),
-              body: pages[context.watch<PageKeyProvider>().key],
+          return Scaffold(
+            resizeToAvoidBottomInset: false,
+            key: locator<ScaffoldService>().scaffoldKey,
+            endDrawer: context
+                    .watch<SizingInformationProvider>()
+                    .sizingInformation
+                    .isDesktop
+                ? null
+                : const MobileDrawer(),
+            appBar: AppBar(
+              elevation: 6,
+              backgroundColor: Colors.white,
+              shadowColor: Colors.orange,
+              actions: sizingInformation.isDesktop
+                  ? desktopNavigationAppBarActions(context)
+                  : mobileNavigationAppBarActions(context),
             ),
+            body: pages[context.watch<PageKeyProvider>().key]!,
           );
         },
       ),
