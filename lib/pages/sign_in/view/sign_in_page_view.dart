@@ -48,78 +48,78 @@ class SignInPageView extends StatelessWidget {
 
         return ResponsiveBuilder(builder: (context, sizingInformation) {
           return SingleChildScrollView(
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: AnimatedContainer(
-                constraints: sizingInformation.isDesktop
-                    ? const BoxConstraints(maxWidth: 1200)
-                    : BoxConstraints(
-                        maxWidth: sizingInformation.screenSize.width,
-                      ),
-                duration: const Duration(milliseconds: 60),
-                padding: sizingInformation.isDesktop
-                    ? const EdgeInsets.symmetric(horizontal: 90)
-                    : const EdgeInsets.symmetric(horizontal: 30),
-                child: Form(
-                  key: locator<FormService>().signInFormKey(),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Sign In',
-                        style: Theme.of(context).textTheme.headline2,
-                        softWrap: true,
-                        overflow: TextOverflow.visible,
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: 'Don\'t have an account?',
-                          style: Theme.of(context).textTheme.bodyText1,
-                          children: [
-                            TextSpan(
-                              text: ' Sign Up',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .copyWith(
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  Provider.of<PageKeyProvider>(context,
-                                          listen: false)
-                                      .key = '/signup';
-                                },
-                            ),
-                          ],
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: AnimatedContainer(
+                  constraints: sizingInformation.isDesktop
+                      ? const BoxConstraints(maxWidth: 1200)
+                      : BoxConstraints(
+                          maxWidth: sizingInformation.screenSize.width,
                         ),
-                      ),
-                      ..._logInFormFields,
-                      BusyButton(
-                        title: 'Sign In',
-                        busy: model.isBusy,
-                        onPressed: () {
-                          model.signIn(
-                            context: context,
-                            email: _emailController.text,
-                            password: _passwordController.text,
+                  duration: const Duration(milliseconds: 60),
+                  padding: sizingInformation.isDesktop
+                      ? const EdgeInsets.symmetric(horizontal: 90)
+                      : const EdgeInsets.symmetric(horizontal: 30),
+                  child: Form(
+                    key: locator<FormService>().signInFormKey(),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Sign In',
+                          style: Theme.of(context).textTheme.headline2,
+                          softWrap: true,
+                          overflow: TextOverflow.visible,
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            text: 'Don\'t have an account?',
+                            style: Theme.of(context).textTheme.bodyText1,
+                            children: [
+                              TextSpan(
+                                text: ' Sign Up',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .copyWith(
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Provider.of<PageKeyProvider>(context,
+                                            listen: false)
+                                        .key = '/signup';
+                                  },
+                              ),
+                            ],
+                          ),
+                        ),
+                        ..._logInFormFields,
+                        BusyButton(
+                          title: 'Sign In',
+                          busy: model.isBusy,
+                          onPressed: () {
+                            model.signIn(
+                              context: context,
+                              email: _emailController.text,
+                              password: _passwordController.text,
+                            );
+                          },
+                        ),
+                      ].map(
+                        (item) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 9),
+                            child: item,
                           );
                         },
-                      ),
-                    ].map(
-                      (item) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 9),
-                          child: item,
-                        );
-                      },
-                    ).toList(),
+                      ).toList(),
+                    ),
                   ),
                 ),
               ),
-            ),
           );
         });
       },

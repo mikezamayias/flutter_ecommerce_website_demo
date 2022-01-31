@@ -42,6 +42,7 @@ class _FlutterEcommerceWebsiteDemoState
           return ColorfulSafeArea(
             color: Colors.orange,
             child: Scaffold(
+              resizeToAvoidBottomInset: false,
               key: locator<ScaffoldService>().scaffoldKey,
               endDrawer: context
                       .watch<SizingInformationProvider>()
