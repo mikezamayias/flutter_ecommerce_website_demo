@@ -7,7 +7,6 @@ class OrangeTextFormField extends StatefulWidget {
   final TextEditingController controller;
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
-  final Function(String?)? onChanged;
 
   const OrangeTextFormField({
     Key? key,
@@ -17,7 +16,6 @@ class OrangeTextFormField extends StatefulWidget {
     required this.controller,
     required this.keyboardType,
     required this.validator,
-    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -30,7 +28,6 @@ class _OrangeTextFormFieldState extends State<OrangeTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onChanged: widget.validator,
       keyboardType: widget.isPasswordField
           ? TextInputType.visiblePassword
           : widget.keyboardType,

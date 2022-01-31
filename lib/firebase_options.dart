@@ -22,15 +22,9 @@ class DefaultFirebaseOptions {
     // ignore: missing_enum_constant_in_switch
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for android - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -44,12 +38,30 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: "AIzaSyA0jl24nb9EsnGnGvu0IKs6nN0a4bYFSl0",
-    authDomain: "flutter-ecommerce-website-demo.firebaseapp.com",
-    projectId: "flutter-ecommerce-website-demo",
-    storageBucket: "flutter-ecommerce-website-demo.appspot.com",
-    messagingSenderId: "435676149986",
-    appId: "1:435676149986:web:40fca7cdaa7c2f066986bb",
-    measurementId: "G-M8V7JGW66F",
+    apiKey: 'AIzaSyA0jl24nb9EsnGnGvu0IKs6nN0a4bYFSl0',
+    appId: '1:435676149986:web:40fca7cdaa7c2f066986bb',
+    messagingSenderId: '435676149986',
+    projectId: 'flutter-ecommerce-website-demo',
+    authDomain: 'flutter-ecommerce-website-demo.firebaseapp.com',
+    storageBucket: 'flutter-ecommerce-website-demo.appspot.com',
+    measurementId: 'G-M8V7JGW66F',
+  );
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyCYauzckV-cWO6l92X1ejQ8d1YexiRpiK0',
+    appId: '1:435676149986:android:a5d7635e147667ae6986bb',
+    messagingSenderId: '435676149986',
+    projectId: 'flutter-ecommerce-website-demo',
+    storageBucket: 'flutter-ecommerce-website-demo.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyA4lL_eMNk5H4l0tH2VnYr6C-qL5YcfdWA',
+    appId: '1:435676149986:ios:3d243e2b815447486986bb',
+    messagingSenderId: '435676149986',
+    projectId: 'flutter-ecommerce-website-demo',
+    storageBucket: 'flutter-ecommerce-website-demo.appspot.com',
+    iosClientId: '435676149986-bb90pvr327jtuss2eovgve7rlmk29bvk.apps.googleusercontent.com',
+    iosBundleId: 'com.example.flutterEcommerceWebsiteDemo',
   );
 }

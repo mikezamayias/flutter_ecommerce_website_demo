@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// A button that shows a busy indicator in place of title
 class BusyButton extends StatefulWidget {
   final bool busy;
   final String title;
