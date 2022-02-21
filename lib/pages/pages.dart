@@ -7,7 +7,7 @@ import 'phones/view/phones_page_view.dart';
 import 'sign_in/view/sign_in_page_view.dart';
 import 'sign_up/view/sign_up_page_view.dart';
 
-final pages = {
+final pageRoutes = {
   '/': const HomePageView(),
   '/phones': const PhonesPageView(),
   '/signup': const SignUpPageView(),

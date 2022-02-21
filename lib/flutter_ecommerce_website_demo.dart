@@ -70,7 +70,7 @@ class _FlutterEcommerceWebsiteDemoState
                   ? desktopNavigationAppBarActions(context)
                   : mobileNavigationAppBarActions(context),
             ),
-            body: pages[context.watch<PageKeyProvider>().key]!,
+            body: pageRoutes[context.watch<PageKeyProvider>().key]!,
           );
         },
       ),
