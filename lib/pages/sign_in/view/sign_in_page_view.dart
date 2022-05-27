@@ -1,14 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_website_demo/providers/page_key_provider.dart';
-import 'package:flutter_ecommerce_website_demo/services/form_service.dart';
 import 'package:flutter_ecommerce_website_demo/widgets/busy_button.dart';
 import 'package:flutter_ecommerce_website_demo/widgets/text_input/orange_text_form_field.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../../locator.dart';
 import '../view_model/sign_in_page_view_model.dart';
 
 class SignInPageView extends StatelessWidget {
