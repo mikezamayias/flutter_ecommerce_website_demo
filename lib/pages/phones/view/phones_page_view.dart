@@ -26,21 +26,21 @@ class PhonesPageView extends StatelessWidget {
               PhonesPageViewModel model,
               Widget? child,
             ) {
-              List<Widget> _phoneCards = [];
-              int _middle = _phoneCards.length ~/ 2;
+              List<Widget> phoneCards = [];
+              int middle = phoneCards.length ~/ 2;
               if (snapshot.hasData) {
                 if (snapshot.data != null) {
                   model.setPhoneModels(snapshot.data!);
                   model.setPhoneModels(snapshot.data!);
-                  _phoneCards = List.generate(
+                  phoneCards = List.generate(
                     model.phoneModels.length,
                     (index) => PhoneSpecificationsCard(
                       phone: model.phoneModels[index],
                     ),
                   );
-                  _middle = _phoneCards.length ~/ 2;
+                  middle = phoneCards.length ~/ 2;
                 } else {
-                  _phoneCards = [
+                  phoneCards = [
                     Center(
                       child: Text(
                         'No Phones',
@@ -50,7 +50,7 @@ class PhonesPageView extends StatelessWidget {
                   ];
                 }
               } else if (snapshot.hasError) {
-                _phoneCards = [
+                phoneCards = [
                   const Center(
                     child: Icon(
                       Icons.error_outline_rounded,
@@ -59,7 +59,7 @@ class PhonesPageView extends StatelessWidget {
                   )
                 ];
               } else {
-                _phoneCards = [
+                phoneCards = [
                   const Center(
                     child: CircularProgressIndicator(),
                   ),
@@ -108,7 +108,7 @@ class PhonesPageView extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children:
-                                          _phoneCards.sublist(0, _middle).map(
+                                          phoneCards.sublist(0, middle).map(
                                         (item) {
                                           return Padding(
                                             padding: const EdgeInsets.symmetric(
@@ -129,7 +129,7 @@ class PhonesPageView extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children:
-                                          _phoneCards.sublist(_middle).map(
+                                          phoneCards.sublist(middle).map(
                                         (item) {
                                           return Padding(
                                             padding: const EdgeInsets.symmetric(
@@ -144,7 +144,7 @@ class PhonesPageView extends StatelessWidget {
                                 ],
                               )
                             else
-                              ..._phoneCards,
+                              ...phoneCards,
                           ].map(
                             (item) {
                               return Padding(

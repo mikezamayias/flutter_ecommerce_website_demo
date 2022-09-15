@@ -12,26 +12,26 @@ class MobileDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    User? _user = locator<AuthenticationService>().currentUser;
+    User? user = locator<AuthenticationService>().currentUser;
     return Drawer(
       child: ListView(
         children: [
-          _user == null
+          user == null
               ? const DrawerHeader(child: SizedBox())
               : StreamBuilder<UserModel?>(
-                  stream: locator<FirestoreService>().streamUser(_user.uid),
+                  stream: locator<FirestoreService>().streamUser(user.uid),
                   builder: (
                     BuildContext context,
                     AsyncSnapshot<UserModel?> snapshot,
                   ) {
                     if (snapshot.hasData) {
-                      final _userModel = snapshot.data;
-                      if (_userModel != null) {
+                      final userModel = snapshot.data;
+                      if (userModel != null) {
                         return UserAccountsDrawerHeader(
                           accountName: Text(
-                            '${_userModel.firstName} ${_userModel.lastName}',
+                            '${userModel.firstName} ${userModel.lastName}',
                           ),
-                          accountEmail: Text(_userModel.email),
+                          accountEmail: Text(userModel.email),
                         );
                       } else {
                         return const DrawerHeader(

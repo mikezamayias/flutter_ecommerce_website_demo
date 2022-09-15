@@ -20,97 +20,97 @@ class AddPhonePageView extends StatelessWidget {
         AddPhonePageViewModel model,
         Widget? child,
       ) {
-        final _modelController = TextEditingController();
-        final _imageUrlController = TextEditingController();
-        final _socController = TextEditingController();
-        final _ramController = TextEditingController();
-        final _storageController = TextEditingController();
-        final _screenSizeController = TextEditingController();
-        final _batteryController = TextEditingController();
-        final _cameraController = TextEditingController();
-        final _priceController = TextEditingController();
-        final _stockController = TextEditingController();
-        final _sarContrller = TextEditingController();
+        final modelController = TextEditingController();
+        final imageUrlController = TextEditingController();
+        final socController = TextEditingController();
+        final ramController = TextEditingController();
+        final storageController = TextEditingController();
+        final screenSizeController = TextEditingController();
+        final batteryController = TextEditingController();
+        final cameraController = TextEditingController();
+        final priceController = TextEditingController();
+        final stockController = TextEditingController();
+        final sarContrller = TextEditingController();
 
-        final _modelInputfield = OrangeTextFormField(
-          controller: _modelController,
+        final modelInputfield = OrangeTextFormField(
+          controller: modelController,
           labelText: 'Model',
           validator: model.validateModel,
           keyboardType: TextInputType.text,
         );
-        final _imageUrlInputfield = OrangeTextFormField(
-          controller: _imageUrlController,
+        final imageUrlInputfield = OrangeTextFormField(
+          controller: imageUrlController,
           labelText: 'Image Url',
           validator: model.validateImageUrl,
           keyboardType: TextInputType.url,
         );
-        final _socInputfield = OrangeTextFormField(
-          controller: _socController,
+        final socInputfield = OrangeTextFormField(
+          controller: socController,
           labelText: 'Soc',
           validator: model.validateSoc,
           keyboardType: TextInputType.text,
         );
-        final _ramInputfield = OrangeTextFormField(
-          controller: _ramController,
+        final ramInputfield = OrangeTextFormField(
+          controller: ramController,
           labelText: 'Ram',
           validator: model.validateRam,
           keyboardType: TextInputType.number,
         );
-        final _storageInputfield = OrangeTextFormField(
-          controller: _storageController,
+        final storageInputfield = OrangeTextFormField(
+          controller: storageController,
           labelText: 'Storage',
           validator: model.validateStorage,
           keyboardType: TextInputType.text,
         );
-        final _screenSizeInputfield = OrangeTextFormField(
-          controller: _screenSizeController,
+        final screenSizeInputfield = OrangeTextFormField(
+          controller: screenSizeController,
           labelText: 'Screen Size',
           validator: model.validateScreenSize,
           keyboardType: TextInputType.number,
         );
-        final _batteryInputfield = OrangeTextFormField(
-          controller: _batteryController,
+        final batteryInputfield = OrangeTextFormField(
+          controller: batteryController,
           labelText: 'Battery',
           validator: model.validateBattery,
           keyboardType: TextInputType.number,
         );
-        final _cameraInputfield = OrangeTextFormField(
-          controller: _cameraController,
+        final cameraInputfield = OrangeTextFormField(
+          controller: cameraController,
           labelText: 'Camera',
           validator: model.validateCamera,
           keyboardType: TextInputType.text,
         );
-        final _priceInputfield = OrangeTextFormField(
-          controller: _priceController,
+        final priceInputfield = OrangeTextFormField(
+          controller: priceController,
           labelText: 'Price',
           validator: model.validatePrice,
           keyboardType: TextInputType.number,
         );
-        final _stockInputfield = OrangeTextFormField(
-          controller: _stockController,
+        final stockInputfield = OrangeTextFormField(
+          controller: stockController,
           labelText: 'Stock',
           validator: model.validateStock,
           keyboardType: TextInputType.number,
         );
-        final _sarInputfield = OrangeTextFormField(
-          controller: _sarContrller,
+        final sarInputfield = OrangeTextFormField(
+          controller: sarContrller,
           labelText: 'Sar',
           validator: model.validateSar,
           keyboardType: TextInputType.number,
         );
 
-        final _addPhoneformFields = [
-          _modelInputfield,
-          _imageUrlInputfield,
-          _socInputfield,
-          _ramInputfield,
-          _storageInputfield,
-          _screenSizeInputfield,
-          _batteryInputfield,
-          _cameraInputfield,
-          _priceInputfield,
-          _stockInputfield,
-          _sarInputfield,
+        final addPhoneformFields = [
+          modelInputfield,
+          imageUrlInputfield,
+          socInputfield,
+          ramInputfield,
+          storageInputfield,
+          screenSizeInputfield,
+          batteryInputfield,
+          cameraInputfield,
+          priceInputfield,
+          stockInputfield,
+          sarInputfield,
         ];
 
         return ResponsiveBuilder(builder: (context, sizingInformation) {
@@ -151,7 +151,7 @@ class AddPhonePageView extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: _addPhoneformFields.sublist(0, 6).map(
+                                children: addPhoneformFields.sublist(0, 6).map(
                                   (item) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -169,7 +169,7 @@ class AddPhonePageView extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: _addPhoneformFields.sublist(6).map(
+                                children: addPhoneformFields.sublist(6).map(
                                   (item) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -184,24 +184,24 @@ class AddPhonePageView extends StatelessWidget {
                           ],
                         )
                       else
-                        ..._addPhoneformFields,
+                        ...addPhoneformFields,
                       BusyButton(
                         title: 'Add Phone',
                         busy: model.isBusy,
                         onPressed: () {
                           model.addPhone(
                             context: context,
-                            model: _modelController.text,
-                            imageUrl: _imageUrlController.text,
-                            soc: _socController.text,
-                            ram: _ramController.text,
-                            storage: _storageController.text,
-                            screenSize: _screenSizeController.text,
-                            battery: _batteryController.text,
-                            camera: _cameraController.text,
-                            price: _priceController.text,
-                            stock: _stockController.text,
-                            sar: _sarContrller.text,
+                            model: modelController.text,
+                            imageUrl: imageUrlController.text,
+                            soc: socController.text,
+                            ram: ramController.text,
+                            storage: storageController.text,
+                            screenSize: screenSizeController.text,
+                            battery: batteryController.text,
+                            camera: cameraController.text,
+                            price: priceController.text,
+                            stock: stockController.text,
+                            sar: sarContrller.text,
                           );
                         },
                       ),

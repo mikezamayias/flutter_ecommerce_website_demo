@@ -21,25 +21,25 @@ class SignInPageView extends StatelessWidget {
         SignInPageViewModel model,
         Widget? child,
       ) {
-        final TextEditingController _emailController = TextEditingController();
-        final TextEditingController _passwordController =
+        final TextEditingController emailController = TextEditingController();
+        final TextEditingController passwordController =
             TextEditingController();
-        final OrangeTextFormField _emailField = OrangeTextFormField(
-          controller: _emailController,
+        final OrangeTextFormField emailField = OrangeTextFormField(
+          controller: emailController,
           labelText: 'Email',
           keyboardType: TextInputType.emailAddress,
           validator: model.validateEmail,
         );
-        final OrangeTextFormField _passwordField = OrangeTextFormField(
-          controller: _passwordController,
+        final OrangeTextFormField passwordField = OrangeTextFormField(
+          controller: passwordController,
           labelText: 'Password',
           obscureText: true,
           keyboardType: TextInputType.visiblePassword,
           validator: model.validatePassword,
         );
-        final List<OrangeTextFormField> _logInFormFields = [
-          _emailField,
-          _passwordField,
+        final List<OrangeTextFormField> logInFormFields = [
+          emailField,
+          passwordField,
         ];
 
         return ResponsiveBuilder(builder: (context, sizingInformation) {
@@ -88,15 +88,15 @@ class SignInPageView extends StatelessWidget {
                         ],
                       ),
                     ),
-                    ..._logInFormFields,
+                    ...logInFormFields,
                     BusyButton(
                       title: 'Sign In',
                       busy: model.isBusy,
                       onPressed: () {
                         model.signIn(
                           context: context,
-                          email: _emailController.text,
-                          password: _passwordController.text,
+                          email: emailController.text,
+                          password: passwordController.text,
                         );
                       },
                     ),
