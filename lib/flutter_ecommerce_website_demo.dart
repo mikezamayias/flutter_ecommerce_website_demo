@@ -17,11 +17,11 @@ class FlutterEcommerceWebsiteDemo extends StatefulWidget {
   const FlutterEcommerceWebsiteDemo({Key? key}) : super(key: key);
 
   @override
-  _FlutterEcommerceWebsiteDemoState createState() =>
-      _FlutterEcommerceWebsiteDemoState();
+  FlutterEcommerceWebsiteDemoState createState() =>
+      FlutterEcommerceWebsiteDemoState();
 }
 
-class _FlutterEcommerceWebsiteDemoState
+class FlutterEcommerceWebsiteDemoState
     extends State<FlutterEcommerceWebsiteDemo> {
   changePage(String key) {
     setState(() {

@@ -15,10 +15,10 @@ class BusyButton extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _BusyButtonState createState() => _BusyButtonState();
+  BusyButtonState createState() => BusyButtonState();
 }
 
-class _BusyButtonState extends State<BusyButton> {
+class BusyButtonState extends State<BusyButton> {
   @override
   Widget build(BuildContext context) {
     return Row(
